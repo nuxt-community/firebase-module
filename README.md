@@ -4,7 +4,7 @@
 
 ## Demo
 
-https://github.com/lupas/nuxt-fire-demo
+[Demo](https://github.com/lupas/nuxt-fire-demo)
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Make sure to have Nuxt 2+ installed:
 npm i nuxt-fire
 ```
 
-## Setup
+## Quick Setup
 
 Add the below code to **nuxt.config.js**.
 
@@ -42,16 +42,28 @@ modules: [
 
 ## Options
 
-##### useOnly
+#### useOnly
 
-- type: Array<string>
-- default: null
-- example: ['']
+- type: `Array<string>`
+- default: `null`
+- accepted: `['auth','firestore','functions','storage','realtimeDb']`
 
-##### config
+#### config
 
-Your firebase config snippet. You can retrieve this from your Firebase project overview page:
-https://console.firebase.google.com/project/your-project-id/overview
+Your firebase config snippet. You can retrieve this information from your Firebase project's overview page:
+
+`https://console.firebase.google.com/project/your-project-id/overview`
+
+```js
+{
+  apiKey: '<apiKey>',
+  authDomain: '<authDomain>',
+  databaseURL: '<databaseURL>',
+  projectId: '<projectId>',
+  storageBucket: '<storageBucket>',
+  messagingSenderId: '<messagingSenderId>'
+}
+```
 
 ## Usage
 
@@ -70,7 +82,5 @@ Services supported by nuxt-fire so far:
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 ### Examples
-
-(tbd)
 
 Check out the [Demo](https://github.com/lupas/nuxt-fire-demo) project for example code.
