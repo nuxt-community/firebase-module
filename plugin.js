@@ -20,10 +20,16 @@ export default function({ app }, inject) {
   }
 
   let _fireStore, _fireFunc, _fireStorage, _fireAuth
+
   if (!options.useOnly || options.useOnly.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
     _fireStore = firebase.firestore()
     inject('fireStore', _fireStore)
+  }
+
+  if (!options.useOnly || options.useOnly.includes('realtimeDb')) {
+    _fireDb = firebase.database()
+    inject('fireDb', _fireDb)
   }
 
   if (!options.useOnly || options.useOnly.includes('functions')) {
@@ -40,4 +46,5 @@ export default function({ app }, inject) {
     const _fireAuth = firebase.auth()
     inject('fireAuth', _fireAuth)
   }
+
 }
