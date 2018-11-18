@@ -1,0 +1,13 @@
+{
+  "name": "nuxt-fire",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Intergrate Firebase into your Nuxt project.",
+  "main": "index.js",
+  "author": "Pascal Luther",
+  "repository": "https://github.com/lupas",
+  "homepage": "https://github.com/lupas/nuxt-fire",
+  "dependencies": {
+    "firebase": "^5.5.8"
+  }
+}
