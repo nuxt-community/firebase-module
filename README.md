@@ -44,6 +44,8 @@ modules: [
 
 #### useOnly
 
+By default, all supported services are loaded. If you only wish to load certain services (recommended!), add this `useOnly` option.
+
 - type: `Array<string>`
 - default: `null`
 - accepted: `['auth','firestore','functions','storage','realtimeDb']`
