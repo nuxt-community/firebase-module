@@ -67,6 +67,12 @@ Your firebase config snippet. You can retrieve this information from your Fireba
 }
 ```
 
+Only applies when `NODE_ENV === 'production'` .
+
+#### devConfig
+
+Same es `config`, but applies when `NODE_ENV === 'development'`.
+
 ## Usage
 
 You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
