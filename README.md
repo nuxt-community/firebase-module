@@ -1,8 +1,6 @@
 # 🔥 Nuxt-Fire
 
-> Easily intergrate Firebase into your Nuxt 2 project.
-
-### ⚠️ Important: This is a pre-release and has not been fully tested. Use it in production at your own risk.
+> ## Easily intergrate Firebase into your Nuxt 2 project.
 
 ## Demo
 
@@ -10,9 +8,14 @@
 
 ## Requirements
 
-Make sure to have Nuxt 2+ installed:
+Make sure you have Nuxt and Firebase installed in your project.
 
-- Nuxt.js >= 2.x
+```json
+"dependencies": {
+  "nuxt": "^2.3.1",
+  "firebase": "^5.5.8"
+}
+```
 
 ## Install
 
