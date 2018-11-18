@@ -21,31 +21,26 @@ export default (ctx, inject) => {
   if (!options.useOnly || options.useOnly.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
     const fireStore = firebase.firestore()
-    ctx.$fireStore = fireStore
     inject('fireStore', fireStore)
   }
 
   if (!options.useOnly || options.useOnly.includes('realtimeDb')) {
     const fireDb = firebase.database()
-    ctx.$fireDb = fireDb
     inject('fireDb', fireDb)
   }
 
   if (!options.useOnly || options.useOnly.includes('functions')) {
     const fireFunc = firebase.functions()
-    ctx.$fireFunc = fireFunc
     inject('fireFunc', fireFunc)
   }
 
   if (!options.useOnly || options.useOnly.includes('storage')) {
     const fireStorage = firebase.storage()
-    ctx.$fireStorage = fireStorage
     inject('fireStorage', fireStorage)
   }
 
   if (!options.useOnly || options.useOnly.includes('auth')) {
     const fireAuth = firebase.auth()
-    ctx.$fireAuth = fireAuth
     inject('fireAuth', fireAuth)
   }
 
