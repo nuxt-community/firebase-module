@@ -1,7 +1,7 @@
 import path from 'path'
 
 export default function nuxtFire(moduleOptions) {
-  const options = Object.assign({}, this.options.axios, moduleOptions)
+  const options = Object.assign({}, this.options.fire, moduleOptions)
 
   // Don't include when config is missing
   if (
