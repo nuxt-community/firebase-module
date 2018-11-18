@@ -2,6 +2,8 @@
 
 > Easily intergrate Firebase into your Nuxt 2 project.
 
+### ⚠️ Important: This is a pre-release and has not been fully tested. Use it in production at your own risk.
+
 ## Demo
 
 [Demo](https://nuxt-fire-demo.firebaseapp.com/)
