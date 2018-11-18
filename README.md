@@ -4,11 +4,11 @@
 
 ## Demo
 
-tbd
+https://github.com/lupas/nuxt-fire-demo
 
 ## Requirements
 
-Make sure to have these dependencies installed:
+Make sure to have Nuxt 2+ installed:
 
 - Nuxt.js >= 2.x
 
@@ -43,21 +43,24 @@ modules: [
 
 ## Usage
 
-You can access the various Firebase services with **\$foo** in almost any context using `app.$goo` or `this.$foo` (Including store actions).
+You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo` (Including store actions).
 
 #### Usage
 
 Services supported by nuxt-fire so far:
-| Service | Shortcut |
-|---|---|---|---|---|
-| Authentication | $fireAuth |
-| RealTime Database  |$fireDb |
-| Firestore | $fireStore |
-| Storage  |$fireStorage |
-| Functions | \$fireFunctions |
+
+| Firebase Service  | Shortcut        |
+| ----------------- | --------------- |
+| Authentication    | \$fireAuth      |
+| RealTime Database | \$fireDb        |
+| Firestore         | \$fireStore     |
+| Storage           | \$fireStorage   |
+| Functions         | \$fireFunctions |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 #### Examples
 
-tbd
+Examples coming soon.
+
+Check out the [Demo](https://github.com/lupas/nuxt-fire-demo) project for example code.
