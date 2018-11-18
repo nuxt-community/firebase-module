@@ -18,7 +18,7 @@ Make sure to have Nuxt 2+ installed:
 npm i nuxt-fire
 ```
 
-## Usage
+## Setup
 
 Add the below code to **nuxt.config.js**.
 
@@ -27,7 +27,6 @@ modules: [
     [
       'nuxt-fire',
       {
-        use: ['auth, firestore'],
         config: {
           apiKey: '<apiKey>',
           authDomain: '<authDomain>',
@@ -41,11 +40,22 @@ modules: [
   ],
 ```
 
+## Options
+
+##### useOnly
+
+- type: Array<string>
+- default: null
+- example: ['']
+
+##### config
+
+Your firebase config snippet. You can retrieve this from your Firebase project overview page:
+https://console.firebase.google.com/project/your-project-id/overview
+
 ## Usage
 
 You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
-
-#### Usage
 
 Services supported by nuxt-fire so far:
 
