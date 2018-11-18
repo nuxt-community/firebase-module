@@ -4,7 +4,7 @@
 
 ## Demo
 
-[Demo](https://github.com/lupas/nuxt-fire-demo)
+[Demo](https://nuxt-fire-demo.firebaseapp.com/)
 
 ## Requirements
 
@@ -91,4 +91,4 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 
 ### Examples
 
-Check out the [Demo](https://github.com/lupas/nuxt-fire-demo) project for example code.
+Check out the [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) of our [Demo](https://nuxt-fire-demo.firebaseapp.com/) for example code.
