@@ -43,7 +43,7 @@ modules: [
 
 ## Usage
 
-You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo` (Including store actions).
+You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
 
 #### Usage
 
