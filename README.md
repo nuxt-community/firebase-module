@@ -59,8 +59,8 @@ Services supported by nuxt-fire so far:
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
-#### Examples
+### Examples
 
-Examples coming soon.
+(tbd)
 
 Check out the [Demo](https://github.com/lupas/nuxt-fire-demo) project for example code.
