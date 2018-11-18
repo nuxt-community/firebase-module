@@ -1,6 +1,6 @@
 # 🔥 Nuxt-Fire
 
-> ## Easily intergrate Firebase into your Nuxt 2 project.
+> ### Easily intergrate Firebase into your Nuxt 2 project.
 
 ## Demo
 
