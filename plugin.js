@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/functions'
+import 'firebase/database'
 import 'firebase/storage'
 import 'firebase/auth'
 
@@ -12,14 +13,12 @@ export default function({ app }, inject) {
   if (!firebase.apps.length) {
     if (process.env.NODE_ENV === 'production') {
       firebase.initializeApp(options.config)
-      console.log("Intialized production config")
     } else {
       firebase.initializeApp(options.devConfig)
-      console.log("Intialized development config")
     }
   }
 
-  let _fireStore, _fireFunc, _fireStorage, _fireAuth
+  let _fireStore, _fireFunc, _fireStorage, _fireAuth, _fireDb
 
   if (!options.useOnly || options.useOnly.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
