@@ -12,6 +12,8 @@ export default function nuxtFire(moduleOptions) {
     !options.config.storageBucket ||
     !options.config.messagingSenderId
   ) {
+    //TODO: Replace with @nuxtjs/plugin-utils error
+    console.error('nuxtFire Error: Missing or incomplete Firebase config.')
     return
   }
 
