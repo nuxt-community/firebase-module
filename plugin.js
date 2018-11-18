@@ -14,23 +14,23 @@ export default function({ app }, inject) {
   }
 
   let _fireStore, _fireFunc, _fireStorage, _fireAuth
-  if (options.use.includes('firestore')) {
+  if (!options.use || options.use.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
     _fireStore = firebase.firestore()
     inject('fireStore', _fireStore)
   }
 
-  if (options.use.includes('functions')) {
+  if (!options.use || options.use.includes('functions')) {
     _fireFunc = firebase.functions()
     inject('fireFunc', _fireFunc)
   }
 
-  if (options.use.includes('storage')) {
+  if (!options.use || options.use.includes('storage')) {
     _fireStorage = firebase.storage()
     inject('fireStorage', _fireStorage)
   }
 
-  if (options.use.includes('auth')) {
+  if (!options.use || options.use.includes('auth')) {
     const _fireAuth = firebase.auth()
     inject('fireAuth', _fireAuth)
   }

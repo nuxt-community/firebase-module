@@ -5,7 +5,6 @@ export default function nuxtFire(moduleOptions) {
 
   // Don't include when config is missing
   if (
-    options.use.length === 0 ||
     !options.config.apiKey ||
     !options.config.authDomain ||
     !options.config.databaseURL ||
