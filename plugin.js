@@ -10,7 +10,13 @@ export default function({ app }, inject) {
 
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {
-    firebase.initializeApp(options.config)
+    if (process.env.NODE_ENV === 'production') {
+      firebase.initializeApp(options.config)
+      console.log("Intialized production config")
+    } else {
+      firebase.initializeApp(options.devConfig)
+      console.log("Intialized development config")
+    }
   }
 
   let _fireStore, _fireFunc, _fireStorage, _fireAuth
