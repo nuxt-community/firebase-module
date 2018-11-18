@@ -5,7 +5,7 @@ import 'firebase/database'
 import 'firebase/storage'
 import 'firebase/auth'
 
-export default function({ app }, inject) {
+export default (ctx, inject) => {
   
   const options = <%= serialize(options) %>
 
@@ -18,32 +18,30 @@ export default function({ app }, inject) {
     }
   }
 
-  let _fireStore, _fireFunc, _fireStorage, _fireAuth, _fireDb
-
   if (!options.useOnly || options.useOnly.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
-    _fireStore = firebase.firestore()
-    inject('fireStore', _fireStore)
+    const fireStore = firebase.firestore()
+    inject('fireStore', fireStore)
   }
 
   if (!options.useOnly || options.useOnly.includes('realtimeDb')) {
-    _fireDb = firebase.database()
-    inject('fireDb', _fireDb)
+    const fireDb = firebase.database()
+    inject('fireDb', fireDb)
   }
 
   if (!options.useOnly || options.useOnly.includes('functions')) {
-    _fireFunc = firebase.functions()
-    inject('fireFunc', _fireFunc)
+    const fireFunc = firebase.functions()
+    inject('fireFunc', fireFunc)
   }
 
   if (!options.useOnly || options.useOnly.includes('storage')) {
-    _fireStorage = firebase.storage()
-    inject('fireStorage', _fireStorage)
+    const fireStorage = firebase.storage()
+    inject('fireStorage', fireStorage)
   }
 
   if (!options.useOnly || options.useOnly.includes('auth')) {
-    const _fireAuth = firebase.auth()
-    inject('fireAuth', _fireAuth)
+    const fireAuth = firebase.auth()
+    inject('fireAuth', fireAuth)
   }
 
 }

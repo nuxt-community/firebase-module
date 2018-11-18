@@ -1,6 +1,6 @@
-# Nuxt-Fire
+# 🔥 Nuxt-Fire
 
-> Easily intergrate Firebase into your Nuxt 2 project.
+> ## Easily intergrate Firebase into your Nuxt 2 project.
 
 ## Demo
 
@@ -8,9 +8,14 @@
 
 ## Requirements
 
-Make sure to have Nuxt 2+ installed:
+Make sure you have Nuxt and Firebase installed in your project.
 
-- Nuxt.js >= 2.x
+```json
+"dependencies": {
+  "nuxt": "^2.3.1",
+  "firebase": "^5.5.8"
+}
+```
 
 ## Install
 
@@ -79,13 +84,13 @@ You can access the various Firebase products with **\$foo** in almost any contex
 
 Firebase products supported by nuxt-fire so far:
 
-| Firebase Product  | Shortcut        |
-| ----------------- | --------------- |
-| Authentication    | \$fireAuth      |
-| RealTime Database | \$fireDb        |
-| Firestore         | \$fireStore     |
-| Storage           | \$fireStorage   |
-| Functions         | \$fireFunctions |
+| Firebase Product  | Shortcut      |
+| ----------------- | ------------- |
+| Authentication    | \$fireAuth    |
+| RealTime Database | \$fireDb      |
+| Firestore         | \$fireStore   |
+| Storage           | \$fireStorage |
+| Functions         | \$fireFunc    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
