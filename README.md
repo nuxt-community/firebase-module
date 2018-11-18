@@ -81,13 +81,13 @@ You can access the various Firebase products with **\$foo** in almost any contex
 
 Firebase products supported by nuxt-fire so far:
 
-| Firebase Product  | Shortcut        |
-| ----------------- | --------------- |
-| Authentication    | \$fireAuth      |
-| RealTime Database | \$fireDb        |
-| Firestore         | \$fireStore     |
-| Storage           | \$fireStorage   |
-| Functions         | \$fireFunctions |
+| Firebase Product  | Shortcut      |
+| ----------------- | ------------- |
+| Authentication    | \$fireAuth    |
+| RealTime Database | \$fireDb      |
+| Firestore         | \$fireStore   |
+| Storage           | \$fireStorage |
+| Functions         | \$fireFunc    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
