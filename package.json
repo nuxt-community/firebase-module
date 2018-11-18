@@ -7,6 +7,9 @@
   "author": "Pascal Luther",
   "repository": "https://github.com/lupas",
   "homepage": "https://github.com/lupas/nuxt-fire",
+  "keywords": [
+    "nuxt, firebase"
+  ],
   "publishConfig": {
     "access": "public"
   },
