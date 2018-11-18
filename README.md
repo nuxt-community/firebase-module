@@ -44,7 +44,7 @@ modules: [
 
 #### useOnly
 
-By default, all supported services are loaded. If you only wish to load certain services (recommended!), add this `useOnly` option.
+By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add this `useOnly` option.
 
 - type: `Array<string>`
 - default: `null`
@@ -75,11 +75,11 @@ Same es `config`, but applies when `NODE_ENV === 'development'`.
 
 ## Usage
 
-You can access the various Firebase services with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
+You can access the various Firebase products with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
 
-Services supported by nuxt-fire so far:
+Firebase products supported by nuxt-fire so far:
 
-| Firebase Service  | Shortcut        |
+| Firebase Product  | Shortcut        |
 | ----------------- | --------------- |
 | Authentication    | \$fireAuth      |
 | RealTime Database | \$fireDb        |
