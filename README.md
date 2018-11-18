@@ -1,5 +1,4 @@
 # 🔥 Nuxt-Fire
-
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
 > Easily intergrate Firebase into your Nuxt 2 project.
