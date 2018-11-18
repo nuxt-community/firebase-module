@@ -13,8 +13,6 @@ export default function({ app }, inject) {
     firebase.initializeApp(options.config)
   }
 
-  console.log(options.use)
-
   let _fireStore, _fireFunc, _fireStorage, _fireAuth
   if (options.use.includes('firestore')) {
     firebase.firestore().settings({ timestampsInSnapshots: true })
