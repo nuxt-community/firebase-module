@@ -1,4 +1,5 @@
 # 🔥 Nuxt-Fire
+
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
 > Easily intergrate Firebase into your Nuxt 2 project.
@@ -88,7 +89,7 @@ Firebase products supported by nuxt-fire so far:
 | Firebase Product  | Shortcut      |
 | ----------------- | ------------- |
 | Authentication    | \$fireAuth    |
-| RealTime Database | \$fireDb      |
+| Realtime Database | \$fireDb      |
 | Firestore         | \$fireStore   |
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
