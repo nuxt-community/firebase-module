@@ -51,11 +51,11 @@ modules: [
 
 #### useOnly
 
-By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add this `useOnly` option.
+By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `null`
-- accepted: `['auth','firestore','functions','storage','realtimeDb']`
+- default: `['auth','firestore','functions','storage','realtimeDb']`
+- required: `false`
 
 #### config
 
@@ -74,11 +74,11 @@ Your firebase config snippet. You can retrieve this information from your Fireba
 }
 ```
 
-Only applies when `NODE_ENV === 'production'` .
+Only applies when `NODE_ENV === 'production'`. In that case it is required.
 
 #### devConfig
 
-Same es `config`, but applies when `NODE_ENV === 'development'`.
+Same es `config`, but applies when `NODE_ENV === 'development'`. In that case it is required
 
 ## Usage
 
