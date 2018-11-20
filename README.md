@@ -42,50 +42,27 @@ modules: [
       'nuxt-fire',
       {
         config: {
-          apiKey: '<apiKey>',
-          authDomain: '<authDomain>',
-          databaseURL: '<databaseURL>',
-          projectId: '<projectId>',
-          storageBucket: '<storageBucket>',
-          messagingSenderId: '<messagingSenderId>'
+          development: {
+            apiKey: '<apiKey>',
+            authDomain: '<authDomain>',
+            databaseURL: '<databaseURL>',
+            projectId: '<projectId>',
+            storageBucket: '<storageBucket>',
+            messagingSenderId: '<messagingSenderId>'
+          },
+          production: {
+            apiKey: '<apiKey>',
+            authDomain: '<authDomain>',
+            databaseURL: '<databaseURL>',
+            projectId: '<projectId>',
+            storageBucket: '<storageBucket>',
+            messagingSenderId: '<messagingSenderId>'
+          }
         }
       }
     ]
   ],
 ```
-
-## Options
-
-#### useOnly
-
-By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
-
-- type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb']`
-- required: `false`
-
-#### config
-
-Your firebase config snippet. You can retrieve this information from your Firebase project's overview page:
-
-`https://console.firebase.google.com/project/your-project-id/overview`
-
-```js
-{
-  apiKey: '<apiKey>',
-  authDomain: '<authDomain>',
-  databaseURL: '<databaseURL>',
-  projectId: '<projectId>',
-  storageBucket: '<storageBucket>',
-  messagingSenderId: '<messagingSenderId>'
-}
-```
-
-Only applies when `NODE_ENV === 'production'`. In that case it is required.
-
-#### devConfig
-
-Same es `config`, but applies when `NODE_ENV === 'development'`. In that case it is required
 
 ## Usage
 
@@ -103,6 +80,82 @@ Firebase products supported by nuxt-fire so far:
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
-### Examples
+## Options
 
-Check out the [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) of our [Demo](https://nuxt-fire-demo.firebaseapp.com/) for example code.
+#### useOnly
+
+By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
+
+- type: `Array<string>`
+- default: `['auth','firestore','functions','storage','realtimeDb']`
+- required: `false`
+
+#### config[environment]
+
+Your firebase config snippet. You can retrieve this information from your Firebase project's overview page:
+
+`https://console.firebase.google.com/project/your-project-id/overview`
+
+```js
+{
+  apiKey: '<apiKey>',
+  authDomain: '<authDomain>',
+  databaseURL: '<databaseURL>',
+  projectId: '<projectId>',
+  storageBucket: '<storageBucket>',
+  messagingSenderId: '<messagingSenderId>'
+}
+```
+
+`config.production` gets loaded when `NODE_ENV === 'production', same applies to 'development' and any other values that you set in NODE_ENV.
+
+#### customEnv
+
+By default, the Firebase config will be chosen based on the NODE_ENV environment variable.
+
+If customEnv is set to true, however, nuxt-fire will determine the environment based on the environment variable called FIRE_ENV, which you can define yourself. This gives you the flexibility to define as many different Firebase configs as you like, independent of your NODE_ENV.
+
+- type: `Boolean`
+- default: `false`
+- required: `false`
+
+_⚠️ Important:_
+
+If you decide to turn on this option, you need to add the following code to your `nuxt.config.js` to make sure that the environment variable gets passed from server to client.
+
+```js
+env: {
+  FIRE_ENV: process.env.FIRE_ENV
+}
+```
+
+After that, you can set FIRE_ENV to anything you like...
+
+```js
+"scripts": {
+  "serveFoo": "FIRE_ENV=foofoofoo nuxt",
+  "serveFaa": "FIRE_ENV=faafaafaa nuxt",
+}
+```
+
+And then add your config to the nuxt-fire options in your `nuxt.config.js`:
+
+```js
+config: {
+  foofoofoo: {
+    apiKey: '<apiKey>',
+    authDomain: '<authDomain>',
+    databaseURL: '<databaseURL>',
+    projectId: '<projectId>',
+    storageBucket: '<storageBucket>',
+    messagingSenderId: '<messagingSenderId>'
+  },
+  faafaafaa: {
+    //
+  }
+}
+```
+
+## Examples
+
+Check out our [Demo](https://nuxt-fire-demo.firebaseapp.com/) or its [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) for example code.
