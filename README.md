@@ -9,7 +9,7 @@
  </p>
 </p>
 
-> Easily intergrate Firebase into your Nuxt 2 project.
+> Easily integrate Firebase into your Nuxt 2 project.
 
 ## Demo
 
