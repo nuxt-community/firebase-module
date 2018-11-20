@@ -3,35 +3,37 @@ import path from 'path'
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
 
-  // Don't include when config is missing
-  if (
-    process.env.NODE_ENV === 'production' &&
-    (!options.config ||
-      !options.config.apiKey ||
-      !options.config.authDomain ||
-      !options.config.databaseURL ||
-      !options.config.projectId ||
-      !options.config.storageBucket ||
-      !options.config.messagingSenderId)
-  ) {
+  // Set environment
+  let currentEnv = process.env.FIRE_ENV
+  if (!options.customEnv || !currentEnv) {
+    currentEnv = process.env.NODE_ENV
+  }
+  options.currentEnv = currentEnv
+
+  // If in CustomEnv Mode: Check if FIRE_ENV is set.
+  if (options.customEnv && !process.env.FIRE_ENV) {
     //TODO: Replace with @nuxtjs/plugin-utils error
-    console.error('nuxtFire Error: Missing or incomplete Firebase config.')
-    return
+    return console.error(
+      '\x1b[31m',
+      `Nuxt-Fire Error: CustomEnv mode requires FIRE_ENV to be set.`
+    )
   }
 
-  // Don't include when devConfig is missing
+  // Check if needed config is correctly set
   if (
-    process.env.NODE_ENV === 'development' &&
-    (!options.devConfig ||
-      !options.devConfig.apiKey ||
-      !options.devConfig.authDomain ||
-      !options.devConfig.databaseURL ||
-      !options.devConfig.projectId ||
-      !options.devConfig.storageBucket ||
-      !options.devConfig.messagingSenderId)
+    !options.config[currentEnv] ||
+    !options.config[currentEnv].apiKey ||
+    !options.config[currentEnv].authDomain ||
+    !options.config[currentEnv].databaseURL ||
+    !options.config[currentEnv].projectId ||
+    !options.config[currentEnv].storageBucket ||
+    !options.config[currentEnv].messagingSenderId
   ) {
     //TODO: Replace with @nuxtjs/plugin-utils error
-    console.error('nuxtFire Error: Missing or incomplete Firebase devConfig.')
+    console.error(
+      '\x1b[31m',
+      `Nuxt-Fire Error: Missing or incomplete config for current environment '${currentEnv}'!`
+    )
     return
   }
 

@@ -11,11 +11,7 @@ export default (ctx, inject) => {
 
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {
-    if (process.env.NODE_ENV === 'production') {
-      firebase.initializeApp(options.config)
-    } else {
-      firebase.initializeApp(options.devConfig)
-    }
+    firebase.initializeApp(options.config[options.currentEnv])
   }
 
   if (options.useOnly.includes('firestore')) {
