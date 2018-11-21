@@ -20,15 +20,11 @@ export default function nuxtFire(moduleOptions) {
   }
 
   // Check if needed config is correctly set
-  if (
-    !options.config[currentEnv] ||
-    !options.config[currentEnv].apiKey ||
-    !options.config[currentEnv].authDomain ||
-    !options.config[currentEnv].databaseURL ||
-    !options.config[currentEnv].projectId ||
-    !options.config[currentEnv].storageBucket ||
-    !options.config[currentEnv].messagingSenderId
-  ) {
+  const configKeys = Object.keys(options.config[currentEnv] || false)
+
+  const requiredKeys = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'storageBucket', 'messagingSenderId']
+
+  if (requiredKeys.some(k => !configKeys.includes(k))) {
     //TODO: Replace with @nuxtjs/plugin-utils error
     console.error(
       '\x1b[31m',
