@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "Intergrate Firebase into your Nuxt project.",
   "main": "index.js",
+  "types": "index.d.ts",
   "author": "Pascal Luther",
   "repository": "https://github.com/lupas/nuxt-fire",
   "homepage": "https://github.com/lupas",
