@@ -1,12 +1,13 @@
-import { firestore, database, functions, storage, auth } from 'firebase'
+import firebase from 'firebase'
 import Vue from 'vue'
 
+/* This file simply imports the needed types from firebase and forwards them */
 declare module 'vue/types/vue' {
   interface Vue {
-    $fireStore: firestore.Firestore
-    $fireDb: database.Database
-    $fireFunc: functions.Functions
-    $fireStorage: storage.Storage
-    $fireAuth: auth.Auth
+    $fireStore: firebase.firestore.Firestore
+    $fireDb: firebase.database.Database
+    $fireFunc: firebase.functions.Functions
+    $fireStorage: firebase.storage.Storage
+    $fireAuth: firebase.auth.Auth
   }
 }
