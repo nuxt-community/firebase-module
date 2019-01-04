@@ -1,6 +1,6 @@
 {
   "name": "nuxt-fire",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "license": "MIT",
   "description": "Intergrate Firebase into your Nuxt project.",
   "main": "index.js",
