@@ -21,8 +21,8 @@ Make sure you have Nuxt and Firebase installed in your project.
 
 ```json
 "dependencies": {
-  "nuxt": "^2.3.1",
-  "firebase": "^5.5.9"
+  "nuxt": "^2.3.4",
+  "firebase": "^5.7.2"
 }
 ```
 
@@ -77,6 +77,7 @@ Firebase products supported by nuxt-fire so far:
 | Firestore         | \$fireStore   |
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
+| Messaaging        | \$fireMess    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
@@ -87,7 +88,7 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging']`
 - required: `false`
 
 #### config[environment]
