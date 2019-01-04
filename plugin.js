@@ -4,6 +4,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('realtimeDb') ? "import 'firebase/database'" : "" %>
 <%= options.useOnly.includes('storage') ? "import 'firebase/storage'" : "" %>
 <%= options.useOnly.includes('auth') ? "import 'firebase/auth'" : "" %>
+<%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
 
 export default (ctx, inject) => {
   
@@ -40,6 +41,12 @@ export default (ctx, inject) => {
   if (options.useOnly.includes('auth')) {
     const fireAuth = firebase.auth()
     inject('fireAuth', fireAuth)
+  }
+
+  // Firebase Messaging can only be initiated on client side
+  if (process.browser && options.useOnly.includes('messaging')) {
+    const fireMess = firebase.messaging()
+    inject('fireMess', fireMess)
   }
 
 }

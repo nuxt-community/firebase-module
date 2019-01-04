@@ -22,7 +22,14 @@ export default function nuxtFire(moduleOptions) {
   // Check if needed config is correctly set
   const configKeys = Object.keys(options.config[currentEnv] || false)
 
-  const requiredKeys = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'storageBucket', 'messagingSenderId']
+  const requiredKeys = [
+    'apiKey',
+    'authDomain',
+    'databaseURL',
+    'projectId',
+    'storageBucket',
+    'messagingSenderId'
+  ]
 
   if (requiredKeys.some(k => !configKeys.includes(k))) {
     //TODO: Replace with @nuxtjs/plugin-utils error
@@ -40,7 +47,8 @@ export default function nuxtFire(moduleOptions) {
       'firestore',
       'functions',
       'storage',
-      'realtimeDb'
+      'realtimeDb',
+      'messaging'
     ]
   }
 
