@@ -77,7 +77,7 @@ Firebase products supported by nuxt-fire so far:
 | Firestore         | \$fireStore   |
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
-| Messaaging        | \$fireMess    |
+| Messaging         | \$fireMess    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
