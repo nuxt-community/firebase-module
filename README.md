@@ -22,7 +22,7 @@ Make sure you have Nuxt and Firebase installed in your project.
 ```json
 "dependencies": {
   "nuxt": "^2.3.4",
-  "firebase": "^5.7.2"
+  "firebase": "^5.8.0"
 }
 ```
 

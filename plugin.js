@@ -16,9 +16,6 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('firestore')) {
-    // Next line is needed, but only temporary due to changes in Firebase JS SDK
-    // see https://firebase.google.com/support/release-notes/js  -> Version 4.13.0
-    firebase.firestore().settings({ timestampsInSnapshots: true })
     const fireStore = firebase.firestore()
     inject('fireStore', fireStore)
   }
