@@ -37,9 +37,9 @@ export default (ctx, inject) => {
 
   if (options.useOnly.includes('auth')) {
     const fireAuth = firebase.auth()
-    const fireAuthProviders = firebase.auth
+    const fireAuthObj = firebase.auth
     inject('fireAuth', fireAuth)
-    inject('fireAuthProviders', fireAuthProviders)
+    inject('fireAuthObj', fireAuthObj)
   }
 
   // Firebase Messaging can only be initiated on client side
