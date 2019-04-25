@@ -44,6 +44,9 @@ modules: [
     [
       'nuxt-fire',
       {
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging'],
+        customEnv: false,
+        enableFirestorePersistence: false,
         config: {
           development: {
             apiKey: '<apiKey>',
