@@ -24,8 +24,8 @@ Make sure you have Nuxt and Firebase installed in your project.
 
 ```json
 "dependencies": {
-  "nuxt": "^2.3.4",
-  "firebase": "^5.8.0"
+  "nuxt": "^2.6.2",
+  "firebase": "^5.10.0"
 }
 ```
 
@@ -83,6 +83,14 @@ Firebase products supported by nuxt-fire so far:
 | Messaging         | \$fireMess    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
+
+You can further access the objects like so
+
+| Firebase Obj  | Shortcut      |
+| ------------- | ------------- |
+| firebase.auth | \$fireAuthObj |
+
+(only works for the auth object for now)
 
 ## Options
 
