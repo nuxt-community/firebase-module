@@ -5,6 +5,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('storage') ? "import 'firebase/storage'" : "" %>
 <%= options.useOnly.includes('auth') ? "import 'firebase/auth'" : "" %>
 <%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
+<%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
 
 export default (ctx, inject) => {
   
@@ -46,6 +47,11 @@ export default (ctx, inject) => {
   if (process.browser && options.useOnly.includes('messaging')) {
     const fireMess = firebase.messaging()
     inject('fireMess', fireMess)
+  }
+
+  if(process.browser && options.useOnly.includes('performance')){
+    const perf = firebase.performance()
+    inject('perf', perf)
   }
 
 }
