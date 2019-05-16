@@ -173,6 +173,13 @@ config: {
 }
 ```
 
+#### functionsLocation
+
+By default, the Functions location is set to `us-central1`.
+You can change the location with this option.
+
+More information [here](https://firebase.google.com/docs/functions/locations).
+
 ## Examples
 
 Check out our [Demo](https://nuxt-fire-demo.firebaseapp.com/) or its [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) for example code.

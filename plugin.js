@@ -44,7 +44,7 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('functions')) {
-    const fireFunc = firebase.functions()
+    const fireFunc = firebase.app().functions(options.functionsLocation)
     const fireFuncObj = firebase.functions
     inject('fireFunc', fireFunc)
     inject('fireFuncObj', fireFuncObj)
