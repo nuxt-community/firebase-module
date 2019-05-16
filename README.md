@@ -11,8 +11,8 @@
 
 > Easily integrate Firebase into your Nuxt 2 project.
 
-__Important:__
-This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
+**Important:**
+This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
 
 ## Demo
 
@@ -87,13 +87,16 @@ Firebase products supported by nuxt-fire so far:
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
-You can further access the objects like so
+You can further access the objects like so:
 
-| Firebase Obj  | Shortcut      |
-| ------------- | ------------- |
-| firebase.auth | \$fireAuthObj |
-
-(only works for the auth object for now)
+| Firebase Obj       | Shortcut         |
+| ------------------ | ---------------- |
+| firebase.auth      | \$fireAuthObj    |
+| firebase.database  | \$fireDbObj      |
+| firebase.firestore | \$fireStoreObj   |
+| firebase.storage   | \$fireStorageObj |
+| firebase.functions | \$fireFuncObj    |
+| firebase.messaging | \$fireMessObj    |
 
 ## Options
 
