@@ -179,6 +179,10 @@ config: {
 By default, the Functions location is set to `us-central1`.
 You can change the location with this option.
 
+- type: `String`
+- default: `null` (results in `us-central1`)
+- required: `false`
+
 More information [here](https://firebase.google.com/docs/functions/locations).
 
 ## Examples
