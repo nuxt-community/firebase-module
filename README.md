@@ -46,6 +46,7 @@ modules: [
       {
         useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging'],
         customEnv: false,
+        functionsLocation: 'us-central1',
         config: {
           development: {
             apiKey: '<apiKey>',
