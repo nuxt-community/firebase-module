@@ -50,8 +50,8 @@ export default (ctx, inject) => {
   }
 
   if(process.browser && options.useOnly.includes('performance')){
-    const perf = firebase.performance()
-    inject('perf', perf)
+    const firePerf = firebase.performance()
+    inject('firePerf', firePerf)
   }
 
 }
