@@ -14,6 +14,7 @@
 **Important:**
 This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
 
+
 ## Demo
 
 [Demo](https://nuxt-fire-demo.firebaseapp.com/)
@@ -25,7 +26,7 @@ Make sure you have Nuxt and Firebase installed in your project.
 ```json
 "dependencies": {
   "nuxt": "^2.6.2",
-  "firebase": "^5.10.0"
+  "firebase": "^6.0.2"
 }
 ```
 
@@ -44,7 +45,7 @@ modules: [
     [
       'nuxt-fire',
       {
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging'],
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
         customEnv: false,
         functionsLocation: 'us-central1',
         config: {
@@ -54,7 +55,8 @@ modules: [
             databaseURL: '<databaseURL>',
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>'
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>'
           },
           production: {
             apiKey: '<apiKey>',
@@ -62,7 +64,8 @@ modules: [
             databaseURL: '<databaseURL>',
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>'
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>'
           }
         }
       }
@@ -84,6 +87,7 @@ Firebase products supported by nuxt-fire so far:
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
 | Messaging         | \$fireMess    |
+| Performance       | \$firePerf    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
@@ -105,7 +109,7 @@ You can further access the objects like so:
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance']`
 - required: `false`
 
 #### config[environment]
@@ -121,7 +125,8 @@ Your firebase config snippet. You can retrieve this information from your Fireba
   databaseURL: '<databaseURL>',
   projectId: '<projectId>',
   storageBucket: '<storageBucket>',
-  messagingSenderId: '<messagingSenderId>'
+  messagingSenderId: '<messagingSenderId>',
+  appId: '<appId>'
 }
 ```
 
@@ -143,7 +148,7 @@ If you decide to turn on this option, you need to add the following code to your
 
 ```js
 env: {
-  FIRE_ENV: process.env.FIRE_ENV
+  FIRE_ENV: process.env.FIRE_ENV;
 }
 ```
 
@@ -166,7 +171,8 @@ config: {
     databaseURL: '<databaseURL>',
     projectId: '<projectId>',
     storageBucket: '<storageBucket>',
-    messagingSenderId: '<messagingSenderId>'
+    messagingSenderId: '<messagingSenderId>',
+    appId: '<appId>'
   },
   faafaafaa: {
     //
