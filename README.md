@@ -14,7 +14,6 @@
 **Important:**
 This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
 
-
 ## Demo
 
 [Demo](https://nuxt-fire-demo.firebaseapp.com/)
@@ -45,9 +44,7 @@ modules: [
     [
       'nuxt-fire',
       {
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
-        customEnv: false,
-        functionsLocation: 'us-central1',
+        // Required:
         config: {
           development: {
             apiKey: '<apiKey>',
@@ -67,7 +64,11 @@ modules: [
             messagingSenderId: '<messagingSenderId>',
             appId: '<appId>'
           }
-        }
+        },
+        // The following options are optional:
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        customEnv: false,
+        functionsLocation: 'us-central1',
       }
     ]
   ],
@@ -93,14 +94,15 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 
 You can further access the objects like so:
 
-| Firebase Obj       | Shortcut         |
-| ------------------ | ---------------- |
-| firebase.auth      | \$fireAuthObj    |
-| firebase.database  | \$fireDbObj      |
-| firebase.firestore | \$fireStoreObj   |
-| firebase.storage   | \$fireStorageObj |
-| firebase.functions | \$fireFuncObj    |
-| firebase.messaging | \$fireMessObj    |
+| Firebase Obj         | Shortcut         |
+| -------------------- | ---------------- |
+| firebase.auth        | \$fireAuthObj    |
+| firebase.database    | \$fireDbObj      |
+| firebase.firestore   | \$fireStoreObj   |
+| firebase.storage     | \$fireStorageObj |
+| firebase.functions   | \$fireFuncObj    |
+| firebase.messaging   | \$fireMessObj    |
+| firebase.performance | \$firePerfObj    |
 
 ## Options
 
@@ -148,7 +150,7 @@ If you decide to turn on this option, you need to add the following code to your
 
 ```js
 env: {
-  FIRE_ENV: process.env.FIRE_ENV;
+  FIRE_ENV: process.env.FIRE_ENV
 }
 ```
 
