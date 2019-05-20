@@ -59,6 +59,7 @@ export default (ctx, inject) => {
     inject('fireMessObj', fireMessObj)
   }
 
+  // Firebase Performance can only be initiated on client side
   if(process.browser && options.useOnly.includes('performance')){
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
