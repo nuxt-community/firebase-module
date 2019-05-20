@@ -32,6 +32,15 @@ export default function nuxtFire(moduleOptions) {
     'appId'
   ]
 
+  if (!configKeys.includes('appId')) {
+    // TODO: Delete after v3.0.0
+    console.error(
+      '\x1b[31m',
+      `Nuxt-Fire Error: Since v2.0.0 you must update your Firebase config object to include your 'appID'. See Release notes.!`
+    )
+    return
+  }
+
   if (requiredKeys.some(k => !configKeys.includes(k))) {
     //TODO: Replace with @nuxtjs/plugin-utils error
     console.error(
