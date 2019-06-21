@@ -196,3 +196,13 @@ More information [here](https://firebase.google.com/docs/functions/locations).
 ## Examples
 
 Check out our [Demo](https://nuxt-fire-demo.firebaseapp.com/) or its [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) for example code.
+
+### Usage with vuexfire
+
+This [example](https://github.com/lupas/nuxt-fire-vuexfire-example) shows how to use both vuexfire and nuxt-fire together.
+
+## Support on Beerpay
+
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/lupas/nuxt-fire/badge.svg?style=beer-square)](https://beerpay.io/lupas/nuxt-fire) [![Beerpay](https://beerpay.io/lupas/nuxt-fire/make-wish.svg?style=flat-square)](https://beerpay.io/lupas/nuxt-fire?focus=wish)
