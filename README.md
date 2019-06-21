@@ -25,7 +25,7 @@ Make sure you have Nuxt and Firebase installed in your project.
 ```json
 "dependencies": {
   "nuxt": "^2.6.2",
-  "firebase": "^5.10.0"
+  "firebase": "^6.0.2"
 }
 ```
 
@@ -44,9 +44,7 @@ modules: [
     [
       'nuxt-fire',
       {
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging'],
-        customEnv: false,
-        functionsLocation: 'us-central1',
+        // Required:
         config: {
           development: {
             apiKey: '<apiKey>',
@@ -54,7 +52,8 @@ modules: [
             databaseURL: '<databaseURL>',
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>'
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>'
           },
           production: {
             apiKey: '<apiKey>',
@@ -62,9 +61,14 @@ modules: [
             databaseURL: '<databaseURL>',
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>'
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>'
           }
-        }
+        },
+        // The following options are optional:
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        customEnv: false,
+        functionsLocation: 'us-central1',
       }
     ]
   ],
@@ -84,19 +88,21 @@ Firebase products supported by nuxt-fire so far:
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
 | Messaging         | \$fireMess    |
+| Performance       | \$firePerf    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 You can further access the objects like so:
 
-| Firebase Obj       | Shortcut         |
-| ------------------ | ---------------- |
-| firebase.auth      | \$fireAuthObj    |
-| firebase.database  | \$fireDbObj      |
-| firebase.firestore | \$fireStoreObj   |
-| firebase.storage   | \$fireStorageObj |
-| firebase.functions | \$fireFuncObj    |
-| firebase.messaging | \$fireMessObj    |
+| Firebase Obj         | Shortcut         |
+| -------------------- | ---------------- |
+| firebase.auth        | \$fireAuthObj    |
+| firebase.database    | \$fireDbObj      |
+| firebase.firestore   | \$fireStoreObj   |
+| firebase.storage     | \$fireStorageObj |
+| firebase.functions   | \$fireFuncObj    |
+| firebase.messaging   | \$fireMessObj    |
+| firebase.performance | \$firePerfObj    |
 
 ## Options
 
@@ -105,7 +111,7 @@ You can further access the objects like so:
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance']`
 - required: `false`
 
 #### config[environment]
@@ -121,7 +127,8 @@ Your firebase config snippet. You can retrieve this information from your Fireba
   databaseURL: '<databaseURL>',
   projectId: '<projectId>',
   storageBucket: '<storageBucket>',
-  messagingSenderId: '<messagingSenderId>'
+  messagingSenderId: '<messagingSenderId>',
+  appId: '<appId>'
 }
 ```
 
@@ -166,7 +173,8 @@ config: {
     databaseURL: '<databaseURL>',
     projectId: '<projectId>',
     storageBucket: '<storageBucket>',
-    messagingSenderId: '<messagingSenderId>'
+    messagingSenderId: '<messagingSenderId>',
+    appId: '<appId>'
   },
   faafaafaa: {
     //
@@ -189,7 +197,12 @@ More information [here](https://firebase.google.com/docs/functions/locations).
 
 Check out our [Demo](https://nuxt-fire-demo.firebaseapp.com/) or its [GitHub Repo](https://github.com/lupas/nuxt-fire-demo) for example code.
 
+### Usage with vuexfire
+
+This [example](https://github.com/lupas/nuxt-fire-vuexfire-example) shows how to use both vuexfire and nuxt-fire together.
+
 ## Support on Beerpay
+
 Hey dude! Help me out for a couple of :beers:!
 
-[![Beerpay](https://beerpay.io/lupas/nuxt-fire/badge.svg?style=beer-square)](https://beerpay.io/lupas/nuxt-fire)  [![Beerpay](https://beerpay.io/lupas/nuxt-fire/make-wish.svg?style=flat-square)](https://beerpay.io/lupas/nuxt-fire?focus=wish)
+[![Beerpay](https://beerpay.io/lupas/nuxt-fire/badge.svg?style=beer-square)](https://beerpay.io/lupas/nuxt-fire) [![Beerpay](https://beerpay.io/lupas/nuxt-fire/make-wish.svg?style=flat-square)](https://beerpay.io/lupas/nuxt-fire?focus=wish)
