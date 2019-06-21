@@ -66,7 +66,7 @@ modules: [
           }
         },
         // The following options are optional:
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging'],
         customEnv: false,
         functionsLocation: 'us-central1',
       }
@@ -88,21 +88,19 @@ Firebase products supported by nuxt-fire so far:
 | Storage           | \$fireStorage |
 | Functions         | \$fireFunc    |
 | Messaging         | \$fireMess    |
-| Performance       | \$firePerf    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 You can further access the objects like so:
 
-| Firebase Obj         | Shortcut         |
-| -------------------- | ---------------- |
-| firebase.auth        | \$fireAuthObj    |
-| firebase.database    | \$fireDbObj      |
-| firebase.firestore   | \$fireStoreObj   |
-| firebase.storage     | \$fireStorageObj |
-| firebase.functions   | \$fireFuncObj    |
-| firebase.messaging   | \$fireMessObj    |
-| firebase.performance | \$firePerfObj    |
+| Firebase Obj       | Shortcut         |
+| ------------------ | ---------------- |
+| firebase.auth      | \$fireAuthObj    |
+| firebase.database  | \$fireDbObj      |
+| firebase.firestore | \$fireStoreObj   |
+| firebase.storage   | \$fireStorageObj |
+| firebase.functions | \$fireFuncObj    |
+| firebase.messaging | \$fireMessObj    |
 
 ## Options
 
@@ -111,7 +109,7 @@ You can further access the objects like so:
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging']`
 - required: `false`
 
 #### config[environment]
