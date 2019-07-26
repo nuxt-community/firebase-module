@@ -15,6 +15,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "firebase": "^6.0.2"
+    "firebase": "^6.3.1"
   }
 }
