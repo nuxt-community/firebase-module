@@ -5,7 +5,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('storage') ? "import 'firebase/storage'" : "" %>
 <%= options.useOnly.includes('functions') ? "import 'firebase/functions'" : "" %>
 <%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
-<%= (process.browser && options.useOnly.includes('performance')) ? "import 'firebase/performance'" : "" %>
+<%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
 
 export default (ctx, inject) => {
   
@@ -61,9 +61,6 @@ export default (ctx, inject) => {
 
   // Firebase Performance can only be initiated on client side
   if(process.browser && options.useOnly.includes('performance')){
-    // TODO: Fix: For some reason firebase.performance does not exist and a the following error is thrown:
-    // firebase_app__WEBPACK_IMPORTED_MODULE_2___default.a.performance is not a function
-    // ... but imho the conditional import only on client side should be working...
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
     inject('firePerf', firePerf)
