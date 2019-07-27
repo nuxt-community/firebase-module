@@ -5,6 +5,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('storage') ? "import 'firebase/storage'" : "" %>
 <%= options.useOnly.includes('functions') ? "import 'firebase/functions'" : "" %>
 <%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
+<%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
 
 export default (ctx, inject) => {
   
@@ -56,6 +57,14 @@ export default (ctx, inject) => {
     const fireMessObj = firebase.messaging
     inject('fireMess', fireMess)
     inject('fireMessObj', fireMessObj)
+  }
+
+  // Firebase Performance can only be initiated on client side
+  if(process.browser && options.useOnly.includes('performance')){
+    const firePerf = firebase.performance()
+    const firePerfObj = firebase.performance
+    inject('firePerf', firePerf)
+    inject('firePerfObj', firePerfObj)
   }
 
 }
