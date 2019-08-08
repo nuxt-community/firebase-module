@@ -1,0 +1,10 @@
+{
+  "name": "Nuxt-Fire",
+  "platforms": ["Web"],
+  "content": "README.md",
+  "pages": [],
+  "related": [],
+  "tabs": [
+    "https://medium.com/@pascalluther/nuxt-js-v2-firestore-ssr-938d8fb7d2b0"
+  ]
+}
