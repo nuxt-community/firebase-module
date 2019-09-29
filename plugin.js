@@ -8,7 +8,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
 
 export default (ctx, inject) => {
-  
+
   const options = <%= serialize(options) %>
 
   // Don't include when Firebase is already initialized
@@ -52,7 +52,7 @@ export default (ctx, inject) => {
   }
 
   // Firebase Messaging can only be initiated on client side
-  if (process.browser && options.useOnly.includes('messaging')) {
+  if (process.browser && options.useOnly.includes('messaging') && firebase.messaging.isSupported()) {
     const fireMess = firebase.messaging()
     const fireMessObj = firebase.messaging
     inject('fireMess', fireMess)
