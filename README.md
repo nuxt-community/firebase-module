@@ -74,6 +74,16 @@ modules: [
   ],
 ```
 
+or
+
+```js
+modules: ['nuxt-fire'],
+
+fire: {
+// options
+}
+```
+
 ## Usage
 
 You can access the various Firebase products with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
