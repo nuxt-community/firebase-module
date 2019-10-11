@@ -53,7 +53,9 @@ modules: [
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
             messagingSenderId: '<messagingSenderId>',
-            appId: '<appId>'
+            appId: '<appId>',
+            measurementId: '<measurementId>'
+
           },
           production: {
             apiKey: '<apiKey>',
@@ -62,11 +64,12 @@ modules: [
             projectId: '<projectId>',
             storageBucket: '<storageBucket>',
             messagingSenderId: '<messagingSenderId>',
-            appId: '<appId>'
+            appId: '<appId>',
+            measurementId: '<measurementId>'
           }
         },
         // The following options are optional:
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics],
         customEnv: false,
         functionsLocation: 'us-central1',
       }
@@ -90,29 +93,31 @@ You can access the various Firebase products with **\$foo** in almost any contex
 
 Firebase products supported by nuxt-fire so far:
 
-| Firebase Product  | Shortcut      |
-| ----------------- | ------------- |
-| Authentication    | \$fireAuth    |
-| Realtime Database | \$fireDb      |
-| Firestore         | \$fireStore   |
-| Storage           | \$fireStorage |
-| Functions         | \$fireFunc    |
-| Messaging         | \$fireMess    |
-| Performance       | \$firePerf    |
+| Firebase Product  | Shortcut        |
+| ----------------- | --------------- |
+| Authentication    | \$fireAuth      |
+| Realtime Database | \$fireDb        |
+| Firestore         | \$fireStore     |
+| Storage           | \$fireStorage   |
+| Functions         | \$fireFunc      |
+| Messaging         | \$fireMess      |
+| Performance       | \$firePerf      |
+| Analytics         | \$fireAnalytics |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 You can further access the objects like so:
 
-| Firebase Obj         | Shortcut         |
-| -------------------- | ---------------- |
-| firebase.auth        | \$fireAuthObj    |
-| firebase.database    | \$fireDbObj      |
-| firebase.firestore   | \$fireStoreObj   |
-| firebase.storage     | \$fireStorageObj |
-| firebase.functions   | \$fireFuncObj    |
-| firebase.messaging   | \$fireMessObj    |
-| firebase.performance | \$firePerfObj    |
+| Firebase Obj         | Shortcut           |
+| -------------------- | ------------------ |
+| firebase.auth        | \$fireAuthObj      |
+| firebase.database    | \$fireDbObj        |
+| firebase.firestore   | \$fireStoreObj     |
+| firebase.storage     | \$fireStorageObj   |
+| firebase.functions   | \$fireFuncObj      |
+| firebase.messaging   | \$fireMessObj      |
+| firebase.performance | \$firePerfObj      |
+| firebase.analytics   | \$fireAnalyticsObj |
 
 ## Options
 
@@ -121,7 +126,7 @@ You can further access the objects like so:
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics']`
 - required: `false`
 
 #### config[environment]
@@ -138,7 +143,8 @@ Your firebase config snippet. You can retrieve this information from your Fireba
   projectId: '<projectId>',
   storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>',
-  appId: '<appId>'
+  appId: '<appId>',
+  measurementId: '<measurementId>'
 }
 ```
 
@@ -184,7 +190,8 @@ config: {
     projectId: '<projectId>',
     storageBucket: '<storageBucket>',
     messagingSenderId: '<messagingSenderId>',
-    appId: '<appId>'
+    appId: '<appId>',
+    measurementId: '<measurementId>'
   },
   faafaafaa: {
     //
