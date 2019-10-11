@@ -59,8 +59,19 @@ export default function nuxtFire(moduleOptions) {
       'storage',
       'realtimeDb',
       'messaging',
-      'performance'
+      'performance',
+      'analytics'
     ]
+  }
+
+  if (
+    !configKeys.includes('measurementId') &&
+    options.useOnly.includes('analytics')
+  ) {
+    console.warn(
+      '\x1b[33m',
+      `Nuxt-Fire Warning: Missing measurementId configuration value. Analytics will be non-functional.`
+    )
   }
 
   // Register plugin
