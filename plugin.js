@@ -6,6 +6,7 @@ import firebase from 'firebase/app'
 <%= options.useOnly.includes('functions') ? "import 'firebase/functions'" : "" %>
 <%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
 <%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
+<%= options.useOnly.includes('analytics') ? "import 'firebase/analytics'" : "" %>
 
 export default (ctx, inject) => {
 
@@ -67,4 +68,11 @@ export default (ctx, inject) => {
     inject('firePerfObj', firePerfObj)
   }
 
+  // Firebase Analytics can only be initiated on the client side
+  if(process.browser && options.useOnly.includes('analytics')) {
+    const fireAnalytics = firebase.analytics()
+    const fireAnalyticsObj = firebase.analytics
+    inject('fireAnalytics', fireAnalytics)
+    inject('fireAnalyticsObj', fireAnalyticsObj)
+  }
 }
