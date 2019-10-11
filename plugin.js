@@ -78,6 +78,8 @@ export default async (ctx, inject) => {
 
   // Firebase Analytics can only be initiated on the client side
   if(process.browser && options.useOnly.includes('analytics')) {
+    <%= options.useOnly.includes('analytics') ? "await import('firebase/analytics')" : "" %>
+
     const fireAnalytics = firebase.analytics()
     const fireAnalyticsObj = firebase.analytics
     inject('fireAnalytics', fireAnalytics)
