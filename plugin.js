@@ -56,7 +56,7 @@ export default async (ctx, inject) => {
 
   // Firebase Messaging can only be initiated on client side
   if (process.browser && options.useOnly.includes('messaging')) {
-    <%= options.useOnly.includes('firestore') ? "await import('firebase/firestore')" : "" %>
+    <%= options.useOnly.includes('messaging') ? "await import('firebase/messaging')" : "" %>
 
     if (firebase.messaging.isSupported()) {
       const fireMess = firebase.messaging()
