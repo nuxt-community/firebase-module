@@ -14,6 +14,11 @@
 **Important:**
 This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
 
+_Features_
+
+- Helps to easily setup Firebase and makes it available throughout your nuxt app
+- Dynamically imports individual Firebase services for a faster page load
+
 ## Demo
 
 [Demo](https://nuxt-fire-demo.firebaseapp.com/)
