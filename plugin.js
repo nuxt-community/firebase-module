@@ -1,14 +1,6 @@
 import firebase from 'firebase/app'
-<%= options.useOnly.includes('auth') ? "import 'firebase/auth'" : "" %>
-<%= options.useOnly.includes('realtimeDb') ? "import 'firebase/database'" : "" %>
-<%= options.useOnly.includes('firestore') ? "import 'firebase/firestore'" : "" %>
-<%= options.useOnly.includes('storage') ? "import 'firebase/storage'" : "" %>
-<%= options.useOnly.includes('functions') ? "import 'firebase/functions'" : "" %>
-<%= options.useOnly.includes('messaging') ? "import 'firebase/messaging'" : "" %>
-<%= options.useOnly.includes('performance') ? "import 'firebase/performance'" : "" %>
-<%= options.useOnly.includes('analytics') ? "import 'firebase/analytics'" : "" %>
 
-export default (ctx, inject) => {
+export default async (ctx, inject) => {
 
   const options = <%= serialize(options) %>
 
@@ -18,6 +10,8 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('auth')) {
+    <%= options.useOnly.includes('auth') ? "await import('firebase/auth')" : "" %>
+
     const fireAuth = firebase.auth()
     const fireAuthObj = firebase.auth
     inject('fireAuth', fireAuth)
@@ -25,6 +19,8 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('realtimeDb')) {
+    <%= options.useOnly.includes('realtimeDb') ? "await import('firebase/database')" : "" %>
+
     const fireDb = firebase.database()
     const fireDbObj = firebase.database
     inject('fireDb', fireDb)
@@ -32,6 +28,8 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('firestore')) {
+    <%= options.useOnly.includes('firestore') ? "await import('firebase/firestore')" : "" %>
+
     const fireStore = firebase.firestore()
     const fireStoreObj = firebase.firestore
     inject('fireStore', fireStore)
@@ -39,6 +37,8 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('storage')) {
+    <%= options.useOnly.includes('storage') ? "await import('firebase/storage')" : "" %>
+
     const fireStorage = firebase.storage()
     const fireStorageObj = firebase.storage
     inject('fireStorage', fireStorage)
@@ -46,6 +46,8 @@ export default (ctx, inject) => {
   }
 
   if (options.useOnly.includes('functions')) {
+    <%= options.useOnly.includes('functions') ? "await import('firebase/functions')" : "" %>
+
     const fireFunc = firebase.app().functions(options.functionsLocation)
     const fireFuncObj = firebase.functions
     inject('fireFunc', fireFunc)
@@ -53,15 +55,21 @@ export default (ctx, inject) => {
   }
 
   // Firebase Messaging can only be initiated on client side
-  if (process.browser && options.useOnly.includes('messaging') && firebase.messaging.isSupported()) {
-    const fireMess = firebase.messaging()
-    const fireMessObj = firebase.messaging
-    inject('fireMess', fireMess)
-    inject('fireMessObj', fireMessObj)
+  if (process.browser && options.useOnly.includes('messaging')) {
+    <%= options.useOnly.includes('messaging') ? "await import('firebase/messaging')" : "" %>
+
+    if (firebase.messaging.isSupported()) {
+      const fireMess = firebase.messaging()
+      const fireMessObj = firebase.messaging
+      inject('fireMess', fireMess)
+      inject('fireMessObj', fireMessObj)
+    }
   }
 
   // Firebase Performance can only be initiated on client side
   if(process.browser && options.useOnly.includes('performance')){
+    <%= options.useOnly.includes('performance') ? "await import('firebase/performance')" : "" %>
+
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
     inject('firePerf', firePerf)
@@ -70,6 +78,8 @@ export default (ctx, inject) => {
 
   // Firebase Analytics can only be initiated on the client side
   if(process.browser && options.useOnly.includes('analytics')) {
+    <%= options.useOnly.includes('analytics') ? "await import('firebase/analytics')" : "" %>
+
     const fireAnalytics = firebase.analytics()
     const fireAnalyticsObj = firebase.analytics
     inject('fireAnalytics', fireAnalytics)
