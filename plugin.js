@@ -10,7 +10,7 @@ export default async (ctx, inject) => {
   }
 
   if (options.useOnly.includes('auth')) {
-    <%= options.useOnly.includes('auth') ? "await import('firebase/auth')" : "" %>
+    await import('firebase/auth')
 
     const fireAuth = firebase.auth()
     const fireAuthObj = firebase.auth
@@ -19,7 +19,7 @@ export default async (ctx, inject) => {
   }
 
   if (options.useOnly.includes('realtimeDb')) {
-    <%= options.useOnly.includes('realtimeDb') ? "await import('firebase/database')" : "" %>
+    await import('firebase/database')
 
     const fireDb = firebase.database()
     const fireDbObj = firebase.database
@@ -28,7 +28,7 @@ export default async (ctx, inject) => {
   }
 
   if (options.useOnly.includes('firestore')) {
-    <%= options.useOnly.includes('firestore') ? "await import('firebase/firestore')" : "" %>
+    await import('firebase/firestore')
 
     const fireStore = firebase.firestore()
     const fireStoreObj = firebase.firestore
@@ -37,7 +37,7 @@ export default async (ctx, inject) => {
   }
 
   if (options.useOnly.includes('storage')) {
-    <%= options.useOnly.includes('storage') ? "await import('firebase/storage')" : "" %>
+    await import('firebase/storage')
 
     const fireStorage = firebase.storage()
     const fireStorageObj = firebase.storage
@@ -46,7 +46,7 @@ export default async (ctx, inject) => {
   }
 
   if (options.useOnly.includes('functions')) {
-    <%= options.useOnly.includes('functions') ? "await import('firebase/functions')" : "" %>
+    await import('firebase/functions')
 
     const fireFunc = firebase.app().functions(options.functionsLocation)
     const fireFuncObj = firebase.functions
@@ -56,7 +56,7 @@ export default async (ctx, inject) => {
 
   // Firebase Messaging can only be initiated on client side
   if (process.browser && options.useOnly.includes('messaging')) {
-    <%= options.useOnly.includes('messaging') ? "await import('firebase/messaging')" : "" %>
+    await import('firebase/messaging')
 
     if (firebase.messaging.isSupported()) {
       const fireMess = firebase.messaging()
@@ -68,7 +68,7 @@ export default async (ctx, inject) => {
 
   // Firebase Performance can only be initiated on client side
   if(process.browser && options.useOnly.includes('performance')){
-    <%= options.useOnly.includes('performance') ? "await import('firebase/performance')" : "" %>
+    await import('firebase/performance')
 
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
@@ -78,11 +78,21 @@ export default async (ctx, inject) => {
 
   // Firebase Analytics can only be initiated on the client side
   if(process.browser && options.useOnly.includes('analytics')) {
-    <%= options.useOnly.includes('analytics') ? "await import('firebase/analytics')" : "" %>
+    await import('firebase/analytics')
 
     const fireAnalytics = firebase.analytics()
     const fireAnalyticsObj = firebase.analytics
     inject('fireAnalytics', fireAnalytics)
     inject('fireAnalyticsObj', fireAnalyticsObj)
+  }
+
+  // Firebase Remote Config can only be initiated on the client side
+  if(process.browser && options.useOnly.includes('remoteConfig')) {
+    await import('firebase/remote-config')
+
+    const fireConfig = firebase.remoteConfig()
+    const fireConfigObj = firebase.remoteConfig
+    inject('fireConfig', fireConfig)
+    inject('fireConfigObj', fireConfigObj)
   }
 }
