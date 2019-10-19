@@ -11,5 +11,6 @@ declare module 'vue/types/vue' {
     $fireAuth: firebase.auth.Auth
     $fireMess: firebase.messaging.Messaging
     $fireAnalytics: firebase.analytics.Analytics
+    $firePerf: firebase.performance.Performance
   }
 }
