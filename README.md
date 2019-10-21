@@ -72,6 +72,15 @@ modules: [
         useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig'],
         customEnv: false,
         functionsLocation: 'us-central1',
+        remoteConfig: {
+          settings: {
+            fetchTimeoutMillis: 60000,
+            minimumFetchIntervalMillis: 43200000,
+          },
+          defaultConfig: {
+            'welcome_message': 'Welcome'
+          }
+        }
       }
     ]
   ],
@@ -211,6 +220,20 @@ You can change the location with this option.
 - required: `false`
 
 More information [here](https://firebase.google.com/docs/functions/locations).
+
+#### remoteConfig
+You can custom the settings and default config.
+```js
+{
+  settings: {
+    fetchTimeoutMillis: 60000,
+    minimumFetchIntervalMillis: 43200000,
+  },
+  defaultConfig: {
+    'welcome_message': 'Welcome' // you can add another default config here
+  }
+}
+```
 
 ## Examples
 

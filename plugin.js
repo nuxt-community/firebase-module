@@ -92,6 +92,19 @@ export default async (ctx, inject) => {
 
     const fireConfig = firebase.remoteConfig()
     const fireConfigObj = firebase.remoteConfig
+
+    if (options.remoteConfig) {
+      const { settings: remoteSettings, defaultConfig: remoteDefaultConfig } = options.remoteConfig
+      if (remoteSettings) {
+        const { minimumFetchIntervalMillis, fetchTimeoutMillis } = remoteSettings
+        fireConfig.settings = {
+          fetchTimeoutMillis: fetchTimeoutMillis ? fetchTimeoutMillis : 60000,
+          minimumFetchIntervalMillis: minimumFetchIntervalMillis ? minimumFetchIntervalMillis : 43200000
+        }
+      }
+      fireConfig.defaultConfig = (remoteDefaultConfig)
+    }
+
     inject('fireConfig', fireConfig)
     inject('fireConfigObj', fireConfigObj)
   }
