@@ -74,9 +74,18 @@ modules: [
           }
         },
         // The following options are optional:
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics'],
+        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig'],
         customEnv: false,
         functionsLocation: 'us-central1',
+        remoteConfig: {
+          settings: {
+            fetchTimeoutMillis: 60000,
+            minimumFetchIntervalMillis: 43200000,
+          },
+          defaultConfig: {
+            'welcome_message': 'Welcome'
+          }
+        }
       }
     ]
   ],
@@ -108,21 +117,23 @@ Firebase products supported by nuxt-fire so far:
 | Messaging         | \$fireMess      |
 | Performance       | \$firePerf      |
 | Analytics         | \$fireAnalytics |
+| Remote Config     | \$fireConfig    |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
 
 You can further access the objects like so:
 
-| Firebase Obj         | Shortcut           |
-| -------------------- | ------------------ |
-| firebase.auth        | \$fireAuthObj      |
-| firebase.database    | \$fireDbObj        |
-| firebase.firestore   | \$fireStoreObj     |
-| firebase.storage     | \$fireStorageObj   |
-| firebase.functions   | \$fireFuncObj      |
-| firebase.messaging   | \$fireMessObj      |
-| firebase.performance | \$firePerfObj      |
-| firebase.analytics   | \$fireAnalyticsObj |
+| Firebase Obj           | Shortcut           |
+| ---------------------- | ------------------ |
+| firebase.auth          | \$fireAuthObj      |
+| firebase.database      | \$fireDbObj        |
+| firebase.firestore     | \$fireStoreObj     |
+| firebase.storage       | \$fireStorageObj   |
+| firebase.functions     | \$fireFuncObj      |
+| firebase.messaging     | \$fireMessObj      |
+| firebase.performance   | \$firePerfObj      |
+| firebase.analytics     | \$fireAnalyticsObj |
+| firebase.remoteConfig  | \$fireConfigObj    |
 
 ## Options
 
@@ -131,7 +142,7 @@ You can further access the objects like so:
 By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
 
 - type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics']`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig']`
 - required: `false`
 
 #### config[environment]
@@ -214,6 +225,20 @@ You can change the location with this option.
 - required: `false`
 
 More information [here](https://firebase.google.com/docs/functions/locations).
+
+#### remoteConfig
+You can custom the settings and default config.
+```js
+{
+  settings: {
+    fetchTimeoutMillis: 60000,
+    minimumFetchIntervalMillis: 43200000,
+  },
+  defaultConfig: {
+    'welcome_message': 'Welcome' // you can add another default config here
+  }
+}
+```
 
 ## Examples
 
