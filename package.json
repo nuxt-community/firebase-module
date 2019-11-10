@@ -11,11 +11,18 @@
   "keywords": [
     "nuxt, firebase"
   ],
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
     "nuxt": "^2.10.2",
     "firebase": "^7.3.0"
+  },
+  "devDependencies": {
+    "vuepress": "^1.2.0"
   }
 }
