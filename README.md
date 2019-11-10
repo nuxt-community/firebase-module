@@ -245,6 +245,8 @@ You can custom the settings and default config.
 
 #### initAuth (EXPERIMENTAL)
 
+> **Important:** This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. If you have any issues with the initAuth feature please let us know [here](/) and help us improve it.
+
 Set up SSR-ready onAuthStateChanged() without any effort.
 
 Just add a mutation/action to your vuex store that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the initAuth configuration as below:
