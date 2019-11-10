@@ -85,7 +85,8 @@ modules: [
           defaultConfig: {
             'welcome_message': 'Welcome'
           }
-        }
+        },
+        initAuth: null
       }
     ]
   ],
@@ -123,17 +124,17 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 
 You can further access the objects like so:
 
-| Firebase Obj           | Shortcut           |
-| ---------------------- | ------------------ |
-| firebase.auth          | \$fireAuthObj      |
-| firebase.database      | \$fireDbObj        |
-| firebase.firestore     | \$fireStoreObj     |
-| firebase.storage       | \$fireStorageObj   |
-| firebase.functions     | \$fireFuncObj      |
-| firebase.messaging     | \$fireMessObj      |
-| firebase.performance   | \$firePerfObj      |
-| firebase.analytics     | \$fireAnalyticsObj |
-| firebase.remoteConfig  | \$fireConfigObj    |
+| Firebase Obj          | Shortcut           |
+| --------------------- | ------------------ |
+| firebase.auth         | \$fireAuthObj      |
+| firebase.database     | \$fireDbObj        |
+| firebase.firestore    | \$fireStoreObj     |
+| firebase.storage      | \$fireStorageObj   |
+| firebase.functions    | \$fireFuncObj      |
+| firebase.messaging    | \$fireMessObj      |
+| firebase.performance  | \$firePerfObj      |
+| firebase.analytics    | \$fireAnalyticsObj |
+| firebase.remoteConfig | \$fireConfigObj    |
 
 ## Options
 
@@ -227,7 +228,9 @@ You can change the location with this option.
 More information [here](https://firebase.google.com/docs/functions/locations).
 
 #### remoteConfig
+
 You can custom the settings and default config.
+
 ```js
 {
   settings: {
@@ -238,6 +241,50 @@ You can custom the settings and default config.
     'welcome_message': 'Welcome' // you can add another default config here
   }
 }
+```
+
+#### initAuth
+
+Set up SSR-ready onAuthStateChanged() without any effort.
+
+Just add a mutation/action to your vuex store that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the initAuth configuration as below:
+
+```js
+initAuth: {
+  onSuccessMutation: 'SET_AUTH_USER',
+  onSuccessAction: null,
+  onErrorMutation: null,
+  onErrorAction: 'handleAuthError'
+}
+```
+
+When onAuthStateChanged() gets triggered by Firebase, the mutations/actions defined above will be called either on success or error with the following attributes:
+
+**onSuccessMutation & onSuccessAction:**  
+({ authUser, claims })
+
+**onErrorMutation & onErrorAction:**  
+(error)
+
+## Helpers
+
+### movePluginBeforeInitAuthPlugin(plugins, pluginName)
+
+If the initAuth config is set, nuxt-fire will add two (instead of one) plugins to your Nuxt application: **nuxt-fire/plugins/main.js** and **nuxt-fire/plugins/initAuth.js**.
+
+If you use initAuth and want another plugin to be called AFTER firebase initialization but BEFORE initAuth gets called, you can use this helper function to move the other plugin inbetween these two.
+
+Just add the following to your nuxt.config.js:
+
+```js
+import { movePluginBeforeInitAuthPlugin } from 'nuxt-fire/helpers'
+
+...
+extendPlugins(plugins) {
+  movePluginBeforeInitAuthPlugin(plugins, 'yourPluginName.js')
+  return plugins
+},
+...
 ```
 
 ## Examples
