@@ -74,10 +74,26 @@ export default function nuxtFire(moduleOptions) {
     )
   }
 
-  // Register plugin
+  // Add Helper File
+  this.addTemplate({
+    src: path.resolve(__dirname, 'helpers/index.js'),
+    fileName: 'nuxt-fire/helpers/index.js'
+  })
+
+  // Register initAuth plugin
+  if (options.useOnly.includes('auth') && options.initAuth !== null) {
+    this.addPlugin({
+      src: path.resolve(__dirname, 'plugins/initAuth.js'),
+      fileName: 'nuxt-fire/initAuth.js',
+      options: options.initAuth,
+      ssr: false
+    })
+  }
+
+  // Register main nuxt-fire plugin
   this.addPlugin({
-    src: path.resolve(__dirname, 'plugin.js'),
-    fileName: 'nuxt-fire.js',
+    src: path.resolve(__dirname, 'plugins/main.js'),
+    fileName: 'nuxt-fire/main.js',
     ssr: true,
     options
   })
