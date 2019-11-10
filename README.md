@@ -243,7 +243,7 @@ You can custom the settings and default config.
 }
 ```
 
-#### initAuth
+#### initAuth (EXPERIMENTAL)
 
 Set up SSR-ready onAuthStateChanged() without any effort.
 
