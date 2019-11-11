@@ -1,9 +1,15 @@
 const options = <%= serialize(options) %>
 const version = options.firebaseVersion
 const messagingSenderId = options.messagingSenderId
+const onFirebaseHosting = options.onFirebaseHosting
 
-// Get ENV && set messagingSenderId
-if (this.location.hostname === 'localhost') {
+if (onFirebaseHosting) {
+  // Only works on Firebase hosting!
+  importScripts('/__/firebase/' + version + '/firebase-app.js')
+  importScripts('/__/firebase/' + version + '/firebase-messaging.js')
+  importScripts('/__/firebase/init.js')
+}
+else {
   importScripts(
     'https://www.gstatic.com/firebasejs/' + version + '/firebase-app.js'
   )
@@ -13,13 +19,7 @@ if (this.location.hostname === 'localhost') {
   firebase.initializeApp({
     messagingSenderId: messagingSenderId
   })
-} else {
-  // Only works on Firebase hosting!
-  // other option, add PRD messagingSenderId = '337088779183' and do the same
-  importScripts('/__/firebase/' + version + '/firebase-app.js')
-  importScripts('/__/firebase/' + version + '/firebase-messaging.js')
-  importScripts('/__/firebase/init.js')
-}
+} 
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
