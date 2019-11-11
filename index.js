@@ -74,6 +74,21 @@ export default function nuxtFire(moduleOptions) {
     )
   }
 
+  // Add Messaging Service Worker
+  if (options.initMessaging) {
+    this.addTemplate({
+      src: path.resolve(__dirname, 'templates/firebase-messaging-sw.js'),
+      fileName: path.resolve(
+        this.options.dir.static,
+        'firebase-messaging-sw.js'
+      ),
+      options: {
+        firebaseVersion: '7.3.0',
+        messagingSenderId: options.config[options.currentEnv].messagingSenderId
+      }
+    })
+  }
+
   // Add Helper File
   this.addTemplate({
     src: path.resolve(__dirname, 'helpers/index.js'),

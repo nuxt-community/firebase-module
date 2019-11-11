@@ -65,7 +65,9 @@ modules: [
             'welcome_message': 'Welcome'
           }
         },
-        initAuth: null
+        // Experimental Features - use with caution:
+        initAuth: null,
+        initMessaging: false
       }
     ]
   ],

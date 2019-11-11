@@ -108,7 +108,7 @@ You can customize how remoteConfig should be initialized with the following sett
 ## initAuth (EXPERIMENTAL)
 
 ::: warning
-This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. If you have any issues with the initAuth feature please let us know [here](https://github.com/lupas/nuxt-fire/issues/53) and help us improve it.
+EXPERIMENTAL FEATURE: This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. Please only use it for test purposes. If you have any issues with the initAuth feature please let us know [here](https://github.com/lupas/nuxt-fire/issues/53) and help us improve it.
 :::
 
 Set up SSR-ready onAuthStateChanged() without any effort.
@@ -131,3 +131,26 @@ When onAuthStateChanged() gets triggered by Firebase, the mutations/actions defi
 
 **onErrorMutation & onErrorAction:**  
 (error)
+
+## initMessaging (EXPERIMENTAL)
+
+::: warning
+EXPERIMENTAL FEATURE: This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. Please only use it for test purposes. If you have any issues with the initAuth feature please let us know [here](https://github.com/lupas/nuxt-fire/issues) and help us improve it.
+:::
+
+Set up Firebase Messaging without any boilerplate code.
+
+```js
+initMessaging: true
+```
+
+Setting the \__initMessaging_ flag to true automatically creates a service worker called `firebase-messaging-sw.js` i nyour static folder. The service worker is fully configured for FCM with the newest Firebase scripts.
+
+The option does so far:
+
+- Create a service worker.
+
+Planned features:
+
+- Create a plugin that initializes messaging & listeners.
+- Maybe add helper functions that make the implementation as easy as possible.
