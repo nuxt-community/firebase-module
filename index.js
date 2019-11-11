@@ -82,7 +82,10 @@ export default function nuxtFire(moduleOptions) {
         this.options.dir.static,
         'firebase-messaging-sw.js'
       ),
-      options: options.initMessaging
+      options: {
+        firebaseVersion: '7.3.0',
+        messagingSenderId: options.currentEnv.messagingSenderId
+      }
     })
   }
 

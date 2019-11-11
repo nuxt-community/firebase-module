@@ -1,5 +1,5 @@
 const options = <%= serialize(options) %>
-const version = options.firebaseVersion ? options.firebaseVersion : '7.3.0'
+const version = options.firebaseVersion
 const messagingSenderId = options.messagingSenderId
 
 // Get ENV && set messagingSenderId
