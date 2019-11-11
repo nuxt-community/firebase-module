@@ -84,7 +84,7 @@ export default function nuxtFire(moduleOptions) {
       ),
       options: {
         firebaseVersion: '7.3.0',
-        messagingSenderId: options.currentEnv.messagingSenderId
+        messagingSenderId: options.config[options.currentEnv].messagingSenderId
       }
     })
   }
