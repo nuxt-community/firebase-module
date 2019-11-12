@@ -26,20 +26,22 @@ else {
 const messaging = firebase.messaging()
 
 messaging.setBackgroundMessageHandler(function(payload) {
-  const data = payload.data
-  const notificationTitle = data.title
+  console.info("SW received the message: ", payload);
+  const notification = payload.notification;
+
+  const notificationTitle = notification.title;
   const notificationOptions = {
-    body: data.message,
-    icon: data.iconPath,
-    vibrate: [200, 100, 200, 100, 200, 100, 200],
+    body: notification.body,
+    icon: notification.image,
+    vibrate: notification.vibrate || [200, 100, 200, 100, 200, 100, 200],
     actions: [
-      // See MARK 1 -> First item is always taken as click action
+      // First item is always taken as click action (see comment below)
       {
-        title: 'Visit',
-        action: data.clickPath
+        title: "Visit",
+        action: notification.clickPath
       }
     ]
-  }
+  };
   return self.registration.showNotification(
     notificationTitle,
     notificationOptions
