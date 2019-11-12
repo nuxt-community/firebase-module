@@ -3,10 +3,11 @@ import firebase from 'firebase/app'
 export default async (ctx, inject) => {
 
   const options = <%= serialize(options) %>
+  const firebaseConfig = options.config[options.currentEnv]
 
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {
-    firebase.initializeApp(options.config[options.currentEnv])
+    firebase.initializeApp(firebaseConfig)
   }
 
   if (options.useOnly.includes('auth')) {
@@ -61,6 +62,11 @@ export default async (ctx, inject) => {
     if (firebase.messaging.isSupported()) {
       const fireMess = firebase.messaging()
       const fireMessObj = firebase.messaging
+
+      if (firebaseConfig.fcmPublicVapidKey) {
+        fireMess.usePublicVapidKey(firebaseConfig.fcmPublicVapidKey)
+      }
+      
       inject('fireMess', fireMess)
       inject('fireMessObj', fireMessObj)
     }

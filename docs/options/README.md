@@ -16,6 +16,7 @@ Your firebase config snippet. You can retrieve this information from your Fireba
 
 ```js
 {
+  // REQUIRED: Official config for firebase.initializeApp(config):
   apiKey: '<apiKey>',
   authDomain: '<authDomain>',
   databaseURL: '<databaseURL>',
@@ -24,6 +25,8 @@ Your firebase config snippet. You can retrieve this information from your Fireba
   messagingSenderId: '<messagingSenderId>',
   appId: '<appId>',
   measurementId: '<measurementId>'
+  // OPTIONAL: Additional config for other services:
+  fcmPublicVapidKey: '<publicVapidKey>' // Sets vapid key for FCM afer initialization
 }
 ```
 
@@ -45,7 +48,7 @@ If you decide to turn on this option, you need to add the following code to your
 
 ```js
 env: {
-  FIRE_ENV: process.env.FIRE_ENV
+  FIRE_ENV: process.env.FIRE_ENV;
 }
 ```
 
@@ -141,7 +144,7 @@ EXPERIMENTAL FEATURE: This feature has not been fully tested for all cases, use 
 Set up Firebase Messaging without any boilerplate code.
 
 ```js
-initMessaging: true
+initMessaging: true;
 ```
 
 Setting the \__initMessaging_ flag to true automatically creates a service worker called `firebase-messaging-sw.js` i nyour static folder. The service worker is fully configured for FCM with the newest Firebase scripts.
