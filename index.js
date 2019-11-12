@@ -41,7 +41,7 @@ export default function nuxtFire(moduleOptions) {
     return
   }
 
-  if (requiredKeys.some(k => !configKeys.includes(k))) {
+  if (requiredKeys.some((k) => !configKeys.includes(k))) {
     //TODO: Replace with @nuxtjs/plugin-utils error
     console.error(
       '\x1b[31m',
@@ -85,7 +85,7 @@ export default function nuxtFire(moduleOptions) {
       options: {
         firebaseVersion: '7.3.0',
         messagingSenderId: options.config[options.currentEnv].messagingSenderId,
-        onFirebaseHosting: false
+        onFirebaseHosting: false // TODO: Add as option
       }
     })
   }
