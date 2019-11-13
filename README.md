@@ -21,7 +21,7 @@ Install Nuxt-Fire via NPM or Yarn:
 yarn add nuxt-fire # OR npm i nuxt-fire
 ```
 
-## Quick Config
+## Quick Config
 
 Add the following to your nuxt.config.js.
 
@@ -60,7 +60,7 @@ modules: [
   ],
 ```
 
-## Quick Usage
+## Quick Usage
 
 Now you can use all Firebase services with `$this.Auth`, `this.$fireStore` etc. (see list [here](https://nuxtfire.netlify.com/usage/)
 
