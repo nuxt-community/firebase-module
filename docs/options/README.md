@@ -1,18 +1,12 @@
 # Options
 
-## useOnly
+## config[environment] <Badge text="REQUIRED" type="tip"/>
 
-By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
-
-- type: `Array<string>`
-- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig']`
-- required: `false`
-
-## config[environment]
-
-Your firebase config snippet. You can retrieve this information from your Firebase project's overview page:
+Your firebase config snippet and other Firebase specific configs. You can retrieve this information from your Firebase project's overview page:
 
 `https://console.firebase.google.com/project/<your-project-id>/overview`
+
+Must be defined **per environment** existing in NODE_ENV, or custom environment specified in the [customEnv](/options/#customenv) option below.
 
 ```js
 {
@@ -31,6 +25,18 @@ Your firebase config snippet. You can retrieve this information from your Fireba
 ```
 
 `config.production` gets loaded when `NODE_ENV === 'production', same applies to 'development' and any other values that you set in NODE_ENV.
+
+## useOnly
+
+By default, all supported Firebase products are loaded. If you only wish to load certain products (recommended!), add the `useOnly` option.
+
+- type: `Array<string>`
+- default: `['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig']`
+- required: `false`
+
+::: tip RECOMMENDED
+We highly recommend you to use this option to reduce your bundle size.
+:::
 
 ## customEnv
 
@@ -108,10 +114,10 @@ You can customize how remoteConfig should be initialized with the following sett
 }
 ```
 
-## initAuth (EXPERIMENTAL)
+## initAuth <Badge text="EXPERIMENTAL" type="warn"/>
 
-::: warning
-EXPERIMENTAL FEATURE: This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. Please only use it for test purposes. If you have any issues with the initAuth feature please let us know [here](https://github.com/lupas/nuxt-fire/issues/53) and help us improve it.
+::: warning <Badge text="EXPERIMENTAL FEATURE" type="warn"/>
+This feature is experimental and has not been fully tested for all cases. Use it with care and don't use it in production environemnts. It might get changed completely in future updates. If you have any issues or questions for this feature please feel free to create an issue [here](https://github.com/lupas/nuxt-fire/issues) to help us improve it.
 :::
 
 Set up SSR-ready onAuthStateChanged() without any effort.
@@ -135,10 +141,10 @@ When onAuthStateChanged() gets triggered by Firebase, the mutations/actions defi
 **onErrorMutation & onErrorAction:**  
 (error)
 
-## initMessaging (EXPERIMENTAL)
+## initMessaging <Badge text="EXPERIMENTAL" type="warn"/>
 
-::: warning
-EXPERIMENTAL FEATURE: This feature has not been fully tested for all cases, use it with care. It might get changed completely in future updates. Please only use it for test purposes. If you have any issues with the initAuth feature please let us know [here](https://github.com/lupas/nuxt-fire/issues) and help us improve it.
+::: warning <Badge text="EXPERIMENTAL FEATURE" type="warn"/>
+This feature is experimental and has not been fully tested for all cases. Use it with care and don't use it in production environemnts. It might get changed completely in future updates. If you have any issues or questions for this feature please feel free to create an issue [here](https://github.com/lupas/nuxt-fire/issues) to help us improve it.
 :::
 
 Set up Firebase Messaging without any boilerplate code.
