@@ -62,10 +62,16 @@ modules: [
 
 ## Quick Usage
 
-Now you can use all Firebase services with `$this.Auth`, `this.$fireStore` etc. (see list [here](https://nuxtfire.netlify.com/usage/)
+Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://nuxtfire.netlify.com/usage/)).
 
-```bash
-yarn add nuxt-fire # OR npm i nuxt-fire
+Example:
+
+```js
+try {
+  await this.$fireAuth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
+} catch (e) {
+  handleError(e)
+}
 ```
 
 ## Advanced Setup
