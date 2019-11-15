@@ -12,11 +12,7 @@ export default function nuxtFire(moduleOptions) {
 
   // If in CustomEnv Mode: Check if FIRE_ENV is set.
   if (options.customEnv && !process.env.FIRE_ENV) {
-    //TODO: Replace with @nuxtjs/plugin-utils error
-    return console.error(
-      '\x1b[31m',
-      `Nuxt-Fire Error: CustomEnv mode requires FIRE_ENV to be set.`
-    )
+    return handleError(`CustomEnv mode requires FIRE_ENV to be set.`)
   }
 
   // Check if needed config is correctly set
@@ -30,21 +26,11 @@ export default function nuxtFire(moduleOptions) {
     'storageBucket',
     'messagingSenderId',
     'appId'
+    // measurementId - not a must
   ]
 
-  if (!configKeys.includes('appId')) {
-    // TODO: Delete after v3.0.0
-    console.error(
-      '\x1b[31m',
-      `Nuxt-Fire Error: Since v2.0.0 you must update your Firebase config object to include your 'appID'. See Release notes.!`
-    )
-    return
-  }
-
   if (requiredKeys.some((k) => !configKeys.includes(k))) {
-    //TODO: Replace with @nuxtjs/plugin-utils error
-    console.error(
-      '\x1b[31m',
+    handleError(
       `Nuxt-Fire Error: Missing or incomplete config for current environment '${currentEnv}'!`
     )
     return
@@ -68,8 +54,7 @@ export default function nuxtFire(moduleOptions) {
     !configKeys.includes('measurementId') &&
     options.useOnly.includes('analytics')
   ) {
-    console.warn(
-      '\x1b[33m',
+    handleWarning(
       `Nuxt-Fire Warning: Missing measurementId configuration value. Analytics will be non-functional.`
     )
   }
@@ -113,6 +98,16 @@ export default function nuxtFire(moduleOptions) {
     ssr: true,
     options
   })
+}
+
+function handleWarning(message) {
+  const color = '\x1b[33m'
+  console.warn(color, `Nuxt-Fire Warning: ${message}`)
+}
+
+function handleError(message) {
+  const color = '\x1b[31m'
+  console.error(color, `Nuxt-Fire Error: ${message}`)
 }
 
 module.exports.meta = require('./package.json')
