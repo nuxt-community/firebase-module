@@ -3,7 +3,7 @@
   "platforms": ["Web"],
   "content": "README.md",
   "pages": [],
-  "related": [],
+  "related": ["lupas/nuxt-fire-demo"],
   "tabs": [
     {
       "title": "Nuxt.js (v2), Firestore & SSR",

@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-fire",
+  "version": "3.0.0",
+  "license": "MIT",
+  "description": "Intergrate Firebase into your Nuxt project.",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "author": "Pascal Luther",
+  "repository": "https://github.com/lupas/nuxt-fire",
+  "homepage": "https://github.com/lupas",
+  "keywords": [
+    "nuxt, firebase"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "nuxt": "^2.10.2",
+    "firebase": "^7.3.0"
+  }
+}
