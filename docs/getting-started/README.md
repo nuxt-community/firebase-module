@@ -9,7 +9,7 @@ yarn add nuxt # OR npm i nuxt
 yarn add firebase # OR npm i firebase
 ```
 
-## How to install
+## Install
 
 Install Nuxt-Fire via NPM or Yarn.
 
@@ -17,11 +17,35 @@ Install Nuxt-Fire via NPM or Yarn.
 yarn add nuxt-fire # OR npm i nuxt-fire
 ```
 
-## How to configure
+## Configure
 
 Add the below code to your **nuxt.config.js** modules array and adjust it according to your needs.
 
 Visit the [config section](/config) for a detailed overview about each configuration.
+
+### Simple Configuration
+
+```js
+modules: [
+    [
+      'nuxt-fire',
+      {
+        config: {
+          apiKey: '<apiKey>',
+          authDomain: '<authDomain>',
+          databaseURL: '<databaseURL>',
+          projectId: '<projectId>',
+          storageBucket: '<storageBucket>',
+          messagingSenderId: '<messagingSenderId>',
+          appId: '<appId>',
+          measurementId: '<measurementId>'
+        }
+      }
+    ]
+  ],
+```
+
+### Advanced Configuration
 
 ```js
 modules: [
@@ -30,27 +54,14 @@ modules: [
       {
         // Required:
         config: {
-          development: {
-            apiKey: '<apiKey>',
-            authDomain: '<authDomain>',
-            databaseURL: '<databaseURL>',
-            projectId: '<projectId>',
-            storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>',
-            appId: '<appId>',
-            measurementId: '<measurementId>'
-
-          },
-          production: {
-            apiKey: '<apiKey>',
-            authDomain: '<authDomain>',
-            databaseURL: '<databaseURL>',
-            projectId: '<projectId>',
-            storageBucket: '<storageBucket>',
-            messagingSenderId: '<messagingSenderId>',
-            appId: '<appId>',
-            measurementId: '<measurementId>'
-          }
+          apiKey: '<apiKey>',
+          authDomain: '<authDomain>',
+          databaseURL: '<databaseURL>',
+          projectId: '<projectId>',
+          storageBucket: '<storageBucket>',
+          messagingSenderId: '<messagingSenderId>',
+          appId: '<appId>',
+          measurementId: '<measurementId>'
         },
         // The following options are optional:
         useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig'],

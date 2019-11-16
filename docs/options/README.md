@@ -1,12 +1,10 @@
 # Options
 
-## config[environment] <Badge text="REQUIRED" type="tip"/>
+## config <Badge text="REQUIRED" type="tip"/>
 
-Your firebase config snippet and other Firebase specific configs. You can retrieve this information from your Firebase project's overview page:
+Your firebase config snippet and other Firebase specific parameters. You can retrieve this information from your Firebase project's overview page:
 
 `https://console.firebase.google.com/project/<your-project-id>/overview`
-
-Must be defined **per environment** existing in NODE_ENV, or custom environment specified in the [customEnv](/options/#customenv) option below.
 
 ```js
 {
@@ -18,13 +16,17 @@ Must be defined **per environment** existing in NODE_ENV, or custom environment 
   storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>',
   appId: '<appId>',
-  measurementId: '<measurementId>'
+  measurementId: '<measurementId>',
   // OPTIONAL: Additional config for other services:
-  fcmPublicVapidKey: '<publicVapidKey>' // Sets vapid key for FCM afer initialization
+  fcmPublicVapidKey: '<publicVapidKey>' // Sets vapid key for FCM after initialization
 }
 ```
 
-`config.production` gets loaded when `NODE_ENV === 'production', same applies to 'development' and any other values that you set in NODE_ENV.
+::: tip
+Can be defined **per NODE_ENV environment** if put in child-objects `config.production` and `config.development`, meaning that e.g. `config.production` gets loaded when `NODE_ENV === 'production'`.
+
+You can also specify multiple custom environments as mentioned in the [customEnv](/options/#customenv) option below.
+:::
 
 ## useOnly
 
@@ -40,7 +42,7 @@ We highly recommend you to use this option to reduce your bundle size.
 
 ## customEnv
 
-By default, the Firebase config will be chosen based on the NODE_ENV environment variable.
+By default, the Firebase config will be chosen either directly from the config-object or from a child-object named after the current NODE_ENV environment variable.
 
 If customEnv is set to true, however, nuxt-fire will determine the environment based on the environment variable called FIRE_ENV, which you can define yourself. This gives you the flexibility to define as many different Firebase configs as you like, independent of your NODE_ENV.
 
