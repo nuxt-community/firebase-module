@@ -54,14 +54,26 @@ modules: [
       {
         // Required:
         config: {
-          apiKey: '<apiKey>',
-          authDomain: '<authDomain>',
-          databaseURL: '<databaseURL>',
-          projectId: '<projectId>',
-          storageBucket: '<storageBucket>',
-          messagingSenderId: '<messagingSenderId>',
-          appId: '<appId>',
-          measurementId: '<measurementId>'
+          production: {
+            apiKey: '<apiKey>',
+            authDomain: '<authDomain>',
+            databaseURL: '<databaseURL>',
+            projectId: '<projectId>',
+            storageBucket: '<storageBucket>',
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>',
+            measurementId: '<measurementId>'
+          },
+          development: {
+            apiKey: '<apiKey>',
+            authDomain: '<authDomain>',
+            databaseURL: '<databaseURL>',
+            projectId: '<projectId>',
+            storageBucket: '<storageBucket>',
+            messagingSenderId: '<messagingSenderId>',
+            appId: '<appId>',
+            measurementId: '<measurementId>'
+          }
         },
         // The following options are optional:
         useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig'],
