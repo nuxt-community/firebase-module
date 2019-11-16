@@ -4,7 +4,7 @@
 
 > Easily integrate Firebase into your Nuxt 2 project.
 
-📖 [**Read Full Documentation**](https://nuxtfire.netlify.com/)
+📖 [**Read Full Documentation**](https://nuxtfire.netlify.com/)  
 📖 [**Visit GitHub Page**](https://github.com/lupas/nuxt-fire)
 
 ## Quick Setup
