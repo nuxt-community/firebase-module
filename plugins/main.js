@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 export default async (ctx, inject) => {
 
   const options = <%= serialize(options) %>
-  const firebaseConfig = options.config[options.currentEnv]
+  const firebaseConfig = options.config
 
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {

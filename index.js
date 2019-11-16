@@ -15,8 +15,13 @@ export default function nuxtFire(moduleOptions) {
     return handleError(`CustomEnv mode requires FIRE_ENV to be set.`)
   }
 
+  // If config is setup within an environment object, use that.
+  if (options.config[currentEnv]) {
+    options.config = options.config[currentEnv]
+  }
+
   // Check if needed config is correctly set
-  const configKeys = Object.keys(options.config[currentEnv] || false)
+  const configKeys = Object.keys(options.config || false)
 
   const requiredKeys = [
     'apiKey',
@@ -69,7 +74,7 @@ export default function nuxtFire(moduleOptions) {
       ),
       options: {
         firebaseVersion: '7.3.0',
-        messagingSenderId: options.config[options.currentEnv].messagingSenderId,
+        messagingSenderId: options.config.messagingSenderId,
         onFirebaseHosting: false // TODO: Add as option
       }
     })
