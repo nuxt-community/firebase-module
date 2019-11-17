@@ -115,4 +115,4 @@ function handleError(message) {
   console.error(color, `Nuxt-Fire Error: ${message}`)
 }
 
-module.exports.meta = require('./package.json')
+module.exports.meta = require('./../package.json')
