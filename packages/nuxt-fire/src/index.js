@@ -36,7 +36,7 @@ export default function nuxtFire(moduleOptions) {
 
   if (requiredKeys.some((k) => !configKeys.includes(k))) {
     handleError(
-      `Nuxt-Fire Error: Missing or incomplete config for current environment '${currentEnv}'!`
+      `Missing or incomplete config for current environment '${currentEnv}'!`
     )
     return
   }
@@ -60,7 +60,7 @@ export default function nuxtFire(moduleOptions) {
     options.useOnly.includes('analytics')
   ) {
     handleWarning(
-      `Nuxt-Fire Warning: Missing measurementId configuration value. Analytics will be non-functional.`
+      `Missing measurementId configuration value. Analytics will be non-functional.`
     )
   }
 
@@ -107,12 +107,11 @@ export default function nuxtFire(moduleOptions) {
 
 function handleWarning(message) {
   const color = '\x1b[33m'
-  console.warn(color, `Nuxt-Fire Warning: ${message}`)
+  console.warn(color, `(Nuxt-Fire) ${message}`)
 }
 
 function handleError(message) {
-  const color = '\x1b[31m'
-  console.error(color, `Nuxt-Fire Error: ${message}`)
+  throw new Error(`(Nuxt-Fire) ${message}`)
 }
 
 module.exports.meta = require('./../package.json')
