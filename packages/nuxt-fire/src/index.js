@@ -1,71 +1,19 @@
 import path from 'path'
+import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
+  const firebaseVersion = '7.3.0' // TODO: Update with each Firebase update
+  const currentEnv = getCurrentEnv(options)
 
-  // Set environment
-  let currentEnv = process.env.FIRE_ENV
-  if (!options.customEnv || !currentEnv) {
-    currentEnv = process.env.NODE_ENV
-  }
-  options.currentEnv = currentEnv
+  options.useOnly = rebuildUseOnly(options)
+  validateOptions(options)
 
-  // If in CustomEnv Mode: Check if FIRE_ENV is set.
-  if (options.customEnv && !process.env.FIRE_ENV) {
-    return handleError(`CustomEnv mode requires FIRE_ENV to be set.`)
-  }
+  options.config = rebuildConfig(options.config, currentEnv)
+  validateConfigKeys(options, currentEnv)
 
-  // If config is setup within an environment object, use that.
-  if (options.config[currentEnv]) {
-    options.config = options.config[currentEnv]
-  }
-
-  // Check if needed config is correctly set
-  const configKeys = Object.keys(options.config || false)
-
-  const requiredKeys = [
-    'apiKey',
-    'authDomain',
-    'databaseURL',
-    'projectId',
-    'storageBucket',
-    'messagingSenderId',
-    'appId'
-    // measurementId - not a must
-  ]
-
-  if (requiredKeys.some((k) => !configKeys.includes(k))) {
-    handleError(
-      `Missing or incomplete config for current environment '${currentEnv}'!`
-    )
-    return
-  }
-
-  // If 'useOnly' option is not provided, load all Firebase products
-  if (!options.useOnly) {
-    options.useOnly = [
-      'auth',
-      'firestore',
-      'functions',
-      'storage',
-      'realtimeDb',
-      'messaging',
-      'performance',
-      'analytics'
-    ]
-  }
-
-  if (
-    !configKeys.includes('measurementId') &&
-    options.useOnly.includes('analytics')
-  ) {
-    handleWarning(
-      `Missing measurementId configuration value. Analytics will be non-functional.`
-    )
-  }
-
-  // Add Messaging Service Worker
   if (options.initMessaging) {
+    // Add Messaging Service Worker
     this.addTemplate({
       src: path.resolve(__dirname, 'templates/firebase-messaging-sw.js'),
       fileName: path.resolve(
@@ -73,7 +21,7 @@ export default function nuxtFire(moduleOptions) {
         'firebase-messaging-sw.js'
       ),
       options: {
-        firebaseVersion: '7.3.0',
+        firebaseVersion,
         messagingSenderId: options.config.messagingSenderId,
         onFirebaseHosting: false // TODO: Add as option
       }
@@ -86,8 +34,8 @@ export default function nuxtFire(moduleOptions) {
     fileName: 'nuxt-fire/helpers/index.js'
   })
 
-  // Register initAuth plugin
-  if (options.useOnly.includes('auth') && options.initAuth !== null) {
+  if (options.useOnly.includes('auth') && !isEmpty(options.initAuth)) {
+    // Register initAuth plugin
     this.addPlugin({
       src: path.resolve(__dirname, 'plugins/initAuth.js'),
       fileName: 'nuxt-fire/initAuth.js',
@@ -103,6 +51,132 @@ export default function nuxtFire(moduleOptions) {
     ssr: true,
     options
   })
+}
+
+/**
+ * ...
+ * ...
+ * See: ...
+ */
+function validateOptions(options) {
+  const messagingEnabled = options.useOnly.includes('messaging')
+  const authEnabled = options.useOnly.includes('auth')
+
+  if (isEmpty(options)) {
+    return handleError(
+      `Options are missing or empty, add at least the Firebase config parameters in your nuxt.config.js file.`
+    )
+  }
+
+  if (isEmpty(options.config)) {
+    return handleError(
+      `Firebase config not set properly in nuxt.config.js, config object is missing.`
+    )
+  }
+
+  if (options.customEnv && !process.env.FIRE_ENV) {
+    return handleError(
+      `CustomEnv mode requires process.env.FIRE_ENV variable to be set.`
+    )
+  }
+
+  if (options.initMessaging && !messagingEnabled) {
+    return handleError(
+      `InitMessaging option can only be enabled when 'messaging' is set in useOnly.`
+    )
+  }
+
+  if (options.initAuth !== null && !authEnabled) {
+    return handleError(
+      `InitAuth option can only be enabled when 'auth' is set in useOnly.`
+    )
+  }
+}
+
+/**
+ * ...
+ * ...
+ * See: ...
+ */
+function getCurrentEnv(options) {
+  if (options.customEnv) {
+    return process.env.FIRE_ENV
+  }
+  return process.env.NODE_ENV
+}
+
+/**
+ * If config is setup within an environment object that is equal to the current environment
+ * we set that as the new options.config.
+ * Otherwise, we expect the keys to be set directly in options.config already.
+ * See: ...
+ */
+function rebuildConfig(config, currentEnv) {
+  if (config && config[currentEnv]) {
+    return config[currentEnv]
+  }
+  return config
+}
+
+/**
+ * ...
+ * ...
+ * ...
+ * See: ...
+ */
+function rebuildUseOnly(options) {
+  // If 'useOnly' option is not provided, load all Firebase products
+  if (isEmpty(options.useOnly)) {
+    return [
+      'auth',
+      'firestore',
+      'functions',
+      'storage',
+      'realtimeDb',
+      'messaging',
+      'performance',
+      'analytics'
+    ]
+  }
+  return options.useOnly
+}
+
+/**
+ * Checks the config keys for the current environment in the nuxt.config.js file.
+ * Breaks if a key is missing.
+ * See: ...
+ */
+function validateConfigKeys(options, currentEnv) {
+  const configKeys = Object.keys(options.config || false)
+
+  const requiredKeys = [
+    'apiKey',
+    'authDomain',
+    'databaseURL',
+    'projectId',
+    'storageBucket',
+    'messagingSenderId',
+    'appId'
+    // 'measurementId' - not a must without Analytics, we throw a warning below
+    // 'fcmPublicVapidKey' - not required
+  ]
+
+  // If one of the required keys is missing, throw an error:
+  if (requiredKeys.some((k) => !configKeys.includes(k))) {
+    return handleError(
+      `Missing or incomplete config for current environment '${currentEnv}'!`
+    )
+  }
+
+  // Only if Analytics is enabled and the measurementId key is missing, throw an error.
+  if (
+    options.useOnly.includes('analytics') &&
+    !configKeys.includes('measurementId')
+  ) {
+    return handleWarning(
+      `Missing measurementId configuration value. Analytics will be non-functional.`
+    )
+  }
 }
 
 function handleWarning(message) {
