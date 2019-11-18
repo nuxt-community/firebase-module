@@ -28,12 +28,6 @@ export default function nuxtFire(moduleOptions) {
     })
   }
 
-  // Add Helper File
-  this.addTemplate({
-    src: path.resolve(__dirname, 'helpers/index.js'),
-    fileName: 'nuxt-fire/helpers/index.js'
-  })
-
   if (options.useOnly.includes('auth') && !isEmpty(options.initAuth)) {
     // Register initAuth plugin
     this.addPlugin({
