@@ -6,10 +6,10 @@ export default function nuxtFire(moduleOptions) {
   const firebaseVersion = '7.3.0' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
-  options.useOnly = rebuildUseOnly(options)
+  options.useOnly = getFinalUseOnlyObject(options)
   validateOptions(options)
 
-  options.config = rebuildConfig(options.config, currentEnv)
+  options.config = getFinalUseConfigObject(options.config, currentEnv)
   validateConfigKeys(options, currentEnv)
 
   if (options.initMessaging) {
@@ -54,9 +54,9 @@ export default function nuxtFire(moduleOptions) {
 }
 
 /**
- * ...
- * ...
- * See: ...
+ * Validates the options defined by the user and throws an error is something is
+ * missing or wrongly set up.
+ * See: https://nuxtfire.netlify.com/options/
  */
 function validateOptions(options) {
   const messagingEnabled = options.useOnly.includes('messaging')
@@ -94,9 +94,9 @@ function validateOptions(options) {
 }
 
 /**
- * ...
- * ...
- * See: ...
+ * Either gets the current environment from the FIRE_ENV env variable
+ * or the NODE_ENV variable, depending on setup.
+ * See: https://nuxtfire.netlify.com/options/#customenv
  */
 function getCurrentEnv(options) {
   if (options.customEnv) {
@@ -109,9 +109,9 @@ function getCurrentEnv(options) {
  * If config is setup within an environment object that is equal to the current environment
  * we set that as the new options.config.
  * Otherwise, we expect the keys to be set directly in options.config already.
- * See: ...
+ * See: https://nuxtfire.netlify.com/options/#config
  */
-function rebuildConfig(config, currentEnv) {
+function getFinalUseConfigObject(config, currentEnv) {
   if (config && config[currentEnv]) {
     return config[currentEnv]
   }
@@ -119,12 +119,10 @@ function rebuildConfig(config, currentEnv) {
 }
 
 /**
- * ...
- * ...
- * ...
- * See: ...
+ * If use only is missing, set "useOnly" to include all Firebase services.
+ * See: https://nuxtfire.netlify.com/options/#useonly
  */
-function rebuildUseOnly(options) {
+function getFinalUseOnlyObject(options) {
   // If 'useOnly' option is not provided, load all Firebase products
   if (isEmpty(options.useOnly)) {
     return [
@@ -142,9 +140,9 @@ function rebuildUseOnly(options) {
 }
 
 /**
- * Checks the config keys for the current environment in the nuxt.config.js file.
- * Breaks if a key is missing.
- * See: ...
+ * Checks the Firebase config for the current environment in the nuxt.config.js file.
+ * Breaks if a required key is missing.
+ * See: https://nuxtfire.netlify.com/options/#config
  */
 function validateConfigKeys(options, currentEnv) {
   const configKeys = Object.keys(options.config || false)
