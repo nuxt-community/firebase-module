@@ -160,6 +160,10 @@ function handleWarning(message) {
 }
 
 function handleError(message) {
+  // TODO: Delete warning by the end of 2019
+  handleWarning(
+    `Nuxt-fire 3.0.0 introduced a new layout of the configuration of this module. Please relate to https://nuxtfire.netlify.com/options to reconfigure your options.`
+  )
   throw new Error(`(Nuxt-Fire) ${message}`)
 }
 
