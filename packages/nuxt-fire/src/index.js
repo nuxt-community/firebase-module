@@ -6,13 +6,13 @@ export default function nuxtFire(moduleOptions) {
   const firebaseVersion = '7.3.0' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
-  options.useOnly = getFinalUseOnlyObject(options)
   validateOptions(options)
 
   options.config = getFinalUseConfigObject(options.config, currentEnv)
   validateConfigKeys(options, currentEnv)
 
-  if (options.initMessaging) {
+  const messaging = options.services.messaging
+  if (messaging && messaging.createServiceWorker) {
     // Add Messaging Service Worker
     this.addTemplate({
       src: path.resolve(__dirname, 'templates/firebase-messaging-sw.js'),
@@ -23,17 +23,18 @@ export default function nuxtFire(moduleOptions) {
       options: {
         firebaseVersion,
         messagingSenderId: options.config.messagingSenderId,
-        onFirebaseHosting: false // TODO: Add as option
+        onFirebaseHosting: messaging.onFirebaseHosting || false
       }
     })
   }
 
-  if (options.useOnly.includes('auth') && !isEmpty(options.initAuth)) {
+  const auth = options.services.auth
+  if (auth && !isEmpty(auth.initialize)) {
     // Register initAuth plugin
     this.addPlugin({
       src: path.resolve(__dirname, 'plugins/initAuth.js'),
       fileName: 'nuxt-fire/initAuth.js',
-      options: options.initAuth,
+      options: auth.initialize,
       ssr: false
     })
   }
@@ -53,9 +54,6 @@ export default function nuxtFire(moduleOptions) {
  * See: https://nuxtfire.netlify.com/options/
  */
 function validateOptions(options) {
-  const messagingEnabled = options.useOnly.includes('messaging')
-  const authEnabled = options.useOnly.includes('auth')
-
   if (isEmpty(options)) {
     return handleError(
       `Options are missing or empty, add at least the Firebase config parameters in your nuxt.config.js file.`
@@ -71,18 +69,6 @@ function validateOptions(options) {
   if (options.customEnv && !process.env.FIRE_ENV) {
     return handleError(
       `CustomEnv mode requires process.env.FIRE_ENV variable to be set.`
-    )
-  }
-
-  if (options.initMessaging && !messagingEnabled) {
-    return handleError(
-      `InitMessaging option can only be enabled when 'messaging' is set in useOnly.`
-    )
-  }
-
-  if (options.initAuth !== null && !authEnabled) {
-    return handleError(
-      `InitAuth option can only be enabled when 'auth' is set in useOnly.`
     )
   }
 }
@@ -161,10 +147,7 @@ function validateConfigKeys(options, currentEnv) {
   }
 
   // Only if Analytics is enabled and the measurementId key is missing, throw an error.
-  if (
-    options.useOnly.includes('analytics') &&
-    !configKeys.includes('measurementId')
-  ) {
+  if (options.analytics && !configKeys.includes('measurementId')) {
     return handleWarning(
       `Missing measurementId configuration value. Analytics will be non-functional.`
     )

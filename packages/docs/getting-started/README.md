@@ -39,20 +39,26 @@ modules: [
           messagingSenderId: '<messagingSenderId>',
           appId: '<appId>',
           measurementId: '<measurementId>'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
         }
       }
     ]
   ],
 ```
 
-### Advanced Configuration
+See list of available services [here](/options/#services).
+
+### Full Configuration
+
+If you want to use every little configuration option there is, refer to the example below.
 
 ```js
 modules: [
     [
       'nuxt-fire',
       {
-        // Required:
         config: {
           production: {
             apiKey: '<apiKey>',
@@ -75,22 +81,39 @@ modules: [
             measurementId: '<measurementId>'
           }
         },
-        // The following options are optional:
-        useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance', 'analytics', 'remoteConfig'],
         customEnv: false,
-        functionsLocation: 'us-central1',
-        remoteConfig: {
-          settings: {
-            fetchTimeoutMillis: 60000,
-            minimumFetchIntervalMillis: 43200000,
+        services: {
+          auth: {
+            // Experimental Feature, use with caution.
+            initialize: {
+              onSuccessMutation: "SET_AUTH_USER",
+              onSuccessAction: null,
+              onErrorMutation: null,
+              onErrorAction: "handleAuthError"
+            }
           },
-          defaultConfig: {
-            'welcome_message': 'Welcome'
+          firestore: true,
+          functions: {
+            location: 'us-central1' // Default
+          },
+          storage: true,
+          realtimeDb: true,
+          performance: true,
+          analytics: true,
+          remoteConfig: {
+            settings: {
+              fetchTimeoutMillis: 60000, // Default
+              minimumFetchIntervalMillis: 43200000 // Default
+            },
+            defaultConfig: {
+              welcome_message: "Welcome"
+            }
+          },
+          messaging: {
+            createServiceWorker: true,
+            onFirebaseHosting: true
           }
-        },
-        // Experimental Features - use with caution:
-        initAuth: null,
-        initMessaging: false
+        }
       }
     ]
   ],
