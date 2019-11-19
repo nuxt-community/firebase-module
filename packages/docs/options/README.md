@@ -155,7 +155,7 @@ Set up Firebase Messaging without any boilerplate code.
 initMessaging: true
 ```
 
-Setting the \__initMessaging_ flag to true automatically creates a service worker called `firebase-messaging-sw.js` in your static folder. The service worker is fully configured for FCM with the newest Firebase scripts.
+Setting the **initMessaging** flag to true automatically creates a service worker called `firebase-messaging-sw.js` in your static folder. The service worker is fully configured for FCM with the newest Firebase scripts.
 
 #### Notification Payload:
 
