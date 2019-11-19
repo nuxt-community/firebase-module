@@ -16,7 +16,8 @@ module.exports = {
     sidebarDepth: 2,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/introduction/' }
+      { text: 'Guide', link: '/introduction/' },
+      { text: 'Sponsor', link: 'https://github.com/sponsors/lupas' }
     ]
   }
 }
