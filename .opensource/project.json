@@ -3,8 +3,12 @@
   "platforms": ["Web"],
   "content": "README.md",
   "pages": [],
-  "related": [],
+  "related": ["lupas/nuxt-fire-demo"],
   "tabs": [
+    {
+      "title": "Full Documentation",
+      "href": "https://nuxtfire.netlify.com/"
+    },
     {
       "title": "Nuxt.js (v2), Firestore & SSR",
       "href": "https://medium.com/@pascalluther/nuxt-js-v2-firestore-ssr-938d8fb7d2b0"

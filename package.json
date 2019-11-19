@@ -1,10 +1,8 @@
 {
-  "name": "nuxt-fire",
-  "version": "2.5.1",
-  "license": "MIT",
-  "description": "Intergrate Firebase into your Nuxt project.",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "Pascal Luther",
   "repository": "https://github.com/lupas/nuxt-fire",
   "homepage": "https://github.com/lupas",
@@ -12,15 +10,9 @@
     "nuxt, firebase"
   ],
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "nuxt": "^2.10.2",
-    "firebase": "^7.3.0"
+    "docs:dev": "vuepress dev packages/docs",
+    "docs:build": "vuepress build packages/docs",
+    "npm:publish": "cd packages/nuxt-fire && npm publish"
   },
   "devDependencies": {
     "vuepress": "^1.2.0"

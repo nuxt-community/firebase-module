@@ -10,7 +10,7 @@ export default async (ctx, inject) => {
     firebase.initializeApp(firebaseConfig)
   }
 
-  if (options.useOnly.includes('auth')) {
+  if (options.services.auth) {
     await import('firebase/auth')
 
     const fireAuth = firebase.auth()
@@ -19,7 +19,7 @@ export default async (ctx, inject) => {
     inject('fireAuthObj', fireAuthObj)
   }
 
-  if (options.useOnly.includes('realtimeDb')) {
+  if (options.services.realtimeDb) {
     await import('firebase/database')
 
     const fireDb = firebase.database()
@@ -28,7 +28,7 @@ export default async (ctx, inject) => {
     inject('fireDbObj', fireDbObj)
   }
 
-  if (options.useOnly.includes('firestore')) {
+  if (options.services.firestore) {
     await import('firebase/firestore')
 
     const fireStore = firebase.firestore()
@@ -37,7 +37,7 @@ export default async (ctx, inject) => {
     inject('fireStoreObj', fireStoreObj)
   }
 
-  if (options.useOnly.includes('storage')) {
+  if (options.services.storage) {
     await import('firebase/storage')
 
     const fireStorage = firebase.storage()
@@ -46,17 +46,18 @@ export default async (ctx, inject) => {
     inject('fireStorageObj', fireStorageObj)
   }
 
-  if (options.useOnly.includes('functions')) {
+  if (options.services.functions) {
     await import('firebase/functions')
 
-    const fireFunc = firebase.app().functions(options.functionsLocation)
+    // If .location is undefined, default will be "us-central1"
+    const fireFunc = firebase.app().functions(options.services.functions.location)
     const fireFuncObj = firebase.functions
     inject('fireFunc', fireFunc)
     inject('fireFuncObj', fireFuncObj)
   }
 
   // Firebase Messaging can only be initiated on client side
-  if (process.browser && options.useOnly.includes('messaging')) {
+  if (process.browser && options.services.messaging) {
     await import('firebase/messaging')
 
     if (firebase.messaging.isSupported()) {
@@ -73,7 +74,7 @@ export default async (ctx, inject) => {
   }
 
   // Firebase Performance can only be initiated on client side
-  if(process.browser && options.useOnly.includes('performance')){
+  if(process.browser && options.services.performance){
     await import('firebase/performance')
 
     const firePerf = firebase.performance()
@@ -83,7 +84,7 @@ export default async (ctx, inject) => {
   }
 
   // Firebase Analytics can only be initiated on the client side
-  if(process.browser && options.useOnly.includes('analytics')) {
+  if(process.browser && options.services.analytics) {
     await import('firebase/analytics')
 
     const fireAnalytics = firebase.analytics()
@@ -93,14 +94,14 @@ export default async (ctx, inject) => {
   }
 
   // Firebase Remote Config can only be initiated on the client side
-  if(process.browser && options.useOnly.includes('remoteConfig')) {
+  if(process.browser && options.services.remoteConfig) {
     await import('firebase/remote-config')
 
     const fireConfig = firebase.remoteConfig()
     const fireConfigObj = firebase.remoteConfig
 
-    if (options.remoteConfig) {
-      const { settings: remoteSettings, defaultConfig: remoteDefaultConfig } = options.remoteConfig
+    if (options.services.remoteConfig) {
+      const { settings: remoteSettings, defaultConfig: remoteDefaultConfig } = options.services.remoteConfig
       if (remoteSettings) {
         const { minimumFetchIntervalMillis, fetchTimeoutMillis } = remoteSettings
         fireConfig.settings = {
