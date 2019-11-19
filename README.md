@@ -41,6 +41,9 @@ modules: [
           messagingSenderId: '<messagingSenderId>',
           appId: '<appId>',
           measurementId: '<measurementId>'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
         }
       }
     ]
