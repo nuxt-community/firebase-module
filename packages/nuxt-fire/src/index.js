@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
-  const firebaseVersion = '7.3.0' // TODO: Update with each Firebase update
+  const firebaseVersion = '7.4.0' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
   validateOptions(options)
@@ -57,6 +57,14 @@ function validateOptions(options) {
   if (isEmpty(options)) {
     return handleError(
       `Options are missing or empty, add at least the Firebase config parameters in your nuxt.config.js file.`
+    )
+  }
+
+  if (isEmpty(options.services)) {
+    return handleError(
+      `The 'services' option is missing or empty, make sure to define it properly.
+      See: https://nuxtfire.netlify.com/getting-started/#configure
+      `
     )
   }
 
@@ -141,7 +149,8 @@ function handleWarning(message) {
 function handleError(message) {
   // TODO: Delete warning by the end of 2019
   handleWarning(
-    `Nuxt-fire 3.0.0 introduced a new layout of the configuration of this module. Please relate to https://nuxtfire.netlify.com/options to reconfigure your options.`
+    `Nuxt-fire 3.0.0 introduced a new layout of the configuration for this module. Check out the Changelogs to see what changed and reconfigure your options accordingly.
+    See: https://github.com/lupas/nuxt-fire/releases/tag/v3.0.0`
   )
   throw new Error(`(Nuxt-Fire) ${message}`)
 }
