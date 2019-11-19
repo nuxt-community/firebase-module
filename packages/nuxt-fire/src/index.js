@@ -99,27 +99,6 @@ function getFinalUseConfigObject(config, currentEnv) {
 }
 
 /**
- * If use only is missing, set "useOnly" to include all Firebase services.
- * See: https://nuxtfire.netlify.com/options/#useonly
- */
-function getFinalUseOnlyObject(options) {
-  // If 'useOnly' option is not provided, load all Firebase products
-  if (isEmpty(options.useOnly)) {
-    return [
-      'auth',
-      'firestore',
-      'functions',
-      'storage',
-      'realtimeDb',
-      'messaging',
-      'performance',
-      'analytics'
-    ]
-  }
-  return options.useOnly
-}
-
-/**
  * Checks the Firebase config for the current environment in the nuxt.config.js file.
  * Breaks if a required key is missing.
  * See: https://nuxtfire.netlify.com/options/#config
