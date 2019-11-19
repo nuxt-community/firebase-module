@@ -9,7 +9,7 @@
   "repository": "https://github.com/lupas/nuxt-fire",
   "homepage": "https://github.com/lupas",
   "keywords": [
-    "nuxt, firebase"
+    "nuxt, firebase, firestore, realtimedatabase, google, googleauthentication"
   ],
   "publishConfig": {
     "access": "public"
