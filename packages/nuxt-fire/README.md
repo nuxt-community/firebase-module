@@ -60,7 +60,7 @@ try {
 
 ## Advanced Setup
 
-We advice you to setup nuxt-fire not that quickly by e.g. considerung using the `useOnly` option and others. Follow the documentation below:
+There is much more options to this simple setup, check out our full documentation below:
 
 📖 [**Read Documentation**](https://nuxtfire.netlify.com/)
 
