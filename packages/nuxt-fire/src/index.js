@@ -17,6 +17,7 @@ export default function nuxtFire(moduleOptions) {
     this.addTemplate({
       src: path.resolve(__dirname, 'templates/firebase-messaging-sw.js'),
       fileName: path.resolve(
+        this.options.srcDir,
         this.options.dir.static,
         'firebase-messaging-sw.js'
       ),
