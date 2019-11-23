@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
-  const firebaseVersion = '7.4.0' // TODO: Update with each Firebase update
+  const firebaseVersion = '7.5.0' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
   validateOptions(options)
