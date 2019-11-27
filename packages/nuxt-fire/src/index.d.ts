@@ -15,3 +15,45 @@ declare module 'vue/types/vue' {
     $fireConfig: firebase.remoteConfig.RemoteConfig
   }
 }
+
+declare module '@nuxt/vue-app' {
+  interface NuxtAppOptions {
+    $fireStore: firebase.firestore.Firestore
+    $fireDb: firebase.database.Database
+    $fireFunc: firebase.functions.Functions
+    $fireStorage: firebase.storage.Storage
+    $fireAuth: firebase.auth.Auth
+    $fireMess: firebase.messaging.Messaging
+    $fireAnalytics: firebase.analytics.Analytics
+    $firePerf: firebase.performance.Performance
+    $fireConfig: firebase.remoteConfig.RemoteConfig
+  }
+}
+
+declare module '@nuxt/types' {
+  interface NuxtAppOptions {
+    $fireStore: firebase.firestore.Firestore
+    $fireDb: firebase.database.Database
+    $fireFunc: firebase.functions.Functions
+    $fireStorage: firebase.storage.Storage
+    $fireAuth: firebase.auth.Auth
+    $fireMess: firebase.messaging.Messaging
+    $fireAnalytics: firebase.analytics.Analytics
+    $firePerf: firebase.performance.Performance
+    $fireConfig: firebase.remoteConfig.RemoteConfig
+  }
+}
+
+declare module 'vuex/types' {
+  interface Store<S> {
+    $fireStore: firebase.firestore.Firestore
+    $fireDb: firebase.database.Database
+    $fireFunc: firebase.functions.Functions
+    $fireStorage: firebase.storage.Storage
+    $fireAuth: firebase.auth.Auth
+    $fireMess: firebase.messaging.Messaging
+    $fireAnalytics: firebase.analytics.Analytics
+    $firePerf: firebase.performance.Performance
+    $fireConfig: firebase.remoteConfig.RemoteConfig
+  }
+}
