@@ -163,7 +163,7 @@ firestore: true
 
 // or
 
-functions: {
+firestore: {
   enablePersistence: true
 }
 ```
