@@ -155,12 +155,27 @@ onErrorAction: (ctx, error) => {
 
 Initializes Firebase Firestore and makes it available via `$fireStore` and `$fireStoreObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
 firestore: true
+
+// or
+
+functions: {
+  enablePersistence: true
+}
 ```
+
+#### enablePersistence
+
+Enables persistence in web apps.
+
+- Type: `Boolean`
+- Default: `false`
+
+More information [here](https://firebase.google.com/docs/firestore/manage-data/enable-offline).
 
 ### functions
 

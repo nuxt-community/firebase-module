@@ -35,6 +35,18 @@ export default async (ctx, inject) => {
     const fireStoreObj = firebase.firestore
     inject('fireStore', fireStore)
     inject('fireStoreObj', fireStoreObj)
+
+    if (options.services.firestore.enablePersistence) {
+      try {
+        fireStore.enablePersistence()
+      } catch (e) {
+        if (err.code == 'failed-precondition') {
+          console.info("Firestore Persistence not enabled. Multiple tabs open, persistence can only be enabled in one tab at a a time.")
+        } else if (err.code == 'unimplemented') {
+          console.info("Firestore Persistence not enabled. The current browser does not support all of the features required to enable persistence.")
+        }
+      }
+    }
   }
 
   if (options.services.storage) {
