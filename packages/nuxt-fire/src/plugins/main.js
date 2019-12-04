@@ -24,7 +24,16 @@ export default async (ctx, inject) => {
   /** --------------------------------------------------------------------------------------------- **/
 
    <% if (options.services.auth) { %>
-    <%= !options.services.auth.static ? "await import('firebase/auth')" : "" %>
+    <% if (!options.services.auth.static) { %>
+    await import(
+      <% if (options.services.auth.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.auth.chunkName %>" */
+      <% } %>
+      <% if (options.services.auth.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/auth')
+    <% } %>
 
     const fireAuth = firebase.auth()
     const fireAuthObj = firebase.auth
@@ -36,7 +45,16 @@ export default async (ctx, inject) => {
   /** -------------------------------------- FIREBASE REALTIME DB --------------------------------- **/
   /** --------------------------------------------------------------------------------------------- **/
   <% if (options.services.realtimeDb) { %>
-    <%= !options.services.realtimeDb.static ? "await import('firebase/database')" : "" %>
+    <% if (!options.services.realtimeDb.static) { %>
+    await import(
+      <% if (options.services.realtimeDb.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.realtimeDb.chunkName %>" */
+      <% } %>
+      <% if (options.services.realtimeDb.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/database')
+    <% } %>
 
     const fireDb = firebase.database()
     const fireDbObj = firebase.database
@@ -50,7 +68,16 @@ export default async (ctx, inject) => {
   /** --------------------------------------------------------------------------------------------- **/
 
   <% if (options.services.firestore) { %>
-    <%= !options.services.firestore.static ? "await import('firebase/firestore')" : "" %>
+    <% if (!options.services.firestore.static) { %>
+    await import(
+      <% if (options.services.firestore.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.firestore.chunkName %>" */
+      <% } %>
+      <% if (options.services.firestore.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/firestore')
+    <% } %>
 
     const fireStore = firebase.firestore()
     const fireStoreObj = firebase.firestore
@@ -76,7 +103,16 @@ export default async (ctx, inject) => {
   /** --------------------------------------------------------------------------------------------- **/
 
   <% if (options.services.storage) { %>
-    <%= !options.services.storage.static ? "await import('firebase/storage')" : "" %>
+    <% if (!options.services.storage.static) { %>
+    await import(
+      <% if (options.services.storage.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.storage.chunkName %>" */
+      <% } %>
+      <% if (options.services.storage.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/storage')
+    <% } %>
 
     const fireStorage = firebase.storage()
     const fireStorageObj = firebase.storage
@@ -90,7 +126,16 @@ export default async (ctx, inject) => {
   /** --------------------------------------------------------------------------------------------- **/
 
   <% if (options.services.functions) { %>
-    <%= !options.services.functions.static ? "await import('firebase/functions')" : "" %>
+    <% if (!options.services.functions.static) { %>
+    await import(
+      <% if (options.services.functions.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.functions.chunkName %>" */
+      <% } %>
+      <% if (options.services.functions.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/functions')
+    <% } %>
 
     // If .location is undefined, default will be "us-central1"
     const fireFunc = firebase.app().functions(options.services.functions.location)
@@ -107,7 +152,16 @@ export default async (ctx, inject) => {
   <% if (options.services.messaging) { %>
   // Firebase Messaging can only be initiated on client side
   if (process.browser) {
-    <%= !options.services.messaging.static ? "await import('firebase/messaging')" : "" %>
+    <% if (!options.services.messaging.static) { %>
+    await import(
+      <% if (options.services.messaging.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.messaging.chunkName %>" */
+      <% } %>
+      <% if (options.services.messaging.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/messaging')
+    <% } %>
 
     if (firebase.messaging.isSupported()) {
       const fireMess = firebase.messaging()
@@ -131,7 +185,16 @@ export default async (ctx, inject) => {
   // Firebase Performance can only be initiated on client side
   <% if (options.services.performance) { %>
   if(process.browser) {
-    <%= !options.services.performance.static ? "await import('firebase/performance')" : "" %>
+    <% if (!options.services.performance.static) { %>
+    await import(
+      <% if (options.services.performance.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.performance.chunkName %>" */
+      <% } %>
+      <% if (options.services.performance.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/performance')
+    <% } %>
 
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
@@ -147,7 +210,16 @@ export default async (ctx, inject) => {
   // Firebase Analytics can only be initiated on the client side
   <% if (options.services.analytics) { %>
   if (process.browser) {
-    <%= !options.services.analytics.static ? "await import('firebase/analytics')" : "" %>
+    <% if (!options.services.analytics.static) { %>
+    await import(
+      <% if (options.services.analytics.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.analytics.chunkName %>" */
+      <% } %>
+      <% if (options.services.analytics.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/analytics')
+    <% } %>
 
     const fireAnalytics = firebase.analytics()
     const fireAnalyticsObj = firebase.analytics
@@ -164,7 +236,16 @@ export default async (ctx, inject) => {
   <% if (options.services.remoteConfig) { %>
   // Firebase Remote Config can only be initiated on the client side
   if (process.browser) {
-    <%= !options.services.remoteConfig.static ? "await import('firebase/remote-config')" : "" %>
+    <% if (!options.services.remoteConfig.static) { %>
+    await import(
+      <% if (options.services.remoteConfig.chunkName) { %>
+      /* webpackChunkName: "<%= options.services.remoteConfig.chunkName %>" */
+      <% } %>
+      <% if (options.services.remoteConfig.preload) { %>
+      /* webpackPreload: true */
+      <% } %>
+      'firebase/remote-config')
+    <% } %>
 
     const fireConfig = firebase.remoteConfig()
     const fireConfigObj = firebase.remoteConfig
