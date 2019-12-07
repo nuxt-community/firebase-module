@@ -99,11 +99,52 @@ services: {
 }
 ```
 
+### ALL SERVICES
+
+All services mentioned below can have the following options:
+
+```js
+[serviceName]: {
+  static: false, // default
+  preload: false, // default
+  chunkName: process.env.NODE_ENV !== 'production' ? `firebase-${serviceName}` : '[id]' // default
+}
+```
+
+#### static
+
+By default, each service gets imported dynamically, which splits them into separate chunks. If `static = true` however, we import them statically, so the services are bundled into `vendor.js`.
+
+```js
+// static: false (default)
+await import 'firebase/auth'
+// static: true
+import 'firebase/auth'
+```
+
+#### preload
+
+Preloads dynamically loaded services. More information [here](https://webpack.js.org/guides/code-splitting/#prefetchingpreloading-modules).
+
+::: warning Be aware
+Only applies if `static === false`.
+:::
+
+
+
+#### chunkName
+
+Be default, the dynamically imported services are named `firebase-${serviceName}.js` in development mode, and `[id]` in production mode (`process.env.NODE_ENV === 'production'`). If you want to change this behaviour, you can do so with this option.
+
+::: warning Be aware
+Only applies if `static === false`.
+:::
+
 ### auth
 
 Initializes Firebase Authentication and makes it available via `$fireAuth` and `$fireAuthObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
@@ -164,6 +205,9 @@ firestore: true
 // or
 
 firestore: {
+  static: false, // default
+  preload: false, // default
+  chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
   enablePersistence: true
 }
 ```
@@ -205,7 +249,7 @@ More information [here](https://firebase.google.com/docs/functions/locations).
 
 Initializes Firebase Storage and makes it available via `$fireStorage` and `$fireStorageObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
@@ -216,7 +260,7 @@ storage: true
 
 Initializes Firebase Realtime Database and makes it available via `$fireDb` and `$fireDbObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
@@ -243,7 +287,7 @@ messaging: {
 
 #### createServiceWorker <Badge text="EXPERIMENTAL" type="warn"/>
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 Setting the **createServiceWorker** flag to true automatically creates a service worker called `firebase-messaging-sw.js` in your static folder. The service worker is fully configured for FCM with the newest Firebase scripts.
@@ -264,7 +308,7 @@ notification: {
 
 #### onFirebaseHosting
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 If your application is hosted on Firebase hosting, you can enable this flag in order to load the newest Firebase scripts in the service worker directly from there instead of www.gstatic.com.
@@ -273,7 +317,7 @@ If your application is hosted on Firebase hosting, you can enable this flag in o
 
 Initializes Firebase Performance and makes it available via `$firePerf` and `$firePerfObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
@@ -284,7 +328,7 @@ performance: true
 
 Initializes Firebase Storage and makes it available via `$fireAnalytics` and `$fireAnalyticsObj`.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
 
 ```js
