@@ -148,6 +148,12 @@ export default async (ctx, inject) => {
     // If .location is undefined, default will be "us-central1"
     const fireFunc = firebase.app().functions(options.services.functions.location)
     const fireFuncObj = firebase.functions
+
+    // Uses emulator, if emulatorPort is set.
+    if (options.services.functions.emulatorPort) {
+      fireFunc.useFunctionsEmulator(`http://localhost:${options.services.functions.emulatorPort}`)
+    }
+
     inject('fireFunc', fireFunc)
     inject('fireFuncObj', fireFuncObj)
 
