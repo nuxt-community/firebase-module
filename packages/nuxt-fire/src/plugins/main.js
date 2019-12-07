@@ -1,4 +1,66 @@
 import firebase from 'firebase/app'
+<% 
+const serviceMapping = {
+  auth: 'auth',
+  realtimeDb: 'database',
+  firestore: 'firestore',
+  storage: 'storage',
+  functions: 'functions',
+  messaging: 'messaging',
+  performance: 'performance',
+  analytics: 'analytics',
+  remoteConfig: 'remote-config'
+}
+
+function writeStaticImports() {
+  return Object.keys(serviceMapping)
+    .map(service => writeImportStatement(service, true))
+    .filter(Boolean)
+    .join('\n')
+}
+
+function writeImportStatement(service, staticImport = false) {
+  const serviceOptions = options.services[service]
+  const importStatically = serviceOptions && serviceOptions.static
+  const importDynamically = serviceOptions && !importStatically
+
+  if (importStatically && staticImport) {
+    return `import 'firebase/${serviceMapping[service]}'`
+  }
+
+  if (!importDynamically || staticImport) {
+    return
+  }
+
+  const webpackComments = []
+
+  // Add Chunk Name Comment
+  if (process.env.NODE_ENV !== 'production' && !serviceOptions.chunkName) {
+    webpackComments.push(`webpackChunkName: 'firebase-${serviceMapping[service]}'`)
+  }
+  if (serviceOptions.chunkName) {
+    webpackComments.push(`webpackChunkName: '${serviceOptions.chunkName}'`)
+  }
+
+  // Add Preload Comment
+  if (serviceOptions.preload) {
+    webpackComments.push(`webpackPreload: true`)
+  }
+
+  // Add strings surrounding the comment
+  let webpackCommentsString = ''
+  if (webpackComments.length) {
+    webpackCommentsString = `/* ${webpackComments.join(', ')} */`
+  }
+  return `await import(${webpackCommentsString}'firebase/${serviceMapping[service]}')`
+}
+%>
+<%= writeStaticImports() %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** -------------------------------------- END: Import Scripts ---------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
 
 export default async (ctx, inject) => {
 
@@ -10,26 +72,38 @@ export default async (ctx, inject) => {
     firebase.initializeApp(firebaseConfig)
   }
 
-  if (options.services.auth) {
-    await import('firebase/auth')
+  /** --------------------------------------------------------------------------------------------- **/
+  /** -------------------------------------- FIREBASE AUTH ---------------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
+   <% if (options.services.auth) { %>
+    <%= writeImportStatement('auth') %>
 
     const fireAuth = firebase.auth()
     const fireAuthObj = firebase.auth
     inject('fireAuth', fireAuth)
     inject('fireAuthObj', fireAuthObj)
-  }
+  <% } %>
 
-  if (options.services.realtimeDb) {
-    await import('firebase/database')
+  /** --------------------------------------------------------------------------------------------- **/
+  /** -------------------------------------- FIREBASE REALTIME DB --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+  <% if (options.services.realtimeDb) { %>
+    <%= writeImportStatement('realtimeDb') %>
 
     const fireDb = firebase.database()
     const fireDbObj = firebase.database
     inject('fireDb', fireDb)
     inject('fireDbObj', fireDbObj)
-  }
 
-  if (options.services.firestore) {
-    await import('firebase/firestore')
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** ---------------------------------------- FIREBASE FIRESTORE --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
+  <% if (options.services.firestore) { %>
+    <%= writeImportStatement('firestore') %>
 
     const fireStore = firebase.firestore()
     const fireStoreObj = firebase.firestore
@@ -47,30 +121,46 @@ export default async (ctx, inject) => {
         }
       }
     }
-  }
 
-  if (options.services.storage) {
-    await import('firebase/storage')
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** ------------------------------------------ FIREBASE STORAGE --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
+  <% if (options.services.storage) { %>
+    <%= writeImportStatement('storage') %>
 
     const fireStorage = firebase.storage()
     const fireStorageObj = firebase.storage
     inject('fireStorage', fireStorage)
     inject('fireStorageObj', fireStorageObj)
-  }
 
-  if (options.services.functions) {
-    await import('firebase/functions')
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** ---------------------------------------- FIREBASE FUNCTIONS --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
+  <% if (options.services.functions) { %>
+    <%= writeImportStatement('functions') %>
 
     // If .location is undefined, default will be "us-central1"
     const fireFunc = firebase.app().functions(options.services.functions.location)
     const fireFuncObj = firebase.functions
     inject('fireFunc', fireFunc)
     inject('fireFuncObj', fireFuncObj)
-  }
 
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** ---------------------------------------- FIREBASE MESSAGING --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
+  <% if (options.services.messaging) { %>
   // Firebase Messaging can only be initiated on client side
-  if (process.browser && options.services.messaging) {
-    await import('firebase/messaging')
+  if (process.browser) {
+    <%= writeImportStatement('messaging') %>
 
     if (firebase.messaging.isSupported()) {
       const fireMess = firebase.messaging()
@@ -85,46 +175,65 @@ export default async (ctx, inject) => {
     }
   }
 
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** -------------------------------------- FIREBASE REALTIME DB --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+
   // Firebase Performance can only be initiated on client side
-  if(process.browser && options.services.performance){
-    await import('firebase/performance')
+  <% if (options.services.performance) { %>
+  if(process.browser) {
+    <%= writeImportStatement('performance') %>
 
     const firePerf = firebase.performance()
     const firePerfObj = firebase.performance
     inject('firePerf', firePerf)
     inject('firePerfObj', firePerfObj)
   }
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** ---------------------------------------- FIREBASE ANALYTICS --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
 
   // Firebase Analytics can only be initiated on the client side
-  if(process.browser && options.services.analytics) {
-    await import('firebase/analytics')
+  <% if (options.services.analytics) { %>
+  if (process.browser) {
+    <%= writeImportStatement('analytics') %>
 
     const fireAnalytics = firebase.analytics()
     const fireAnalyticsObj = firebase.analytics
     inject('fireAnalytics', fireAnalytics)
     inject('fireAnalyticsObj', fireAnalyticsObj)
-  }
 
+  }
+  <% } %>
+
+  /** --------------------------------------------------------------------------------------------- **/
+  /** --------------------------------- FIREBASE REMOTE CONFIG DB --------------------------------- **/
+  /** --------------------------------------------------------------------------------------------- **/
+  <% if (options.services.remoteConfig) { %>
   // Firebase Remote Config can only be initiated on the client side
-  if(process.browser && options.services.remoteConfig) {
-    await import('firebase/remote-config')
+  if (process.browser) {
+    <%= writeImportStatement('remoteConfig') %>
 
     const fireConfig = firebase.remoteConfig()
     const fireConfigObj = firebase.remoteConfig
 
-    if (options.services.remoteConfig) {
-      const { settings: remoteSettings, defaultConfig: remoteDefaultConfig } = options.services.remoteConfig
-      if (remoteSettings) {
-        const { minimumFetchIntervalMillis, fetchTimeoutMillis } = remoteSettings
-        fireConfig.settings = {
-          fetchTimeoutMillis: fetchTimeoutMillis ? fetchTimeoutMillis : 60000,
-          minimumFetchIntervalMillis: minimumFetchIntervalMillis ? minimumFetchIntervalMillis : 43200000
-        }
+    const { settings: remoteSettings, defaultConfig: remoteDefaultConfig } = options.services.remoteConfig
+    if (remoteSettings) {
+      const { minimumFetchIntervalMillis, fetchTimeoutMillis } = remoteSettings
+      fireConfig.settings = {
+        fetchTimeoutMillis: fetchTimeoutMillis ? fetchTimeoutMillis : 60000,
+        minimumFetchIntervalMillis: minimumFetchIntervalMillis ? minimumFetchIntervalMillis : 43200000
       }
-      fireConfig.defaultConfig = (remoteDefaultConfig)
     }
+    fireConfig.defaultConfig = (remoteDefaultConfig)
 
     inject('fireConfig', fireConfig)
     inject('fireConfigObj', fireConfigObj)
+
   }
+  <% } %>
 }
