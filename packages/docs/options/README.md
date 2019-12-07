@@ -250,7 +250,8 @@ functions: true
 // or
 
 functions: {
-  location: 'us-central1'
+  location: 'us-central1',
+  emulatorPort: 12345
 }
 ```
 
@@ -260,6 +261,15 @@ functions: {
 - Default: `us-central1`
 
 More information [here](https://firebase.google.com/docs/functions/locations).
+
+#### emulatorPort
+
+- Type: `Integer`
+- Default: `null`
+
+Sets up `useFunctionsEmulator("http://localhost:EMULATOR_PORT")` to point to a Cloud Functions emulator running locally instead of the productive one.
+
+More information in the official Firebase [API Docs](https://firebase.google.com/docs/reference/android/com/google/firebase/functions/FirebaseFunctions.html#useFunctionsEmulator(java.lang.String)) and [Functions Docs](https://firebase.google.com/docs/functions/local-emulator).
 
 ### storage
 
