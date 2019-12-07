@@ -192,6 +192,22 @@ onErrorAction: (ctx, error) => {
 }
 ```
 
+::: warning
+Do not save `authUser` directly to the store, since this will save an object reference to the state which gets directly updated by Firebase Auth periodically and therefore throws a `vuex` error if `strict != false`.
+
+```js
+export const mutations = {
+    onSuccessMutation: (state, { authUser, claims }) => {
+        // Don't do this:
+        state.user = authUser,
+        // Do this:
+        state.user.id = authUser.uid,
+        state.user.email = authUser.email
+    }
+}
+```
+:::
+
 ### firestore
 
 Initializes Firebase Firestore and makes it available via `$fireStore` and `$fireStoreObj`.
