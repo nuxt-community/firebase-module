@@ -113,7 +113,7 @@ All services mentioned below can have the following options:
 
 #### static
 
-By default, each service gets imported dynamically, which splits them into separate chunks. If `static = true` however, we import them statically, so the services are bundled into `vendor.js`.
+By default, each service gets imported dynamically, which splits them into separate chunks. If `static = true` however, we import them statically, so the services are bundled into `vendors.app.js`.
 
 ```js
 // static: false (default)
