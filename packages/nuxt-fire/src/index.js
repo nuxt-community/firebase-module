@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
-  const firebaseVersion = '7.5.0' // TODO: Update with each Firebase update
+  const firebaseVersion = '7.5.2' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
   validateOptions(options)
@@ -38,17 +38,32 @@ export default function nuxtFire(moduleOptions) {
       options: auth.initialize,
       ssr: false
     })
-  }
 
-  if (options.services.auth.initialize.ssr) {
-    const fileName = 'nuxt-fire/firebaseServerAuth.js'
-    this.addTemplate({
-      src: path.resolve(__dirname, 'serverMiddleware/firebaseServerAuth.js'),
-      fileName: fileName,
-      options,
-      ssr: true
-    })
-    this.addServerMiddleware(path.join(this.options.buildDir, fileName))
+    if (auth.initialize.ssr) {
+      // Add serverMiddleware
+      const fileName = 'nuxt-fire/firebaseServerAuth.js'
+      this.addTemplate({
+        src: path.resolve(__dirname, 'serverMiddleware/firebaseServerAuth.js'),
+        fileName: fileName,
+        options,
+        ssr: true
+      })
+      this.addServerMiddleware(path.join(this.options.buildDir, fileName))
+      // Add Service-Worker
+      this.addTemplate({
+        src: path.resolve(__dirname, 'templates/firebase-auth-sw.js'),
+        fileName: path.resolve(
+          this.options.srcDir,
+          this.options.dir.static,
+          'firebase-auth-sw.js'
+        ),
+        options: {
+          firebaseVersion,
+          config: options.config,
+          onFirebaseHosting: false
+        }
+      })
+    }
   }
 
   // Register main nuxt-fire plugin

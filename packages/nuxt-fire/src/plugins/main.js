@@ -113,7 +113,7 @@ export default async (ctx, inject) => {
     if (options.services.firestore.enablePersistence) {
       try {
         fireStore.enablePersistence()
-      } catch (e) {
+      } catch (err) {
         if (err.code == 'failed-precondition') {
           console.info("Firestore Persistence not enabled. Multiple tabs open, persistence can only be enabled in one tab at a a time.")
         } else if (err.code == 'unimplemented') {

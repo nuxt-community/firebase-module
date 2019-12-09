@@ -89,12 +89,14 @@ modules: [
               onSuccessMutation: "SET_AUTH_USER",
               onSuccessAction: null,
               onErrorMutation: null,
-              onErrorAction: "handleAuthError"
+              onErrorAction: "handleAuthError",
+              ssr: false // Default
             }
           },
           firestore: true,
           functions: {
-            location: 'us-central1' // Default
+            location: 'us-central1', // Default
+            emulatorPort: 12345
           },
           storage: true,
           realtimeDb: true,

@@ -11,7 +11,7 @@ module.exports = {
       '/options/',
       '/usage/',
       '/helpers/',
-      '/advanced/',
+      '/tutorials/',
       '/demo/'
     ],
     sidebarDepth: 2,
