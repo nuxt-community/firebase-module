@@ -1,31 +1,49 @@
 # Advanced
 
-## Helpers
+## Firebase Auth in Universal Mode
 
-Nuxt-Fire provides helper functions that can generally be accessed like so:
+The nuxt-fire plugin provides helpers for the easy setup of **server-side authentication** via WebTokens and Cookies for Firebase Auth in **Nuxt Universal Mode (SSR)**.
+
+#### Step 1 - Initialize Firebase Auth
+
+Use the [auth.initialize option](/options/#auth) with at least `onSuccessMutation` and `setAuthCookie = true` defined. Make sure to create the respective mutation that saves the authUser to the state.
+
+#### Step 2 - Add the getAuthUserFromCookie() helper
+
+Add the `getAuthUserFromCookie()` helper function as follows to your nuxtServerInit action and commit the authUser object to the mutation defined in step 1.
 
 ```js
-import { **helperFunctionName** } from 'nuxt-fire/src/helpers'
+import { getAuthUserFromCookie } from 'nuxt-fire/src/helpers'
+
+export default {
+  nuxtServerInit({ commit }, ctx) {
+    const authUser = getAuthUserFromCookie({ commit, req: ctx.req })
+    if (authUser) {
+      commit('SET_AUTH_USER', {
+        authUser
+      })
+    }
+  }
+}
 ```
 
-### movePluginBeforeInitAuthPlugin(plugins, pluginName)
+#### Step 3 - Delete cookie at logout
 
-If the initAuth config is set, nuxt-fire will add two (instead of one) plugins to your Nuxt application:  
-**nuxt-fire/plugins/main.js** and **nuxt-fire/plugins/initAuth.js**.
-
-If you use initAuth and want another plugin to be called AFTER firebase initialization but BEFORE initAuth gets called, you can use this helper function to move the other plugin inbetween these two.
-
-Just add the following to your nuxt.config.js:
+Make sure to delete the cookie at logout, e.g. in an action:
 
 ```js
-import { movePluginBeforeInitAuthPlugin } from 'nuxt-fire/src/helpers'
+import Cookie from "js-cookie";
 
-extendPlugins(plugins) {
-  movePluginBeforeInitAuthPlugin(plugins, 'yourPluginName.js')
-  return plugins
-},
+async logoutUser({ commit }) {
+    await this.$fireAuth.signOut()
+    // Reset store
+    commit("RESET_STORE");
+    // ADD THIS LINE
+    Cookie.remove("nuxt_fire_auth_access_token");
+  }
+}
 ```
 
 ## Usage with vuexfire
 
-This [example](https://github.com/lupas/nuxt-fire-vuexfire-example) shows how to use both vuexfire and nuxt-fire together.
+This [example](https://github.com/lupas/nuxt-fire-vuexfire-example) shows how to use both vuexfire and nuxt-fire together, working with SSR.

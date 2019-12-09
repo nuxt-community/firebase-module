@@ -10,6 +10,7 @@ module.exports = {
       '/getting-started/',
       '/options/',
       '/usage/',
+      '/helpers/',
       '/advanced/',
       '/demo/'
     ],

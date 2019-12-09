@@ -130,8 +130,6 @@ Preloads dynamically loaded services. More information [here](https://webpack.js
 Only applies if `static === false`.
 :::
 
-
-
 #### chunkName
 
 Be default, the dynamically imported services are named `vendors.firebase-${serviceName}.js` in development mode, and `[id]` in production mode (`process.env.NODE_ENV === 'production'`). If you want to change this behaviour, you can do so with this option.
@@ -157,16 +155,13 @@ auth: {
     onSuccessMutation: 'ON_SUCCESS_MUTATION',
     onSuccessAction: null,
     onErrorMutation: null,
-    onErrorAction: 'onErrorAction'
+    onErrorAction: 'onErrorAction',
+    setAuthCookie: false // default
   }
 }
 ```
 
 #### initialize <Badge text="EXPERIMENTAL" type="warn"/>
-
-::: warning <Badge text="EXPERIMENTAL FEATURE" type="warn"/>
-This feature is experimental and has not been fully tested for all cases. Use it with care and don't use it in production environemnts. It might get changed completely in future updates. If you have any issues or questions for this feature please feel free to create an issue [here](https://github.com/lupas/nuxt-fire/issues) to help us improve it.
-:::
 
 This sets up SSR-ready `onAuthStateChanged()` without any effort.
 
@@ -192,20 +187,23 @@ onErrorAction: (ctx, error) => {
 }
 ```
 
+The `setAuthCookie = true` option sets a cookie after every `onAuthStateChanged()` trigger. The cookie can be used for server-side authentication as described [here](/advanced/#firebase-auth-in-universal-mode).
+
 ::: warning
 Do not save `authUser` directly to the store, since this will save an object reference to the state which gets directly updated by Firebase Auth periodically and therefore throws a `vuex` error if `strict != false`.
 
 ```js
 export const mutations = {
-    onSuccessMutation: (state, { authUser, claims }) => {
-        // Don't do this:
-        state.user = authUser,
-        // Do this:
-        state.user.id = authUser.uid,
-        state.user.email = authUser.email
-    }
+  onSuccessMutation: (state, { authUser, claims }) => {
+    // Don't do this:
+    state.user = authUser
+    // Do this:
+    state.user.id = authUser.uid
+    state.user.email = authUser.email
+  }
 }
 ```
+
 :::
 
 ### firestore
@@ -269,7 +267,7 @@ More information [here](https://firebase.google.com/docs/functions/locations).
 
 Sets up `useFunctionsEmulator("http://localhost:EMULATOR_PORT")` to point to a Cloud Functions emulator running locally instead of the productive one.
 
-More information in the official Firebase [API Docs](https://firebase.google.com/docs/reference/android/com/google/firebase/functions/FirebaseFunctions.html#useFunctionsEmulator(java.lang.String)) and [Functions Docs](https://firebase.google.com/docs/functions/local-emulator).
+More information in the official Firebase [API Docs](<https://firebase.google.com/docs/reference/android/com/google/firebase/functions/FirebaseFunctions.html#useFunctionsEmulator(java.lang.String)>) and [Functions Docs](https://firebase.google.com/docs/functions/local-emulator).
 
 ### storage
 
