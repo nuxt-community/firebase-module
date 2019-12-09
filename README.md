@@ -25,7 +25,7 @@ yarn add nuxt-fire # OR npm i nuxt-fire
 
 Add the following to your nuxt.config.js.
 
-See all configuration options [here](https://nuxtfire.netlify.com/options/).
+See all configuration options [here](https://nuxtfire.netlify.com/guide/options/).
 
 ```js
 modules: [
