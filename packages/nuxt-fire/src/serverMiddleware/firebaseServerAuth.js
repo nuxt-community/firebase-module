@@ -1,5 +1,5 @@
-import admin from 'nuxt-fire/node_modules/firebase-admin'
-import JWTDecode from 'nuxt-fire/node_modules/jwt-decode'
+import admin from 'firebase-admin'
+import JWTDecode from 'jwt-decode'
 
 export default async function(req, res, next) {
   const options = <%= serialize(options) %>

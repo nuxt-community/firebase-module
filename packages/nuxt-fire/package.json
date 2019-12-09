@@ -1,6 +1,6 @@
 {
   "name": "nuxt-fire",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "license": "MIT",
   "description": "Intergrate Firebase into your Nuxt project.",
   "main": "src/index.js",
@@ -16,12 +16,10 @@
   },
   "peerDependencies": {
     "nuxt": "^2.10.2",
-    "firebase": "^7.5.0"
+    "firebase": "^7.5.2"
   },
   "dependencies": {
-    "cookieparser": "^0.1.0",
     "firebase-admin": "^8.8.0",
-    "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15"
   }

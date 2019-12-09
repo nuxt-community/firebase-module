@@ -4,6 +4,15 @@
 
 The nuxt-fire plugin provides an option for the easy setup of **server-side authentication** via as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
+#### Step 0 - Install Dependencies
+
+In addition to nuxt-fire, install these two dependencies:
+
+```bash
+yarn add firebase-admin # OR npm i firebase-admin
+yarn add jwt-decode # OR npm i jwt-decode
+```
+
 #### Step 1 - Initialize Firebase Auth
 
 Use the [auth.initialize option](/options/#auth) with at least `onSuccessAction` defined and set `ssr = true`. Make sure to create the respective action & mutation to save the authUser to the state.
