@@ -40,6 +40,17 @@ export default function nuxtFire(moduleOptions) {
     })
   }
 
+  if (options.services.auth.initialize.ssr) {
+    const fileName = 'nuxt-fire/firebaseServerAuth.js'
+    this.addTemplate({
+      src: path.resolve(__dirname, 'serverMiddleware/firebaseServerAuth.js'),
+      fileName: fileName,
+      options,
+      ssr: true
+    })
+    this.addServerMiddleware(path.join(this.options.buildDir, fileName))
+  }
+
   // Register main nuxt-fire plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugins/main.js'),
