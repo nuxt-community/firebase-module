@@ -1,6 +1,6 @@
 # Advanced
 
-## Firebase Auth in Universal Mode
+## Firebase Auth in Universal Mode <Badge text="EXPERIMENTAL" type="warn"/>
 
 The nuxt-fire plugin provides helpers for the easy setup of **server-side authentication** via WebTokens and Cookies for Firebase Auth in **Nuxt Universal Mode (SSR)**.
 
