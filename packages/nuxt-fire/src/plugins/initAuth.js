@@ -1,5 +1,3 @@
-import Cookie from "js-cookie";
-
 export default async ({ store, app }) => {
   const options = <%= serialize(options) %>
 
@@ -11,9 +9,6 @@ export default async ({ store, app }) => {
         if (authUser) {
           try {
             await _handleAuthSuccess(authUser)
-            if (options.setAuthCookie) {
-              _setAuthCookie(authUser)
-            }
           } catch (e) {
             await _handleAuthError(e)
             Promise.reject(e)
@@ -27,11 +22,6 @@ export default async ({ store, app }) => {
   /** --------------------------------------------------------------------------------------------- **/
   /** -------------------------------------- Local Functions -------------------------------------- **/
   /** --------------------------------------------------------------------------------------------- **/
-
-  async function _setAuthCookie(authUser) {
-    const token = await authUser.getIdToken()
-    Cookie.set("nuxt_fire_auth_access_token", token)
-  }
 
   async function _handleAuthSuccess(authUser) {
     const onSuccessMutation = options.onSuccessMutation

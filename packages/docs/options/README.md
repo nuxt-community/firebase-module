@@ -156,7 +156,7 @@ auth: {
     onSuccessAction: null,
     onErrorMutation: null,
     onErrorAction: 'onErrorAction',
-    setAuthCookie: false // default
+    ssr: false // default
   }
 }
 ```
@@ -168,6 +168,8 @@ This sets up SSR-ready `onAuthStateChanged()` without any effort.
 Just add a mutation/action to your vuex store that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the initAuth configuration as below
 
 When onAuthStateChanged() gets triggered by Firebase, the defined mutations/actions will be called either on success or error with the `authUser`, `claims` or `error` attributes seen below:
+
+##### onSuccessMutation / onSuccessAction / onErrorMutation / onErrorAction
 
 ```js
 ON_SUCCESS_MUTATION: (state, { authUser, claims }) => {
@@ -187,8 +189,6 @@ onErrorAction: (ctx, error) => {
 }
 ```
 
-The `setAuthCookie = true` option sets a cookie after every `onAuthStateChanged()` trigger. The cookie can be used for server-side authentication as described [here](/advanced/#firebase-auth-in-universal-mode).
-
 ::: warning
 Do not save `authUser` directly to the store, since this will save an object reference to the state which gets directly updated by Firebase Auth periodically and therefore throws a `vuex` error if `strict != false`.
 
@@ -205,6 +205,14 @@ export const mutations = {
 ```
 
 :::
+
+##### ssr <Badge text="EXPERIMENTAL" type="warn"/>
+
+If `ssr = true`, nuxt-fire generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
+
+The option further adds a serverMiddleware that checks on server side if the token is valid and then returns the validated authUser object via `ctx.res.verifiedFireAuthUser` to the `nuxtServerInit` action.
+
+A tutorial on how to set this up can be found [here](/tutorials/#firebase-auth-in-ssr-universal-mode).
 
 ### firestore
 
