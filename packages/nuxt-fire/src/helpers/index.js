@@ -41,18 +41,18 @@ function _getPluginIndex(plugins, pluginName) {
 }
 
 /**
- * Parses the request cookie and returns an authUser, if user is signed in.
+ * Parses the request cookie and returns an authUser and the idToken, if user is signed in.
  */
-export function getAuthUserFromCookie({ req }) {
+export function parseFirebaseAuthCookie({ req }) {
   if (process.server && process.static) return
   if (!req.headers.cookie) return
 
   const cookie = cookieparser.parse(req.headers.cookie)
-  const accessWebToken = cookie.nuxt_fire_auth_access_token
+  const idToken = cookie.nuxt_fire_auth_access_token
 
-  if (!accessWebToken) return
+  if (!idToken) return
 
-  const decodedAuthUser = JWTDecode(accessWebToken)
+  const decodedAuthUser = JWTDecode(idToken)
   // Note: Not the same authUser Object as .currentUser from the Firebase Auth SDK.
 
   // Trying to "recreate" the authUser object as similarly as possible
@@ -63,5 +63,5 @@ export function getAuthUserFromCookie({ req }) {
     emailVerified: decodedAuthUser.email_verified
   }
 
-  return authUser
+  return { authUser, idToken }
 }

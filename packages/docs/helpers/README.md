@@ -24,14 +24,14 @@ extendPlugins(plugins) {
 },
 ```
 
-## getAuthUserFromCookie()
+## parseFirebaseAuthCookie()
 
-Parses the request cookie named `nuxt_fire_auth_access_token` in the nuxtServerInit action and returns an authUser object, if user is signed in.
+Parses the request cookie named `nuxt_fire_auth_access_token` in the nuxtServerInit action and returns an `authUser` object and the `idToken` if user is signed in.
 
 For usage see [here](/advanced/#firebase-auth-in-universal-mode).
 
 ```js
-import { getAuthUserFromCookie } from 'nuxt-fire/src/helpers'
+import { parseFirebaseAuthCookie } from 'nuxt-fire/src/helpers'
 // in nuxtServerInit
-const authUser = getAuthUserFromCookie(req)
+const { authUser, idToken } = parseFirebaseAuthCookie(req)
 ```
