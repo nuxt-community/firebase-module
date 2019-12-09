@@ -78,7 +78,7 @@ export default function nuxtFire(moduleOptions) {
 /**
  * Validates the options defined by the user and throws an error is something is
  * missing or wrongly set up.
- * See: https://nuxtfire.netlify.com/options/
+ * See: https://nuxtfire.netlify.com/guide/options/
  */
 function validateOptions(options) {
   if (isEmpty(options)) {
@@ -111,7 +111,7 @@ function validateOptions(options) {
 /**
  * Either gets the current environment from the FIRE_ENV env variable
  * or the NODE_ENV variable, depending on setup.
- * See: https://nuxtfire.netlify.com/options/#customenv
+ * See: https://nuxtfire.netlify.com/guide/options/#customenv
  */
 function getCurrentEnv(options) {
   if (options.customEnv) {
@@ -124,7 +124,7 @@ function getCurrentEnv(options) {
  * If config is setup within an environment object that is equal to the current environment
  * we set that as the new options.config.
  * Otherwise, we expect the keys to be set directly in options.config already.
- * See: https://nuxtfire.netlify.com/options/#config
+ * See: https://nuxtfire.netlify.com/guide/options/#config
  */
 function getFinalUseConfigObject(config, currentEnv) {
   if (config && config[currentEnv]) {
@@ -136,7 +136,7 @@ function getFinalUseConfigObject(config, currentEnv) {
 /**
  * Checks the Firebase config for the current environment in the nuxt.config.js file.
  * Breaks if a required key is missing.
- * See: https://nuxtfire.netlify.com/options/#config
+ * See: https://nuxtfire.netlify.com/guide/options/#config
  */
 function validateConfigKeys(options, currentEnv) {
   const configKeys = Object.keys(options.config || false)

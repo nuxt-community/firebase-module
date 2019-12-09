@@ -4,7 +4,7 @@ heroImage: /logo-no-text.png
 heroText: Nuxt-Fire
 tagline: Easily integrate Firebase into your Nuxt 2 project.
 actionText: Get Started →
-actionLink: /introduction/
+actionLink: /guide/getting-started/
 features:
   - title: Simple Setup
     details: Minimal setup required to integrate all Firebase services into your Nuxt.js application.

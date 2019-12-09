@@ -1,10 +1,9 @@
-# Tutorials
+# Firebase Auth in SSR/Universal Mode
 
-## Firebase Auth in SSR/Universal Mode <Badge text="EXPERIMENTAL" type="warn"/>
+<Badge text="EXPERIMENTAL" type="warn"/>
+The nuxt-fire plugin provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
-The nuxt-fire plugin provides an option for the easy setup of **server-side authentication** via as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
-
-#### Step 0 - Install Dependencies
+### Step 0 - Install Dependencies
 
 In addition to nuxt-fire, install these two dependencies:
 
@@ -13,9 +12,9 @@ yarn add firebase-admin # OR npm i firebase-admin
 yarn add jwt-decode # OR npm i jwt-decode
 ```
 
-#### Step 1 - Initialize Firebase Auth
+### Step 1 - Initialize Firebase Auth
 
-Use the [auth.initialize option](/options/#auth) with at least `onSuccessAction` defined and set `ssr = true`. Make sure to create the respective action & mutation to save the authUser to the state.
+Use the [auth.initialize option](/guide/options/#auth) with at least `onSuccessAction` defined and set `ssr = true`. Make sure to create the respective action & mutation to save the authUser to the state.
 
 ```js
 // In the nuxt.config.js nuxt-fire settings:
@@ -50,7 +49,7 @@ SET_AUTH_USER(state, { authUser }) {
 }
 ```
 
-#### Step 2 - Retrieve the server-verified authUser
+### Step 2 - Retrieve the server-verified authUser
 
 In the nuxtServerInit action in your vuex store you can now access the `verifiedFireAuthUser` via the `res` object as shown below. This server verified authUser can now be used, e.g. by saving it in the store.
 
@@ -67,7 +66,3 @@ nuxtServerInit({ commit }, ctx) {
 ```
 
 That's it. You receive a server-verified authUser object and can do with it whatever you want in nuxtServerInit.
-
-## Usage with vuexfire
-
-This [example](https://github.com/lupas/nuxt-fire-vuexfire-example) shows how to use both vuexfire and nuxt-fire together, working with SSR.

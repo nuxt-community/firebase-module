@@ -25,7 +25,7 @@ config: {
 ::: tip
 Can be defined **per NODE_ENV environment** if put in child-objects `config.production` and `config.development`, meaning that e.g. `config.production` gets loaded when `NODE_ENV === 'production'`.
 
-You can also specify multiple custom environments as mentioned in the [customEnv](/options/#customenv) option below.
+You can also specify multiple custom environments as mentioned in the [customEnv](/guide/options/#customenv) option below.
 :::
 
 ## customEnv
@@ -212,7 +212,7 @@ If `ssr = true`, nuxt-fire generates a service worker that refreshes the Firebas
 
 The option further adds a serverMiddleware that checks on server side if the token is valid and then returns the validated authUser object via `ctx.res.verifiedFireAuthUser` to the `nuxtServerInit` action.
 
-A tutorial on how to set this up can be found [here](/tutorials/#firebase-auth-in-ssr-universal-mode).
+A tutorial on how to set this up can be found [here](/tutorials/ssr/#firebase-auth-in-ssr-universal-mode).
 
 ### firestore
 
