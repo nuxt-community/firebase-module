@@ -1,7 +1,12 @@
-export function movePluginBeforeInitAuthPlugin(plugins, pluginName) {
-  // Moves a plugin that needs access to $this.fireFOO but needs to get run BEFORE nuxt-auth in between the nuxt-fire and the auth plugin.
-  // This function needs to be applied in extendPlugins in nuxt.config.js.
+import cookieparser from 'cookieparser'
+import JWTDecode from 'jwt-decode'
 
+/**
+ * Moves a plugin that needs access to $this.fireFOO but needs to get run BEFORE
+ * nuxt-auth in between the nuxt-fire and the auth plugin.
+ * This function needs to be applied in extendPlugins in nuxt.config.js.
+ */
+export function movePluginBeforeInitAuthPlugin(plugins, pluginName) {
   const indexOfPluginToMove = _getPluginIndex(plugins, pluginName)
   const indexOfNuxtFirePlugin = _getPluginIndex(plugins, 'nuxt-fire/main')
 
@@ -33,4 +38,30 @@ function _getPluginIndex(plugins, pluginName) {
     return pluginObject.src.includes(pluginName)
   }
   return plugins.findIndex((x) => includesPlugin(x))
+}
+
+/**
+ * Parses the request cookie and returns an authUser, if user is signed in.
+ */
+export function getAuthUserFromCookie({ req }) {
+  if (process.server && process.static) return
+  if (!req.headers.cookie) return
+
+  const cookie = cookieparser.parse(req.headers.cookie)
+  const accessWebToken = cookie.nuxt_fire_auth_access_token
+
+  if (!accessWebToken) return
+
+  const decodedAuthUser = JWTDecode(accessWebToken)
+  // Note: Not the same authUser Object as .currentUser from the Firebase Auth SDK.
+
+  // Trying to "recreate" the authUser object as similarly as possible
+  // from available data we received from the web token:
+  const authUser = {
+    uid: decodedAuthUser.user_id,
+    email: decodedAuthUser.email,
+    emailVerified: decodedAuthUser.email_verified
+  }
+
+  return authUser
 }
