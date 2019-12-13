@@ -1,6 +1,14 @@
 module.exports = {
   title: 'Nuxt-Fire',
   description: 'Nuxt Fire is cooool',
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-51670945-16'
+      }
+    ]
+  ],
   themeConfig: {
     heroImage: '/logo-no-text.png',
     logo: '/logo-no-text.png',
