@@ -1,15 +1,17 @@
 <template>
-  <ParentLayout>
-    <template #sidebar-top>
-      <clientOnly>
-        <AutoAds />
-      </clientOnly>
-      <!--<SidebarTopAds /> -->
-    </template>
-    <template #page-bottom>
-      <!--<PageBottomAds />-->
-    </template>
-  </ParentLayout>
+  <div>
+    <clientOnly>
+      <AutoAds />
+    </clientOnly>
+    <ParentLayout>
+      <template #sidebar-top>
+        <!--<SidebarTopAds /> -->
+      </template>
+      <template #page-bottom>
+        <!--<PageBottomAds />-->
+      </template>
+    </ParentLayout>
+  </div>
 </template>
 
 <script>
