@@ -1,6 +1,9 @@
 <template>
   <ParentLayout>
     <template #sidebar-top>
+      <clientOnly>
+        <AutoAds />
+      </clientOnly>
       <!--<SidebarTopAds /> -->
     </template>
     <template #page-bottom>
@@ -10,18 +13,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import AutoAdsense from 'vue-google-adsense/dist/InFeedAdsense.min.js'
-
 export default {
   name: 'Layout',
   components: {
-    ParentLayout: () => import('@parent-theme/layouts/Layout.vue')
-    //SidebarTopAds: () => import('@theme/components/SidebarTopAds')
-  },
-  beforeMount() {
-    Vue.use(require('vue-script2'))
-    Vue.use(AutoAdsense, { adClient: 'ca-pub-6032774483827005' })
+    ParentLayout: () => import('@parent-theme/layouts/Layout.vue'),
+    AutoAds: () => import('@theme/components/AutoAds')
   }
 }
 </script>
