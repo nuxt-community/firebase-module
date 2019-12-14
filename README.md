@@ -52,7 +52,7 @@ modules: [
 
 ## Quick Usage
 
-Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://nuxtfire.netlify.com/usage/)).
+Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://nuxtfire.netlify.com/guide/usage/)).
 
 Example:
 
