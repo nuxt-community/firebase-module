@@ -1,11 +1,18 @@
 module.exports = {
   title: 'Nuxt-Fire',
-  description: 'Nuxt Fire is cooool',
+  description: 'Easily integrate Firebase into your Nuxt 2 project.',
   plugins: [
     [
       '@vuepress/google-analytics',
       {
         ga: 'UA-51670945-16'
+      }
+    ],
+    [
+      'vuepress-plugin-google-adsense',
+      {
+        google_ad_client: 'ca-pub-6032774483827005',
+        enable_page_level_ads: true
       }
     ]
   ],

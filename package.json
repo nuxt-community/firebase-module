@@ -15,7 +15,6 @@
     "npm:publish": "cd packages/nuxt-fire && npm publish"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.2.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
@@ -24,7 +23,7 @@
     "vuepress": "^1.2.0"
   },
   "dependencies": {
-    "vue-google-adsense": "^1.8.0",
-    "vue-script2": "^2.1.0"
+    "@vuepress/plugin-google-analytics": "^1.2.0",
+    "vuepress-plugin-google-adsense": "0.0.3"
   }
 }
