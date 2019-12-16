@@ -238,8 +238,34 @@ firestore: {
 
 Enables persistence in web apps.
 
-- Type: `Boolean`
+- Type: `Boolean` or `Object`
 - Default: `false`
+
+```js
+firestore: {
+  // ...
+  enablePersistence: true
+}
+
+// or
+
+firestore: {
+  // ...
+  enablePersistence: {
+    /**
+     * Whether to synchronize the in-memory state of multiple tabs. Setting this
+     * to 'true' in all open tabs enables shared access to local persistence,
+     * shared execution of queries and latency-compensated local document updates
+     * across all connected instances.
+     *
+     * To enable this mode, `synchronizeTabs:true` needs to be set globally in all
+     * active tabs. If omitted or set to 'false', `enablePersistence()` will fail
+     * in all but the first tab.
+     */
+    synchronizeTabs: true
+  }
+}
+```
 
 More information [here](https://firebase.google.com/docs/firestore/manage-data/enable-offline).
 

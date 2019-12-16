@@ -66,6 +66,19 @@ export default function nuxtFire(moduleOptions) {
     }
   }
 
+  const firestore = options.services.firestore
+  if (firestore && firestore.enablePersistence) {
+    this.addPlugin({
+      src: path.resolve(__dirname, 'plugins/firestorePersistence.js'),
+      fileName: 'nuxt-fire/firestorePersistence.js',
+      ssr: false,
+      options:
+        typeof firestore.enablePersistence === 'object'
+          ? firestore.enablePersistence
+          : {}
+    })
+  }
+
   // Register main nuxt-fire plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugins/main.js'),
