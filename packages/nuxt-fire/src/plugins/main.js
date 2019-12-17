@@ -110,11 +110,12 @@ export default async (ctx, inject) => {
     inject('fireStore', fireStore)
     inject('fireStoreObj', fireStoreObj)
 
-    if (options.services.firestore.enablePersistence && process.client) { 
+    const enablePersistence = options.services.firestore.enablePersistence 
+    if (enablePersistence && process.client) { 
       try {
         await fireStore.enablePersistence((
-          typeof options.services.firestore.enablePersistence === 'object'
-            ? options.services.firestore.enablePersistence
+          typeof enablePersistence === 'object'
+            ? enablePersistence
             : {}
         ))
       } catch (err) {
