@@ -21,7 +21,7 @@ yarn add nuxt-fire # OR npm i nuxt-fire
 
 Add the below code to your **nuxt.config.js** modules array and adjust it according to your needs.
 
-Visit the [config section](/guide/config) for a detailed overview about each configuration.
+Visit the [config section](/guide/options/#config) for a detailed overview about each configuration.
 
 ### Simple Configuration
 
