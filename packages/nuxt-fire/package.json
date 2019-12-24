@@ -7,9 +7,14 @@
   "types": "src/index.d.ts",
   "author": "Pascal Luther",
   "repository": "https://github.com/lupas/nuxt-fire",
-  "homepage": "https://github.com/lupas",
+  "homepage": "https://nuxtfire.netlify.com/",
   "keywords": [
-    "nuxt, firebase, firestore, realtimedatabase, google, googleauthentication"
+    "nuxt",
+    "firebase",
+    "firestore",
+    "realtimedatabase",
+    "google",
+    "googleauthentication"
   ],
   "publishConfig": {
     "access": "public"
