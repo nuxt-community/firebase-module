@@ -15,13 +15,14 @@ export default async function(req, res, next) {
   const components = authorizationHeader.split(' ');
   const idToken = components.length > 1 ? components[1] : '';
 
-  // Get authUser object from JWT
-  const decodedAuthUser = JWTDecode(idToken)
+  // Get verified authUser claims from JWT
+  const decodedAuthUserClaims = JWTDecode(idToken)
+
   const authUser = {
-    // Reproduce attributes of "official" authUser object
-    uid: decodedAuthUser.user_id,
-    email: decodedAuthUser.email,
-    emailVerified: decodedAuthUser.email_verified
+    // Reproduce main attributes of "official" authUser object
+    uid: decodedAuthUserClaims.user_id,
+    email: decodedAuthUserClaims.email,
+    emailVerified: decodedAuthUserClaims.email_verified,
   }
 
   // Try to verify the id token:
@@ -31,6 +32,7 @@ export default async function(req, res, next) {
     if (uid) {
     // If UID can be retrieved, user is officially verified.
     // Set authUser object to res so it can be accesses in nuxtServerInit with in `ctx.res`
+    res.verifiedFireAuthUserClaims = decodedAuthUserClaims
     res.verifiedFireAuthUser = authUser
     } 
   } catch(e) {
