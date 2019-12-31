@@ -51,18 +51,34 @@ SET_AUTH_USER(state, { authUser }) {
 
 ### Step 2 - Retrieve the server-verified authUser
 
-In the nuxtServerInit action in your vuex store you can now access the `verifiedFireAuthUser` via the `res` object as shown below. This server verified authUser can now be used, e.g. by saving it in the store.
+In the nuxtServerInit action in your vuex store you can now access `verifiedFireAuthUser` and `verifiedFireAuthUserClaims` via the `res` object as shown below. This server verified authUser can now be used, e.g. by saving it in the store.
 
 ```js
 // Store action called nuxtServerInit:
 nuxtServerInit({ commit }, ctx) {
   const ssrVerifiedAuthUser = ctx.res.verifiedFireAuthUser
-  if (ssrVerifiedAuthUser) {
+  const ssrVerifiedAuthUserClaims = ctx.res.verifiedFireAuthUserClaims
+  if (ssrVerifiedAuthUser && ssrVerifiedAuthUserClaims) {
     commit('SET_AUTH_USER', {
-      authUser: ssrVerifiedAuthUser
+      authUser: ssrVerifiedAuthUser,
+      claims: ssrVerifiedAuthUserClaims
     })
   }
 }
 ```
+
+::: warning Be aware
+The `verifiedFireAuthUser` is not a full `authUser` object, since it is reproduced from the user claims, it contains only the following three main attributes of the authUser object:
+
+```js
+const verifiedFireAuthUser = {
+  // Reproduce main attributes of "official" authUser object
+  uid: decodedAuthUserClaims.user_id,
+  email: decodedAuthUserClaims.email,
+  emailVerified: decodedAuthUserClaims.email_verified
+}
+```
+
+:::
 
 That's it. You receive a server-verified authUser object and can do with it whatever you want in nuxtServerInit.
