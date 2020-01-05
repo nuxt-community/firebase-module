@@ -15,4 +15,4 @@ All you need to do is to include "nuxt-fire" in your tsconfig.json types like so
 
 Don't forget to restart your IDE (e.g. VSCODE) after adding the types.
 
-This [example](https://github.com/lupas/nuxt-fire-ts-demo) shows a working example of nuxt-fire with Typescript.
+Either [nuxt-fire-demo](https://github.com/lupas/nuxt-fire-demo) or [nuxt-fire-ts-demo](https://github.com/lupas/nuxt-fire-ts-demo) show working examples of nuxt-fire with Typescript.
