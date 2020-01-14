@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "nuxt": "^2.10.2",
-    "firebase": "^7.5.2"
+    "firebase": "^7.6.2"
   },
   "dependencies": {
     "firebase-admin": "^8.8.0",
