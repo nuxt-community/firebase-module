@@ -79,6 +79,13 @@ config: {
 }
 ```
 
+## onFirebaseHosting
+
+- Type: `Boolean` or `Object`
+- Default: `false`
+
+If your application is hosted on Firebase hosting, you can enable this flag in order to load the newest Firebase scripts in the service workers directly from there instead of www.gstatic.com.
+
 ## services <Badge text="REQUIRED" type="tip"/>
 
 By default, **NO** Firebase products are initialized. To initialize a specific service, set its services flag to `true` or create a child object and name the key after the service.
@@ -338,8 +345,7 @@ messaging: true
 // or
 
 messaging: {
-  createServiceWorker: false,
-  onFirebaseHosting: false
+  createServiceWorker: false
 }
 ```
 
@@ -363,13 +369,6 @@ notification: {
   clickPath: '<egYourWebsiteUrl>'
 }
 ```
-
-#### onFirebaseHosting
-
-- Type: `Boolean` or `Object`
-- Default: `false`
-
-If your application is hosted on Firebase hosting, you can enable this flag in order to load the newest Firebase scripts in the service worker directly from there instead of www.gstatic.com.
 
 ### performance
 
