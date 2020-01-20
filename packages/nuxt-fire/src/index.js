@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
   const options = Object.assign({}, this.options.fire, moduleOptions)
-  const firebaseVersion = '7.6.2' // TODO: Update with each Firebase update
+  const firebaseVersion = '7.7.0' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
   validateOptions(options)
@@ -23,8 +23,8 @@ export default function nuxtFire(moduleOptions) {
       ),
       options: {
         firebaseVersion,
-        messagingSenderId: options.config.messagingSenderId,
-        onFirebaseHosting: messaging.onFirebaseHosting || false
+        config: options.config,
+        onFirebaseHosting: options.onFirebaseHosting || false
       }
     })
   }
@@ -60,7 +60,7 @@ export default function nuxtFire(moduleOptions) {
         options: {
           firebaseVersion,
           config: options.config,
-          onFirebaseHosting: false
+          onFirebaseHosting: options.onFirebaseHosting || false
         }
       })
     }

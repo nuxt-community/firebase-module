@@ -82,6 +82,7 @@ modules: [
           }
         },
         customEnv: false,
+        onFirebaseHosting: false,
         services: {
           auth: {
             // Experimental Feature, use with caution.
@@ -112,8 +113,7 @@ modules: [
             }
           },
           messaging: {
-            createServiceWorker: true,
-            onFirebaseHosting: true
+            createServiceWorker: true
           }
         }
       }

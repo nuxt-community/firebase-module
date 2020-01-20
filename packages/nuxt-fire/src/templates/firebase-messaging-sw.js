@@ -1,6 +1,5 @@
 const options = <%= serialize(options) %>
 const version = options.firebaseVersion
-const messagingSenderId = options.messagingSenderId
 const onFirebaseHosting = options.onFirebaseHosting
 
 if (onFirebaseHosting) {
@@ -16,9 +15,7 @@ else {
   importScripts(
     'https://www.gstatic.com/firebasejs/' + version + '/firebase-messaging.js'
   )
-  firebase.initializeApp({
-    messagingSenderId: messagingSenderId
-  })
+  firebase.initializeApp(options.config)
 } 
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
