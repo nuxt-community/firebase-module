@@ -19,7 +19,7 @@ modules: ['@nuxtjs/firebase'],
 
 ## 2 - Rename module options key in nuxt.config.js
 
-(Only if options are not set directly in the modules-array)
+Only if options are not set directly in the modules-array:
 
 ```js
 // Old
@@ -34,7 +34,7 @@ firebase: {
 
 ## 3 - Rename types in tsconfig.json
 
-(Only if using helpers)
+Only if using typescript:
 
 ```json
 // Old
@@ -52,6 +52,8 @@ firebase: {
 ```
 
 ## 4 - Rename Helpers import path
+
+Only if using helpers:
 
 ```js
 // Old
