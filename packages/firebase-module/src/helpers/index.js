@@ -1,22 +1,22 @@
 /**
  * Moves a plugin that needs access to $this.fireFOO but needs to get run BEFORE
- * nuxt-auth in between the nuxt-fire and the auth plugin.
+ * nuxt-auth in between the firebase-module and the auth plugin.
  * This function needs to be applied in extendPlugins in nuxt.config.js.
  */
 export function movePluginBeforeInitAuthPlugin(plugins, pluginName) {
   const indexOfPluginToMove = _getPluginIndex(plugins, pluginName)
-  const indexOfNuxtFirePlugin = _getPluginIndex(plugins, 'nuxt-fire/main')
+  const indexOfNuxtFirePlugin = _getPluginIndex(plugins, 'firebase-module/main')
 
   const fromIndex = indexOfPluginToMove
   const toIndex = indexOfNuxtFirePlugin + 1
 
   if (fromIndex === -1) {
-    const msg = `Nuxt-Fire Helpers: Could not find a plugin that includes the name: ${pluginName}.`
+    const msg = `Firebase-Module Helpers: Could not find a plugin that includes the name: ${pluginName}.`
     throw new Error(msg)
   }
 
   if (toIndex === -1) {
-    const msg = `Nuxt-Fire Helpers: Nuxt-Fire plugin is not registered.`
+    const msg = `Firebase-Module Helpers: Firebase-Module plugin is not registered.`
     throw new Error(msg)
   }
 

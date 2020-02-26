@@ -3781,7 +3781,7 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase-admin@^8.8.0:
+firebase-admin@^8.9.2:
   version "8.9.2"
   resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-8.9.2.tgz#248ba184dc13b4929b043870a2067787a0dd013e"
   integrity sha512-ix4qcx+hHnr3mnc41Z8EzQa9Mr+2nhogLEv6ktkOCCpdKJ+9HxW9vikRCElSbC8ICHLD0KIH0GVOIZK80vbvqw==
@@ -8651,11 +8651,6 @@ vuepress-plugin-container@^2.0.2:
   integrity sha512-Df5KoIDMYiFg45GTfFw2hIiLGSsjhms4f3ppl2UIBf5nWMxi2lfifcoo8MooMSfxboxRZjoDccqQfu0fypaKrQ==
   dependencies:
     markdown-it-container "^2.0.0"
-
-vuepress-plugin-google-adsense@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-google-adsense/-/vuepress-plugin-google-adsense-0.1.0.tgz#5fd168d7edc4bcfaf3e87379cd78efb5ebe462a9"
-  integrity sha512-VfQhl8qpArQ5DxxEb/AkXMBxM2KM8dkivzu3rk7XYyAsFN62wmxrKSmQyZdrp8K/cSH04pUCwWT5GHkW6Tyukg==
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"

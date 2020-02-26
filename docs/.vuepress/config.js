@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Nuxt-Fire',
+  title: 'Nuxt Firebase-Module',
   description: 'Easily integrate Firebase into your Nuxt 2 project.',
   plugins: [
     [
@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     heroImage: '/logo-no-text.png',
     logo: '/logo-no-text.png',
-    repo: 'lupas/nuxt-fire',
+    repo: 'nuxt-community/firebase-module',
 
     sidebar: {
       '/guide/': [

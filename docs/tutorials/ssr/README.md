@@ -1,11 +1,11 @@
 # Firebase Auth in SSR/Universal Mode
 
 <Badge text="EXPERIMENTAL" type="warn"/>
-The nuxt-fire plugin provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
+This module provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
 ### Step 0 - Install Dependencies
 
-In addition to nuxt-fire, install these two dependencies:
+In addition to @nuxtjs/firebase, install these two dependencies:
 
 ```bash
 yarn add firebase-admin # OR npm i firebase-admin
@@ -17,7 +17,7 @@ yarn add jwt-decode # OR npm i jwt-decode
 Use the [auth.initialize option](/guide/options/#auth) with at least `onSuccessAction` defined and set `ssr = true`. Make sure to create the respective action & mutation to save the authUser to the state.
 
 ```js
-// In the nuxt.config.js nuxt-fire settings:
+// In the module config in nuxt.config.js:
 auth: {
   initialize: {
     onSuccessAction: 'handleSuccessfulAuthentication',

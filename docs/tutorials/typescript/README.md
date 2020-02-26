@@ -1,14 +1,14 @@
 # Usage with Typescript
 
-Nuxt-fire comes with types by providing a decleration file (`index.d.ts`) within the nuxt-fire npm package.
+The module comes with types by providing a decleration file (`index.d.ts`) within the npm package.
 
-All you need to do is to include "nuxt-fire" in your tsconfig.json types like so:
+All you need to do is to include "@nuxtjs/firebase" in your tsconfig.json types like so:
 
 ```json
 // tsconfig.json
 {
   "compilerOptions": {
-    "types": ["nuxt-fire"]
+    "types": ["@nuxtjs/firebase"]
   }
 }
 ```

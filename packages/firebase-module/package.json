@@ -1,12 +1,12 @@
 {
-  "name": "nuxt-fire",
-  "version": "3.5.5",
+  "name": "@nuxtjs/firebase",
+  "version": "4.0.0",
   "license": "MIT",
   "description": "Intergrate Firebase into your Nuxt project.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": "Pascal Luther",
-  "repository": "https://github.com/lupas/firebase",
+  "repository": "https://github.com/nuxt-community/firebase-module",
   "homepage": "https://nuxtfire.netlify.com/",
   "keywords": [
     "nuxt",
@@ -20,11 +20,11 @@
     "access": "public"
   },
   "peerDependencies": {
-    "nuxt": "^2.10.2",
-    "firebase": "^7.7.0"
+    "nuxt": "^2.11.0",
+    "firebase": "^7.9.1"
   },
   "dependencies": {
-    "firebase-admin": "^8.8.0",
+    "firebase-admin": "^8.9.2",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15"
   }

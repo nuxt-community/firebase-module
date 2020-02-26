@@ -1,1 +1,1 @@
-The `/.opensource/project.json` file is needed for nuxt-fire to be featured on https://firebaseopensource.com.
+The `/.opensource/project.json` file is needed for the module to be featured on https://firebaseopensource.com.

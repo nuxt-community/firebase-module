@@ -3,23 +3,23 @@
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/dm/nuxt-fire" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/v/nuxt-fire" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/license/nuxt-fire" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/dm/@nuxtjs/firebase" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/v/@nuxtjs/firebase" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/license/@nuxtjs/firebase" alt="License"></a>
  </p>
 </p>
 
-## What is Nuxt-Fire?
+## What is this?
 
-Nuxt-Fire is a Nuxt.js module that helps you integrate the Firebase JavaScript SDK into your application with ease. By simply configuring Nuxt-Fire in your nuxt.config.js file, you can use all Firebase Servics throughout your app.
+The Nuxt.js Firebase Module is a module that helps you integrate the Firebase JavaScript SDK into your application with ease. By simply configuring this module in your nuxt.config.js file, you can use all Firebase Services throughout your app.
 
-By importing each individual Firebase service dynamically Nuxt-Fire reduces bundle sizes and improves performance of your Nuxt.js app with Firebase.
+By importing each individual Firebase service dynamically this module reduces bundle sizes and improves performance of your Nuxt.js app with Firebase.
 
-Nuxt-Fire additionally ads other perks such as a plugin that automated the setup of onAuthStateChanged() fo Firebase Authentication or other helper functions that make your life with Fiebase easier.
+The module additionally ads other perks such as a plugin that automated the setup of onAuthStateChanged() fo Firebase Authentication or other helper functions that make your life with Firebase easier.
 
 ## How does it work?
 
-The Nuxt-Fire module adds a plugin to your Nuxt.js application that handles the initialization of each Firebase service (Authentication, Firestore, etc.). It then injects these services into the global context which makes them easily available throughout your application.
+The module adds a plugin to your Nuxt.js application that handles the initialization of each Firebase service (Authentication, Firestore, etc.). It then injects these services into the global context which makes them easily available throughout your application.
 
 ## Disclaimer
 

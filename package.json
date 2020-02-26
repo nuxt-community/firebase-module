@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "author": "Pascal Luther",
-  "repository": "https://github.com/lupas/nuxt-fire",
+  "repository": "https://github.com/nuxt-community/firebase-module",
   "homepage": "https://nuxtfire.netlify.com/",
   "keywords": [
     "nuxt",
@@ -13,7 +13,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "npm:publish": "cd packages/nuxt-fire && npm publish"
+    "npm:publish": "cd packages/firebase-module && npm publish"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",

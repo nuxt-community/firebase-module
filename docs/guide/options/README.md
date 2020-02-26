@@ -35,7 +35,7 @@ You can also specify multiple custom environments as mentioned in the [customEnv
 
 By default, the Firebase config will be chosen either directly from the **config-object** or from a **child-object named after the current NODE_ENV environment variable**.
 
-If set to `true`, however, nuxt-fire will determine the environment based on the environment variable called `FIRE_ENV`, which you can define yourself. This gives you the flexibility to define as many different Firebase configs as you like, independent of your NODE_ENV.
+If set to `true`, however, the module will determine the environment based on the environment variable called `FIRE_ENV`, which you can define yourself. This gives you the flexibility to define as many different Firebase configs as you like, independent of your NODE_ENV.
 
 ::: warning
 If you decide to turn on this option, you need to define `process.env.FIRE_ENV` in your code and additionally add the following code to your `nuxt.config.js` to make sure that the environment variable gets passed from server to client.
@@ -57,11 +57,11 @@ After that, you can set FIRE_ENV to anything you like...
 }
 ```
 
-And then add your config to the nuxt-fire options:
+And then add your config to the module options:
 
 ```js
 // nuxt.config.js
-// within nuxt-fire config
+// within the module's config
 config: {
   foofoofoo: {
     apiKey: '<apiKey>',
@@ -215,7 +215,7 @@ export const mutations = {
 
 ##### ssr <Badge text="EXPERIMENTAL" type="warn"/>
 
-If `ssr = true`, nuxt-fire generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
+If `ssr = true`, the module generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
 
 The option further adds a serverMiddleware that checks on server side if the token is valid and then returns the validated authUser object via `ctx.res.verifiedFireAuthUser` to the `nuxtServerInit` action.
 

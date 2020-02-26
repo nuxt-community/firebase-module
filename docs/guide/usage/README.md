@@ -4,7 +4,7 @@
 
 You can access the various Firebase products with **\$foo** in almost any context using `app.$foo` or `this.$foo`, including store actions. Make sure to replace the _foo_ with a shortcut from the table below.
 
-Firebase products supported by nuxt-fire so far:
+Firebase products supported by this module so far:
 
 | Firebase Product  | Shortcut        |
 | ----------------- | --------------- |

@@ -11,10 +11,10 @@ yarn add firebase # OR npm i firebase
 
 ## Install
 
-Install Nuxt-Fire via NPM or Yarn.
+Install the module via NPM or Yarn.
 
 ```bash
-yarn add nuxt-fire # OR npm i nuxt-fire
+yarn add @nuxtjs/firebase # OR npm i @nuxtjs/firebase
 ```
 
 ## Configure
@@ -28,7 +28,7 @@ Visit the [config section](/guide/options/#config) for a detailed overview about
 ```js
 modules: [
     [
-      'nuxt-fire',
+      'firebase',
       {
         config: {
           apiKey: '<apiKey>',
@@ -57,7 +57,7 @@ If you want to use every little configuration option there is, refer to the exam
 ```js
 modules: [
     [
-      'nuxt-fire',
+      'firebase',
       {
         config: {
           production: {
@@ -121,12 +121,12 @@ modules: [
   ],
 ```
 
-You can also separate the config from the module array by using the **fire** object:
+You can also separate the config from the module array by using the **firebase** object:
 
 ```js
-modules: ['nuxt-fire'],
+modules: ['firebase'],
 
-fire: {
+firebase: {
 // options
 }
 ```

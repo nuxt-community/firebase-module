@@ -2,8 +2,8 @@ import path from 'path'
 import { isEmpty } from 'lodash'
 
 export default function nuxtFire(moduleOptions) {
-  const options = Object.assign({}, this.options.fire, moduleOptions)
-  const firebaseVersion = '7.7.0' // TODO: Update with each Firebase update
+  const options = Object.assign({}, this.options.firebase, moduleOptions)
+  const firebaseVersion = '7.9.1' // TODO: Update with each Firebase update
   const currentEnv = getCurrentEnv(options)
 
   validateOptions(options)
@@ -34,14 +34,14 @@ export default function nuxtFire(moduleOptions) {
     // Register initAuth plugin
     this.addPlugin({
       src: path.resolve(__dirname, 'plugins/initAuth.js'),
-      fileName: 'nuxt-fire/initAuth.js',
+      fileName: 'firebase-module/initAuth.js',
       options: auth.initialize,
       ssr: false
     })
 
     if (auth.initialize.ssr) {
       // Add serverMiddleware
-      const fileName = 'nuxt-fire/firebaseServerAuth.js'
+      const fileName = 'firebase-module/firebaseServerAuth.js'
       this.addTemplate({
         src: path.resolve(__dirname, 'serverMiddleware/firebaseServerAuth.js'),
         fileName: fileName,
@@ -66,10 +66,10 @@ export default function nuxtFire(moduleOptions) {
     }
   }
 
-  // Register main nuxt-fire plugin
+  // Register main firebase-module plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugins/main.js'),
-    fileName: 'nuxt-fire/main.js',
+    fileName: 'firebase-module/main.js',
     ssr: true,
     options
   })
@@ -170,16 +170,16 @@ function validateConfigKeys(options, currentEnv) {
 
 function handleWarning(message) {
   const color = '\x1b[33m'
-  console.warn(color, `(Nuxt-Fire) ${message}`)
+  console.warn(color, `(Firebase-Module) ${message}`)
 }
 
 function handleError(message) {
   // TODO: Delete warning by the end of 2019
   handleWarning(
-    `Nuxt-fire 3.0.0 introduced a new layout of the configuration for this module. Check out the Changelogs to see what changed and reconfigure your options accordingly.
-    See: https://github.com/lupas/nuxt-fire/releases/tag/v3.0.0`
+    `Firebase-Module 3.0.0 introduced a new layout of the configuration for this module. Check out the Changelogs to see what changed and reconfigure your options accordingly.
+    See: https://github.com/@nuxtjs/firebase/releases/tag/v3.0.0`
   )
-  throw new Error(`(Nuxt-Fire) ${message}`)
+  throw new Error(`(Firebase-Module) ${message}`)
 }
 
-module.exports.meta = require('./../package.json')
+module.exports.meta = require('../package.json')

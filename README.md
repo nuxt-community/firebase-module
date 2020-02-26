@@ -1,11 +1,11 @@
-# 🔥 Nuxt-Fire
+# 🔥 Nuxt Firebase Module
 
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/dm/nuxt-fire" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/v/nuxt-fire" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/nuxt-fire"><img src="https://badgen.net/npm/license/nuxt-fire" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/dm/@nuxtjs/firebase" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/v/@nuxtjs/firebase" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/license/@nuxtjs/firebase" alt="License"></a>
  </p>
 </p>
 
@@ -15,10 +15,10 @@
 
 ## Quick Setup
 
-Install Nuxt-Fire via NPM or Yarn:
+Install the module via NPM or Yarn:
 
 ```bash
-yarn add nuxt-fire # OR npm i nuxt-fire
+yarn add @nuxtjs/firebase # OR npm i @nuxtjs/firebase
 ```
 
 ## Quick Config
@@ -30,7 +30,7 @@ See all configuration options [here](https://nuxtfire.netlify.com/guide/options/
 ```js
 modules: [
     [
-      'nuxt-fire',
+      'firebase',
       {
         config: {
           apiKey: '<apiKey>',

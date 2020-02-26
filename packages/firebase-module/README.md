@@ -1,18 +1,18 @@
-# 🔥 Nuxt-Fire
+# 🔥 Nuxt Firebase
 
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
 > Easily integrate Firebase into your Nuxt 2 project.
 
 📖 [**Read Full Documentation**](https://nuxtfire.netlify.com/)  
-📖 [**Visit GitHub Page**](https://github.com/lupas/nuxt-fire)
+📖 [**Visit GitHub Page**](https://github.com/nuxt-community/firebase-module)
 
 ## Quick Setup
 
-Install Nuxt-Fire via NPM or Yarn:
+Install the module via NPM or Yarn:
 
 ```bash
-yarn add nuxt-fire # OR npm i nuxt-fire
+yarn @nuxtjs/firebase # OR npm i @nuxtjs/firebase
 ```
 
 ## Quick Config
@@ -24,7 +24,7 @@ See all configuration options [here](/guide/options/).
 ```js
 modules: [
     [
-      'nuxt-fire',
+      'firebase',
       {
         config: {
           apiKey: '<apiKey>',
@@ -66,4 +66,4 @@ There is much more options to this simple setup, check out our full documentatio
 
 ## License
 
-MIT - 2018-present Pascal Luther
+MIT - Nuxt-Community - Pascal Luther

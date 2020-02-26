@@ -1,6 +1,6 @@
 # Links
 
-Collection of Links related to Nuxt-fire:
+Collection of Links related to this module:
 
 ## Articles
 
