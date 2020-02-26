@@ -1,17 +1,6 @@
 module.exports = {
   title: 'Nuxt-Fire',
   description: 'Easily integrate Firebase into your Nuxt 2 project.',
-  head: [
-    [
-      'script',
-      { src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
-    ],
-    [
-      'script',
-      {},
-      '(adsbygoogle = window.adsbygoogle || []).push({  google_ad_client: ca-pub-6032774483827005,  enable_page_level_ads: true });'
-    ]
-  ],
   plugins: [
     [
       '@vuepress/google-analytics',

@@ -2,5 +2,5 @@
 
 ## Packages
 
-1. **docs** - nuxt-fire documentation
-2. **nuxt-fire** - main source code for nuxt-fire
+1. **nuxt-fire** - Main source code for nuxt-fire1.
+2. **nuxt-fire-demo** - Nuxt-fire Demo site.

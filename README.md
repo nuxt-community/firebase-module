@@ -72,4 +72,4 @@ There is much more options to this simple setup, check out our full documentatio
 
 ## License
 
-MIT - 2018-present Pascal Luther
+MIT - Nuxt-Community - Pascal Luther

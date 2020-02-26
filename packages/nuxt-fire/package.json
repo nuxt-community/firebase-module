@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": "Pascal Luther",
-  "repository": "https://github.com/lupas/nuxt-fire",
+  "repository": "https://github.com/lupas/firebase",
   "homepage": "https://nuxtfire.netlify.com/",
   "keywords": [
     "nuxt",
