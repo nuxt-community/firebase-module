@@ -15,4 +15,4 @@ All you need to do is to include "@nuxtjs/firebase" in your tsconfig.json types 
 
 Don't forget to restart your IDE (e.g. VSCODE) after adding the types.
 
-Either [nuxt-fire-demo](https://github.com/lupas/nuxt-fire-demo) or [nuxt-fire-ts-demo](https://github.com/lupas/nuxt-fire-ts-demo) show working examples of nuxt-fire with Typescript.
+[nuxt-fire-demo](https://github.com/lupas/nuxt-fire-demo) shows working examples of nuxt-fire with Typescript.
