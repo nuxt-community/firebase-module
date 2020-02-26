@@ -1,10 +1,12 @@
 # Upgrade from v3 to v4
 
-With v4, nuxt-fire officially became a nuxt-community module. With this, the GitHub repository as well as the NPM location package name have changed.
+With v4, **nuxt-fire** became an official [nuxt-community](https://github.com/nuxt-community) module. <:o)
 
-In addition to that, nuxt-fire was renamed to @nuxtjs/firebase, to make it clear that this is the official Firebase module for Nuxt.js.
+With this, the GitHub repository as well as the NPM location package name have changed.
 
-To make it consistent, we also changed certain things within the module, so when upgrading from v3 to v4, you will have to change the following in your code:
+In addition to that, nuxt-fire was renamed to **@nuxtjs/firebase**, to make it clear that this is the official Firebase module for Nuxt.js.
+
+To make it consistent, we also changed certain namings within the module, so when upgrading from v3 to v4, you will have to change the following in your code:
 
 ## 1 - Rename module import in nuxt.config.js
 

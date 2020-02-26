@@ -26,6 +26,7 @@ module.exports = {
             '/guide/options/',
             '/guide/usage/',
             '/guide/helpers/',
+            '/guide/upgrade/',
             '/guide/demo/'
           ]
         }
