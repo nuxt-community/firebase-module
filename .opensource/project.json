@@ -7,7 +7,7 @@
   "tabs": [
     {
       "title": "Full Documentation",
-      "href": "https://nuxtfire.netlify.com/"
+      "href": "https://firebase.nuxtjs.org/"
     },
     {
       "title": "Nuxt.js (v2), Firestore & SSR",

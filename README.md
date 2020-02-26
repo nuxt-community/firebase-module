@@ -11,7 +11,7 @@
 
 > Easily integrate Firebase into your Nuxt 2 project.
 
-📖 [**Read Full Documentation**](https://nuxtfire.netlify.com/)
+📖 [**Read Full Documentation**](https://firebase.nuxtjs.org/)
 
 ## Quick Setup
 
@@ -25,7 +25,7 @@ yarn add @nuxtjs/firebase # OR npm i @nuxtjs/firebase
 
 Add the following to your nuxt.config.js.
 
-See all configuration options [here](https://nuxtfire.netlify.com/guide/options/).
+See all configuration options [here](https://firebase.nuxtjs.org/guide/options/).
 
 ```js
 modules: [
@@ -52,7 +52,7 @@ modules: [
 
 ## Quick Usage
 
-Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://nuxtfire.netlify.com/guide/usage/)).
+Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://firebase.nuxtjs.org/guide/usage/)).
 
 Example:
 
@@ -68,7 +68,7 @@ try {
 
 There is much more options to this simple setup, check out our full documentation below:
 
-📖 [**Read Documentation**](https://nuxtfire.netlify.com/)
+📖 [**Read Documentation**](https://firebase.nuxtjs.org/)
 
 ## License
 
