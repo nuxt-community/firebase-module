@@ -1,6 +1,6 @@
 # Introduction
 
-<p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
+<p align="center"><img align="center" height="300px" src="https://firebase.nuxtjs.org/logo-text.png"/></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/dm/@nuxtjs/firebase" alt="Downloads"></a>
