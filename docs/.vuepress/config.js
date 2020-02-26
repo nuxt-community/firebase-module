@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Nuxt Firebase-Module',
-  description: 'Easily integrate Firebase into your Nuxt 2 project.',
+  title: 'Nuxt Firebase',
+  description: 'Easily integrate Firebase into your Nuxt project.',
   plugins: [
     [
       '@vuepress/google-analytics',

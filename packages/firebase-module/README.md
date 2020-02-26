@@ -2,7 +2,7 @@
 
 <p align="center"><img align="center" height="300px" src="https://nuxt-fire-demo.firebaseapp.com/logo_text.png"/></p>
 
-> Easily integrate Firebase into your Nuxt 2 project.
+> Easily integrate Firebase into your Nuxt project.
 
 📖 [**Read Full Documentation**](https://firebase.nuxtjs.org/)  
 📖 [**Visit GitHub Page**](https://github.com/nuxt-community/firebase-module)

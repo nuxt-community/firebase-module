@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /logo-no-text.png
-heroText: Nuxt Firebase-Module
-tagline: Easily integrate Firebase into your Nuxt 2 project.
+heroText: Nuxt Firebase
+tagline: Easily integrate Firebase into your Nuxt project.
 actionText: Get Started →
 actionLink: /guide/getting-started/
 features:
