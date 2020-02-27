@@ -30,7 +30,7 @@ See all configuration options [here](https://firebase.nuxtjs.org/guide/options/)
 ```js
 modules: [
     [
-      'firebase',
+      '@nuxtjs/firebase',
       {
         config: {
           apiKey: '<apiKey>',

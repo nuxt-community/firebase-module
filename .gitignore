@@ -1,4 +1,9 @@
-node_modules/**/*
 node_modules
+*.iml
+.idea
+*.log*
+.nuxt
 .vscode
-package-lock.json
+.DS_Store
+coverage
+dist

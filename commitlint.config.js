@@ -1,6 +1,5 @@
 module.exports = {
-  root: true,
   extends: [
-    '@nuxtjs'
+    '@commitlint/config-conventional'
   ]
 }

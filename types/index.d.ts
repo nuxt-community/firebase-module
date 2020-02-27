@@ -49,6 +49,7 @@ declare module '@nuxt/vue-app' {
   }
 }
 
+// Nuxt 2.9+
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
     $fireStore: firebase.firestore.Firestore

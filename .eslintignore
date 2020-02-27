@@ -1,4 +1,10 @@
-**/firebase-module/src/plugins/initAuth.js
-**/firebase-module/src/plugins/main.js
-**/firebase-module/src/templates/firebase-messaging-sw.js
-**/firebase-module/src/serverMiddleware/firebaseServerAuth.js
+# Common
+node_modules
+dist
+.nuxt
+coverage
+
+# Plugin
+lib/plugins/*.js
+lib/serverMiddleware/*.js
+lib/templates/*.js
