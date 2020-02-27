@@ -1,9 +1,10 @@
 {
   "name": "Nuxt Firebase-Module",
-  "platforms": ["Web"],
+  "platforms": [
+    "Web"
+  ],
   "content": "README.md",
   "pages": [],
-  "related": ["lupas/nuxt-fire-demo"],
   "tabs": [
     {
       "title": "Full Documentation",
