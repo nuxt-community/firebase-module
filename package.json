@@ -15,7 +15,8 @@
   "license": "MIT",
   "author": "Pascal Luther",
   "files": [
-    "lib"
+    "lib",
+    "types/*.d.ts"
   ],
   "main": "lib/module.js",
   "types": "types/index.d.ts",
