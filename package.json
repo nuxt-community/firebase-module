@@ -15,7 +15,8 @@
   "license": "MIT",
   "author": "Pascal Luther",
   "files": [
-    "lib"
+    "lib",
+    "types/*.d.ts"
   ],
   "main": "lib/module.js",
   "types": "types/index.d.ts",
@@ -27,6 +28,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
+    "consola": "^2.11.3",
     "firebase-admin": "^8.9.2",
     "jwt-decode": "^2.2.0"
   },
