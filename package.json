@@ -1,29 +1,56 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "author": "Pascal Luther",
-  "repository": "https://github.com/nuxt-community/firebase-module",
-  "homepage": "https://firebase.nuxtjs.org/",
+  "name": "@nuxtjs/firebase",
+  "version": "4.0.0",
+  "description": "Intergrate Firebase into your Nuxt project.",
   "keywords": [
+    "firebase",
+    "firestore",
+    "google",
+    "googleauthentication",
     "nuxt",
-    "firebase"
+    "realtimedatabase"
   ],
+  "homepage": "https://firebase.nuxtjs.org/",
+  "repository": "nuxt-community/firebase-module",
+  "license": "MIT",
+  "author": "Pascal Luther",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/module.js",
+  "types": "types/index.d.ts",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "npm:publish": "cd packages/firebase-module && npm publish"
-  },
-  "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.10.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "prettier": "1.19.1",
-    "vuepress": "1.3.1"
+    "docs:dev": "vuepress dev docs",
+    "lint": "eslint --ext .js,.vue lib test",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "test": "yarn lint && jest"
   },
   "dependencies": {
-    "@vuepress/plugin-google-analytics": "1.3.1"
+    "firebase-admin": "^8.9.2",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "@nuxtjs/eslint-config": "latest",
+    "@nuxtjs/module-test-utils": "latest",
+    "@vuepress/plugin-google-analytics": "latest",
+    "codecov": "latest",
+    "eslint": "latest",
+    "firebase": "latest",
+    "husky": "latest",
+    "jest": "latest",
+    "nuxt-edge": "latest",
+    "standard-version": "latest",
+    "vuepress": "latest"
+  },
+  "peerDependencies": {
+    "firebase": "^7.9.0",
+    "nuxt": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
