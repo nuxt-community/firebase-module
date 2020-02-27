@@ -28,7 +28,7 @@ Visit the [config section](/guide/options/#config) for a detailed overview about
 ```js
 modules: [
     [
-      'firebase',
+      '@nuxtjs/firebase',
       {
         config: {
           apiKey: '<apiKey>',
@@ -57,7 +57,7 @@ If you want to use every little configuration option there is, refer to the exam
 ```js
 modules: [
     [
-      'firebase',
+      '@nuxtjs/firebase',
       {
         config: {
           production: {
@@ -124,7 +124,7 @@ modules: [
 You can also separate the config from the module array by using the **firebase** object:
 
 ```js
-modules: ['firebase'],
+modules: ['@nuxtjs/firebase'],
 
 firebase: {
 // options
