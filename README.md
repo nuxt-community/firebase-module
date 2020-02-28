@@ -72,4 +72,4 @@ There is much more options to this simple setup, check out our full documentatio
 
 ## License
 
-MIT - Nuxt-Community - Pascal Luther
+MIT - [Nuxt-Community](https://github.com/nuxt-community) - [Pascal Luther](https://github.com/lupas)
