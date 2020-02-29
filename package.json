@@ -48,7 +48,7 @@
     "vuepress": "latest"
   },
   "peerDependencies": {
-    "firebase": "^7.9.2",
+    "firebase": "^7.9.3",
     "nuxt": "^2.11.0"
   },
   "publishConfig": {
