@@ -15,6 +15,13 @@
 
 ## Quick Setup
 
+Make sure you have the newest versions of Nuxt and Firebase installed and setup in your project.
+
+```bash
+yarn add nuxt # OR npm i nuxt
+yarn add firebase # OR npm i firebase
+```
+
 Install the module via NPM or Yarn:
 
 ```bash
