@@ -237,9 +237,17 @@ firestore: {
   static: false, // default
   preload: false, // default
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
-  enablePersistence: true
+  enablePersistence: true,
+  settings: {
+    // Firestore Settings
+  }
 }
 ```
+
+#### settings
+
+Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
+See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
 
 #### enablePersistence
 
