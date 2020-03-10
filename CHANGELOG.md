@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/nuxt-community/firebase-module/compare/v4.1.0...v4.2.0) (2020-03-10)
+
+
+### Features
+
+* add option to add fireStore.settings() in nuxt.config.js ([21e32c1](https://github.com/nuxt-community/firebase-module/commit/21e32c1d57457370efc0a8e679033335ee656c09))
+
+
+### Bug Fixes
+
+* updated firebase version for firebase-auth-sw ([2d460a8](https://github.com/nuxt-community/firebase-module/commit/2d460a856fb234a4f9e005c85a7029baadccde01))
+
 ## [4.1.0](https://github.com/nuxt-community/firebase-module/compare/v4.0.0...v4.1.0) (2020-02-28)
 
 
