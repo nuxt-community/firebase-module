@@ -29,8 +29,7 @@
   },
   "dependencies": {
     "consola": "^2.11.3",
-    "firebase-admin": "^8.9.2",
-    "jwt-decode": "^2.2.0"
+    "firebase-admin": "^8.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
