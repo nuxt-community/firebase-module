@@ -239,7 +239,7 @@ firestore: {
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
   enablePersistence: true,
   settings: {
-    // Firestore Settings
+    // Firestore Settings - currently only works in SPA mode
   }
 }
 ```
@@ -248,6 +248,11 @@ firestore: {
 
 Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
 See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
+
+::: danger
+There seems to be an issue when using settings() in Universal mode (see [this issue](https://github.com/firebase/firebase-js-sdk/issues/2733)). Therefore, settings currently only work in SPA mode.
+:::
+
 
 #### enablePersistence
 
