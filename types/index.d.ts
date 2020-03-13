@@ -27,8 +27,10 @@ interface ServiceConfig {
 export interface AuthServiceConfig extends ServiceConfig {
   initialize?:
     | {
-        onSuccessMutation?: string
-        onSuccessAction?: string
+        onSignInMutation?: string
+        onSignInAction?: string
+        onSignOutMutation?: string
+        onSignOutAction?: string
         onErrorMutation?: string
         onErrorAction?: string
         ssr?:
@@ -119,6 +121,7 @@ declare module 'vue/types/vue' {
     $fireStorageObj: typeof firebase.storage
     $fireAuth: firebase.auth.Auth
     $fireAuthObj: typeof firebase.auth
+    $fireAuthUnsubscribe: firebase.Unsubscribe
     $fireMess: firebase.messaging.Messaging
     $fireMessObj: typeof firebase.messaging
     $fireAnalytics: firebase.analytics.Analytics
@@ -146,6 +149,7 @@ declare module '@nuxt/vue-app' {
     $fireStorageObj: typeof firebase.storage
     $fireAuth: firebase.auth.Auth
     $fireAuthObj: typeof firebase.auth
+    $fireAuthUnsubscribe: firebase.Unsubscribe
     $fireMess: firebase.messaging.Messaging
     $fireMessObj: typeof firebase.messaging
     $fireAnalytics: firebase.analytics.Analytics
@@ -174,6 +178,7 @@ declare module '@nuxt/types' {
     $fireStorageObj: typeof firebase.storage
     $fireAuth: firebase.auth.Auth
     $fireAuthObj: typeof firebase.auth
+    $fireAuthUnsubscribe: firebase.Unsubscribe
     $fireMess: firebase.messaging.Messaging
     $fireMessObj: typeof firebase.messaging
     $fireAnalytics: firebase.analytics.Analytics
@@ -197,6 +202,7 @@ declare module 'vuex/types/index' {
     $fireStorageObj: typeof firebase.storage
     $fireAuth: firebase.auth.Auth
     $fireAuthObj: typeof firebase.auth
+    $fireAuthUnsubscribe: firebase.Unsubscribe
     $fireMess: firebase.messaging.Messaging
     $fireMessObj: typeof firebase.messaging
     $fireAnalytics: firebase.analytics.Analytics
