@@ -1,34 +1,10 @@
-import { ServerResponse, IncomingMessage } from 'http'
+import { ServerResponse } from 'http'
 import { Vue } from 'vue/types/vue'
 import { NuxtAppOptions, Configuration } from '@nuxt/types'
 import { NuxtConfiguration } from '@nuxt/vue-app'
 
 import firebase from 'firebase'
 import { auth } from 'firebase-admin'
-
-/* This file simply imports the needed types from firebase and forwards them */
-declare module 'vue/types/vue' {
-  interface Vue {
-    $fireStore: firebase.firestore.Firestore
-    $fireStoreObj: typeof firebase.firestore
-    $fireDb: firebase.database.Database
-    $fireDbObj: typeof firebase.database
-    $fireFunc: firebase.functions.Functions
-    $fireFuncObj: typeof firebase.functions
-    $fireStorage: firebase.storage.Storage
-    $fireStorageObj: typeof firebase.storage
-    $fireAuth: firebase.auth.Auth
-    $fireAuthObj: typeof firebase.auth
-    $fireMess: firebase.messaging.Messaging
-    $fireMessObj: typeof firebase.messaging
-    $fireAnalytics: firebase.analytics.Analytics
-    $fireAnalyticsObj: typeof firebase.analytics
-    $firePerf: firebase.performance.Performance
-    $firePerfObj: typeof firebase.performance
-    $fireConfig: firebase.remoteConfig.RemoteConfig
-    $fireConfigObj: typeof firebase.remoteConfig
-  }
-}
 
 export interface FirebaseConfiguration {
   apiKey: string
@@ -58,8 +34,9 @@ export interface AuthServiceConfig extends ServiceConfig {
         ssr?:
           | boolean
           | {
-              credential?: string | null
+              credential: string | true
               serverLogin?: boolean
+              ignorePaths?: (string | RegExp)[]
             }
       }
     | boolean
@@ -128,6 +105,29 @@ export interface FirebaseModuleConfiguration {
   }
   customEnv?: boolean
   onFirebaseHosting?: boolean | object
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $fireStore: firebase.firestore.Firestore
+    $fireStoreObj: typeof firebase.firestore
+    $fireDb: firebase.database.Database
+    $fireDbObj: typeof firebase.database
+    $fireFunc: firebase.functions.Functions
+    $fireFuncObj: typeof firebase.functions
+    $fireStorage: firebase.storage.Storage
+    $fireStorageObj: typeof firebase.storage
+    $fireAuth: firebase.auth.Auth
+    $fireAuthObj: typeof firebase.auth
+    $fireMess: firebase.messaging.Messaging
+    $fireMessObj: typeof firebase.messaging
+    $fireAnalytics: firebase.analytics.Analytics
+    $fireAnalyticsObj: typeof firebase.analytics
+    $firePerf: firebase.performance.Performance
+    $firePerfObj: typeof firebase.performance
+    $fireConfig: firebase.remoteConfig.RemoteConfig
+    $fireConfigObj: typeof firebase.remoteConfig
+  }
 }
 
 declare module '@nuxt/vue-app' {
@@ -210,12 +210,6 @@ declare module 'vuex/types/index' {
 
 declare module 'http' {
   interface ServerResponse {
-    verifiedFireAuthUser?: Omit<auth.UserRecord, 'customClaims'>
-    verifiedFireAuthUserClaims?: auth.UserRecord['customClaims']
-  }
-
-  interface IncomingMessage {
-    verifiedFireAuthUser?: Omit<auth.UserRecord, 'customClaims'>
-    verifiedFireAuthUserClaims?: auth.UserRecord['customClaims']
+    locals: Record<string, any> & { user: auth.UserRecord }
   }
 }
