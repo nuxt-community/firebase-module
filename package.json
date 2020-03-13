@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "consola": "^2.11.3",
-    "firebase-admin": "^8.9.2",
+    "firebase-admin": "^8.10.0",
     "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "vuepress": "latest"
   },
   "peerDependencies": {
-    "firebase": "^7.10.0",
+    "firebase": "^7.11.0",
     "nuxt": "^2.11.0"
   },
   "publishConfig": {
