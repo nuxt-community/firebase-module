@@ -27,12 +27,8 @@ interface ServiceConfig {
 export interface AuthServiceConfig extends ServiceConfig {
   initialize?:
     | {
-        onSignInMutation?: string
-        onSignInAction?: string
-        onSignOutMutation?: string
-        onSignOutAction?: string
-        onErrorMutation?: string
-        onErrorAction?: string
+        onAuthStateChangedMutation?: string
+        onAuthStateChangedAction?: string
         ssr?:
           | boolean
           | {
@@ -214,8 +210,12 @@ declare module 'vuex/types/index' {
   }
 }
 
+export type FireAuthServerUser = Omit<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>
+  & Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>>
+  & { allClaims: auth.DecodedIdToken }
+
 declare module 'http' {
   interface ServerResponse {
-    locals: Record<string, any> & { user: auth.UserRecord }
+    locals: Record<string, any> & { user: FireAuthServerUser }
   }
 }
