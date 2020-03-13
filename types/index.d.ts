@@ -58,8 +58,8 @@ export interface AuthServiceConfig extends ServiceConfig {
         ssr?:
           | boolean
           | {
-              credential: string
-              serverLogin: boolean
+              credential?: string | null
+              serverLogin?: boolean
             }
       }
     | boolean
