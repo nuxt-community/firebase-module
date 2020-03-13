@@ -1,4 +1,4 @@
-import { ServerResponse, ServerRequest } from 'http'
+import { ServerResponse, IncomingMessage } from 'http'
 import { Vue } from 'vue/types/vue'
 import { NuxtAppOptions, Configuration } from '@nuxt/types'
 import { NuxtConfiguration } from '@nuxt/vue-app'
@@ -214,7 +214,7 @@ declare module 'http' {
     verifiedFireAuthUserClaims?: auth.UserRecord['customClaims']
   }
 
-  interface ServerRequest {
+  interface IncomingMessage {
     verifiedFireAuthUser?: Omit<auth.UserRecord, 'customClaims'>
     verifiedFireAuthUserClaims?: auth.UserRecord['customClaims']
   }
