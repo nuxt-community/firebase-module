@@ -158,41 +158,46 @@ auth: true
 // or
 
 auth: {
+  // it is recommended to configure either a mutation or action but you can set both
   initialize: {
-    onSuccessMutation: 'ON_SUCCESS_MUTATION',
-    onSuccessAction: null,
-    onErrorMutation: null,
-    onErrorAction: 'onErrorAction',
-    ssr: false // default
-  }
+    onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+    // onAuthStateChangedAction: 'onAuthStateChangedAction'
+  },
+  ssr: false // default
 }
 ```
 
 #### initialize <Badge text="EXPERIMENTAL" type="warn"/>
 
-This sets up SSR-ready `onAuthStateChanged()` without any effort.
+This sets up an `onAuthStateChanged()` listener and hooks it up to the vuex store.
 
-Just add a mutation/action to your vuex store that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the initAuth configuration as below
+Just add a mutation/action to your vuex store ([as seen below](#onauthstatechangedmutation--onauthstatechangedaction)) that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the `firebase.services.auth.initialize` configuration as above.
 
-When onAuthStateChanged() gets triggered by Firebase, the defined mutations/actions will be called either on success or error with the `authUser`, `claims` or `error` attributes seen below:
+When onAuthStateChanged() gets triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation--onauthstatechangedaction)
 
-##### onSuccessMutation / onSuccessAction / onErrorMutation / onErrorAction
+To unsubscribe from the listener simply call the `$fireAuthUnsubscribe()` function which is provided as a [combined inject](https://nuxtjs.org/guide/plugins#combined-inject).
+
+##### onAuthStateChangedMutation / onAuthStateChangedAction
 
 ```js
-ON_SUCCESS_MUTATION: (state, { authUser, claims }) => {
-  // Do something with the authUser and the claims object...
+ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
+  if (!authUser) {
+    // claims = null
+
+    // perform logout operations
+  } else {
+    // Do something with the authUser and the claims object...
+  }
 }
 
-onSuccessAction: (ctx, { authUser, claims }) => {
-  // Do something with the authUser and the claims object...
-}
+onAuthStateChangedAction: (ctx, { authUser, claims }) => {
+  if (!authUser) {
+    // claims = null
 
-ON_ERROR_MUTATION: (state, error) => {
-  // Hanlde an auth error in a mutation...
-}
-
-onErrorAction: (ctx, error) => {
-  // Hanlde an auth error in an action...
+    // Perform logout operations
+  } else {
+    // Do something with the authUser and the claims object...
+  }
 }
 ```
 
@@ -204,22 +209,84 @@ export const mutations = {
   onSuccessMutation: (state, { authUser, claims }) => {
     // Don't do this:
     state.user = authUser
+
     // Do this:
     state.user.id = authUser.uid
     state.user.email = authUser.email
+
+    // Or this:
+    const { uid, email, emailVerified } = authUser
+    state.user = { uid, email, emailVerified }
   }
 }
 ```
 
 :::
 
-##### ssr <Badge text="EXPERIMENTAL" type="warn"/>
+#### ssr <Badge text="EXPERIMENTAL" type="warn"/>
+
+This sets up SSR ready functionality without any effort.
 
 If `ssr = true`, the module generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
 
-The option further adds a serverMiddleware that checks on server side if the token is valid and then returns the validated authUser object via `ctx.res.verifiedFireAuthUser` to the `nuxtServerInit` action.
+The option further adds a serverMiddleware that checks on server side if the token is valid and then injects a simplified [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) into the context variable `res.locals.user`.
+
+The simplified user record contains the following properties:
+
+- `uid`: The users uid
+- `email`: The users email
+- `emailVerified`: If the email was verified
+- `displayName`: The users display name
+- `allClaims`: All claims from the [admin.auth.DecodedIdToken](https://firebase.google.com/docs/reference/admin/node/admin.auth.DecodedIdToken)
+
+The injected user can be used by context aware life cycle hooks on the server side (e.g. the store action `nuxtServerInit`).
 
 A tutorial on how to set this up can be found [here](/tutorials/ssr/#firebase-auth-in-ssr-universal-mode).
+
+##### Firebase admin authorization
+
+If you want additional information on the user the module can inject a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) into the `ctx.res.locals.user` property.
+
+The `allClaims` property is set in addition to the default user record properties.
+
+To enable this you can authorize the firebase admin by [generating a service account key](https://firebase.google.com/docs/admin/setup#initialize-sdk) and linking to it with the following configuration:
+
+```js
+auth: {
+  ssr: {
+    // this is required if ssr is an object
+    credential: '/absolute/path/to/serviceAccount.json'
+
+    // nuxt aliases are supported
+    credential: '~/assets/serviceAccount.json'
+
+    // if this is set to true the credential will be retrieved from GOOGLE_APPLICATION_CREDENTIALS environment variable
+    credential: true
+
+    // The service worker session automatically ignores external resources, static files and HMR calls
+    // If you need to ignore additional routes, define them here
+    ignorePaths: [
+      '/admin', // path is ignored if url.pathname.startsWith('/admin')
+      /^api/ // path is ignored if url.pathname without the leading slash (/) matches the RegExp
+    ]
+  }
+}
+```
+
+##### Server side Firebase client SDK login
+
+Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
+
+Simply set `auth.ssr.serverLogin = true`.
+
+::: warning Do not use firebase client SDK to perform API operations.  
+
+Server is stateless and has to sign in on every request.  
+Firebase client SDK login attempts are rate limited by IP, multiple server side calls will cause an 'auth/too-many-requests' error.
+
+If you have an API which is served over nuxt ssr, add it's prefix to `auth.ssr.ignorePaths`
+
+:::
 
 ### firestore
 

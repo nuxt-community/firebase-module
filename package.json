@@ -28,8 +28,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "consola": "^2.11.3",
-    "firebase-admin": "^8.9.2"
+    "consola": "^2.11.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -59,5 +58,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "optionalDependencies": {
+    "firebase-admin": "^8.10.0"
   }
 }
