@@ -25,19 +25,18 @@ interface ServiceConfig {
 }
 
 export interface AuthServiceConfig extends ServiceConfig {
-  initialize?:
-    | {
-        onAuthStateChangedMutation?: string
-        onAuthStateChangedAction?: string
-        ssr?:
-          | boolean
-          | {
-              credential: string | true
-              serverLogin?: boolean
-              ignorePaths?: (string | RegExp)[]
-            }
-      }
+  initialize?: {
+    onAuthStateChangedMutation?: string
+    onAuthStateChangedAction?: string
+  }
+
+  ssr?:
     | boolean
+    | {
+        credential: string | true
+        serverLogin?: boolean
+        ignorePaths?: (string | RegExp)[]
+      }
 }
 
 export interface StoreServiceConfig extends ServiceConfig {
