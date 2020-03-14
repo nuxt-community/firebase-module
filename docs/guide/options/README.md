@@ -167,7 +167,7 @@ auth: {
 }
 ```
 
-#### initialize <Badge text="EXPERIMENTAL" type="warn"/>
+#### initialize
 
 This sets up an `onAuthStateChanged()` listener and hooks it up to the vuex store.
 
@@ -202,17 +202,19 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
 ```
 
 ::: warning
+
 Do not save `authUser` directly to the store, since this will save an object reference to the state which gets directly updated by Firebase Auth periodically and therefore throws a `vuex` error if `strict != false`.
 
 ```js
 export const mutations = {
-  onSuccessMutation: (state, { authUser, claims }) => {
+  ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
     // Don't do this:
     state.user = authUser
 
     // Do this:
     state.user.id = authUser.uid
     state.user.email = authUser.email
+    state.user.emailVerified = authUser.emailVerified
 
     // Or this:
     const { uid, email, emailVerified } = authUser
@@ -254,7 +256,7 @@ To enable this you can authorize the firebase admin by [generating a service acc
 ```js
 auth: {
   ssr: {
-    // this is required if ssr is an object
+    // provide the path to the service account file
     credential: '/absolute/path/to/serviceAccount.json'
 
     // nuxt aliases are supported
@@ -273,18 +275,48 @@ auth: {
 }
 ```
 
+::: danger NEVER deploy your service account key to a publicly accessible location
+
+The service account key file is highly sensitive as it grants full access to your firebase project.
+
+In production always prefer providing the path to the key file through the `GOOGLE_APPLICATION_CREDENTIALS` environment variable (`auth.ssr.credential = true`) and store the key file in a location which is not exposed by your webserver.
+
+:::
+
 ##### Server side Firebase client SDK login
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
 Simply set `auth.ssr.serverLogin = true`.
 
+The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.
+
+You can configure session lifetime with `auth.ssr.sessionLifetime`  
+It takes the lifetime in milliseconds and defaults to `0` (session is kept only for the duration of the request)
+
 ::: warning Do not use firebase client SDK to perform API operations.  
 
-Server is stateless and has to sign in on every request.  
-Firebase client SDK login attempts are rate limited by IP, multiple server side calls will cause an 'auth/too-many-requests' error.
+@TODO: Warn about special considerations when using client SDK on the server
 
-If you have an API which is served over nuxt ssr, add it's prefix to `auth.ssr.ignorePaths`
+If you have an API which is served over nuxt ssr:
+
+1. Please ensure it does not use `firebase` client sdk functionality (e.g. `auth`, `firestore`, `storage`, ...).  
+   Instead use the corresponding functionality of a fully authenticated `firebase-admin` instance.
+2. Add the API base path to the `auth.ssr.ignorePaths` configuration.
+   e.g.:
+
+   ```js
+   auth: {
+     ssr: {
+       // ...
+       ignorePaths: [
+         '/api/',
+         // or
+         /^api\//
+       ]
+     }
+   }
+   ```
 
 :::
 

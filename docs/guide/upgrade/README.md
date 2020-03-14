@@ -48,37 +48,36 @@ firebase: {
 
 ### 3 - Expect `authUser` and `claims` to be nullable in your mutations/actions
 
-For users to be able to handle the signed out case of the onAuthStateChanged listener the authUser is forwarded regardless of it being defined.
+For users to be able to handle the signed out case of the onAuthStateChanged listener the authUser is forwarded regardless of it being defined or not.
 
 ```js
 MY_CUSTOM_MUTATION: (state, { authUser, claims }) => {
   // Old
   state.user.uid = authUser.uid
-  state.user.admin = claims.admin
+  state.user.customClaim = claims.custom_claim
   // New
   if (authUser) {
     state.user.uid = authUser.uid
-    state.user.admin = claims.admin
+    state.user.customClaim = claims.custom_claim
   } else {
     // authUser = null
     // claims = null
   }
 }
 
-async myCustomAction({ commit, dispatch }, { authUser, claims }) {
+async myCustomAction({ commit }, { authUser, claims }) {
   // Old
-  commit('SET_UID', authUser.uid)
+  commit('SET_USER', {
+    uid: authUser.uid,
+    customClaim: claims.custom_claim
+  })
 
-  if (claims.admin) {
-    await dispatch('performAdminOperations', authUser.email)
-  }
   // New
   if (authUser) {
-    commit('SET_UID', authUser.uid)
-
-    if (claims.admin) {
-      await dispatch('performAdminOperations', authUser.email)
-    }
+    commit('SET_USER', {
+      uid: authUser.uid,
+      customClaim: claims.custom_claim
+    })
   } else {
     // authUser = null
     // claims = null
@@ -86,9 +85,14 @@ async myCustomAction({ commit, dispatch }, { authUser, claims }) {
 }
 ```
 
-### 4 - Move the `ssr` key out of the `initialize` configuration
+### 4 - Update `ssr` implementation
 
-If you were using the experimental `ssr` functionality please move the key into the root configuration of `auth`
+In v5 the `ssr` functionality has been reworked completely.  
+If you previously set up SSR by following the tutorial provided by this documentation, please consider following the updated version [here](/tutorials/ssr).
+
+A quick summary of the necessary changes follows:
+
+#### 1 - Move the `ssr` key out of the `initialize` configuration
 
 ```js
 firebase: {
@@ -101,6 +105,71 @@ firebase: {
       // New
       ssr: true
     }
+  }
+}
+```
+
+#### 2 - Use the `@nuxtjs/pwa` module to register the service worker
+
+The previous tutorial featured a manual registration of the service worker in a store action/mutation.
+
+While you technically can keep this implementation, it is recommended to use the `@nuxtjs/pwa` module as it provides a lot of useful functionality for PWAs and `@nuxtjs/firebase` might provide automatic registration via its workbox module in the future.
+
+For now do it manually
+
+In `nuxt.config.js`
+
+```js
+module.exports = {
+  modules: [
+    // ...
+    '@nuxtjs/pwa',
+    '@nuxtjs/firebase'
+  ],
+
+  firebase: {
+    // see above
+  }
+
+  pwa: {
+    // disable the modules you don't need
+    meta: false,
+    icon: false,
+    // if you omit a module key form configuration sensible defaults will be applied
+    // manifest: false,
+
+    workbox: {
+      importScripts: [
+        // ...
+        '/firebase-auth-sw.js'
+      ],
+      // by default the workbox module will not install the service worker in dev environment to avoid conflicts with HMR
+      // only set this true for testing and remember to always clear your browser cache in development
+      dev: false
+    }
+  }
+}
+```
+
+#### 3 - Update your `nuxtServerInit` action
+
+The authenticated user is no longer passed as `res.verifiedFireAuthUser`.  
+Use `res.locals.user`
+
+The authenticated users claims are no longer passed as `res.verifiedFireAuthUserClaims`.  
+Use `res.locals.user.allClaims`
+
+```js
+async nuxtServerInit({ dispatch }, { res }) => {
+  if (res) {
+    await dispatch('onAuthSuccessAction', {
+      // Old
+      authUser: res.verifiedFireAuthUser,
+      claims: res.verifiedFireAuthUserClaims,
+      // New
+      authUser: (res.locals && res.locals.user),
+      claims: (res.locals && res.locals.user && res.locals.user.allClaims)
+    })
   }
 }
 ```

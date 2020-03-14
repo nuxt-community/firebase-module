@@ -32,10 +32,16 @@ module.exports = {
       auth: {
         ssr: true
       }
-      // ,,,
+      // ...
     }
   },
   pwa: {
+    // disable the modules you don't need
+    meta: false,
+    icon: false,
+    // if you omit a module key form configuration sensible defaults will be applied
+    // manifest: false,
+
     workbox: {
       importScripts: [
         // ...
@@ -64,20 +70,17 @@ async onAuthStateChangedAction({ commit, dispatch }, { authUser, claims }) {
     return
   }
 
-  // use custom claims (see https://firebase.google.com/docs/auth/admin/custom-claims)
-  if (claims.admin) {
-    await dispatch('initDatabase', authUser.uid)
-  }
-
   // you can request additional fields if they are optional (e.g. photoURL)
   const { uid, email, emailVerified, displayName, photoURL } = authUser
+
   commit('SET_USER', {
     uid,
     email,
     emailVerified,
     displayName,
     photoURL, // results in photoURL being undefined for server auth
-    isAdmin: claims.admin
+    // use custom claims to control access (see https://firebase.google.com/docs/auth/admin/custom-claims)
+    isAdmin: claims.custom_claim
   })
 }
 ```
@@ -95,6 +98,8 @@ ON_AUTH_STATE_CHANGED_MUTATION(state, { authUser, claims }) {
     email,
     emailVerified,
     photoURL: photoURL || null, // results in photoURL being null for server auth
+    // use custom claims to control access (see https://firebase.google.com/docs/auth/admin/custom-claims)
+    isAdmin: claims.custom_claim
   }
 }
 ```
@@ -110,7 +115,7 @@ The server user object is not a full `firebase.User`, since it is reproduced fro
 - `email`: The users email
 - `emailVerified`: If the email was verified
 - `displayName`: The users display name
-- `allClaims`: All claims from the decoded JWT Token (same as [firebase.User.getIdTokenResult()](https://firebase.google.com/docs/reference/js/firebase.User#get-idtoken-result))
+- `allClaims`: All claims from the [admin.auth.DecodedIdToken](https://firebase.google.com/docs/reference/admin/node/admin.auth.DecodedIdToken)
 
 :::
 
@@ -133,3 +138,11 @@ async nuxtServerInit({ dispatch, commit }, { res }) {
 ```
 
 That's it. You receive a server-verified authUser object and can do with it whatever you want in nuxtServerInit.
+
+## Step 4 - (Optional) Authorize the admin SDK
+
+If you [authorize the admin SDK](/guide/options#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
+
+## Step 5 - (Optional) Enable server side client SDK login
+
+If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options#server-side-firebase-client-sdk-login).
