@@ -216,6 +216,6 @@ export type FireAuthServerUser = Omit<auth.UserRecord, 'disabled' | 'metadata' |
 
 declare module 'http' {
   interface ServerResponse {
-    locals: Record<string, any> & { user: FireAuthServerUser }
+    locals: { user: FireAuthServerUser }
   }
 }
