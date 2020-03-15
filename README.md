@@ -13,6 +13,12 @@
 
 📖 [**Read Full Documentation**](https://firebase.nuxtjs.org/)
 
+## v4 to v5 Upgrade Guide
+
+‼️ BREAKING CHANGES in the last Update ‼️
+
+📖 [**Upgrade Guide from v4 to v5**](https://firebase.nuxtjs.org/guide/upgrade/#upgrade-from-v4-to-v5)
+
 ## Quick Setup
 
 Make sure you have the newest versions of Nuxt and Firebase installed and setup in your project.
