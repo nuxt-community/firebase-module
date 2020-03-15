@@ -25,7 +25,8 @@
     "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.vue lib test",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "consola": "^2.11.3"
@@ -33,22 +34,21 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^0.6.4",
+    "@nuxt/types": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "latest",
     "@vuepress/plugin-google-analytics": "latest",
     "codecov": "latest",
-    "cz-conventional-changelog": "3.1.0",
+    "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.11.0",
+    "firebase": "latest",
     "husky": "latest",
     "jest": "latest",
-    "nuxt-edge": "latest",
     "standard-version": "latest",
     "vuepress": "latest"
   },
   "peerDependencies": {
-    "firebase": "^7.10.0",
+    "firebase": "^7.11.0",
     "nuxt": "^2.11.0"
   },
   "publishConfig": {
