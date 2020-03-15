@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/nuxt-community/firebase-module/compare/v5.0.0...v5.0.1) (2020-03-15)
+
+
+### Bug Fixes
+
+* **module:** fix firebase-auth-sw only loaded when serverLogin === true ([35c434b](https://github.com/nuxt-community/firebase-module/commit/35c434b4a36cf69b72e4ee03828b04eb10217997))
+
 ## [5.0.0](https://github.com/nuxt-community/firebase-module/compare/v4.2.2...v5.0.0) (2020-03-15)
 
 
