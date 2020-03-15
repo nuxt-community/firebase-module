@@ -97,7 +97,6 @@ modules: [
                 '/api/',
                 /[^/]+/sub-path\//
               ],
-
               // Experimental Feature, use with caution.
               serverLogin: {
                 sessionLifetime: 60 * 60 * 1000 // one hour

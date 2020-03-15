@@ -139,7 +139,7 @@ That's it. You receive a server-verified authUser object and can do with it what
 
 ## Step 4 - (Optional) Authorize the admin SDK
 
-If you [authorize the admin SDK](/guide/options#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
+If you [authorize the admin SDK](/guide/options/#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
 
 ## Step 5 - (Optional) Enable server side client SDK login
 
