@@ -85,13 +85,22 @@ modules: [
         onFirebaseHosting: false,
         services: {
           auth: {
-            // Experimental Feature, use with caution.
             initialize: {
-              onSuccessMutation: "SET_AUTH_USER",
-              onSuccessAction: null,
-              onErrorMutation: null,
-              onErrorAction: "handleAuthError",
-              ssr: false // Default
+              onAuthStateChangedMutation: "SET_AUTH_USER",
+              onAuthStateChangedAction: null,
+            },
+            ssr: {
+              // !! NEVER deploy a service account file to github or to a publicly accessible folder on your server !!
+              credential: '~/assets/firebase/serviceAccount.json',
+              ignorePaths: [
+                '/api/',
+                /[^/]+/sub-path\//
+              ],
+
+              // Experimental Feature, use with caution.
+              serverLogin: {
+                sessionLifetime: 60 * 60 * 1000 // one hour
+              }
             }
           },
           firestore: true,

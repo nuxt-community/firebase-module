@@ -28,19 +28,19 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "consola": "^2.11.3",
-    "firebase-admin": "^8.9.2",
-    "jwt-decode": "^2.2.0"
+    "consola": "^2.11.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "@nuxt/types": "^0.6.4",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "latest",
     "@vuepress/plugin-google-analytics": "latest",
     "codecov": "latest",
+    "cz-conventional-changelog": "3.1.0",
     "eslint": "latest",
-    "firebase": "latest",
+    "firebase": "^7.11.0",
     "husky": "latest",
     "jest": "latest",
     "nuxt-edge": "latest",
@@ -53,5 +53,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "optionalDependencies": {
+    "firebase-admin": "^8.10.0"
   }
 }
