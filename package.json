@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/firebase",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "Intergrate Firebase into your Nuxt project.",
   "keywords": [
     "firebase",
@@ -24,7 +24,7 @@
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.vue lib test",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release": "yarn test && standard-version -- --release-as 5.0.0 && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
     "commit": "npx git-cz"
   },
