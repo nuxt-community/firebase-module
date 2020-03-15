@@ -1,7 +1,5 @@
 # Firebase Auth in SSR/Universal Mode
 
-<Badge text="EXPERIMENTAL" type="warn"/>
-
 This module provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
 ## Step 0 - Install Dependencies
@@ -145,4 +143,6 @@ If you [authorize the admin SDK](/guide/options#firebase-admin-authorization) th
 
 ## Step 5 - (Optional) Enable server side client SDK login
 
-If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options#server-side-firebase-client-sdk-login).
+<Badge text="EXPERIMENTAL" type="error"/>
+
+If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options/#server-side-firebase-client-sdk-login).

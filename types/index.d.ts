@@ -25,6 +25,8 @@ interface ServiceConfig {
 }
 
 export interface AuthServiceConfig extends ServiceConfig {
+  persistence?: firebase.auth.Auth.Persistence
+
   initialize?: {
     onAuthStateChangedMutation?: string
     onAuthStateChangedAction?: string
@@ -34,9 +36,10 @@ export interface AuthServiceConfig extends ServiceConfig {
     | boolean
     | {
         credential: string | true
-        serverLogin?: boolean
+        serverLogin?: boolean | {
+          sessionLifetime?: number
+        }
         ignorePaths?: (string | RegExp)[]
-        sessionLifetime?: number
       }
 }
 

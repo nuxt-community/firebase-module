@@ -158,14 +158,21 @@ auth: true
 // or
 
 auth: {
+  persistence: 'local', // default
+
   // it is recommended to configure either a mutation or action but you can set both
   initialize: {
     onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
     // onAuthStateChangedAction: 'onAuthStateChangedAction'
   },
+
   ssr: false // default
 }
 ```
+
+#### persistence
+
+Set [firebase auth persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence)
 
 #### initialize
 
@@ -225,9 +232,9 @@ export const mutations = {
 
 :::
 
-#### ssr <Badge text="EXPERIMENTAL" type="warn"/>
+#### ssr
 
-This sets up SSR ready functionality without any effort.
+This sets up SSR ready functionality with minimal effort.
 
 If `ssr = true`, the module generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
 
@@ -253,6 +260,14 @@ The `allClaims` property is set in addition to the default user record propertie
 
 To enable this you can authorize the firebase admin by [generating a service account key](https://firebase.google.com/docs/admin/setup#initialize-sdk) and linking to it with the following configuration:
 
+::: danger NEVER deploy your service account key to a publicly accessible location
+
+The service account key file is highly sensitive as it grants full access to your firebase project.
+
+In production always prefer providing the path to the key file through the `GOOGLE_APPLICATION_CREDENTIALS` environment variable (`auth.ssr.credential = true`) and store the key file in a location which is not exposed by your webserver.
+
+:::
+
 ```js
 auth: {
   ssr: {
@@ -275,28 +290,39 @@ auth: {
 }
 ```
 
-::: danger NEVER deploy your service account key to a publicly accessible location
-
-The service account key file is highly sensitive as it grants full access to your firebase project.
-
-In production always prefer providing the path to the key file through the `GOOGLE_APPLICATION_CREDENTIALS` environment variable (`auth.ssr.credential = true`) and store the key file in a location which is not exposed by your webserver.
-
-:::
-
-##### Server side Firebase client SDK login
+##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="error"/>
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
 Simply set `auth.ssr.serverLogin = true`.
 
-The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.
+The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.  
+You can configure session lifetime with `auth.ssr.serverLogin.sessionLifetime`  
 
-You can configure session lifetime with `auth.ssr.sessionLifetime`  
-It takes the lifetime in milliseconds and defaults to `0` (session is kept only for the duration of the request)
+```js
+auth: {
+  ssr: {
+    // see above
 
-::: warning Do not use firebase client SDK to perform API operations.  
+    serverLogin: true
+    // or
+    serverLogin: {
+      // Takes a duration in milliseconds
+      sessionLifetime: 0 // default (session is kept only for the duration of the request)
+    }
+  }
+}
+```
 
-@TODO: Warn about special considerations when using client SDK on the server
+::: danger Do not use this feature for high traffic sites
+
+This module provides this feature to facilitate data hydration in SSR calls.  
+However, the client SDK is not intended for use on a server.  
+Authentication is rate limited by IP for security reasons.
+
+Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.  
+
+DO NOT USE THE CLIENT SDK IN API OPERATIONS.
 
 If you have an API which is served over nuxt ssr:
 
