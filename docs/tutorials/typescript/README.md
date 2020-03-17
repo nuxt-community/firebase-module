@@ -4,7 +4,7 @@ The module comes with types by providing a decleration file (`index.d.ts`) withi
 
 All you need to do is to include "@nuxtjs/firebase" in your tsconfig.json types like so:
 
-```jsonc
+```json
 // tsconfig.json
 {
   "compilerOptions": {

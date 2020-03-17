@@ -35,8 +35,8 @@ module.exports = {
         {
           title: 'Tutorials', // required
           collapsable: false, // optional, defaults to true
-          sidebarDepth: 2, // optional, defaults to 1
-          children: ['/tutorials/ssr/', '/tutorials/vuexfire/']
+          sidebarDepth: 0, // optional, defaults to 1
+          children: ['/tutorials/ssr/', '/tutorials/vuexfire/', '/tutorials/typescript/']
         }
       ],
       '/more/': [
