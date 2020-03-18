@@ -36,16 +36,16 @@
     "@commitlint/config-conventional": "latest",
     "@nuxt/types": "latest",
     "@nuxtjs/eslint-config": "latest",
-    "@nuxtjs/module-test-utils": "latest",
-    "@vuepress/plugin-google-analytics": "latest",
+    "@nuxtjs/module-test-utils": "^1.6.1",
+    "@vuepress/plugin-google-analytics": "^1.4.0",
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "latest",
+    "firebase": "^7.11.0",
     "husky": "latest",
     "jest": "latest",
     "standard-version": "latest",
-    "vuepress": "latest"
+    "vuepress": "^1.4.0"
   },
   "peerDependencies": {
     "firebase": "^7.11.0",
