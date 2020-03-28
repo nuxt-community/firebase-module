@@ -41,7 +41,7 @@
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.11.0",
+    "firebase": "^7.13.1",
     "husky": "latest",
     "jest": "latest",
     "standard-version": "latest",
