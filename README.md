@@ -65,7 +65,7 @@ modules: [
 
 ## Quick Usage
 
-Now you can use all Firebase services with `$this.Auth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://firebase.nuxtjs.org/guide/usage/)).
+Now you can use all Firebase services with `this.$fireAuth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://firebase.nuxtjs.org/guide/usage/)).
 
 Example:
 
