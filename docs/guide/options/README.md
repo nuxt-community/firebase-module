@@ -316,9 +316,11 @@ auth: {
 
 ::: danger Do not use this feature for high traffic sites
 
-This module provides this feature to facilitate data hydration in SSR calls.  
+This module provides this feature to facilitate data hydration in SSR calls.
+
 However, the client SDK is not intended for use on a server.  
-Authentication is rate limited by IP for security reasons.
+
+Authentication is rate limited by IP for security reasons. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
 
 Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.  
 
