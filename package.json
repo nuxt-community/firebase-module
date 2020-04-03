@@ -41,14 +41,14 @@
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.13.1",
+    "firebase": "^7.13.2",
     "husky": "latest",
     "jest": "latest",
     "standard-version": "latest",
     "vuepress": "^1.4.0"
   },
   "peerDependencies": {
-    "firebase": "^7.13.1",
+    "firebase": "^7.13.2",
     "nuxt": "^2.12.2"
   },
   "publishConfig": {
