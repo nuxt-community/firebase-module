@@ -43,7 +43,7 @@
     "eslint": "latest",
     "firebase": "^7.13.2",
     "husky": "latest",
-    "jest": "^25.2.7",
+    "jest": "^25.3.0",
     "standard-version": "latest",
     "vuepress": "^1.4.0"
   },
