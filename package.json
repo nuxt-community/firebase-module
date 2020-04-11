@@ -34,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^0.7.3",
+    "@nuxt/types": "^0.7.4",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "^1.6.1",
     "@vuepress/plugin-google-analytics": "^1.4.0",
