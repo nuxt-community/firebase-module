@@ -238,7 +238,7 @@ This sets up SSR ready functionality with minimal effort.
 
 If `ssr = true`, the module generates a service worker that refreshes the Firebase Auth idToken and sends it with each request to the server if the user is logged in, as described [here](https://firebase.google.com/docs/auth/web/service-worker-sessions)
 
-The option further adds a serverMiddleware that checks on server side if the token is valid and then injects a simplified [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) into the context variable `res.locals.user`.
+The option further adds a plugin that checks on server side if the token is valid and then injects a simplified [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) into the context variable `res.locals.user`.
 
 The simplified user record contains the following properties:
 
