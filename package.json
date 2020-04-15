@@ -37,7 +37,7 @@
     "@nuxt/types": "^0.7.4",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "^1.6.1",
-    "@vuepress/plugin-google-analytics": "^1.4.0",
+    "@vuepress/plugin-google-analytics": "^1.4.1",
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
@@ -45,7 +45,7 @@
     "husky": "latest",
     "jest": "^25.3.0",
     "standard-version": "latest",
-    "vuepress": "^1.4.0"
+    "vuepress": "^1.4.1"
   },
   "peerDependencies": {
     "firebase": "^7.14.0",
