@@ -24,7 +24,7 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/firebase'
   ],
-  firebase {
+  firebase: {
     // ...
     services: {
       auth: {
