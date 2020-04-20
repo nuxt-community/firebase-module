@@ -45,7 +45,8 @@
     "husky": "latest",
     "jest": "^25.4.0",
     "standard-version": "latest",
-    "vuepress": "^1.4.1"
+    "vuepress": "^1.4.1",
+    "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
     "firebase": "^7.14.1",
