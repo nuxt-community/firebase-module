@@ -122,7 +122,8 @@ modules: [
             }
           },
           messaging: {
-            createServiceWorker: true
+            createServiceWorker: true,
+            fcmPublicVapidKey: '<publicVapidKey>' // OPTIONAL : Sets vapid key for FCM after initialization
           }
         }
       }
