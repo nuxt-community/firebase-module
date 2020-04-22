@@ -61,6 +61,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^8.10.0"
+    "firebase-admin": "^8.11.0"
   }
 }
