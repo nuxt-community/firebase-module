@@ -10,7 +10,7 @@ assignees: ''
 <!-- **IMPORTANT!**
 Please make sure to look for an answer to your question in our documentation and the Firebase documenation before asking a question here.
 
-If you have a general question regarding Firebase use Discord `modules` channel. Thanks!
+If you have a general question regarding Nuxt-Firebase use Discord `modules` channel. Thanks!
 
 Documentation: https://firebase.nuxtjs.org/
 Nuxt Discord: https://discord.nuxtjs.org/
