@@ -8,16 +8,20 @@ assignees: ''
 ---
 
 /** **IMPORTANT!**
-Before reporting a bug, please make sure that you have read through our and the Firebase documentation and have made sure your problem is indeed an issue related to our module. **/
+Before reporting a bug, please make sure that you have read through our and the Firebase documentation and you think your problem is indeed an issue related to our module. **/
 
-**Description**
-// A clear and concise description of what the bug is, including the error message.
+### Version
+@nuxtjs/firebase: <!-- ex: 5.0.7 -->
+firebase: <!-- ex: 7.9.3 -->
+nuxt: <!-- ex: 2.10.2 -->
 
-**Code Example**
-// Clear code examples that show where the bug happens. If possible a link to a repo or a reproduction.
+### Reproduction Link
+<!-- A minimal test case on https://template.nuxtjs.org/ or GitHub repository that can reproduce the bug. -->
 
-**Screenshots**
-// If applicable, add screenshots to help explain your problem.
+### Steps to reproduce
 
-**Additional context**
-// Add any other context about the problem here.
+
+### What is Expected?
+
+
+### What is actually happening?
