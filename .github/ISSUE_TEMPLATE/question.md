@@ -8,6 +8,10 @@ assignees: ''
 ---
 
 <!-- **IMPORTANT!**
-Please try hard to find an answer to your question on our documentation or the Firebase documentation before asking any question here.
+Please make sure to look for an answer to your question in our documentation and the Firebase documenation before asking a question here.
 
-If you have a general question regarding Firebase or Nuxt, use Stackoverflow. This issue board is only here to answer unanswered questions that cannot be found in the documentation regarding this module. Thanks! -->
+If you have a general question regarding Firebase use Discord `modules` channel. Thanks!
+
+Documentation: https://firebase.nuxtjs.org/
+Nuxt Discord: https://discord.nuxtjs.org/
+-->
