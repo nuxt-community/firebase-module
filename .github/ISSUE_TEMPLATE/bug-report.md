@@ -7,8 +7,8 @@ assignees: ''
 
 ---
 
-/** **IMPORTANT!**
-Before reporting a bug, please make sure that you have read through our and the Firebase documentation and you think your problem is indeed an issue related to our module. **/
+<!-- **IMPORTANT!**
+Before reporting a bug, please make sure that you have read through our and the Firebase documentation and you think your problem is indeed an issue related to our module. -->
 
 ### Version
 @nuxtjs/firebase: <!-- ex: 5.0.7 -->
