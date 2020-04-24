@@ -290,7 +290,7 @@ auth: {
 }
 ```
 
-##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="error"/>
+##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="warning"/>
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
@@ -315,6 +315,32 @@ auth: {
   }
 }
 ```
+
+::: warning Session persistence
+
+Make sure to initialize the nuxt build outside of the server request callback for session management to work properly:
+
+```js
+import express from 'express'
+import { Nuxt } from 'nuxt'
+
+const server = express()
+
+// do this outside of the server callback so the nuxt build is kept in memory
+const nuxt = new Nuxt({
+  dev: false,
+  buildDir: '.nuxt'
+})
+
+server.use(async (req, res, next) => {
+  // this will resolve immediately after the first render
+  await nuxt.ready()
+
+  nuxt.render(req, res, next)
+})
+```
+
+:::
 
 ::: danger Do not use this feature for high traffic sites
 
