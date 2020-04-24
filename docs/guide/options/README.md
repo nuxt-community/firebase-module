@@ -309,6 +309,8 @@ auth: {
     serverLogin: {
       // Takes a duration in milliseconds
       sessionLifetime: 0 // default (session is kept only for the duration of the request)
+      // Takes a duration in milliseconds
+      loginDelay: 50 // default (20 queries per second = minimum recommended delay)
     }
   }
 }
@@ -322,7 +324,9 @@ However, the client SDK is not intended for use on a server.
 
 Authentication is rate limited by IP for security reasons. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
 
-Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.  
+Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.
+
+If you run into rate limiting issues try adjusting the `auth.ssr.serverLogin.loginDelay` configuration.
 
 DO NOT USE THE CLIENT SDK IN API OPERATIONS.
 
