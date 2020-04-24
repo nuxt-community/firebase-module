@@ -3,7 +3,7 @@
 This module provides helper functions that can generally be accessed like so:
 
 ```js
-import { **helperFunctionName** } from '@nuxtjs/firebase/src/helpers'
+import { **helperFunctionName** } from '@nuxtjs/firebase/lib/helpers'
 ```
 
 ## movePluginBeforeInitAuthPlugin()
@@ -16,7 +16,7 @@ If you use initAuth and want another plugin to be called AFTER firebase initiali
 Just add the following to your nuxt.config.js:
 
 ```js
-import { movePluginBeforeInitAuthPlugin } from '@nuxtjs/firebase/src/helpers'
+import { movePluginBeforeInitAuthPlugin } from '@nuxtjs/firebase/lib/helpers'
 
 extendPlugins(plugins) {
   movePluginBeforeInitAuthPlugin(plugins, 'yourPluginName.js')

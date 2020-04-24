@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.7](https://github.com/nuxt-community/firebase-module/compare/v5.0.6...v5.0.7) (2020-04-06)
+
+
+### Bug Fixes
+
+* **ssr-auth:** fixed a regression bug in ssr auth ([01411b3](https://github.com/nuxt-community/firebase-module/commit/01411b3fcfe3300065aaf1fff443eb83928ac755))
+
+### [5.0.6](https://github.com/nuxt-community/firebase-module/compare/v5.0.5...v5.0.6) (2020-03-30)
+
+
+### Bug Fixes
+
+* **auth:** move ssrAuth plugin to the bottom of the module ([b7d5fe3](https://github.com/nuxt-community/firebase-module/commit/b7d5fe3bff89ff434c957411e7d1da438bd88a74))
+
 ### [5.0.5](https://github.com/nuxt-community/firebase-module/compare/v5.0.4...v5.0.5) (2020-03-30)
 
 ### [5.0.4](https://github.com/nuxt-community/firebase-module/compare/v5.0.3...v5.0.4) (2020-03-30)
