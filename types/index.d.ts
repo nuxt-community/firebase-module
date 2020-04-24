@@ -38,6 +38,7 @@ export interface AuthServiceConfig extends ServiceConfig {
         credential: string | true
         serverLogin?: boolean | {
           sessionLifetime?: number
+          loginDelay?: number
         }
         ignorePaths?: (string | RegExp)[]
       }
