@@ -316,29 +316,32 @@ auth: {
 }
 ```
 
-::: warning Session persistence
+::: warning Programmatic server implementation
 
-Make sure to initialize the nuxt build outside of the server request callback for session management to work properly:
+If you are using an external server implementation to start nuxt programmatically:
 
-```js
-import express from 'express'
-import { Nuxt } from 'nuxt'
+- The `@nuxtjs/firebase` module has to be included in your server package (`yarn add @nuxtjs/firebase`).
+- Make sure to initialize the nuxt build outside of the server request callback for session management to work properly:
 
-const server = express()
+  ```js
+  import express from 'express'
+  import { Nuxt } from 'nuxt'
 
-// do this outside of the server callback so the nuxt build is kept in memory
-const nuxt = new Nuxt({
-  dev: false,
-  buildDir: '.nuxt'
-})
+  const server = express()
 
-server.use(async (req, res, next) => {
-  // this will resolve immediately after the first render
-  await nuxt.ready()
+  // do this outside of the server callback so the nuxt build is kept in memory
+  const nuxt = new Nuxt({
+    dev: false,
+    buildDir: '.nuxt'
+  })
 
-  nuxt.render(req, res, next)
-})
-```
+  server.use(async (req, res, next) => {
+    // this will resolve immediately after the first render
+    await nuxt.ready()
+
+    nuxt.render(req, res, next)
+  })
+  ```
 
 :::
 
