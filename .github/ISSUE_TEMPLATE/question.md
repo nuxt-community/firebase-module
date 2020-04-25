@@ -1,14 +1,17 @@
 ---
 name: Question
-about: Describe this issue template's purpose here.
+about: Ask a question about the module.
 title: ''
 labels: ''
 assignees: ''
 
 ---
 
-/** **IMPORTANT!**
-Please make sure to find an answer to your question on our documentation or the Firebase documentation before asking a question here.
+<!-- **IMPORTANT!**
+Please make sure to look for an answer to your question in our documentation and the Firebase documenation before asking a question here.
 
-If you have a general question regarding Firebase, use Stackoverflow. This issue board is only here to answer unanswered questions that cannot be found in the documentation regarding this module. Thanks!
-**/
+If you have a general question regarding Nuxt-Firebase use Discord `modules` channel. Thanks!
+
+Documentation: https://firebase.nuxtjs.org/
+Nuxt Discord: https://discord.nuxtjs.org/
+-->
