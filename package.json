@@ -29,8 +29,7 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.11.3",
-    "promise-throttle": "^1.0.1"
+    "consola": "^2.11.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
