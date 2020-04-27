@@ -2,6 +2,7 @@ import { ServerResponse } from 'http'
 import { Vue } from 'vue/types/vue'
 import { NuxtAppOptions, Configuration } from '@nuxt/types'
 import { NuxtConfiguration } from '@nuxt/vue-app'
+import { ServiceAccount } from 'firebase-admin'
 
 import firebase from 'firebase'
 import { auth } from 'firebase-admin'
@@ -35,11 +36,13 @@ export interface AuthServiceConfig extends ServiceConfig {
   ssr?:
     | boolean
     | {
-        credential: string | true
-        serverLogin?: boolean | {
-          sessionLifetime?: number
-          loginDelay?: number
-        }
+        credential: string | ServiceAccount | true
+        serverLogin?:
+          | boolean
+          | {
+              sessionLifetime?: number
+              loginDelay?: number
+            }
         ignorePaths?: (string | RegExp)[]
       }
 }
@@ -214,9 +217,13 @@ declare module 'vuex/types/index' {
   }
 }
 
-export type FireAuthServerUser = Omit<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>
-  & Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>>
-  & { allClaims: auth.DecodedIdToken }
+export type FireAuthServerUser = Omit<
+  auth.UserRecord,
+  'disabled' | 'metadata' | 'providerData'
+> &
+  Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>> & {
+    allClaims: auth.DecodedIdToken
+  }
 
 declare module 'http' {
   interface ServerResponse {
