@@ -123,7 +123,17 @@ modules: [
             }
           },
           messaging: {
-            createServiceWorker: true
+            createServiceWorker: true,
+            notificationKey: 'data', // Default: notification
+            notificationOptionsTemplate: {
+              title: data.title,
+              body: data.body,
+              icon: data.icon,
+              badge: data.badge,
+              action: data.action,
+              vibrate: data.vibrate
+            },
+            fcmPublicVapidKey: '<publicVapidKey>' // OPTIONAL : Sets vapid key for FCM after initialization
           }
         }
       }

@@ -16,9 +16,7 @@ config: {
   storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>',
   appId: '<appId>',
-  measurementId: '<measurementId>',
-  // OPTIONAL: Additional config for other services:
-  fcmPublicVapidKey: '<publicVapidKey>' // Sets vapid key for FCM after initialization
+  measurementId: '<measurementId>'
 }
 ```
 
@@ -518,7 +516,8 @@ messaging: true
 // or
 
 messaging: {
-  createServiceWorker: false
+  createServiceWorker: false,
+  fcmPublicVapidKey: '<publicVapidKey>' // OPTIONAL : Sets vapid key for FCM after initialization
 }
 ```
 
