@@ -290,7 +290,7 @@ auth: {
 }
 ```
 
-##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="error"/>
+##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="warning"/>
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
@@ -309,10 +309,41 @@ auth: {
     serverLogin: {
       // Takes a duration in milliseconds
       sessionLifetime: 0 // default (session is kept only for the duration of the request)
+      // Takes a duration in milliseconds
+      loginDelay: 50 // default (20 queries per second = minimum recommended delay)
     }
   }
 }
 ```
+
+::: warning Programmatic server implementation
+
+If you are using an external server implementation to start nuxt programmatically:
+
+- The `@nuxtjs/firebase` module has to be included in your server package (`yarn add @nuxtjs/firebase`).
+- Make sure to initialize the nuxt build outside of the server request callback for session management to work properly:
+
+  ```js
+  import express from 'express'
+  import { Nuxt } from 'nuxt'
+
+  const server = express()
+
+  // do this outside of the server callback so the nuxt build is kept in memory
+  const nuxt = new Nuxt({
+    dev: false,
+    buildDir: '.nuxt'
+  })
+
+  server.use(async (req, res, next) => {
+    // this will resolve immediately after the first render
+    await nuxt.ready()
+
+    nuxt.render(req, res, next)
+  })
+  ```
+
+:::
 
 ::: danger Do not use this feature for high traffic sites
 
@@ -322,7 +353,9 @@ However, the client SDK is not intended for use on a server.
 
 Authentication is rate limited by IP for security reasons. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
 
-Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.  
+Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.
+
+If you run into rate limiting issues try adjusting the `auth.ssr.serverLogin.loginDelay` configuration.
 
 DO NOT USE THE CLIENT SDK IN API OPERATIONS.
 

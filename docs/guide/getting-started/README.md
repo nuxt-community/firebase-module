@@ -99,7 +99,8 @@ modules: [
               ],
               // Experimental Feature, use with caution.
               serverLogin: {
-                sessionLifetime: 60 * 60 * 1000 // one hour
+                sessionLifetime: 60 * 60 * 1000, // one hour
+                loginDelay: 50 // minimal recommended delay
               }
             }
           },
