@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/firebase",
-  "version": "5.0.7",
+  "version": "5.1.0",
   "description": "Intergrate Firebase into your Nuxt project.",
   "keywords": [
     "firebase",
@@ -42,7 +42,7 @@
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
     "firebase": "^7.14.2",
-    "husky": "latest",
+    "husky": "^4.2.5",
     "jest": "^25.5.3",
     "standard-version": "latest",
     "vuepress": "^1.4.1",
