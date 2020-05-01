@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/nuxt-community/firebase-module/compare/v5.0.7...v5.2.0) (2020-05-01)
+
+
+### Features
+
+* **auth:** implement full ssr support ([17c0968](https://github.com/nuxt-community/firebase-module/commit/17c09686deb471da6faddcec16e140ab3013bdbd))
+* **auth:** implement session manager ([5106f44](https://github.com/nuxt-community/firebase-module/commit/5106f448c3b15d14143f7e29f354f0fe47e929c9))
+
+
+### Bug Fixes
+
+* **helpers:** helper plugins are now exported as CommonJS instaed of ES6 ([806ecce](https://github.com/nuxt-community/firebase-module/commit/806ecce0a3b85478ef71a383e6a64c018c1b76e2))
+* **main:** move messaging support check below import statement ([ca02c10](https://github.com/nuxt-community/firebase-module/commit/ca02c1061840f6bf652fe2ef9c36b7050dcfb0ad))
+* **main:** remove references to removed session manager template ([9bf87a3](https://github.com/nuxt-community/firebase-module/commit/9bf87a32b73d07a9f64c58a1163d78df20e5c548))
+* **manager:** use common js syntax for module imports/exports ([be6ac76](https://github.com/nuxt-community/firebase-module/commit/be6ac76ebd7d235c92b1195226e1000041a9fe19))
+* **module:** remove unnecessary deps and simplify options resolution ([2501896](https://github.com/nuxt-community/firebase-module/commit/25018966f1ce52de8fdaa9685efe511b65ea6968))
+* **ssr:** avoid using session manager for simple user injection ([8f26383](https://github.com/nuxt-community/firebase-module/commit/8f26383577c9fdc8edb1ccf9e6328fc0a4f1ec4c))
+* **ssr:** check for req existence in ssr auth calls ([675aeed](https://github.com/nuxt-community/firebase-module/commit/675aeedecd70b1461d155b07689ca238ba5ed083))
+* **templates:** improve type checks for more stability ([11d1f25](https://github.com/nuxt-community/firebase-module/commit/11d1f25ed3303aef24f0f7b159ec509de402d5ea))
+* **types:** update credential option to allow ServiceAccount object ([427347d](https://github.com/nuxt-community/firebase-module/commit/427347d3a60f6bd07beb4f54ea7ed7b64e58e3cb))
+* syntax on firebase module ([d3da4e9](https://github.com/nuxt-community/firebase-module/commit/d3da4e9506e9abce72ab345d22cbeada01ed91a9))
+
 ### [5.0.7](https://github.com/nuxt-community/firebase-module/compare/v5.0.6...v5.0.7) (2020-04-06)
 
 
