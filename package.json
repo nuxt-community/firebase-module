@@ -34,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^0.7.4",
+    "@nuxt/types": "^0.7.5",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "^1.6.1",
     "@vuepress/plugin-google-analytics": "^1.4.1",
@@ -43,7 +43,7 @@
     "eslint": "latest",
     "firebase": "^7.14.2",
     "husky": "latest",
-    "jest": "^25.4.0",
+    "jest": "^25.5.3",
     "standard-version": "latest",
     "vuepress": "^1.4.1",
     "vuepress-theme-carbon": "^1.0.0"

@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!-- **IMPORTANT!**
-Please make sure to look for an answer to your question in our documentation and the Firebase documenation before asking a question here.
+Please make sure to look for an answer to your question in our documentation and the Firebase documentation before asking a question here.
 
 If you have a general question regarding Nuxt-Firebase use Discord `modules` channel. Thanks!
 
