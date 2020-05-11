@@ -556,7 +556,7 @@ performance: true
 
 ### analytics
 
-Initializes Firebase Storage and makes it available via `$fireAnalytics` and `$fireAnalyticsObj`.
+Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `$fireAnalyticsObj`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`
@@ -567,7 +567,7 @@ analytics: true
 
 ### remoteConfig
 
-Initializes Firebase Storage and makes it available via `$fireConfig` and `$fireConfigObj`.
+Initializes Firebase Remote Config and makes it available via `$fireConfig` and `$fireConfigObj`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`
