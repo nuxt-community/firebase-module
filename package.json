@@ -29,7 +29,7 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.12.1"
+    "consola": "^2.12.2"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
