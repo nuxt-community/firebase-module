@@ -25,6 +25,11 @@ interface ServiceConfig {
   chunkName?: string
 }
 
+interface messagingAction {
+  action: string
+  url?: string
+}
+
 export interface AuthServiceConfig extends ServiceConfig {
   persistence?: firebase.auth.Auth.Persistence
 
@@ -77,15 +82,7 @@ export interface MessagingServiceConfig extends ServiceConfig {
           clickPath: string
         }
       }
-  notificationKey?: string
-  notificationOptionsMap?: {
-    title: string,
-    body?: string,
-    icon?: string,
-    badge?: string,
-    action?: string,
-    vibrate?: string
-  },
+  actions?: messagingAction[],
   fcmPublicVapidKey?: '<publicVapidKey>'
 }
 
