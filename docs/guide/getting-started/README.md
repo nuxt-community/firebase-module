@@ -104,7 +104,9 @@ modules: [
               }
             }
           },
-          firestore: true,
+          firestore: {
+            memoryOnly: false // default
+          },
           functions: {
             location: 'us-central1', // Default
             emulatorPort: 12345

@@ -392,6 +392,7 @@ firestore: true
 // or
 
 firestore: {
+  memoryOnly: false, // default
   static: false, // default
   preload: false, // default
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
@@ -402,15 +403,12 @@ firestore: {
 }
 ```
 
-#### settings
+#### memoryOnly
 
-Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
-See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
+With this flag set to true, the *memory-onl* build is loaded as mentioned [here](https://firebase.google.com/support/release-notes/js#version_7130_-_march_26_2020)
 
-::: danger
-There seems to be an issue when using settings() in Universal mode (see [this issue](https://github.com/firebase/firebase-js-sdk/issues/2733)). Therefore, settings currently only work in SPA mode.
-:::
-
+- Type: `Boolean` or `Object`
+- Default: `false`
 
 #### enablePersistence
 
@@ -446,6 +444,15 @@ firestore: {
 ```
 
 More information [here](https://firebase.google.com/docs/firestore/manage-data/enable-offline).
+
+#### settings
+
+Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
+See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
+
+::: danger
+There seems to be an issue when using settings() in Universal mode (see [this issue](https://github.com/firebase/firebase-js-sdk/issues/2733)). Therefore, settings currently only work in SPA mode.
+:::
 
 ### functions
 
