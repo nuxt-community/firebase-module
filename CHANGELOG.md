@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/nuxt-community/firebase-module/compare/v5.2.0...v6.0.0) (2020-06-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **messaging:** Messaging expects payloads to be delivered according to the new HTTP v1 API.
+
+### Features
+
+* **auth:** add idToken to user's payload ([97d8055](https://github.com/nuxt-community/firebase-module/commit/97d805591cbc3073417f755e0ae9e6c0ed20bed3)), closes [#202](https://github.com/nuxt-community/firebase-module/issues/202)
+* **firestore:** added memoryOnly option to firestore ([efde3fe](https://github.com/nuxt-community/firebase-module/commit/efde3fedb448cc60661a3cf5f67e5d13b195d578)), closes [#135](https://github.com/nuxt-community/firebase-module/issues/135)
+* **messaging:** implement notificationKey setting ([a985f02](https://github.com/nuxt-community/firebase-module/commit/a985f02e5e45b4c5c64bc4597bf9a41650f23bda))
+* **messaging:** migrated to HTTP v1 API for messaging ([9c09a26](https://github.com/nuxt-community/firebase-module/commit/9c09a266472d90e9f9809312006476addddab64e))
+
+
+### Bug Fixes
+
+* **auth:** add 127.0.0.1 support ([c8b6114](https://github.com/nuxt-community/firebase-module/commit/c8b6114582cc1acc478b886bf5f05c5d05209fed)), closes [#203](https://github.com/nuxt-community/firebase-module/issues/203)
+* **messaging:** only pass notificationKey to messaging sw ([5958b25](https://github.com/nuxt-community/firebase-module/commit/5958b251dcffeb5002408f4e275ad41886224b1c))
+* **types:** specify preliminary types ([d03799c](https://github.com/nuxt-community/firebase-module/commit/d03799c87f23352bf9404a3abbafad98267fc43d))
+
 ## [5.2.0](https://github.com/nuxt-community/firebase-module/compare/v5.0.7...v5.2.0) (2020-05-01)
 
 

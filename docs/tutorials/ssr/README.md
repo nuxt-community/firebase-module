@@ -114,6 +114,7 @@ The server user object is not a full `firebase.User`, since it is reproduced fro
 - `emailVerified`: If the email was verified
 - `displayName`: The users display name
 - `allClaims`: All claims from the [admin.auth.DecodedIdToken](https://firebase.google.com/docs/reference/admin/node/admin.auth.DecodedIdToken)
+- `idToken`: The current idToken
 
 :::
 
@@ -121,16 +122,17 @@ The server user object is not a full `firebase.User`, since it is reproduced fro
 // Store action called nuxtServerInit:
 async nuxtServerInit({ dispatch, commit }, { res }) {
   if (res && res.locals && res.locals.user) {
-    const { allClaims: claims, ...authUser } = res.locals.user
+    const { allClaims: claims, idToken: token, ...authUser } = res.locals.user
 
     await dispatch('onAuthStateChangedAction', {
       authUser,
-      claims
+      claims,
+      token
     })
 
     // or
 
-    commit('ON_AUTH_STATE_CHANGED_MUTATION', { authUser, claims })
+    commit('ON_AUTH_STATE_CHANGED_MUTATION', { authUser, claims, token })
   }
 }
 ```
