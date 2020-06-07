@@ -450,8 +450,17 @@ More information [here](https://firebase.google.com/docs/firestore/manage-data/e
 Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
 See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
 
-::: danger
-There seems to be an issue when using settings() in Universal mode (see [this issue](https://github.com/firebase/firebase-js-sdk/issues/2733)). Therefore, settings currently only work in SPA mode.
+::: warning Important
+When using settings() in Universal mode (see [this issue](https://github.com/nuxt-community/firebase-module/issues/116)), you need to set `runInNewContext` to `false` in your nuxt.config.js like so:
+
+```js
+// Add this to your nuxt.config.js
+render: {
+    bundleRenderer: {
+      runInNewContext: false
+    }
+  },
+```
 :::
 
 ### functions
