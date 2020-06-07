@@ -123,7 +123,14 @@ modules: [
             }
           },
           messaging: {
-            createServiceWorker: true
+            createServiceWorker: true,
+            actions: [
+              {
+                action: '<randomName>',
+                url: '<randomUrl>'
+              }
+            ],
+            fcmPublicVapidKey: '<publicVapidKey>' // OPTIONAL : Sets vapid key for FCM after initialization
           }
         }
       }
