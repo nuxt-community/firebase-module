@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/nuxt-community/firebase-module/compare/v6.0.0...v6.0.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* **bug:** fixed "Cannot read property 'memoryOnly' of undefined" bug ([8f69cc3](https://github.com/nuxt-community/firebase-module/commit/8f69cc3681fbb9eab51817bcdcb5d9bc8240178e)), closes [#224](https://github.com/nuxt-community/firebase-module/issues/224)
+
 ## [6.0.0](https://github.com/nuxt-community/firebase-module/compare/v5.2.0...v6.0.0) (2020-06-07)
 
 
