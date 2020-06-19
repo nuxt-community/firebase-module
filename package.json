@@ -41,7 +41,7 @@
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.15.2",
+    "firebase": "^7.15.3",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "standard-version": "latest",
@@ -49,7 +49,7 @@
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.15.2",
+    "firebase": "^7.15.3",
     "nuxt": "^2.13.0"
   },
   "publishConfig": {
