@@ -29,19 +29,19 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.13.0"
+    "consola": "^2.14.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.13.1",
+    "@nuxt/types": "^2.13.2",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "^1.6.1",
     "@vuepress/plugin-google-analytics": "^1.5.2",
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.15.4",
+    "firebase": "^7.15.5",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "standard-version": "latest",
@@ -49,8 +49,8 @@
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.15.4",
-    "nuxt": "^2.13.1"
+    "firebase": "^7.15.5",
+    "nuxt": "^2.13.2"
   },
   "publishConfig": {
     "access": "public"
