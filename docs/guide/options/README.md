@@ -608,7 +608,19 @@ Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `
 
 ```js
 analytics: true
+
+// or
+
+messaging: {
+  collectionEnabled: true, // default
+}
 ```
+
+#### collectionEnabled
+
+Allows to disable analytics collection. Usefull to disable analytics in development mode or before fullfillment of legal obligation.
+
+Can be enabled back by `$fireAnalytics.setAnalyticsCollectionEnabled(true)`
 
 ### remoteConfig
 
