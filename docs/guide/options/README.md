@@ -608,6 +608,12 @@ Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `
 
 ```js
 analytics: true
+
+// or
+
+messaging: {
+  collectionEnabled: true, // default
+}
 ```
 
 #### collectionEnabled
