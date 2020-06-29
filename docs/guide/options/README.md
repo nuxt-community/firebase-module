@@ -610,6 +610,12 @@ Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `
 analytics: true
 ```
 
+#### collectionEnabled
+
+Allows to disable analytics collection. Usefull to disable analytics in development mode or before fullfillment of legal obligation.
+
+Can be enabled back by `$fireAnalytics.setAnalyticsCollectionEnabled(true)`
+
 ### remoteConfig
 
 Initializes Firebase Remote Config and makes it available via `$fireConfig` and `$fireConfigObj`.
