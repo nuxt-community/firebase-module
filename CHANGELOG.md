@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/nuxt-community/firebase-module/compare/v6.0.1...v6.1.0) (2020-06-29)
+
+
+### Features
+
+* **analytics:** added collectionEnabled option to analytics ([5da8a19](https://github.com/nuxt-community/firebase-module/commit/5da8a19e1b6b70f78c5d9701ecd71d767a4a4627))
+
+
+### Bug Fixes
+
+* typo in README ([c0158c9](https://github.com/nuxt-community/firebase-module/commit/c0158c90abeeceb2e39aa7c5322a365988de0623))
+
 ### [6.0.1](https://github.com/nuxt-community/firebase-module/compare/v6.0.0...v6.0.1) (2020-06-08)
 
 
