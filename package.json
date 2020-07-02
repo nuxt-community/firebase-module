@@ -34,9 +34,9 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.13.2",
+    "@nuxt/types": "^2.13.3",
     "@nuxtjs/eslint-config": "latest",
-    "@nuxtjs/module-test-utils": "^1.6.1",
+    "@nuxtjs/module-test-utils": "^1.6.3",
     "@vuepress/plugin-google-analytics": "^1.5.2",
     "codecov": "latest",
     "cz-conventional-changelog": "latest",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "firebase": "^7.15.5",
-    "nuxt": "^2.13.2"
+    "nuxt": "^2.13.3"
   },
   "publishConfig": {
     "access": "public"
