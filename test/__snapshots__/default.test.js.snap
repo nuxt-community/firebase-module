@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default plugin contents 1`] = `
+"import createApp from './app.js'
+
+import authService from './service.auth.js'
+import realtimeDbService from './service.realtimeDb.js'
+import firestoreService from './service.firestore.js'
+import storageService from './service.storage.js'
+import functionsService from './service.functions.js'
+import messagingService from './service.messaging.js'
+import performanceService from './service.performance.js'
+import analyticsService from './service.analytics.js'
+import remoteConfigService from './service.remoteConfig.js'
+
+const appConfig = {\\"apiKey\\":\\"\\\\u003CapiKey\\\\u003E\\",\\"authDomain\\":\\"\\\\u003CauthDomain\\\\u003E\\",\\"databaseURL\\":\\"\\\\u003CdatabaseURL\\\\u003E\\",\\"projectId\\":\\"\\\\u003CprojectId\\\\u003E\\",\\"storageBucket\\":\\"\\\\u003CstorageBucket\\\\u003E\\",\\"messagingSenderId\\":\\"\\\\u003CmessagingSenderId\\\\u003E\\",\\"appId\\":\\"\\\\u003CappId\\\\u003E\\",\\"measurementId\\":\\"\\\\u003CmeasurementId\\\\u003E\\"}
+
+export default async (ctx, inject) => {
+  const { firebase, session } = await createApp(appConfig)
+
+  const servicePromises = [
+    authService(session, firebase),
+    realtimeDbService(session, firebase),
+    firestoreService(session, firebase),
+    storageService(session, firebase),
+    functionsService(session, firebase),
+
+  ]
+
+  if (process.client) {
+    Array.prototype.push.apply(servicePromises, [
+      messagingService(session, firebase),
+      performanceService(session, firebase),
+      analyticsService(session, firebase),
+      remoteConfigService(session, firebase),
+
+    ])
+  }
+
+  const [
+    auth,
+    db,
+    firestore,
+    storage,
+    functions,
+    messaging,
+    performance,
+    analytics,
+    config
+  ] = await Promise.all(servicePromises)
+
+  const fire = {
+    auth,
+    db,
+    firestore,
+    storage,
+    functions,
+    messaging,
+    performance,
+    analytics,
+    config
+  }
+
+  inject('fire', fire)
+  ctx.$fire = fire
+}
+"
+`;
