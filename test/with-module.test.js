@@ -27,6 +27,7 @@ describe('with-module', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
+          legacyMode: false,
           injectModule: true,
           config: {
             // REQUIRED: Official config for firebase.initializeApp(config):

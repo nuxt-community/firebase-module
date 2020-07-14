@@ -10,6 +10,7 @@ export default {
   ],
   firebase: {
     lazy: true,
+    injectModule: true,
     config: {
       // REQUIRED: Official config for firebase.initializeApp(config):
       apiKey: '<apiKey>',
@@ -25,7 +26,8 @@ export default {
       auth: true,
       realtimeDb: true,
       messaging: true,
-      analytics: true
+      analytics: true,
+      remoteConfig: true
     }
   }
 }

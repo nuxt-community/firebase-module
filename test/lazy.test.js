@@ -33,6 +33,8 @@ describe('lazy', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
+          legacyMode: false,
+          injectModule: false,
           lazy: true,
           config: {
             // REQUIRED: Official config for firebase.initializeApp(config):

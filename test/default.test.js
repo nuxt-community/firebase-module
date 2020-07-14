@@ -27,6 +27,8 @@ describe('default', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
+          legacyMode: false,
+          injectModule: false,
           config: {
             // REQUIRED: Official config for firebase.initializeApp(config):
             apiKey: '<apiKey>',

@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const fs = require('fs-extra')
 const { Nuxt, Builder } = require('nuxt')
+const { injectionMapping } = require('../lib/template-utils')
 const FirebaseModule = require('..')
 
 jest.mock('firebase/app', () => ({
@@ -68,10 +69,10 @@ describe('legacy', () => {
   test('plugin contents', async () => {
     const content = await fs.readFile(resolve(buildDir, 'firebase/index.js'), { encoding: 'utf8' })
 
-    expect(content).toContain('fireAuth')
-    expect(content).toContain('fireAuthObj')
-    expect(content).toContain('fireMess')
-    expect(content).toContain('fireMessObj')
+    for (const injectedName of Object.values(injectionMapping)) {
+      expect(content).toContain(`'fire${injectedName}'`)
+      expect(content).toContain(`'fire${injectedName}Obj'`)
+    }
 
     expect(content).not.toContain('fire.auth')
 
