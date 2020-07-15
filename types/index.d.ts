@@ -101,6 +101,9 @@ export interface RemoteConfigServiceConfig extends ServiceConfig {
 }
 
 export interface FirebaseModuleConfiguration {
+  legacyMode?: boolean,
+  injectModule?: boolean,
+  lazy?: boolean,
   config:
     | {
         [envKey: string]: FirebaseConfiguration
