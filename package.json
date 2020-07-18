@@ -48,7 +48,7 @@
     "core-js": "2",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.16.0",
+    "firebase": "^7.16.1",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "nuxt": "^2.13.3",
@@ -58,7 +58,7 @@
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.16.0",
+    "firebase": "^7.16.1",
     "nuxt": "^2.13.3"
   },
   "publishConfig": {
@@ -70,6 +70,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^8.13.0"
+    "firebase-admin": "^9.0.0"
   }
 }
