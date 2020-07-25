@@ -231,11 +231,12 @@ export type FireAuthServerUser = Omit<
   'disabled' | 'metadata' | 'providerData'
 > &
   Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>> & {
-    allClaims: auth.DecodedIdToken
+    allClaims: auth.DecodedIdToken,
+    idToken: string
   }
 
 declare module 'http' {
   interface ServerResponse {
-    locals: { user: FireAuthServerUser }
+    locals: Record<'user', FireAuthServerUser> & Record<string, any>
   }
 }
