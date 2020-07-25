@@ -32,24 +32,24 @@
     "consola": "^2.14.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "latest",
-    "@commitlint/config-conventional": "latest",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@nuxt/types": "^2.13.3",
-    "@nuxtjs/eslint-config": "latest",
+    "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "@vuepress/plugin-google-analytics": "^1.5.2",
-    "codecov": "latest",
-    "cz-conventional-changelog": "latest",
-    "eslint": "latest",
+    "codecov": "^3.7.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.5.0",
     "firebase": "^7.16.1",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
-    "standard-version": "latest",
+    "standard-version": "^8.0.2",
     "vuepress": "^1.5.2",
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.16.1",
+    "firebase": "^7.17.1",
     "nuxt": "^2.13.3"
   },
   "publishConfig": {
