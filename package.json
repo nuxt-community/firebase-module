@@ -40,7 +40,7 @@
     "@vuepress/plugin-google-analytics": "^1.5.2",
     "codecov": "^3.7.2",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "firebase": "^7.17.1",
     "husky": "^4.2.5",
     "jest": "^26.2.2",
