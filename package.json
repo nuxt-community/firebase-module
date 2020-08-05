@@ -29,12 +29,12 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.14.0"
+    "consola": "^2.15.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
-    "@nuxt/types": "^2.14.0",
+    "@nuxt/types": "^2.14.1",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "@vuepress/plugin-google-analytics": "^1.5.2",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "firebase": "^7.17.1",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.1"
   },
   "publishConfig": {
     "access": "public"
