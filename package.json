@@ -41,15 +41,15 @@
     "codecov": "^3.7.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.6.0",
-    "firebase": "^7.17.2",
+    "firebase": "^7.18.0",
     "husky": "^4.2.5",
-    "jest": "^26.3.0",
+    "jest": "^26.4.0",
     "standard-version": "^8.0.2",
     "vuepress": "^1.5.3",
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.17.2",
+    "firebase": "^7.18.0",
     "nuxt": "^2.14.1"
   },
   "publishConfig": {
@@ -61,6 +61,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^9.0.0"
+    "firebase-admin": "^9.1.0"
   }
 }
