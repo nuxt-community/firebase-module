@@ -44,7 +44,7 @@
     "firebase": "^7.18.0",
     "husky": "^4.2.5",
     "jest": "^26.4.0",
-    "standard-version": "^8.0.2",
+    "standard-version": "^9.0.0",
     "vuepress": "^1.5.3",
     "vuepress-theme-carbon": "^1.0.0"
   },
