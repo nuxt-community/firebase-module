@@ -144,7 +144,8 @@ Preloads dynamically loaded services. More information [here](https://webpack.js
 
 <alert type="warning">
 
-**Be aware**  
+**Be aware**
+
 Only applies if `static === false`.
 
 </alert>
@@ -155,7 +156,8 @@ By default, the dynamically imported services are named `vendors.firebase-${serv
 
 <alert type="warning">
 
-**Be aware**  
+**Be aware**
+
 Only applies if `static === false`.
 
 </alert>
@@ -277,7 +279,7 @@ To enable this you can authorize the firebase admin by [generating a service acc
 
 <alert type="danger">
 
-**NEVER deploy your service account key to a publicly accessible location**  
+**NEVER deploy your service account key to a publicly accessible location**
 
 The service account key file is highly sensitive as it grants full access to your firebase project.
 
@@ -335,7 +337,7 @@ auth: {
 
 <alert type="warning">
 
-**Programmatic server implementation**  
+**Programmatic server implementation**
 
 If you are using an external server implementation to start nuxt programmatically:
 
@@ -348,7 +350,7 @@ If you are using an external server implementation to start nuxt programmaticall
 
   const server = express()
 
-  // do this outside of the server callback so the nuxt build is kept in memory test test test test test test test
+  // do this outside of the server callback so the nuxt build is kept in memory
   const nuxt = new Nuxt({
     dev: false,
     buildDir: '.nuxt'
@@ -366,11 +368,11 @@ If you are using an external server implementation to start nuxt programmaticall
 
 <alert type="danger">
 
-**Do not use this feature for high traffic sites**  
+**Do not use this feature for high traffic sites**
 
 This module provides this feature to facilitate data hydration in SSR calls.
 
-However, the client SDK is not intended for use on a server.  
+However, the client SDK is not intended for use on a server.
 
 Authentication is rate limited by IP for security reasons. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
 
@@ -475,7 +477,7 @@ See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore
 
 <alert type="warning">
 
-**Important**  
+**Important**
 
 When using settings() in Universal mode (see [this issue](https://github.com/nuxt-community/firebase-module/issues/116)), you need to set `runInNewContext` to `false` in your nuxt.config.js like so:
 

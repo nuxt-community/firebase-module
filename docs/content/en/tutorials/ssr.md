@@ -126,7 +126,8 @@ In the nuxtServerInit action in your vuex store you can now access the authUser 
 
 <alert type="warning">
 
-**Be aware**  
+**Be aware**
+
 The server user object is not a full `firebase.User`, since it is reproduced from the user claims, it provides only the following properties:
 
 - `uid`: The users uid
@@ -165,6 +166,6 @@ If you [authorize the admin SDK](/guide/options/#firebase-admin-authorization) t
 
 ## Step 5 - (Optional) Enable server side client SDK login
 
-<badge type="danger">EXPERIMENTAL</badge>
+<badge>EXPERIMENTAL</badge>
 
 If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options/#server-side-firebase-client-sdk-login).
