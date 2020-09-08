@@ -1,16 +1,27 @@
----
-home: true
-heroImage: /logo-no-text.png
-heroText: Nuxt Firebase
-tagline: Easily integrate Firebase into your Nuxt project.
-actionText: Get Started →
-actionLink: /guide/getting-started/
-features:
-  - title: Simple Setup
-    details: Minimal setup required to integrate all Firebase services into your Nuxt.js application.
-  - title: Performant
-    details: The module uses dynamic imports of each individual Firebase service to reduce bundle sizes and  improve performance.
-  - title: Additional Features
-    details: Enjoy the benefits of additional features such as automated setup of .onAuthStateChanged() for Firebase Authentication and more.
-footer: MIT Licensed | Copyright © 2018-present Pascal Luther
----
+# @nuxtjs/firebase-docs
+
+## Setup
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+## Development
+
+```bash
+yarn dev
+```
+
+## Static Generation
+
+This will create the `dist/` directory for publishing to static hosting:
+
+```bash
+yarn generate
+```
+
+To preview the static generated app, run `yarn start`
+
+For detailed explanation on how things work, checkout [nuxt/content](https://content.nuxtjs.org) and [@nuxt/content theme docs](https://content.nuxtjs.org/themes-docs).

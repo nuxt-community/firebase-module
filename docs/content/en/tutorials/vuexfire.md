@@ -1,4 +1,9 @@
-# Usage with vuexfire
+---
+title: Usage with vuexfire
+description: ''
+position: 9
+category: Tutorials
+---
 
 Vuexfire and this module work very well together.
 

@@ -1,0 +1,10 @@
+{
+  "title": "Nuxt Firebase",
+  "url": "https://firebase.nuxtjs.org/",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "nuxt-community/firebase-module",
+  "twitter": "nuxt_js"
+}

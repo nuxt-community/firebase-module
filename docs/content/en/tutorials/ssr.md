@@ -1,4 +1,9 @@
-# Firebase Auth in SSR/Universal Mode
+---
+title: Firebase Auth in SSR/Universal Mode
+description: ''
+position: 8
+category: Tutorials
+---
 
 This module provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
@@ -6,9 +11,22 @@ This module provides an option for the easy setup of **server-side authenticatio
 
 Install `firebase-admin` and `@nuxtjs/pwa`:
 
-```bash
-yarn add firebase-admin @nuxtjs/pwa # OR npm i firebase-admin @nuxtjs/pwa
-```
+<code-group>
+  <code-block label="Yarn" active>
+
+  ```bash
+  yarn add firebase-admin @nuxtjs/pwa
+  ```
+
+  </code-block>
+  <code-block label="NPM">
+
+  ```bash
+  npm install firebase-admin @nuxtjs/pwa
+  ```
+
+  </code-block>
+</code-group>
 
 ## Step 1 - Enable SSR functionality and configure workbox to include the auth service worker
 
@@ -16,7 +34,7 @@ Use the [auth.ssr option](/guide/options/#ssr).
 
 In `nuxt.config.js`:
 
-```js
+```js[nuxt.config.js]
 module.exports = {
   // ...
   modules: [
@@ -106,7 +124,9 @@ ON_AUTH_STATE_CHANGED_MUTATION(state, { authUser, claims }) {
 
 In the nuxtServerInit action in your vuex store you can now access the authUser under the `res.locals.user` property as shown below.  
 
-::: warning Be aware
+<alert type="warning">
+
+**Be aware**  
 The server user object is not a full `firebase.User`, since it is reproduced from the user claims, it provides only the following properties:
 
 - `uid`: The users uid
@@ -116,7 +136,7 @@ The server user object is not a full `firebase.User`, since it is reproduced fro
 - `allClaims`: All claims from the [admin.auth.DecodedIdToken](https://firebase.google.com/docs/reference/admin/node/admin.auth.DecodedIdToken)
 - `idToken`: The current idToken
 
-:::
+</alert>
 
 ```js
 // Store action called nuxtServerInit:
@@ -145,6 +165,6 @@ If you [authorize the admin SDK](/guide/options/#firebase-admin-authorization) t
 
 ## Step 5 - (Optional) Enable server side client SDK login
 
-<Badge text="EXPERIMENTAL" type="error"/>
+<badge type="danger">EXPERIMENTAL</badge>
 
 If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options/#server-side-firebase-client-sdk-login).

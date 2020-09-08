@@ -1,12 +1,19 @@
-# Options
+---
+title: Options
+description: ''
+position: 3
+category: Guide
+---
 
-## config <Badge text="REQUIRED" type="tip"/>
+## config
+
+<badge>REQUIRED</badge>
 
 Your firebase config snippet and other Firebase specific parameters. You can retrieve this information from your Firebase project's overview page:
 
 `https://console.firebase.google.com/project/<your-project-id>/overview`
 
-```js
+```js[nuxt.config.js]
 config: {
   // REQUIRED: Official config for firebase.initializeApp(config):
   apiKey: '<apiKey>',
@@ -20,11 +27,13 @@ config: {
 }
 ```
 
-::: tip
+<alert type="info">
+
 Can be defined **per NODE_ENV environment** if put in child-objects `config.production` and `config.development`, meaning that e.g. `config.production` gets loaded when `NODE_ENV === 'production'`.
 
 You can also specify multiple custom environments as mentioned in the [customEnv](/guide/options/#customenv) option below.
-:::
+
+</alert>
 
 ## customEnv
 
@@ -35,11 +44,13 @@ By default, the Firebase config will be chosen either directly from the **config
 
 If set to `true`, however, the module will determine the environment based on the environment variable called `FIRE_ENV`, which you can define yourself. This gives you the flexibility to define as many different Firebase configs as you like, independent of your NODE_ENV.
 
-::: warning
-If you decide to turn on this option, you need to define `process.env.FIRE_ENV` in your code and additionally add the following code to your `nuxt.config.js` to make sure that the environment variable gets passed from server to client.
-:::
+<alert type="warning">
 
-```js
+If you decide to turn on this option, you need to define `process.env.FIRE_ENV` in your code and additionally add the following code to your `nuxt.config.js` to make sure that the environment variable gets passed from server to client.
+
+</alert>
+
+```js[nuxt.config.js]
 env: {
   FIRE_ENV: process.env.FIRE_ENV
 }
@@ -47,8 +58,7 @@ env: {
 
 After that, you can set FIRE_ENV to anything you like...
 
-```js
-// package.json
+```js[package.json]
 "scripts": {
   "serveFoo": "FIRE_ENV=foofoofoo nuxt",
   "serveFaa": "FIRE_ENV=faafaafaa nuxt",
@@ -57,8 +67,7 @@ After that, you can set FIRE_ENV to anything you like...
 
 And then add your config to the module options:
 
-```js
-// nuxt.config.js
+```js[nuxt.config.js]
 // within the module's config
 config: {
   foofoofoo: {
@@ -84,13 +93,15 @@ config: {
 
 If your application is hosted on Firebase hosting, you can enable this flag in order to load the newest Firebase scripts in the service workers directly from there instead of www.gstatic.com.
 
-## services <Badge text="REQUIRED" type="tip"/>
+## services
+
+<badge>REQUIRED</badge>
 
 By default, **NO** Firebase products are initialized. To initialize a specific service, set its services flag to `true` or create a child object and name the key after the service.
 
 Available services:
 
-```js
+```js[nuxt.config.js]
 services: {
   auth: true,
   firestore: true,
@@ -108,7 +119,7 @@ services: {
 
 All services mentioned below can have the following options:
 
-```js
+```js[nuxt.config.js]
 [serviceName]: {
   static: false, // default
   preload: false, // default
@@ -131,17 +142,23 @@ import 'firebase/auth'
 
 Preloads dynamically loaded services. More information [here](https://webpack.js.org/guides/code-splitting/#prefetchingpreloading-modules).
 
-::: warning Be aware
+<alert type="warning">
+
+**Be aware**  
 Only applies if `static === false`.
-:::
+
+</alert>
 
 #### chunkName
 
 By default, the dynamically imported services are named `vendors.firebase-${serviceName}.js` in development mode, and `[id]` in production mode (`process.env.NODE_ENV === 'production'`). If you want to change this behaviour, you can do so with this option.
 
-::: warning Be aware
+<alert type="warning">
+
+**Be aware**  
 Only applies if `static === false`.
-:::
+
+</alert>
 
 ### auth
 
@@ -150,7 +167,7 @@ Initializes Firebase Authentication and makes it available via `$fireAuth` and `
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 auth: true
 
 // or
@@ -206,7 +223,7 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
 }
 ```
 
-::: warning
+<alert type="warning">
 
 Do not save `authUser` directly to the store, since this will save an object reference to the state which gets directly updated by Firebase Auth periodically and therefore throws a `vuex` error if `strict != false`.
 
@@ -228,7 +245,7 @@ export const mutations = {
 }
 ```
 
-:::
+</alert>
 
 #### ssr
 
@@ -258,15 +275,17 @@ The `allClaims` property is set in addition to the default user record propertie
 
 To enable this you can authorize the firebase admin by [generating a service account key](https://firebase.google.com/docs/admin/setup#initialize-sdk) and linking to it with the following configuration:
 
-::: danger NEVER deploy your service account key to a publicly accessible location
+<alert type="danger">
+
+**NEVER deploy your service account key to a publicly accessible location**  
 
 The service account key file is highly sensitive as it grants full access to your firebase project.
 
 In production always prefer providing the path to the key file through the `GOOGLE_APPLICATION_CREDENTIALS` environment variable (`auth.ssr.credential = true`) and store the key file in a location which is not exposed by your webserver.
 
-:::
+</alert>
 
-```js
+```js[nuxt.config.js]
 auth: {
   ssr: {
     // provide the path to the service account file
@@ -288,7 +307,7 @@ auth: {
 }
 ```
 
-##### Server side Firebase client SDK login <Badge text="EXPERIMENTAL" type="warning"/>
+##### Server side Firebase client SDK login <badge type="warning">EXPERIMENTAL</badge>
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
@@ -297,7 +316,7 @@ Simply set `auth.ssr.serverLogin = true`.
 The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.  
 You can configure session lifetime with `auth.ssr.serverLogin.sessionLifetime`  
 
-```js
+```js[nuxt.config.js]
 auth: {
   ssr: {
     // see above
@@ -314,7 +333,9 @@ auth: {
 }
 ```
 
-::: warning Programmatic server implementation
+<alert type="warning">
+
+**Programmatic server implementation**  
 
 If you are using an external server implementation to start nuxt programmatically:
 
@@ -327,7 +348,7 @@ If you are using an external server implementation to start nuxt programmaticall
 
   const server = express()
 
-  // do this outside of the server callback so the nuxt build is kept in memory
+  // do this outside of the server callback so the nuxt build is kept in memory test test test test test test test
   const nuxt = new Nuxt({
     dev: false,
     buildDir: '.nuxt'
@@ -341,9 +362,11 @@ If you are using an external server implementation to start nuxt programmaticall
   })
   ```
 
-:::
+</alert>
 
-::: danger Do not use this feature for high traffic sites
+<alert type="danger">
+
+**Do not use this feature for high traffic sites**  
 
 This module provides this feature to facilitate data hydration in SSR calls.
 
@@ -364,7 +387,7 @@ If you have an API which is served over nuxt ssr:
 2. Add the API base path to the `auth.ssr.ignorePaths` configuration.
    e.g.:
 
-   ```js
+   ```js[nuxt.config.js]
    auth: {
      ssr: {
        // ...
@@ -377,7 +400,7 @@ If you have an API which is served over nuxt ssr:
    }
    ```
 
-:::
+</alert>
 
 ### firestore
 
@@ -386,7 +409,7 @@ Initializes Firebase Firestore and makes it available via `$fireStore` and `$fir
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 firestore: true
 
 // or
@@ -417,7 +440,7 @@ Enables persistence in web apps.
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 firestore: {
   // ...
   enablePersistence: true
@@ -450,18 +473,22 @@ More information [here](https://firebase.google.com/docs/firestore/manage-data/e
 Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
 See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
 
-::: warning Important
+<alert type="warning">
+
+**Important**  
+
 When using settings() in Universal mode (see [this issue](https://github.com/nuxt-community/firebase-module/issues/116)), you need to set `runInNewContext` to `false` in your nuxt.config.js like so:
 
-```js
+```js[nuxt.config.js]
 // Add this to your nuxt.config.js
 render: {
-    bundleRenderer: {
-      runInNewContext: false
-    }
-  },
+  bundleRenderer: {
+    runInNewContext: false
+  }
+},
 ```
-:::
+
+</alert>
 
 ### functions
 
@@ -470,7 +497,7 @@ Initializes Firebase Functions and makes it available via `$fireFunc` and `$fire
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 functions: true
 
 // or
@@ -504,7 +531,7 @@ Initializes Firebase Storage and makes it available via `$fireStorage` and `$fir
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 storage: true
 ```
 
@@ -515,7 +542,7 @@ Initializes Firebase Realtime Database and makes it available via `$fireDb` and 
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 realtimeDb: true
 ```
 
@@ -527,7 +554,7 @@ Message payload is expected as defined by Firebase [here](https://firebase.googl
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 messaging: true
 
 // or
@@ -595,7 +622,7 @@ Initializes Firebase Performance and makes it available via `$firePerf` and `$fi
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 performance: true
 ```
 
@@ -606,7 +633,7 @@ Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 analytics: true
 
 // or
@@ -629,7 +656,7 @@ Initializes Firebase Remote Config and makes it available via `$fireConfig` and 
 - Type: `Boolean` or `Object`
 - Default: `false`
 
-```js
+```js[nuxt.config.js]
 remoteConfig: true
 
 // or
