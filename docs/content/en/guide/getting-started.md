@@ -181,5 +181,3 @@ firebase: {
 // options
 }
 ```
-
-

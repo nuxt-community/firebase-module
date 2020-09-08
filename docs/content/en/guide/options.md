@@ -309,7 +309,9 @@ auth: {
 }
 ```
 
-##### Server side Firebase client SDK login <badge type="warning">EXPERIMENTAL</badge>
+##### Server side Firebase client SDK login
+
+<badge>EXPERIMENTAL</badge>
 
 Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
 
