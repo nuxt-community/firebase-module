@@ -49,6 +49,7 @@
     "vuepress-theme-carbon": "^1.0.0"
   },
   "peerDependencies": {
+    "@nuxtjs/pwa": "^3.0.2",
     "firebase": "^7.17.1",
     "nuxt": "^2.13.3"
   },
