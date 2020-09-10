@@ -29,7 +29,8 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.14.0"
+    "consola": "^2.14.0",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
