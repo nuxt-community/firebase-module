@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.1](https://github.com/nuxt-community/firebase-module/compare/v6.1.0...v6.1.1) (2020-07-25)
+
+
+### Bug Fixes
+
+* **types:** improve typing of locals ([407eb2c](https://github.com/nuxt-community/firebase-module/commit/407eb2cd492adac282fd869d32eb9a2095e6060d))
+
+## [6.1.0](https://github.com/nuxt-community/firebase-module/compare/v6.0.1...v6.1.0) (2020-06-29)
+
+
+### Features
+
+* **analytics:** added collectionEnabled option to analytics ([5da8a19](https://github.com/nuxt-community/firebase-module/commit/5da8a19e1b6b70f78c5d9701ecd71d767a4a4627))
+
+
+### Bug Fixes
+
+* typo in README ([c0158c9](https://github.com/nuxt-community/firebase-module/commit/c0158c90abeeceb2e39aa7c5322a365988de0623))
+
+### [6.0.1](https://github.com/nuxt-community/firebase-module/compare/v6.0.0...v6.0.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* **bug:** fixed "Cannot read property 'memoryOnly' of undefined" bug ([8f69cc3](https://github.com/nuxt-community/firebase-module/commit/8f69cc3681fbb9eab51817bcdcb5d9bc8240178e)), closes [#224](https://github.com/nuxt-community/firebase-module/issues/224)
+
+## [6.0.0](https://github.com/nuxt-community/firebase-module/compare/v5.2.0...v6.0.0) (2020-06-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **messaging:** Messaging expects payloads to be delivered according to the new HTTP v1 API.
+
+### Features
+
+* **auth:** add idToken to user's payload ([97d8055](https://github.com/nuxt-community/firebase-module/commit/97d805591cbc3073417f755e0ae9e6c0ed20bed3)), closes [#202](https://github.com/nuxt-community/firebase-module/issues/202)
+* **firestore:** added memoryOnly option to firestore ([efde3fe](https://github.com/nuxt-community/firebase-module/commit/efde3fedb448cc60661a3cf5f67e5d13b195d578)), closes [#135](https://github.com/nuxt-community/firebase-module/issues/135)
+* **messaging:** implement notificationKey setting ([a985f02](https://github.com/nuxt-community/firebase-module/commit/a985f02e5e45b4c5c64bc4597bf9a41650f23bda))
+* **messaging:** migrated to HTTP v1 API for messaging ([9c09a26](https://github.com/nuxt-community/firebase-module/commit/9c09a266472d90e9f9809312006476addddab64e))
+
+
+### Bug Fixes
+
+* **auth:** add 127.0.0.1 support ([c8b6114](https://github.com/nuxt-community/firebase-module/commit/c8b6114582cc1acc478b886bf5f05c5d05209fed)), closes [#203](https://github.com/nuxt-community/firebase-module/issues/203)
+* **messaging:** only pass notificationKey to messaging sw ([5958b25](https://github.com/nuxt-community/firebase-module/commit/5958b251dcffeb5002408f4e275ad41886224b1c))
+* **types:** specify preliminary types ([d03799c](https://github.com/nuxt-community/firebase-module/commit/d03799c87f23352bf9404a3abbafad98267fc43d))
+
+## [5.2.0](https://github.com/nuxt-community/firebase-module/compare/v5.0.7...v5.2.0) (2020-05-01)
+
+
+### Features
+
+* **auth:** implement full ssr support ([17c0968](https://github.com/nuxt-community/firebase-module/commit/17c09686deb471da6faddcec16e140ab3013bdbd))
+* **auth:** implement session manager ([5106f44](https://github.com/nuxt-community/firebase-module/commit/5106f448c3b15d14143f7e29f354f0fe47e929c9))
+
+
+### Bug Fixes
+
+* **helpers:** helper plugins are now exported as CommonJS instaed of ES6 ([806ecce](https://github.com/nuxt-community/firebase-module/commit/806ecce0a3b85478ef71a383e6a64c018c1b76e2))
+* **main:** move messaging support check below import statement ([ca02c10](https://github.com/nuxt-community/firebase-module/commit/ca02c1061840f6bf652fe2ef9c36b7050dcfb0ad))
+* **main:** remove references to removed session manager template ([9bf87a3](https://github.com/nuxt-community/firebase-module/commit/9bf87a32b73d07a9f64c58a1163d78df20e5c548))
+* **manager:** use common js syntax for module imports/exports ([be6ac76](https://github.com/nuxt-community/firebase-module/commit/be6ac76ebd7d235c92b1195226e1000041a9fe19))
+* **module:** remove unnecessary deps and simplify options resolution ([2501896](https://github.com/nuxt-community/firebase-module/commit/25018966f1ce52de8fdaa9685efe511b65ea6968))
+* **ssr:** avoid using session manager for simple user injection ([8f26383](https://github.com/nuxt-community/firebase-module/commit/8f26383577c9fdc8edb1ccf9e6328fc0a4f1ec4c))
+* **ssr:** check for req existence in ssr auth calls ([675aeed](https://github.com/nuxt-community/firebase-module/commit/675aeedecd70b1461d155b07689ca238ba5ed083))
+* **templates:** improve type checks for more stability ([11d1f25](https://github.com/nuxt-community/firebase-module/commit/11d1f25ed3303aef24f0f7b159ec509de402d5ea))
+* **types:** update credential option to allow ServiceAccount object ([427347d](https://github.com/nuxt-community/firebase-module/commit/427347d3a60f6bd07beb4f54ea7ed7b64e58e3cb))
+* syntax on firebase module ([d3da4e9](https://github.com/nuxt-community/firebase-module/commit/d3da4e9506e9abce72ab345d22cbeada01ed91a9))
+
 ### [5.0.7](https://github.com/nuxt-community/firebase-module/compare/v5.0.6...v5.0.7) (2020-04-06)
 
 

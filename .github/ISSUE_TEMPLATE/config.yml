@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Nuxt Community Discord
+    url: https://discord.nuxtjs.org/
+    about: Consider asking questions about the module here.
+  - name: nuxt-firebase Documentation
+    url: https://firebase.nuxtjs.org/
+    about: Check our documentation before reporting issues or questions.
+  - name: Firebase Documentation
+    url: https://firebase.google.com/docs/web/setup
+    about: Make sure to study the Firebase documentation, too.

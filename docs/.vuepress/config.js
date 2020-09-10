@@ -11,6 +11,10 @@ module.exports = {
   ],
   theme: 'carbon',
   themeConfig: {
+    algolia: {
+      apiKey: '26073a7590724b3efc377b3b7608f3e0',
+      indexName:'nuxtjs_firebase'
+    },
     carbonAds: {
       serve: "CE7D62JL",
       placement: "packagesdeveoio"
