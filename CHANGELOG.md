@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.1](https://github.com/nuxt-community/firebase-module/compare/v6.1.0...v6.1.1) (2020-07-25)
+
+
+### Bug Fixes
+
+* **types:** improve typing of locals ([407eb2c](https://github.com/nuxt-community/firebase-module/commit/407eb2cd492adac282fd869d32eb9a2095e6060d))
+
 ## [6.1.0](https://github.com/nuxt-community/firebase-module/compare/v6.0.1...v6.1.0) (2020-06-29)
 
 
