@@ -9,3 +9,4 @@ coverage
 dist
 
 yarn.lock
+!docs/yarn.lock
