@@ -30,7 +30,7 @@ Install `firebase-admin` and `@nuxtjs/pwa`:
 
 ## Step 1 - Enable SSR functionality and configure workbox to include the auth service worker
 
-Use the [auth.ssr option](/guide/options/#ssr).
+Use the [auth.ssr option](/service-options/auth#ssr).
 
 In `nuxt.config.js`:
 
@@ -73,8 +73,8 @@ module.exports = {
 
 ## Step 2 - Setup Mutations and/or Actions to handle User authentication
 
-If you don't rely on a full `firebase.User` object you can reuse the client action/mutation configured for [`auth.initialize`](/guide/options/#initialize).  
-See [Step 3](#step-3-retrieve-the-server-user) to verify if required properties are present.
+If you don't rely on a full `firebase.User` object you can reuse the client action/mutation configured for [`auth.initialize`](/service-options/auth#initialize).  
+See [Step 3](#step-3---retrieve-the-server-user) to verify if required properties are present.
 
 Example action:
 
@@ -162,10 +162,12 @@ That's it. You receive a server-verified authUser object and can do with it what
 
 ## Step 4 - (Optional) Authorize the admin SDK
 
-If you [authorize the admin SDK](/guide/options/#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
+<experimental-alert></experimental-alert>
+
+If you [authorize the admin SDK](/service-options/auth#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
 
 ## Step 5 - (Optional) Enable server side client SDK login
 
-<badge>EXPERIMENTAL</badge>
+<experimental-alert></experimental-alert>
 
-If you need client SDK services for hydration on page load you can enable this feature in the [options](/guide/options/#server-side-firebase-client-sdk-login).
+If you need client SDK services for hydration on page load you can enable this feature in the [options](/service-options/auth#server-side-firebase-client-sdk-login).

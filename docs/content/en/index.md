@@ -33,20 +33,3 @@ The module adds a plugin to your Nuxt.js application that handles the initializa
 ## Disclaimer
 
 This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you want your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.
-
-## Links
-
-Collection of Links related to this module:
-
-### Articles
-
-- [Nuxt.js (v2), Firestore & SSR 🔥](https://medium.com/@pascalluther/nuxt-js-v2-firestore-ssr-938d8fb7d2b0?)  
-  Medium Article about integrating Firestore with Nuxt.js v2.
-
-- [Nuxt.js (v1), Firestore & SSR 🔥](https://medium.com/@pascalluther/nuxt-js-v1-firestore-and-ssr-73e3140574fc?) Medium Article about integrating Firestore with Nuxt.js v1.
-
-### Videos
-
-- [Nuxt Firebase로 블로그 만들어보기 12 파이어베이스 인증해보기](https://www.youtube.com/watch?v=Zd6PSfgH3t4) Tutorial video on how to integrate Firebase Auth with nuxt-fire (in Korean)
-
-<p class="flex items-center">Enjoy light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>

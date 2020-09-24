@@ -1,8 +1,8 @@
 ---
 title: Migration guides
 description: ''
-position: 6
-category: Guide
+position: 99
+category: Community
 ---
 
 ## Upgrade from v4 to v5
