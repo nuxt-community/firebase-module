@@ -1,5 +1,5 @@
 ---
-title: Firebase Auth in SSR/Universal Mode
+title: Firebase Auth with SSR
 description: ''
 position: 8
 category: Tutorials
