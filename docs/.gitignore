@@ -7,6 +7,4 @@ node_modules
 .DS_Store
 coverage
 dist
-
-yarn.lock
-!docs/yarn.lock
+sw.*
