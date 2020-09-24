@@ -1,30 +1,24 @@
-# 🔥 Nuxt Firebase
-
-<p align="center"><img align="center" height="300px" src="https://firebase.nuxtjs.org/logo-text.png"/></p>
-
 <p align="center">
-  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/dm/@nuxtjs/firebase" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/v/@nuxtjs/firebase" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/@nuxtjs/firebase"><img src="https://badgen.net/npm/license/@nuxtjs/firebase" alt="License"></a>
- </p>
+  <img src="./docs/static/preview.png" alt="nuxt-firebase logo">
 </p>
+
+[![](https://david-dm.org/nuxt-community/firebase-module/status.svg?style=flat-square)](https://david-dm.org/nuxt-community/i18n-module)
+[![](https://snyk.io/test/github/nuxt-community/firebase-module/badge.svg?style=flat-square)](https://snyk.io/test/github/nuxt-community/firebase-module)
+[![](https://img.shields.io/npm/v/@nuxtjs/firebase/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/firebase)
+[![](https://img.shields.io/npm/dt/@nuxtjs/firebase.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/firebase)
 
 > Easily integrate Firebase into your Nuxt project.
 
-📖 [**Read Full Documentation**](https://firebase.nuxtjs.org/)
-
-## v4 to v5 Upgrade Guide
-
-‼️ BREAKING CHANGES in the last Update ‼️
-
-📖 [**Upgrade Guide from v4 to v5**](https://firebase.nuxtjs.org/guide/upgrade/#upgrade-from-v4-to-v5)
+## Links
+- 📘 [Documentation](https://firebase.nuxtjs.org/)
+- 🔖 [Release notes](./CHANGELOG.md)
+- 👥 [Community](https://discord.nuxtjs.org/)
 
 ## Quick Setup
 
-Make sure you have the newest versions of Nuxt and Firebase installed and setup in your project.
+Make sure you are using the newest version of Nuxt and have Firebase installed in your project.
 
 ```bash
-yarn add nuxt # OR npm i nuxt
 yarn add firebase # OR npm i firebase
 ```
 
@@ -77,11 +71,9 @@ try {
 }
 ```
 
-## Advanced Setup
+## Issues, questions & requests
 
-There is much more options to this simple setup, check out our full documentation below:
-
-📖 [**Read Documentation**](https://firebase.nuxtjs.org/)
+If you have any questions or issues, check out [Discord server](https://discord.nuxtjs.org).
 
 ## License
 
