@@ -1,7 +1,7 @@
 ---
 title: Firebase Auth with SSR
 description: ''
-position: 8
+position: 16
 category: Tutorials
 ---
 
