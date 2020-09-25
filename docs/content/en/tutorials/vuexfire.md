@@ -1,7 +1,7 @@
 ---
 title: Usage with vuexfire
 description: ''
-position: 9
+position: 17
 category: Tutorials
 ---
 

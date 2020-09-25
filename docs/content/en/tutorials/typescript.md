@@ -1,7 +1,7 @@
 ---
 title: Usage with Typescript
 description: ''
-position: 10
+position: 18
 category: Tutorials
 ---
 
