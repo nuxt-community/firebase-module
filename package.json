@@ -35,8 +35,8 @@
     "@babel/preset-env": "^7.10.4",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.13.3",
-    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxt/types": "^2.14.6"
+    "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
@@ -45,9 +45,9 @@
     "core-js": "2",
     "cz-conventional-changelog": "latest",
     "eslint": "latest",
-    "firebase": "^7.16.1",
-    "husky": "^4.2.5",
-    "jest": "^26.1.0",
+    "firebase": "^7.21.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
     "nuxt": "^2.13.3",
     "proxy-mock-js": "^1.0.3",
     "standard-version": "latest"
