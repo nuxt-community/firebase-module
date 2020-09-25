@@ -21,15 +21,13 @@
   "main": "lib/module.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.vue lib test",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "consola": "^2.14.0"
+    "consola": "^2.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -40,7 +38,6 @@
     "@nuxt/types": "^2.13.3",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
-    "@vuepress/plugin-google-analytics": "^1.5.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
@@ -53,13 +50,11 @@
     "jest": "^26.1.0",
     "nuxt": "^2.13.3",
     "proxy-mock-js": "^1.0.3",
-    "standard-version": "latest",
-    "vuepress": "^1.5.2",
-    "vuepress-theme-carbon": "^1.0.0"
+    "standard-version": "latest"
   },
   "peerDependencies": {
-    "firebase": "^7.17.1",
-    "nuxt": "^2.13.3"
+    "firebase": "^7.21.1",
+    "nuxt": "^2.14.6"
   },
   "publishConfig": {
     "access": "public"
@@ -70,6 +65,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^9.0.0"
+    "firebase-admin": "^9.2.0"
   }
 }
