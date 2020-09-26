@@ -30,23 +30,32 @@ export default async (ctx, inject) => {
     async ready() {
       await fire.appReady()
 
-      const servicePromises = [
-        fire.authReady(session, firebase),
-        fire.dbReady(session, firebase),
-        fire.firestoreReady(session, firebase),
-        fire.storageReady(session, firebase),
-        fire.functionsReady(session, firebase),
+      let servicePromises = []
 
-      ]
+      if (process.server) {
+        servicePromises = [
+        fire.authReady(),
+        fire.databaseReady(),
+        fire.firestoreReady(),
+        fire.storageReady(),
+        fire.functionsReady(),
+
+        ]
+      }
 
       if (process.client) {
-        Array.prototype.push.apply(servicePromises, [
-          fire.messagingReady(session, firebase),
-          fire.performanceReady(session, firebase),
-          fire.analyticsReady(session, firebase),
-          fire.configReady(session, firebase),
+        servicePromises = [
+        fire.authReady(),
+        fire.databaseReady(),
+        fire.firestoreReady(),
+        fire.storageReady(),
+        fire.functionsReady(),
+        fire.messagingReady(),
+        fire.performanceReady(),
+        fire.analyticsReady(),
+        fire.remoteConfigReady(),
 
-        ])
+        ]
       }
 
       await Promise.all(servicePromises)
@@ -54,113 +63,145 @@ export default async (ctx, inject) => {
     }
   }
 
-  let authReady = false
   fire.auth = null
   fire.authReady = async () => {
-    if (!authReady) {
+    if (!fire.auth) {
       await fire.appReady()
-      fire.auth = await authService(session, firebase)
-      authReady = true
+      fire.auth = await authService(session, firebase, ctx, inject)
     }
 
     return fire.auth
   }
 
-  let dbReady = false
-  fire.db = null
-  fire.dbReady = async () => {
-    if (!dbReady) {
+  fire.database = null
+  fire.databaseReady = async () => {
+    if (!fire.database) {
       await fire.appReady()
-      fire.db = await realtimeDbService(session, firebase)
-      dbReady = true
+      fire.database = await realtimeDbService(session, firebase, ctx, inject)
     }
 
-    return fire.db
+    return fire.database
   }
 
-  let firestoreReady = false
   fire.firestore = null
   fire.firestoreReady = async () => {
-    if (!firestoreReady) {
+    if (!fire.firestore) {
       await fire.appReady()
-      fire.firestore = await firestoreService(session, firebase)
-      firestoreReady = true
+      fire.firestore = await firestoreService(session, firebase, ctx, inject)
     }
 
     return fire.firestore
   }
 
-  let storageReady = false
   fire.storage = null
   fire.storageReady = async () => {
-    if (!storageReady) {
+    if (!fire.storage) {
       await fire.appReady()
-      fire.storage = await storageService(session, firebase)
-      storageReady = true
+      fire.storage = await storageService(session, firebase, ctx, inject)
     }
 
     return fire.storage
   }
 
-  let functionsReady = false
   fire.functions = null
   fire.functionsReady = async () => {
-    if (!functionsReady) {
+    if (!fire.functions) {
       await fire.appReady()
-      fire.functions = await functionsService(session, firebase)
-      functionsReady = true
+      fire.functions = await functionsService(session, firebase, ctx, inject)
     }
 
     return fire.functions
   }
 
   if (process.client) {
-    let messagingReady = false
+    fire.auth = null
+    fire.authReady = async () => {
+      if (!fire.auth) {
+        await fire.appReady()
+        fire.auth = await authService(session, firebase, ctx, inject)
+      }
+
+      return fire.auth
+    }
+
+    fire.database = null
+    fire.databaseReady = async () => {
+      if (!fire.database) {
+        await fire.appReady()
+        fire.database = await realtimeDbService(session, firebase, ctx, inject)
+      }
+
+      return fire.database
+    }
+
+    fire.firestore = null
+    fire.firestoreReady = async () => {
+      if (!fire.firestore) {
+        await fire.appReady()
+        fire.firestore = await firestoreService(session, firebase, ctx, inject)
+      }
+
+      return fire.firestore
+    }
+
+    fire.storage = null
+    fire.storageReady = async () => {
+      if (!fire.storage) {
+        await fire.appReady()
+        fire.storage = await storageService(session, firebase, ctx, inject)
+      }
+
+      return fire.storage
+    }
+
+    fire.functions = null
+    fire.functionsReady = async () => {
+      if (!fire.functions) {
+        await fire.appReady()
+        fire.functions = await functionsService(session, firebase, ctx, inject)
+      }
+
+      return fire.functions
+    }
+
     fire.messaging = null
     fire.messagingReady = async () => {
-      if (!messagingReady) {
+      if (!fire.messaging) {
         await fire.appReady()
-        fire.messaging = await messagingService(session, firebase)
-        messagingReady = true
+        fire.messaging = await messagingService(session, firebase, ctx, inject)
       }
 
       return fire.messaging
     }
 
-    let performanceReady = false
     fire.performance = null
     fire.performanceReady = async () => {
-      if (!performanceReady) {
+      if (!fire.performance) {
         await fire.appReady()
-        fire.performance = await performanceService(session, firebase)
-        performanceReady = true
+        fire.performance = await performanceService(session, firebase, ctx, inject)
       }
 
       return fire.performance
     }
 
-    let analyticsReady = false
     fire.analytics = null
     fire.analyticsReady = async () => {
-      if (!analyticsReady) {
+      if (!fire.analytics) {
         await fire.appReady()
-        fire.analytics = await analyticsService(session, firebase)
-        analyticsReady = true
+        fire.analytics = await analyticsService(session, firebase, ctx, inject)
       }
 
       return fire.analytics
     }
 
-    let configReady = false
-    fire.config = null
-    fire.configReady = async () => {
-      if (!configReady) {
+    fire.remoteConfig = null
+    fire.remoteConfigReady = async () => {
+      if (!fire.remoteConfig) {
         await fire.appReady()
-        fire.config = await remoteConfigService(session, firebase)
-        configReady = true
+        fire.remoteConfig = await remoteConfigService(session, firebase, ctx, inject)
       }
 
-      return fire.config
+      return fire.remoteConfig
     }
   }
 

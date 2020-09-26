@@ -18,47 +18,56 @@ const appConfig = {\\"apiKey\\":\\"\\\\u003CapiKey\\\\u003E\\",\\"authDomain\\":
 export default async (ctx, inject) => {
   const { firebase, session } = await createApp(appConfig)
 
-  const servicePromises = [
-    authService(session, firebase),
-    realtimeDbService(session, firebase),
-    firestoreService(session, firebase),
-    storageService(session, firebase),
-    functionsService(session, firebase),
+  let servicePromises = []
 
-  ]
+  if (process.server) {
+    servicePromises = [
+      authService(session, firebase, ctx, inject),
+    realtimeDbService(session, firebase, ctx, inject),
+    firestoreService(session, firebase, ctx, inject),
+    storageService(session, firebase, ctx, inject),
+    functionsService(session, firebase, ctx, inject),
+
+    ]
+  }
 
   if (process.client) {
-    Array.prototype.push.apply(servicePromises, [
-      messagingService(session, firebase),
-      performanceService(session, firebase),
-      analyticsService(session, firebase),
-      remoteConfigService(session, firebase),
+    servicePromises = [
+      authService(session, firebase, ctx, inject),
+      realtimeDbService(session, firebase, ctx, inject),
+      firestoreService(session, firebase, ctx, inject),
+      storageService(session, firebase, ctx, inject),
+      functionsService(session, firebase, ctx, inject),
+      messagingService(session, firebase, ctx, inject),
+      performanceService(session, firebase, ctx, inject),
+      analyticsService(session, firebase, ctx, inject),
+      remoteConfigService(session, firebase, ctx, inject),
 
-    ])
+    ]
   }
 
   const [
     auth,
-    db,
+    realtimeDb,
     firestore,
     storage,
     functions,
     messaging,
     performance,
     analytics,
-    config
+    remoteConfig
   ] = await Promise.all(servicePromises)
 
   const fire = {
-    auth,
-    db,
-    firestore,
-    storage,
-    functions,
-    messaging,
-    performance,
-    analytics,
-    config
+    auth: auth,
+    database: realtimeDb,
+    firestore: firestore,
+    storage: storage,
+    functions: functions,
+    messaging: messaging,
+    performance: performance,
+    analytics: analytics,
+    remoteConfig: remoteConfig
   }
 
   inject('fire', fire)

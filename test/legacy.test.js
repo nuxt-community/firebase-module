@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const fs = require('fs-extra')
 const { Nuxt, Builder } = require('nuxt')
-const { injectionMapping } = require('../lib/template-utils')
+const { serviceMappings } = require('../lib/template-utils')
 const FirebaseModule = require('..')
 
 jest.mock('firebase/app', () => ({
@@ -69,9 +69,12 @@ describe('legacy', () => {
   test('plugin contents', async () => {
     const content = await fs.readFile(resolve(buildDir, 'firebase/index.js'), { encoding: 'utf8' })
 
-    for (const injectedName of Object.values(injectionMapping)) {
-      expect(content).toContain(`'fire${injectedName}'`)
-      expect(content).toContain(`'fire${injectedName}Obj'`)
+    for (const serviceMapping of Object.values(serviceMappings)) {
+      if (serviceMapping.id === 'app') {
+        continue
+      }
+      expect(content).toContain(`'${serviceMapping.injectionNameOld}'`)
+      expect(content).toContain(`'${serviceMapping.injectionNameOld}Obj'`)
     }
 
     expect(content).not.toContain('fire.auth')
@@ -80,6 +83,8 @@ describe('legacy', () => {
   })
 
   test('exec plugin (server)', async () => {
+    process.server = true
+    process.client = false
     const Plugin = await import(resolve(buildDir, 'firebase/index.js')).then(m => m.default || m)
     const inject = jest.fn()
 
@@ -88,6 +93,7 @@ describe('legacy', () => {
   })
 
   test('exec plugin (client)', async () => {
+    process.server = false
     process.client = true
     const Plugin = await import(resolve(buildDir, 'firebase/index.js')).then(m => m.default || m)
     const inject = jest.fn()

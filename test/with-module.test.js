@@ -79,6 +79,8 @@ describe('with-module', () => {
   })
 
   test('exec plugin (server)', async () => {
+    process.server = true
+    process.client = false
     const Plugin = await import(resolve(buildDir, 'firebase/index.js')).then(m => m.default || m)
     const ctx = {}
     const inject = jest.fn()
@@ -90,6 +92,7 @@ describe('with-module', () => {
   })
 
   test('exec plugin (client)', async () => {
+    process.server = false
     process.client = true
     const Plugin = await import(resolve(buildDir, 'firebase/index.js')).then(m => m.default || m)
     const ctx = {}

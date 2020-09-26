@@ -18,23 +18,32 @@ const appConfig = {\\"apiKey\\":\\"\\\\u003CapiKey\\\\u003E\\",\\"authDomain\\":
 export default async (ctx, inject) => {
   const { firebase, session } = await createApp(appConfig)
 
-  const servicePromises = [
-    authService(session, firebase),
-    realtimeDbService(session, firebase),
-    firestoreService(session, firebase),
-    storageService(session, firebase),
-    functionsService(session, firebase),
+  let servicePromises = []
 
-  ]
+  if (process.server) {
+    servicePromises = [
+      authService(session, firebase, ctx, inject),
+    realtimeDbService(session, firebase, ctx, inject),
+    firestoreService(session, firebase, ctx, inject),
+    storageService(session, firebase, ctx, inject),
+    functionsService(session, firebase, ctx, inject),
+
+    ]
+  }
 
   if (process.client) {
-    Array.prototype.push.apply(servicePromises, [
-      messagingService(session, firebase),
-      performanceService(session, firebase),
-      analyticsService(session, firebase),
-      remoteConfigService(session, firebase),
+    servicePromises = [
+      authService(session, firebase, ctx, inject),
+      realtimeDbService(session, firebase, ctx, inject),
+      firestoreService(session, firebase, ctx, inject),
+      storageService(session, firebase, ctx, inject),
+      functionsService(session, firebase, ctx, inject),
+      messagingService(session, firebase, ctx, inject),
+      performanceService(session, firebase, ctx, inject),
+      analyticsService(session, firebase, ctx, inject),
+      remoteConfigService(session, firebase, ctx, inject),
 
-    ])
+    ]
   }
 
   const [
@@ -49,32 +58,63 @@ export default async (ctx, inject) => {
     remoteConfig
   ] = await Promise.all(servicePromises)
 
-  inject('fireAuth', auth)
-  inject('fireAuthObj', firebase.auth)
+  if (process.server) {
+    inject('fireAuth', auth)
 
-  inject('fireDb', realtimeDb)
-  inject('fireDbObj', firebase.realtimeDb)
+    inject('fireAuthObj', firebase.auth)
 
-  inject('fireStore', firestore)
-  inject('fireStoreObj', firebase.firestore)
+    inject('fireDb', realtimeDb)
 
-  inject('fireStorage', storage)
-  inject('fireStorageObj', firebase.storage)
+    inject('fireDbObj', firebase.database)
 
-  inject('fireFunc', functions)
-  inject('fireFuncObj', firebase.functions)
+    inject('fireStore', firestore)
+
+    inject('fireStoreObj', firebase.firestore)
+
+    inject('fireStorage', storage)
+
+    inject('fireStorageObj', firebase.storage)
+
+    inject('fireFunc', functions)
+
+    inject('fireFuncObj', firebase.functions)
+  }
 
   if (process.client) {
+    inject('fireAuth', auth)
+
+    inject('fireAuthObj', firebase.auth)
+
+    inject('fireDb', realtimeDb)
+
+    inject('fireDbObj', firebase.database)
+
+    inject('fireStore', firestore)
+
+    inject('fireStoreObj', firebase.firestore)
+
+    inject('fireStorage', storage)
+
+    inject('fireStorageObj', firebase.storage)
+
+    inject('fireFunc', functions)
+
+    inject('fireFuncObj', firebase.functions)
+
     inject('fireMess', messaging)
+
     inject('fireMessObj', firebase.messaging)
 
-    inject('firePerformance', performance)
-    inject('firePerformanceObj', firebase.performance)
+    inject('firePerf', performance)
+
+    inject('firePerfObj', firebase.performance)
 
     inject('fireAnalytics', analytics)
+
     inject('fireAnalyticsObj', firebase.analytics)
 
     inject('fireConfig', remoteConfig)
+
     inject('fireConfigObj', firebase.remoteConfig)
   }
 }
