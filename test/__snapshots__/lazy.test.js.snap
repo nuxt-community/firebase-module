@@ -63,6 +63,7 @@ export default async (ctx, inject) => {
     }
   }
 
+  if (process.server) {
   fire.auth = null
   fire.authReady = async () => {
     if (!fire.auth) {
@@ -111,6 +112,7 @@ export default async (ctx, inject) => {
     }
 
     return fire.functions
+  }
   }
 
   if (process.client) {
