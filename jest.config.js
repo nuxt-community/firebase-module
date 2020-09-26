@@ -4,7 +4,7 @@ module.exports = {
     'lib/**/*.js',
     '!lib/plugins/**/*.js',
     '!lib/serverMiddleware/*.js',
-    '!lib/templates/*.js'
+    '!lib/sw-templates/*.js'
   ],
   moduleFileExtensions: [
     'ts',
@@ -13,9 +13,9 @@ module.exports = {
   ],
   testEnvironment: 'node',
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.js$': 'babel-jest'
   },
   transformIgnorePatterns: [
     'node_modules'
-  ],
+  ]
 }

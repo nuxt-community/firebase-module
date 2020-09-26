@@ -8,5 +8,5 @@ coverage
 lib/plugins/*.js
 lib/plugins/services/*.js
 lib/serverMiddleware/*.js
-lib/templates/*.js
+lib/sw-templates/*.js
 types/index.d.ts

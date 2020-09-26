@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const fs = require('fs-extra')
 const { Nuxt, Builder } = require('nuxt')
-const { serviceMappings } = require('../lib/template-utils')
+const { serviceMappings } = require('../lib/utils/template-utils')
 const FirebaseModule = require('..')
 
 jest.mock('firebase/app', () => ({

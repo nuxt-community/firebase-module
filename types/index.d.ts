@@ -8,9 +8,7 @@ import firebase from 'firebase'
 import { auth } from 'firebase-admin'
 
 /***********************************
- * 
  * Module Config
- * 
 ************************************/
 export interface FirebaseConfiguration {
   apiKey: string
@@ -130,9 +128,7 @@ export interface FirebaseModuleConfiguration {
 }
 
 /***********************************
- * 
  * Injections
- * 
 ************************************/
 
 interface ReadyFunction {
@@ -337,9 +333,7 @@ declare module 'vuex/types/index' {
 }
 
 /***********************************
- * 
  * Misc
- * 
 ************************************/
 
 export type FireAuthServerUser = Omit<
