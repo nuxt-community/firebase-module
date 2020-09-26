@@ -150,7 +150,7 @@ declare module 'vue/types/vue' {
     $fireObj: typeof firebase
     $fire: {
       auth: firebase.auth.Auth
-      realtimeDb: firebase.database.Database
+      database: firebase.database.Database
       firestore: firebase.firestore.Firestore
       storage: firebase.storage.Storage
       functions: firebase.functions.Functions
@@ -192,7 +192,7 @@ declare module '@nuxt/vue-app' {
      $fireObj: typeof firebase
      $fire: {
        auth: firebase.auth.Auth
-       realtimeDb: firebase.database.Database
+       database: firebase.database.Database
        firestore: firebase.firestore.Firestore
        storage: firebase.storage.Storage
        functions: firebase.functions.Functions
@@ -235,7 +235,7 @@ declare module '@nuxt/types' {
      $fireObj: typeof firebase
      $fire: {
        auth: firebase.auth.Auth
-       realtimeDb: firebase.database.Database
+       database: firebase.database.Database
        firestore: firebase.firestore.Firestore
        storage: firebase.storage.Storage
        functions: firebase.functions.Functions
@@ -273,7 +273,7 @@ declare module 'vuex/types/index' {
      $fireObj: typeof firebase
      $fire: {
        auth: firebase.auth.Auth
-       realtimeDb: firebase.database.Database
+       database: firebase.database.Database
        firestore: firebase.firestore.Firestore
        storage: firebase.storage.Storage
        functions: firebase.functions.Functions
