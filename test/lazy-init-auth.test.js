@@ -78,7 +78,7 @@ describe('lazy-init-auth', () => {
   })
 
   test('init auth plugin exist', async () => {
-    const content = await fs.readFile(resolve(buildDir, 'firebase/initAuth.client.js'), { encoding: 'utf8' })
+    const content = await fs.readFile(resolve(buildDir, 'firebase/service.auth.initialize.js'), { encoding: 'utf8' })
     expect(content).toMatchSnapshot()
   })
 })
