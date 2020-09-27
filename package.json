@@ -24,7 +24,8 @@
     "lint": "eslint --ext .js,.vue lib test",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "docs": "cd docs && yarn dev"
   },
   "dependencies": {
     "consola": "^2.15.0"
