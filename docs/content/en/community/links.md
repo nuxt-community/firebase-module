@@ -17,5 +17,3 @@ Collection of Links related to this module:
 ### Videos
 
 - [Nuxt Firebase로 블로그 만들어보기 12 파이어베이스 인증해보기](https://www.youtube.com/watch?v=Zd6PSfgH3t4) Tutorial video on how to integrate Firebase Auth with nuxt-fire (in Korean)
-
-<p class="flex items-center">Enjoy light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>

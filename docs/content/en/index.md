@@ -14,6 +14,11 @@ features:
 
 Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](https://nuxtjs.org) project.
 
+
+<alert>
+<p class="flex items-center">Enjoy these docs in light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
+</alert>
+
 ## Features
 
 <list :items="features"></list>
