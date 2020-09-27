@@ -37,7 +37,7 @@
     "@nuxtjs/module-test-utils": "^1.6.3",
     "codecov": "^3.7.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.10.0",
     "firebase": "^7.21.1",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
