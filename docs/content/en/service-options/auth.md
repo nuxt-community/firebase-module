@@ -99,15 +99,49 @@ The injected user can be used by context aware life cycle hooks on the server si
 
 A tutorial on how to set this up can be found [here](/tutorials/ssr).
 
-### Firebase admin authorization
+### ignorePaths
+
+The service worker session automatically ignores external resources, static files and HMR calls.
+If you need to ignore additional routes, define them here.
+
+```js[nuxt.config.js]
+auth: {
+  ssr: {
+    ignorePaths: [
+      '/admin', // path is ignored if url.pathname.startsWith('/admin')
+      /^api/ // path is ignored if url.pathname without the leading slash (/) matches the RegExp
+    ]
+  }
+}
+```
+
+### credential
 
 <experimental-alert></experimental-alert>
+
+Enables Firebase admin authorization.
+
+```js[nuxt.config.js]
+auth: {
+  ssr: {
+    // retrieved credentials from GOOGLE_APPLICATION_CREDENTIALS env variable
+    credential: true
+
+    // provide the path to the service account file
+    // CAREFUL - don't deploy to publicly accessible location!
+    credential: '/absolute/path/to/serviceAccount.json'
+
+    // nuxt aliases are supported
+    credential: '~/assets/serviceAccount.json'
+  }
+}
+```
 
 If you want additional information on the user the module can inject a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) into the `ctx.res.locals.user` property.
 
 The `allClaims` property is set in addition to the default user record properties.
 
-To enable this you can authorize the firebase admin by [generating a service account key](https://firebase.google.com/docs/admin/setup#initialize-sdk) and linking to it with the following configuration:
+To enable this you can authorize the firebase admin by [generating a service account key](https://firebase.google.com/docs/admin/setup#initialize-sdk) and link to it with this configuration.
 
 <alert type="danger">
 
@@ -119,43 +153,16 @@ In production always prefer providing the path to the key file through the `GOOG
 
 </alert>
 
-```js[nuxt.config.js]
-auth: {
-  ssr: {
-    // provide the path to the service account file
-    credential: '/absolute/path/to/serviceAccount.json'
-
-    // nuxt aliases are supported
-    credential: '~/assets/serviceAccount.json'
-
-    // if this is set to true the credential will be retrieved from GOOGLE_APPLICATION_CREDENTIALS environment variable
-    credential: true
-
-    // The service worker session automatically ignores external resources, static files and HMR calls
-    // If you need to ignore additional routes, define them here
-    ignorePaths: [
-      '/admin', // path is ignored if url.pathname.startsWith('/admin')
-      /^api/ // path is ignored if url.pathname without the leading slash (/) matches the RegExp
-    ]
-  }
-}
-```
-
-### Server side Firebase client SDK login
+### serverLogin
 
 <experimental-alert></experimental-alert>
 
-Once you have [properly setup the admin sdk](#firebase-admin-authorization) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
-
-Simply set `auth.ssr.serverLogin = true`.
-
-The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.  
-You can configure session lifetime with `auth.ssr.serverLogin.sessionLifetime`  
+Enables server side Firebase client SDK login.
 
 ```js[nuxt.config.js]
 auth: {
   ssr: {
-    // see above
+    // Set 'credential' as described above.
 
     serverLogin: true
     // or
@@ -168,6 +175,16 @@ auth: {
   }
 }
 ```
+
+Once you have properly setup the admin sdk via the [credential option](#credential) you can enable server side login to use firebase services on the server, e.g. to perform store hydration on page load.
+
+Simply set `auth.ssr.serverLogin = true`.
+
+The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.
+
+You can configure the session lifetime with `auth.ssr.serverLogin.sessionLifetime`  
+
+
 
 <alert type="warning">
 
@@ -208,32 +225,22 @@ This module provides this feature to facilitate data hydration in SSR calls.
 
 However, the client SDK is not intended for use on a server.
 
-Authentication is rate limited by IP for security reasons. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
+Authentication is rate limited by IP for security reasons by Firebase. The base limit is 20 QPS / IP (as of March 2020) and a couple dozen logins per user per 10 minutes, but it’s subject to change as needed, without notice by Firebase.
 
 Try to reduce the need for SSR by providing pre-rendered pages ([`nuxt generate`](https://nuxtjs.org/guide#static-generated-pre-rendering-)) through static hosting and only fall back on SSR for authenticated and dynamic routes.
 
-If you run into rate limiting issues try adjusting the `auth.ssr.serverLogin.loginDelay` configuration.
+If you run into rate limiting issues try adjusting the `serverLogin.loginDelay` configuration.
 
-DO NOT USE THE CLIENT SDK IN API OPERATIONS.
+</alert>
 
-If you have an API which is served over nuxt ssr:
+<alert type="danger">
+
+**Do not use the Client SDK in API Operations**
+
+If you have an API which is served over Nuxt SSR:
 
 1. Please ensure it does not use `firebase` client sdk functionality (e.g. `auth`, `firestore`, `storage`, ...).  
    Instead use the corresponding functionality of a fully authenticated `firebase-admin` instance.
-2. Add the API base path to the `auth.ssr.ignorePaths` configuration.
-   e.g.:
-
-   ```js[nuxt.config.js]
-   auth: {
-     ssr: {
-       // ...
-       ignorePaths: [
-         '/api/',
-         // or
-         /^api\//
-       ]
-     }
-   }
-   ```
+2. Add the API base path (e.g. `'/api/'`) to the [`auth.ssr.ignorePaths`](#ignorepaths) configuration.
 
 </alert>
