@@ -25,7 +25,7 @@ firestore: {
 
 ## memoryOnly
 
-With this flag set to true, the *memory-onl* build is loaded as mentioned [here](https://firebase.google.com/support/release-notes/js#version_7130_-_march_26_2020).
+With this flag set to true, the *memory-only* build is loaded as mentioned [here](https://firebase.google.com/support/release-notes/js#version_7130_-_march_26_2020).
 
 - Type: `Boolean` or `Object`
 - Default: `false`
