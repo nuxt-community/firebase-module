@@ -38,14 +38,14 @@
     "@nuxtjs/module-test-utils": "^1.6.3",
     "codecov": "^3.8.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.10.0",
-    "firebase": "^7.22.1",
+    "eslint": "^7.11.0",
+    "firebase": "^7.23.0",
     "husky": "^4.3.0",
     "jest": "^26.5.2",
     "standard-version": "^9.0.0"
   },
   "peerDependencies": {
-    "firebase": "^7.22.1",
+    "firebase": "^7.23.0",
     "nuxt": "^2.14.6"
   },
   "publishConfig": {
