@@ -15,7 +15,8 @@ auth: {
   persistence: 'local', // default
   initialize: {
     onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
-    onAuthStateChangedAction: 'onAuthStateChangedAction'
+    onAuthStateChangedAction: 'onAuthStateChangedAction',
+    subscribeManually: false
   },
   ssr: false // default
 }
@@ -33,7 +34,7 @@ Just add a mutation/action to your vuex store ([as seen below](#onauthstatechang
 
 When onAuthStateChanged() gets triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation)
 
-To unsubscribe from the listener simply call the `$fireAuthUnsubscribe()` function which is provided as a [combined inject](https://nuxtjs.org/guide/plugins#combined-inject).
+To unsubscribe from the listener simply call the `$fireAuthStore.unsubscribe()` function.
 
 ### onAuthStateChangedMutation
 
@@ -78,6 +79,17 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
   }
 }
 ```
+
+### subscribeManually
+
+By settings "subscribeManually" to `true`, the `onAuthStateChanged()` listener won't be set up until you call the following manually_
+
+```js
+// e.g. in a seperate Plugin
+this.$fireAuthStore.subscribe()
+```
+
+This is needed where you need to setup `onAuthStateChanged()` AFTER other plugins, such as Sentry, in case your ON_AUTH_STATE_CHANGED_MUTATION or ON_AUTH_STATE_CHANGED_ACTION depend on these plugins.
 
 ## ssr
 
