@@ -15,12 +15,6 @@ Your firebase config snippet and other Firebase specific parameters. You can ret
 
 You can either set the config directly in `nuxt.config.js` or you can use an external file to declare the configuration which is evaluated at runtime. 
 
-<alert type="info">
-
-Using and external file is useful in cases where you want the config to depend on run-time environment variables (e.g. in SPA mode) rather than build-time environment variables.
-
-</alert>
-
 #### Direct Configuration
 ```js[nuxt.config.js]
 config: {
@@ -35,6 +29,13 @@ config: {
   measurementId: '<measurementId>'
 }
 ```
+<alert type="info">
+
+Can be defined **per NODE_ENV environment** if put in child-objects `config.production` and `config.development`, meaning that e.g. `config.production` gets loaded when `NODE_ENV === 'production'`.
+
+You can also specify multiple custom environments as mentioned in the [customEnv](/guide/options#customenv) option below.
+
+</alert>
 
 #### External File Configuration
 ```js[nuxt.config.js]
@@ -54,14 +55,12 @@ export default function ({ $config }) {
   }
 }
 ```
-
 <alert type="info">
 
-Can be defined **per NODE_ENV environment** if put in child-objects `config.production` and `config.development`, meaning that e.g. `config.production` gets loaded when `NODE_ENV === 'production'`.
-
-You can also specify multiple custom environments as mentioned in the [customEnv](/guide/options#customenv) option below.
+Using and external file is useful in cases where you want the config to depend on run-time environment variables (e.g. in SPA mode) rather than build-time environment variables.
 
 </alert>
+
 
 ## services
 
