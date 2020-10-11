@@ -13,6 +13,15 @@ Your firebase config snippet and other Firebase specific parameters. You can ret
 
 `https://console.firebase.google.com/project/<your-project-id>/overview`
 
+You can either set the config directly in `nuxt.config.js` or you can use an external file to declare the configuration which is evaluated at runtime. 
+
+<alert type="info">
+
+Using and external file is useful in cases where you want the config to depend on run-time environment variables (e.g. in SPA mode) rather than build-time environment variables.
+
+</alert>
+
+#### Direct Configuration
 ```js[nuxt.config.js]
 config: {
   // REQUIRED: Official config for firebase.initializeApp(config):
@@ -24,6 +33,25 @@ config: {
   messagingSenderId: '<messagingSenderId>',
   appId: '<appId>',
   measurementId: '<measurementId>'
+}
+```
+
+#### External File Configuration
+```js[nuxt.config.js]
+config: `~/plugins/firebaseConfig.js`
+```
+
+```js[~/plugins/firebaseConfig.js]
+export default function ({ $config }) {
+  return {
+    apiKey: $config.firebase_apiKey,
+    authDomain: $config.firebase_authDomain,
+    databaseURL: $config.firebase_databaseURL,
+    projectId: $config.firebase_projectId,
+    storageBucket: $config.firebase_storageBucket,
+    messagingSenderId: $config.firebase_messagingSenderId,
+    appId: $config.firebase_appId,
+  }
 }
 ```
 
