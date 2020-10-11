@@ -14,7 +14,6 @@ features:
 
 Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](https://nuxtjs.org) project.
 
-
 <alert>
 <p class="flex items-center">Enjoy these docs in light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
 </alert>
@@ -29,7 +28,7 @@ The Nuxt.js Firebase Module is a module that helps you integrate the Firebase Ja
 
 By importing each individual Firebase service dynamically this module reduces bundle sizes and improves performance of your Nuxt.js app with Firebase.
 
-The module additionally adds other perks such as a plugin that automated the setup of onAuthStateChanged() fo Firebase Authentication or other helper functions that make your life with Firebase easier.
+The module additionally adds other perks such as a plugin that automated the setup of onAuthStateChanged() for Firebase Authentication or other helper functions that make your life with Firebase easier.
 
 ## How does it work?
 
