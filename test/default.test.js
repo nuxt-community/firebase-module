@@ -27,7 +27,6 @@ describe('default', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
-          legacyMode: false,
           injectModule: false,
           config: {
             // REQUIRED: Official config for firebase.initializeApp(config):
@@ -73,7 +72,7 @@ describe('default', () => {
     expect(content).toContain('messaging,')
 
     expect(content).not.toContain('Mess')
-    expect(content).not.toContain('fireObj')
+    expect(content).not.toContain('firebase')
 
     expect(content).toMatchSnapshot()
   })
@@ -86,7 +85,7 @@ describe('default', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeUndefined()
+    expect(ctx.$firebase).toBeUndefined()
   })
 
   test('exec plugin (client)', async () => {
@@ -98,6 +97,6 @@ describe('default', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeUndefined()
+    expect(ctx.$firebase).toBeUndefined()
   })
 })

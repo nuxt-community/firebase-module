@@ -33,7 +33,6 @@ describe('lazy', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
-          legacyMode: false,
           injectModule: false,
           lazy: true,
           config: {
@@ -80,7 +79,7 @@ describe('lazy', () => {
     expect(content).toContain('fire.messaging = null')
 
     expect(content).not.toContain('Mess')
-    expect(content).not.toContain('fireObj')
+    expect(content).not.toContain('firebase')
 
     expect(content).toMatchSnapshot()
   })
@@ -93,7 +92,7 @@ describe('lazy', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeUndefined()
+    expect(ctx.$firebase).toBeUndefined()
 
     expect(ctx.$fire.appReady).toBeDefined()
 
@@ -111,6 +110,6 @@ describe('lazy', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeUndefined()
+    expect(ctx.$firebase).toBeUndefined()
   })
 })

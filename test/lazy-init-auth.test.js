@@ -33,7 +33,6 @@ describe('lazy-init-auth', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
-          legacyMode: false,
           injectModule: false,
           lazy: true,
           config: {

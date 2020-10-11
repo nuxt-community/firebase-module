@@ -27,7 +27,6 @@ describe('with-module', () => {
       srcDir: resolve(__dirname, 'fixture'),
       modules: [
         [FirebaseModule, {
-          legacyMode: false,
           injectModule: true,
           config: {
             // REQUIRED: Official config for firebase.initializeApp(config):
@@ -71,7 +70,7 @@ describe('with-module', () => {
 
     expect(content).toContain('auth,')
     expect(content).toContain('messaging,')
-    expect(content).toContain('fireObj')
+    expect(content).toContain('firebase')
 
     expect(content).not.toContain('Mess')
 
@@ -88,7 +87,7 @@ describe('with-module', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(2)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeDefined()
+    expect(ctx.$firebase).toBeDefined()
   })
 
   test('exec plugin (client)', async () => {
@@ -101,6 +100,6 @@ describe('with-module', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(2)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$fireObj).toBeDefined()
+    expect(ctx.$firebase).toBeDefined()
   })
 })
