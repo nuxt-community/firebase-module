@@ -5,9 +5,14 @@ position: 99
 category: Community
 ---
 
+<img src="/version7.png" class="light-img" width="1280" height="640" alt="" />
+<img src="/version7-dark.png" class="dark-img" width="1280" height="640" alt=""/>
+
 ## Migrate from v6 to v7
 
-In v7 a major overhaul of the `auth` configuration was introduced.
+In v7 a major overhaul of how you access the individual Firenase services was introduced.
+
+Reason for the renamings: Reduce confusion and stick to the official names of Firebase.
 
 ### 1 - Renamings of injected services
 
@@ -23,23 +28,23 @@ In v7 a major overhaul of the `auth` configuration was introduced.
 | $fireAnalytics | $fire.analytics    |
 | $fireConfig    | $fire.remoteConfig |
 
-### 2 - Renaming of module/object
+### 2 - Renaming of Firebase module/object
 
 | Before            | New (Versiom 7+)   |
 | ----------------- | ------------------ |
-| $fireAuthObj      | $firebase.auth         |
-| $fireDbObj        | $firebase.database     |
-| $fireStoreObj     | $firebase.firestore    |
-| $fireStorageObj   | $firebase.storage      |
-| $fireFuncObj      | $firebase.functions    |
-| $fireMessObj      | $firebase.messaging    |
-| $firePerfObj      | $firebase.performance  |
-| $fireAnalyticsObj | $firebase.analytics    |
-| $fireConfigObj    | $firebase.remoteConfig |
+| $fireAuthObj      | $fireModule.auth         |
+| $fireDbObj        | $fireModule.database     |
+| $fireStoreObj     | $fireModule.firestore    |
+| $fireStorageObj   | $fireModule.storage      |
+| $fireFuncObj      | $fireModule.functions    |
+| $fireMessObj      | $fireModule.messaging    |
+| $firePerfObj      | $fireModule.performance  |
+| $fireAnalyticsObj | $fireModule.analytics    |
+| $fireConfigObj    | $fireModule.remoteConfig |
 
 ### 3 - Renamed `realtimeDb` to `database`
 
-To stick to the Firebase naming convention and keep things simple, we renamed the key for the Realtime Database service configuration from `realtimeDb` to `database`.
+To stick to the Firebase naming convention we renamed the key for the Realtime Database service configuration from `realtimeDb` to `database`.
 
 ```js[nuxt.config.js]
 // Old

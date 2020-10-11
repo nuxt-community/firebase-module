@@ -92,7 +92,7 @@ describe('lazy', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeUndefined()
+    expect(ctx.$fireModule).toBeUndefined()
 
     expect(ctx.$fire.appReady).toBeDefined()
 
@@ -110,6 +110,6 @@ describe('lazy', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeUndefined()
+    expect(ctx.$fireModule).toBeUndefined()
   })
 })

@@ -70,8 +70,8 @@ export default async (ctx, inject) => {
     remoteConfig: remoteConfig
   }
 
-    inject('firebase', firebase)
-    ctx.$firebase = firebase
+    inject('fireModule', firebase)
+    ctx.$fireModule = firebase
 
   inject('fire', fire)
   ctx.$fire = fire

@@ -5,7 +5,7 @@ position: 7
 category: Service Options
 ---
 
-Initializes Firebase Authentication and makes it available via `$fireAuth` and `$fireAuthObj`.
+Initializes Firebase Authentication and makes it available via `$fire.auth` and `$fireModule.auth`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`

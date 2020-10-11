@@ -85,7 +85,7 @@ describe('default', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeUndefined()
+    expect(ctx.$fireModule).toBeUndefined()
   })
 
   test('exec plugin (client)', async () => {
@@ -97,6 +97,6 @@ describe('default', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(1)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeUndefined()
+    expect(ctx.$fireModule).toBeUndefined()
   })
 })

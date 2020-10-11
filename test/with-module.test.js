@@ -87,7 +87,7 @@ describe('with-module', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(2)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeDefined()
+    expect(ctx.$fireModule).toBeDefined()
   })
 
   test('exec plugin (client)', async () => {
@@ -100,6 +100,6 @@ describe('with-module', () => {
     await Plugin(ctx, inject)
     expect(inject).toHaveBeenCalledTimes(2)
     expect(ctx.$fire).toBeDefined()
-    expect(ctx.$firebase).toBeDefined()
+    expect(ctx.$fireModule).toBeDefined()
   })
 })

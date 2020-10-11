@@ -136,7 +136,7 @@ interface ReadyFunction {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $firebase: typeof firebase
+    $fireModule: typeof firebase
     $fire: {
       auth: firebase.auth.Auth
       authReady: ReadyFunction
@@ -166,8 +166,7 @@ declare module '@nuxt/vue-app' {
   }
 
   interface NuxtAppOptions {
-     // From v7+
-     $firebase: typeof firebase
+     $fireModule: typeof firebase
      $fire: {
       auth: firebase.auth.Auth
       authReady: ReadyFunction
@@ -198,7 +197,7 @@ declare module '@nuxt/types' {
   }
 
   interface NuxtAppOptions {
-     $firebase: typeof firebase
+     $fireModule: typeof firebase
      $fire: {
       auth: firebase.auth.Auth
       authReady: ReadyFunction
@@ -224,7 +223,7 @@ declare module '@nuxt/types' {
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-     $firebase: typeof firebase
+     $fireModule: typeof firebase
      $fire: {
       auth: firebase.auth.Auth
       authReady: ReadyFunction
