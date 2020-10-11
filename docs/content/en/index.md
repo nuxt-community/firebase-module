@@ -14,6 +14,11 @@ features:
 
 Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](https://nuxtjs.org) project.
 
+<alert type="warning">
+<p class="font-bold">BREAKING CHANGES IN VERSION 7.0.0!</p>
+<p>Version 7 brings major breaking changes. Make sure to carefully read through the <nuxt-link to="/community/upgrade">migration guide</nuxt-link> when upgrade your application.</p>
+</alert>
+
 <alert>
 <p class="flex items-center">Enjoy these docs in light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
 </alert>
