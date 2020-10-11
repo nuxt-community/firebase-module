@@ -24,7 +24,7 @@ export default {
     },
     services: {
       auth: true,
-      realtimeDb: true,
+      database: true,
       messaging: true,
       analytics: true,
       remoteConfig: true

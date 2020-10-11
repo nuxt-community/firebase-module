@@ -53,7 +53,7 @@ describe('lazy', () => {
             functions: true,
             messaging: true,
             performance: true,
-            realtimeDb: true,
+            database: true,
             remoteConfig: true,
             storage: true
           }

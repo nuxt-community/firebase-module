@@ -16,7 +16,7 @@ Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](htt
 
 <alert type="warning">
 <p class="font-bold">BREAKING CHANGES IN VERSION 7.0.0!</p>
-<p>Version 7 brings major breaking changes. Make sure to carefully read through the <nuxt-link to="/community/upgrade">migration guide</nuxt-link> when upgrade your application.</p>
+<p>Version 7 brings major breaking changes. Make sure to carefully read through the <nuxt-link to="/community/migrate">migration guide</nuxt-link> when migrate your application.</p>
 </alert>
 
 <alert>

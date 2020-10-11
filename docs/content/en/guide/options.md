@@ -49,7 +49,7 @@ services: {
   firestore: true,
   functions: true,
   storage: true,
-  realtimeDb: true,
+  database: true,
   messaging: true,
   performance: true,
   analytics: true,

@@ -4,7 +4,7 @@ exports[`lazy plugin contents 1`] = `
 "import createApp from './app.js'
 
 import authService from './service.auth.js'
-import realtimeDbService from './service.realtimeDb.js'
+import databaseService from './service.database.js'
 import firestoreService from './service.firestore.js'
 import storageService from './service.storage.js'
 import functionsService from './service.functions.js'
@@ -78,7 +78,7 @@ export default async (ctx, inject) => {
   fire.databaseReady = async () => {
     if (!fire.database) {
       await fire.appReady()
-      fire.database = await realtimeDbService(session, firebase, ctx, inject)
+      fire.database = await databaseService(session, firebase, ctx, inject)
     }
 
     return fire.database
@@ -130,7 +130,7 @@ export default async (ctx, inject) => {
     fire.databaseReady = async () => {
       if (!fire.database) {
         await fire.appReady()
-        fire.database = await realtimeDbService(session, firebase, ctx, inject)
+        fire.database = await databaseService(session, firebase, ctx, inject)
       }
 
       return fire.database

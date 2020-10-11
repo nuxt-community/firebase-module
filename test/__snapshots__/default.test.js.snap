@@ -4,7 +4,7 @@ exports[`default plugin contents 1`] = `
 "import createApp from './app.js'
 
 import authService from './service.auth.js'
-import realtimeDbService from './service.realtimeDb.js'
+import databaseService from './service.database.js'
 import firestoreService from './service.firestore.js'
 import storageService from './service.storage.js'
 import functionsService from './service.functions.js'
@@ -23,7 +23,7 @@ export default async (ctx, inject) => {
   if (process.server) {
     servicePromises = [
       authService(session, firebase, ctx, inject),
-    realtimeDbService(session, firebase, ctx, inject),
+    databaseService(session, firebase, ctx, inject),
     firestoreService(session, firebase, ctx, inject),
     storageService(session, firebase, ctx, inject),
     functionsService(session, firebase, ctx, inject),
@@ -34,7 +34,7 @@ export default async (ctx, inject) => {
   if (process.client) {
     servicePromises = [
       authService(session, firebase, ctx, inject),
-      realtimeDbService(session, firebase, ctx, inject),
+      databaseService(session, firebase, ctx, inject),
       firestoreService(session, firebase, ctx, inject),
       storageService(session, firebase, ctx, inject),
       functionsService(session, firebase, ctx, inject),
@@ -48,7 +48,7 @@ export default async (ctx, inject) => {
 
   const [
     auth,
-    realtimeDb,
+    database,
     firestore,
     storage,
     functions,
@@ -60,7 +60,7 @@ export default async (ctx, inject) => {
 
   const fire = {
     auth: auth,
-    database: realtimeDb,
+    database: database,
     firestore: firestore,
     storage: storage,
     functions: functions,

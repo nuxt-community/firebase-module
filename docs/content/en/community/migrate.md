@@ -5,13 +5,13 @@ position: 99
 category: Community
 ---
 
-## Upgrade from v6 to v7
+## Migrate from v6 to v7
 
 In v7 a major overhaul of the `auth` configuration was introduced.
 
 ### 1 - Renamings of injected services
 
-| Before         | New (Versiom 7+)   |
+| Before         | New (Version 7+)   |
 | -------------- | ------------------ |
 | $fireAuth      | $fire.auth         |
 | $fireDb        | $fire.database     |
@@ -37,10 +37,25 @@ In v7 a major overhaul of the `auth` configuration was introduced.
 | $fireAnalyticsObj | $firebase.analytics    |
 | $fireConfigObj    | $firebase.remoteConfig |
 
-### 3 - Removed `movePluginBeforeAuthHelper`
+### 3 - Renamed `realtimeDb` to `database`
+
+To stick to the Firebase naming convention and keep things simple, we renamed the key for the Realtime Database service configuration from `realtimeDb` to `database`.
+
+```js[nuxt.config.js]
+// Old
+services: {
+    realtimeDb: true
+}
+// New
+services: {
+    database: true
+}
+```
+
+### 4 - Removed `movePluginBeforeAuthHelper`
 
 The helper function `movePluginBeforeAuthHelper` has been removed.
 
-If you need to run plugins after Firebase has been initialized but before the `onAuthStateChanged()` listenr should be set up, you can now use the `manuallySubscribe = true` config and then manually setup the onAuthStateChanged() listener after your otherplugins as described [here](/service-options/auth#subscribemanually).
+If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `manuallySubscribe: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized as described [here](/service-options/auth#subscribemanually).
 
-### 4 - ...
+### 5 - ...

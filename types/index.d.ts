@@ -116,7 +116,7 @@ export interface FirebaseModuleConfiguration {
     firestore?: boolean | StoreServiceConfig
     functions?: boolean | FunctionsServiceConfig
     storage?: boolean | StorageServiceConfig
-    realtimeDb?: boolean | DatabaseServiceConfig
+    database?: boolean | DatabaseServiceConfig
     messaging?: boolean | MessagingServiceConfig
     performance?: boolean | PerformanceServiceConfig
     analytics?: boolean | AnalyticsServiceConfig

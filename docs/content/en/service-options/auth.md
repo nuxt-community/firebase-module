@@ -82,14 +82,16 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
 
 ### subscribeManually
 
-By settings "subscribeManually" to `true`, the `onAuthStateChanged()` listener won't be set up until you call the following manually_
+By settings `subscribeManually: true`, the `onAuthStateChanged()` listener won't be set up until you call it manually:
 
 ```js
 // e.g. in a seperate Plugin
 this.$fireAuthStore.subscribe()
 ```
 
-This is needed where you need to setup `onAuthStateChanged()` AFTER other plugins, such as Sentry, in case your ON_AUTH_STATE_CHANGED_MUTATION or ON_AUTH_STATE_CHANGED_ACTION depend on these plugins.
+This is needed in case you need to start other plugins *after* Firebase is initialized but *before* `onAuthStateChanged()` is set up.
+
+An example is Sentry, where you migth want to adjust some `user` related informations in sentry each time `onAuthStateChanged` is triggered. In that case sentry needs to be setup before `onAuthStateChanged()`.
 
 ## ssr
 
