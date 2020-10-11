@@ -61,6 +61,6 @@ services: {
 
 The helper function `movePluginBeforeAuthHelper` has been removed.
 
-If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `manuallySubscribe: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized as described [here](/service-options/auth#subscribemanually).
+If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `subscribeManually: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized as described [here](/service-options/auth#subscribemanually).
 
 ### 5 - ...

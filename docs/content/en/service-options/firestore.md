@@ -5,7 +5,7 @@ position: 8
 category: Service Options
 ---
 
-Initializes Firebase Firestore and makes it available via `$fire.firestore` and `$fireModule.firestore`.
+Initializes **Firebase Firestore** and makes it available via `$fire.firestore` and `$fireModule.firestore`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`

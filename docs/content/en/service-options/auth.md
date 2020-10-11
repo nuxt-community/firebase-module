@@ -5,7 +5,7 @@ position: 7
 category: Service Options
 ---
 
-Initializes Firebase Authentication and makes it available via `$fire.auth` and `$fireModule.auth`.
+Initializes **Firebase Authentication** and makes it available via `$fire.auth` and `$fireModule.auth`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`
@@ -91,7 +91,12 @@ this.$fireAuthStore.subscribe()
 
 This is needed in case you need to start other plugins *after* Firebase is initialized but *before* `onAuthStateChanged()` is set up.
 
-An example is Sentry, where you migth want to adjust some `user` related informations in sentry each time `onAuthStateChanged` is triggered. In that case sentry needs to be setup before `onAuthStateChanged()`.
+<alert>
+<p><b>Example:</b></p>
+<p>For example with the Sentry module, you migth want to set some user-related information in Sentry each time <code>onAuthStateChanged</code> is triggered. In that case, Sentry needs to be setup before <code>onAuthStateChanged()</code>.</p><br>You can achieve this by manually calling <code>this.$fireAuthStore.subscribe()</code> after Sentry has been initialized.
+</alert>
+
+
 
 ## ssr
 

@@ -5,7 +5,7 @@ position: 13
 category: Service Options
 ---
 
-Initializes Firebase Messaging and makes it available via `$fire.messaging` and `$fireModule.messaging`.
+Initializes **Firebase Messaging** and makes it available via `$fire.messaging` and `$fireModule.messaging`.
 Message payload is expected as defined by Firebase [here](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#WebpushConfig).
 
 - Type: `Boolean` or `Object`

@@ -5,7 +5,7 @@ position: 10
 category: Service Options
 ---
 
-Initializes Firebase Storage and makes it available via `$fire.storage` and `$fireModule.storage`.
+Initializes **Firebase Storage** and makes it available via `$fire.storage` and `$fireModule.storage`.
 
 - Type: `Boolean`
 - Default: `false`
