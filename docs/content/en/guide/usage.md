@@ -20,7 +20,7 @@ While <code>$fire</code> contains the initialized service instances, <code>$fire
 
 `$fire` gives you access to the initialized service instances:
 
-| Firebase Product  | Shortcut           |
+| Firebase Service  | Shortcut           |
 | ----------------- | ------------------ |
 | Authentication    | $fire.auth         |
 | Realtime Database | $fire.database     |
@@ -38,8 +38,8 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 
 `$fireModule` gives you access to the **Firebase** modules themselves with all their static methods.
 
-| Firebase Obj          | Shortcut               |
-| --------------------- | ---------------------- |
+| Firebase Module       | Shortcut                 |
+| --------------------- | ------------------------ |
 | firebase.auth         | $fireModule.auth         |
 | firebase.database     | $fireModule.database     |
 | firebase.firestore    | $fireModule.firestore    |

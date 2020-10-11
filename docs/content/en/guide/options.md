@@ -117,4 +117,49 @@ config: {
 
 If your application is hosted on Firebase hosting, you can enable this flag in order to load the newest Firebase scripts in the service workers directly from there instead of www.gstatic.com.
 
+## lazy
 
+- Type: `Boolean` or `Object`
+- Default: `false`
+
+This allows lazy loading of all Firebase services.
+
+When set to `true`, all services are NOT loaded until you manually load them where needed. We additionally inject the following props for each activated service into the context:
+
+| Firebase Service  | Shortcut                  |
+| ----------------- | ------------------------- |
+| Authentication    | $fire.authReady()         |
+| Realtime Database | $fire.databaseReady()     |
+| Firestore         | $fire.firestoreReady()    |
+| Storage           | $fire.storageReady()      |
+| Functions         | $fire.functionsReady()    |
+| Messaging         | $fire.messagingReady()    |
+| Performance       | $fire.performanceReady()  |
+| Analytics         | $fire.analyticsReady()    |
+| Remote Config     | $fire.remoteConfigReady() |
+
+Simply call the `await this.$fire.serviceNameReady()` function before you access `this.$fire.serviceName` and the service gets dynamically loaded only when needed.
+
+If the services was already loaded previously, the service does not get loaded a second time.
+
+**Example:**
+
+```js
+// 1. Load the service
+await this.$fire.authReady()
+
+// 2. Use the service
+await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo','test')
+```
+
+<alert>
+<p><b>Be aware</b></p>
+You can either enabled lazy loading for all services or none.
+</alert>
+
+## injectModule
+
+- Type: `Boolean` or `Object`
+- Default: `true`
+
+Whether to inject the [Firebase module](/guide/usage#firemodule) or not.
