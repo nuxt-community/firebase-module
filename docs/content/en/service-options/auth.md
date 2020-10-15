@@ -31,6 +31,8 @@ This sets up an `onAuthStateChanged()` listener and hooks it up to the vuex stor
 
 Just add a mutation/action to your vuex store ([as seen below](#onauthstatechangedmutation)) that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the `firebase.services.auth.initialize` configuration as above.
 
+<alert type="info">You can also use namespaces for your store actions/mutations like so: `onAuthStateChangedAction: 'namespaceName/actionName'`.</alert>
+
 When onAuthStateChanged() gets triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation)
 
 To unsubscribe from the listener simply call the `$fireAuthUnsubscribe()` function which is provided as a [combined inject](https://nuxtjs.org/guide/plugins#combined-inject).
