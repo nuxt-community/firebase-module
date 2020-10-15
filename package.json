@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "firebase": "^7.23.0",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.7"
   },
   "publishConfig": {
     "access": "public"
