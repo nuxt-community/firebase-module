@@ -45,8 +45,8 @@
     "codecov": "latest",
     "core-js": "2",
     "cz-conventional-changelog": "latest",
-    "eslint": "latest",
-    "firebase": "^7.23.0",
+    "eslint": "^7.11.0",
+    "firebase": "^7.24.0",
     "husky": "^4.3.0",
     "jest": "^26.5.3",
     "nuxt": "^2.13.3",
@@ -54,7 +54,7 @@
     "standard-version": "latest"
   },
   "peerDependencies": {
-    "firebase": "^7.23.0",
+    "firebase": "^7.24.0",
     "nuxt": "^2.14.7"
   },
   "publishConfig": {
