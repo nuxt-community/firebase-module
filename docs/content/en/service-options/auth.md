@@ -118,6 +118,14 @@ The injected user can be used by context aware life cycle hooks on the server si
 
 A tutorial on how to set this up can be found [here](/tutorials/ssr).
 
+<alert type="info">
+<p><b>Please Note:</b></p>
+<p>This <u>does not authenticate the Firebase instance on the server</u>. While you will be able to know if a user is logged in or not and have access to its simplified properties, you <u>won't be able to do authenticated calls</u> on server-side.</p><br>
+<p>This means that all calls on server-side (e.g. fetching data via Firestore in fetch-hooks), which are protected by security rules, will still fail with <i>insufficient privileges.</i></p>
+<br>
+<p>Reason for this is that the Firebase JS SDK is a client-side library that is not built for authenticating multiple users. See the <nuxt-link to="/service-options/auth#serverlogin">serverLogin</nuxt-link> option for an <b>experimental</b> approach to solve this issue.</p>
+</alert>
+
 ### ignorePaths
 
 The service worker session automatically ignores external resources, static files and HMR calls.
