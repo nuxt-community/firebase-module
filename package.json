@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@nuxt/types": "^2.14.6",
+    "@nuxt/types": "^2.14.7",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "codecov": "^3.8.0",
@@ -41,12 +41,12 @@
     "eslint": "^7.11.0",
     "firebase": "^7.23.0",
     "husky": "^4.3.0",
-    "jest": "^26.5.2",
+    "jest": "^26.5.3",
     "standard-version": "^9.0.0"
   },
   "peerDependencies": {
     "firebase": "^7.23.0",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.7"
   },
   "publishConfig": {
     "access": "public"
