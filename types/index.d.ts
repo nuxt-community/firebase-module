@@ -130,120 +130,80 @@ export interface FirebaseModuleConfiguration {
  * Injections
 ************************************/
 
+
 interface ReadyFunction {
   (): void;
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    $fireModule: typeof firebase
-    $fire: {
-      auth: firebase.auth.Auth
-      authReady: ReadyFunction
-      database: firebase.database.Database
-      databaseReady: ReadyFunction
-      firestore: firebase.firestore.Firestore
-      firestoreReady: ReadyFunction
-      functions: firebase.functions.Functions
-      functionsReady: ReadyFunction
-      storage: firebase.storage.Storage
-      storageReady: ReadyFunction
-      messaging: firebase.messaging.Messaging
-      messagingReady: ReadyFunction
-      performance: firebase.performance.Performance
-      performanceReady: ReadyFunction
-      analytics: firebase.analytics.Analytics
-      analyticsReady: ReadyFunction
-      remoteConfig: firebase.remoteConfig.RemoteConfig
-      remoteConfigReady: ReadyFunction
-    }
-  }
+interface NuxtFireInstance {
+  auth: firebase.auth.Auth
+  authReady: ReadyFunction
+  database: firebase.database.Database
+  databaseReady: ReadyFunction
+  firestore: firebase.firestore.Firestore
+  firestoreReady: ReadyFunction
+  functions: firebase.functions.Functions
+  functionsReady: ReadyFunction
+  storage: firebase.storage.Storage
+  storageReady: ReadyFunction
+  messaging: firebase.messaging.Messaging
+  messagingReady: ReadyFunction
+  performance: firebase.performance.Performance
+  performanceReady: ReadyFunction
+  analytics: firebase.analytics.Analytics
+  analyticsReady: ReadyFunction
+  remoteConfig: firebase.remoteConfig.RemoteConfig
+  remoteConfigReady: ReadyFunction
 }
 
 declare module '@nuxt/vue-app' {
   interface NuxtConfiguration {
     firebase?: FirebaseModuleConfiguration
   }
-
+  interface Context {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
   interface NuxtAppOptions {
-     $fireModule: typeof firebase
-     $fire: {
-      auth: firebase.auth.Auth
-      authReady: ReadyFunction
-      database: firebase.database.Database
-      databaseReady: ReadyFunction
-      firestore: firebase.firestore.Firestore
-      firestoreReady: ReadyFunction
-      functions: firebase.functions.Functions
-      functionsReady: ReadyFunction
-      storage: firebase.storage.Storage
-      storageReady: ReadyFunction
-      messaging: firebase.messaging.Messaging
-      messagingReady: ReadyFunction
-      performance: firebase.performance.Performance
-      performanceReady: ReadyFunction
-      analytics: firebase.analytics.Analytics
-      analyticsReady: ReadyFunction
-      remoteConfig: firebase.remoteConfig.RemoteConfig
-      remoteConfigReady: ReadyFunction
-    }
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
   }
 }
 
-// Nuxt 2.9+
 declare module '@nuxt/types' {
-  interface Configuration {
-    firebase?: FirebaseModuleConfiguration
+  interface Context {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
   }
 
   interface NuxtAppOptions {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
+
+  interface Configuration {
+    firebase?: FirebaseModuleConfiguration
+  }
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
+}
+
+declare module '@nuxt/vue-app' {
+  interface NuxtAppOptions {
      $fireModule: typeof firebase
-     $fire: {
-      auth: firebase.auth.Auth
-      authReady: ReadyFunction
-      database: firebase.database.Database
-      databaseReady: ReadyFunction
-      firestore: firebase.firestore.Firestore
-      firestoreReady: ReadyFunction
-      functions: firebase.functions.Functions
-      functionsReady: ReadyFunction
-      storage: firebase.storage.Storage
-      storageReady: ReadyFunction
-      messaging: firebase.messaging.Messaging
-      messagingReady: ReadyFunction
-      performance: firebase.performance.Performance
-      performanceReady: ReadyFunction
-      analytics: firebase.analytics.Analytics
-      analyticsReady: ReadyFunction
-      remoteConfig: firebase.remoteConfig.RemoteConfig
-      remoteConfigReady: ReadyFunction
-    }
+     $fire: NuxtFireInstance
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
      $fireModule: typeof firebase
-     $fire: {
-      auth: firebase.auth.Auth
-      authReady: ReadyFunction
-      database: firebase.database.Database
-      databaseReady: ReadyFunction
-      firestore: firebase.firestore.Firestore
-      firestoreReady: ReadyFunction
-      functions: firebase.functions.Functions
-      functionsReady: ReadyFunction
-      storage: firebase.storage.Storage
-      storageReady: ReadyFunction
-      messaging: firebase.messaging.Messaging
-      messagingReady: ReadyFunction
-      performance: firebase.performance.Performance
-      performanceReady: ReadyFunction
-      analytics: firebase.analytics.Analytics
-      analyticsReady: ReadyFunction
-      remoteConfig: firebase.remoteConfig.RemoteConfig
-      remoteConfigReady: ReadyFunction
-    }
+     $fire: NuxtFireInstance
   }
 }
 
