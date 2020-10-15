@@ -10,11 +10,13 @@ category: Community
 
 ## Migrate from v6 to v7
 
-In v7 a major overhaul of how you access the individual Firenase services was introduced.
+In v7 we introduce a major overhaul of how you access the individual Firebase services.
 
-Reason for the renamings: Reduce confusion and stick to the official names of Firebase.
+Reason for the renamings is to reduce confusion and stick to the official names of Firebase.
 
 ### 1 - Renamings of injected services
+
+Search your entire project and replace all $fireFoo injections as stated in the table:
 
 | Before         | New (Version 7+)   |
 | -------------- | ------------------ |
@@ -30,8 +32,10 @@ Reason for the renamings: Reduce confusion and stick to the official names of Fi
 
 ### 2 - Renaming of Firebase module/object
 
-| Before            | New (Versiom 7+)   |
-| ----------------- | ------------------ |
+Search your entire project and replace all $fireFooObj injections as stated in the table:
+
+| Before            | New (Versiom 7+)         |
+| ----------------- | ------------------------ |
 | $fireAuthObj      | $fireModule.auth         |
 | $fireDbObj        | $fireModule.database     |
 | $fireStoreObj     | $fireModule.firestore    |
@@ -45,6 +49,8 @@ Reason for the renamings: Reduce confusion and stick to the official names of Fi
 ### 3 - Renamed `realtimeDb` to `database`
 
 To stick to the Firebase naming convention we renamed the key for the Realtime Database service configuration from `realtimeDb` to `database`.
+
+If you were using the RealtimeDb, rename this in your `nuxt.config.js`:
 
 ```js[nuxt.config.js]
 // Old
@@ -61,6 +67,4 @@ services: {
 
 The helper function `movePluginBeforeAuthHelper` has been removed.
 
-If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `subscribeManually: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized as described [here](/service-options/auth#subscribemanually).
-
-### 5 - ...
+If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `subscribeManually: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized, as described [here](/service-options/auth#subscribemanually).
