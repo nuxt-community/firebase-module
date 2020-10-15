@@ -7,6 +7,14 @@ category: Tutorials
 
 This module provides an option for the easy setup of **server-side authentication** as described in [this article](https://firebase.google.com/docs/auth/web/service-worker-sessions) of the official Documentation.
 
+<alert type="info">
+<p><b>Please Note:</b></p>
+<p>This <u>does not authenticate the Firebase Client SDK on the server</u>. While you will be able to know if a user is logged in or not and have access to its simplified properties, you <u>won't be able to do authenticated calls</u> on server-side.</p><br>
+<p>This means that all calls on server-side (e.g. fetching data via Firestore in fetch-hooks), which are protected by security rules, will still fail with <i>insufficient privileges.</i></p>
+<br>
+<p>Reason for this is that the Firebase JS SDK is a client-side library that is not built for authenticating multiple users. See steps 4 and 5 for an <b>experimental</b> approach to solve this issue.</p>
+</alert>
+
 ## Step 0 - Install Dependencies
 
 Install `firebase-admin` and `@nuxtjs/pwa`:
@@ -160,13 +168,13 @@ async nuxtServerInit({ dispatch, commit }, { res }) {
 
 That's it. You receive a server-verified authUser object and can do with it whatever you want in nuxtServerInit.
 
-## Step 4 - (Optional) Authorize the admin SDK
+## Step 4 - (Experimental) Authorize the admin SDK
 
 <experimental-alert></experimental-alert>
 
 If you [authorize the admin SDK](/service-options/auth#firebase-admin-authorization) the authUser will be augmented to a full [`admin.auth.UserRecord`](https://firebase.google.com/docs/reference/admin/node/admin.auth.UserRecord) with an additional `allClaims` property.
 
-## Step 5 - (Optional) Enable server side client SDK login
+## Step 5 - (Experimental) Enable server side client SDK login
 
 <experimental-alert></experimental-alert>
 
