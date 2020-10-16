@@ -1,5 +1,5 @@
 import firebase from 'firebase/app'
-<% 
+<%
 const serviceMapping = {
   auth: 'auth',
   realtimeDb: 'database',
@@ -70,6 +70,7 @@ export default async (ctx, inject) => {
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
+    inject('fireApp', firebase)
   }
 
   /** --------------------------------------------------------------------------------------------- **/
@@ -180,7 +181,7 @@ export default async (ctx, inject) => {
       if (firebaseConfig.fcmPublicVapidKey) {
         fireMess.usePublicVapidKey(firebaseConfig.fcmPublicVapidKey)
       }
-      
+
       inject('fireMess', fireMess)
       inject('fireMessObj', fireMessObj)
     }
