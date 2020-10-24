@@ -20,19 +20,23 @@ While <code>$fire</code> contains the initialized service instances, <code>$fire
 
 `$fire` gives you access to the initialized service instances:
 
-| Firebase Service  | Shortcut           |
-| ----------------- | ------------------ |
-| Authentication    | $fire.auth         |
-| Realtime Database | $fire.database     |
-| Firestore         | $fire.firestore    |
-| Storage           | $fire.storage      |
-| Functions         | $fire.functions    |
-| Messaging         | $fire.messaging    |
-| Performance       | $fire.performance  |
-| Analytics         | $fire.analytics    |
-| Remote Config     | $fire.remoteConfig |
+| Firebase Service  | Shortcut           | Client/Server |
+| ----------------- | ------------------ | ------------- |
+| Authentication    | $fire.auth         | Client + Server          |
+| Realtime Database | $fire.database     | Client + Server          |
+| Firestore         | $fire.firestore    | Client + Server          |
+| Storage           | $fire.storage      | Client + Server          |
+| Functions         | $fire.functions    | Client + Server          |
+| Messaging         | $fire.messaging    | Client-only   |
+| Performance       | $fire.performance  | Client-only   |
+| Analytics         | $fire.analytics    | Client-only   |
+| Remote Config     | $fire.remoteConfig | Client-only   |
 
 See [Firebase's official docs](https://firebase.google.com/docs/) for more usage information.
+
+<alert type="warning">
+Please be aware that some services are not available on server-side. In universal code, you can wrap your code in <code>if (process.client) {}</code> so it only gets executed on the client-side.
+</alert>
 
 ### $fireModule
 

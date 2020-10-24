@@ -5,6 +5,10 @@ position: 13
 category: Service Options
 ---
 
+<alert>
+Client-only - make sure to wrap universal code in <code>if (process.client) {}</code>.
+</alert>
+
 Initializes **Firebase Messaging** and makes it available via `$fire.messaging` and `$fireModule.messaging`.
 Message payload is expected as defined by Firebase [here](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#WebpushConfig).
 

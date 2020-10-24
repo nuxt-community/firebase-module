@@ -5,6 +5,10 @@ position: 13
 category: Service Options
 ---
 
+<alert>
+Client-only - make sure to wrap universal code in <code>if (process.client) {}</code>.
+</alert>
+
 Initializes **Firebase Analytics** and makes it available via `$fire.analytics` and `$fireModule.analytics`.
 
 - Type: `Boolean` or `Object`
