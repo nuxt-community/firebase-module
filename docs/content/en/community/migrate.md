@@ -12,11 +12,11 @@ category: Community
 
 In v7 we introduce a major overhaul of how you access the individual Firebase services.
 
-Reason for the renamings is to reduce confusion and stick to the official names of Firebase.
+Reason for the renamings is to reduce confusion by sticking to the official naming convention of Firebase.
 
 ### 1 - Renamings of injected services
 
-Search your entire project and replace all $fireFoo injections as stated in the table:
+Search your entire project and replace all $fireFoo injections according to the table:
 
 | Before         | New (Version 7+)   |
 | -------------- | ------------------ |
@@ -32,7 +32,7 @@ Search your entire project and replace all $fireFoo injections as stated in the 
 
 ### 2 - Renaming of Firebase module/object
 
-Search your entire project and replace all $fireFooObj injections as stated in the table:
+Search your entire project and replace all $fireFooObj injections according to the table:
 
 | Before            | New (Versiom 7+)         |
 | ----------------- | ------------------------ |

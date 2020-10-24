@@ -162,4 +162,4 @@ You can either enabled lazy loading for all services or none.
 - Type: `Boolean` or `Object`
 - Default: `true`
 
-Whether to inject the [Firebase module](/guide/usage#firemodule) or not.
+Whether to inject the entire [Firebase module](/guide/usage#firemodule) as `this.$fireModule` or not.
