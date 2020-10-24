@@ -34,7 +34,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@nuxt/types": "^2.14.7",
-    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config": "^4.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "codecov": "^3.8.0",
     "cz-conventional-changelog": "^3.3.0",
