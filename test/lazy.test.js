@@ -79,7 +79,6 @@ describe('lazy', () => {
     expect(content).toContain('fire.messaging = null')
 
     expect(content).not.toContain('Mess')
-    expect(content).not.toContain('firebase')
 
     expect(content).toMatchSnapshot()
   })

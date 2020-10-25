@@ -72,7 +72,6 @@ describe('default', () => {
     expect(content).toContain('messaging,')
 
     expect(content).not.toContain('Mess')
-    expect(content).not.toContain('firebase')
 
     expect(content).toMatchSnapshot()
   })

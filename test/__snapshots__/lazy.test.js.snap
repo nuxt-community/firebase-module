@@ -16,13 +16,17 @@ import remoteConfigService from './service.remoteConfig.js'
 const appConfig = {\\"apiKey\\":\\"\\\\u003CapiKey\\\\u003E\\",\\"authDomain\\":\\"\\\\u003CauthDomain\\\\u003E\\",\\"databaseURL\\":\\"\\\\u003CdatabaseURL\\\\u003E\\",\\"projectId\\":\\"\\\\u003CprojectId\\\\u003E\\",\\"storageBucket\\":\\"\\\\u003CstorageBucket\\\\u003E\\",\\"messagingSenderId\\":\\"\\\\u003CmessagingSenderId\\\\u003E\\",\\"appId\\":\\"\\\\u003CappId\\\\u003E\\",\\"measurementId\\":\\"\\\\u003CmeasurementId\\\\u003E\\"}
 
 export default async (ctx, inject) => {
+  /****************************************
+  **************** LAZY MODE **************
+  ****************************************/
+
   let firebase, session
   let firebaseReady = false
 
   const fire = {
     async appReady() {
       if (!firebaseReady) {
-        ({ firebase, session } = await createApp(appConfig))
+        ({ firebase, session } = await createApp(appConfig, ctx))
         firebaseReady = true;
       }
       return session
@@ -209,6 +213,10 @@ export default async (ctx, inject) => {
 
   inject('fire', fire)
   ctx.$fire = fire
+
+  /****************************************
+  ************* NON-LAZY MODE *************
+  ****************************************/
 }
 "
 `;
