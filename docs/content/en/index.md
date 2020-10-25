@@ -18,6 +18,14 @@ Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](htt
 <p class="flex items-center">Enjoy these docs in light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
 </alert>
 
+## IMPORTANT!
+
+<alert type="warning">
+<p class="font-bold">BREAKING CHANGES IN VERSION 7.0.0!</p>
+<p>Version 7 brings major breaking changes. Make sure to carefully read through the <nuxt-link to="/community/migrate">migration guide</nuxt-link> when migrate your application.</p>
+</alert>
+
+
 ## Features
 
 <list :items="features"></list>
@@ -33,7 +41,3 @@ The module additionally adds other perks such as a plugin that automated the set
 ## How does it work?
 
 The module adds a plugin to your Nuxt.js application that handles the initialization of each Firebase service (Authentication, Firestore, etc.). It then injects these services into the global context which makes them easily available throughout your application.
-
-## Disclaimer
-
-This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you want your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.

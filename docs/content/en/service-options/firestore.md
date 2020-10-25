@@ -5,7 +5,7 @@ position: 8
 category: Service Options
 ---
 
-Initializes Firebase Firestore and makes it available via `$fireStore` and `$fireStoreObj`.
+Initializes **Firebase Firestore** and makes it available via `$fire.firestore` and `$fireModule.firestore`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`
@@ -13,8 +13,6 @@ Initializes Firebase Firestore and makes it available via `$fireStore` and `$fir
 ```js[nuxt.config.js]
 firestore: {
   memoryOnly: false, // default
-  static: false, // default
-  preload: false, // default
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
   enablePersistence: true,
   settings: {

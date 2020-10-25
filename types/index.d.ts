@@ -7,6 +7,9 @@ import { ServiceAccount } from 'firebase-admin'
 import firebase from 'firebase'
 import { auth } from 'firebase-admin'
 
+/***********************************
+ * Module Config
+************************************/
 export interface FirebaseConfiguration {
   apiKey: string
   authDomain: string
@@ -101,6 +104,8 @@ export interface RemoteConfigServiceConfig extends ServiceConfig {
 }
 
 export interface FirebaseModuleConfiguration {
+  injectModule?: boolean,
+  lazy?: boolean,
   config:
     | {
         [envKey: string]: FirebaseConfiguration
@@ -111,7 +116,7 @@ export interface FirebaseModuleConfiguration {
     firestore?: boolean | StoreServiceConfig
     functions?: boolean | FunctionsServiceConfig
     storage?: boolean | StorageServiceConfig
-    realtimeDb?: boolean | DatabaseServiceConfig
+    database?: boolean | DatabaseServiceConfig
     messaging?: boolean | MessagingServiceConfig
     performance?: boolean | PerformanceServiceConfig
     analytics?: boolean | AnalyticsServiceConfig
@@ -121,110 +126,90 @@ export interface FirebaseModuleConfiguration {
   onFirebaseHosting?: boolean | object
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    $fireStore: firebase.firestore.Firestore
-    $fireStoreObj: typeof firebase.firestore
-    $fireDb: firebase.database.Database
-    $fireDbObj: typeof firebase.database
-    $fireFunc: firebase.functions.Functions
-    $fireFuncObj: typeof firebase.functions
-    $fireStorage: firebase.storage.Storage
-    $fireStorageObj: typeof firebase.storage
-    $fireAuth: firebase.auth.Auth
-    $fireAuthObj: typeof firebase.auth
-    $fireAuthUnsubscribe: firebase.Unsubscribe
-    $fireMess: firebase.messaging.Messaging
-    $fireMessObj: typeof firebase.messaging
-    $fireAnalytics: firebase.analytics.Analytics
-    $fireAnalyticsObj: typeof firebase.analytics
-    $firePerf: firebase.performance.Performance
-    $firePerfObj: typeof firebase.performance
-    $fireConfig: firebase.remoteConfig.RemoteConfig
-    $fireConfigObj: typeof firebase.remoteConfig
-  }
+/***********************************
+ * Injections
+************************************/
+
+
+interface ReadyFunction {
+  (): void;
+}
+
+interface NuxtFireInstance {
+  auth: firebase.auth.Auth
+  authReady: ReadyFunction
+  database: firebase.database.Database
+  databaseReady: ReadyFunction
+  firestore: firebase.firestore.Firestore
+  firestoreReady: ReadyFunction
+  functions: firebase.functions.Functions
+  functionsReady: ReadyFunction
+  storage: firebase.storage.Storage
+  storageReady: ReadyFunction
+  messaging: firebase.messaging.Messaging
+  messagingReady: ReadyFunction
+  performance: firebase.performance.Performance
+  performanceReady: ReadyFunction
+  analytics: firebase.analytics.Analytics
+  analyticsReady: ReadyFunction
+  remoteConfig: firebase.remoteConfig.RemoteConfig
+  remoteConfigReady: ReadyFunction
 }
 
 declare module '@nuxt/vue-app' {
   interface NuxtConfiguration {
     firebase?: FirebaseModuleConfiguration
   }
-
+  interface Context {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
   interface NuxtAppOptions {
-    $fireStore: firebase.firestore.Firestore
-    $fireStoreObj: typeof firebase.firestore
-    $fireDb: firebase.database.Database
-    $fireDbObj: typeof firebase.database
-    $fireFunc: firebase.functions.Functions
-    $fireFuncObj: typeof firebase.functions
-    $fireStorage: firebase.storage.Storage
-    $fireStorageObj: typeof firebase.storage
-    $fireAuth: firebase.auth.Auth
-    $fireAuthObj: typeof firebase.auth
-    $fireAuthUnsubscribe: firebase.Unsubscribe
-    $fireMess: firebase.messaging.Messaging
-    $fireMessObj: typeof firebase.messaging
-    $fireAnalytics: firebase.analytics.Analytics
-    $fireAnalyticsObj: typeof firebase.analytics
-    $firePerf: firebase.performance.Performance
-    $firePerfObj: typeof firebase.performance
-    $fireConfig: firebase.remoteConfig.RemoteConfig
-    $fireConfigObj: typeof firebase.remoteConfig
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
   }
 }
 
-// Nuxt 2.9+
 declare module '@nuxt/types' {
-  interface Configuration {
-    firebase?: FirebaseModuleConfiguration
+  interface Context {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
   }
 
   interface NuxtAppOptions {
-    $fireStore: firebase.firestore.Firestore
-    $fireStoreObj: typeof firebase.firestore
-    $fireDb: firebase.database.Database
-    $fireDbObj: typeof firebase.database
-    $fireFunc: firebase.functions.Functions
-    $fireFuncObj: typeof firebase.functions
-    $fireStorage: firebase.storage.Storage
-    $fireStorageObj: typeof firebase.storage
-    $fireAuth: firebase.auth.Auth
-    $fireAuthObj: typeof firebase.auth
-    $fireAuthUnsubscribe: firebase.Unsubscribe
-    $fireMess: firebase.messaging.Messaging
-    $fireMessObj: typeof firebase.messaging
-    $fireAnalytics: firebase.analytics.Analytics
-    $fireAnalyticsObj: typeof firebase.analytics
-    $firePerf: firebase.performance.Performance
-    $firePerfObj: typeof firebase.performance
-    $fireConfig: firebase.remoteConfig.RemoteConfig
-    $fireConfigObj: typeof firebase.remoteConfig
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
+
+  interface Configuration {
+    firebase?: FirebaseModuleConfiguration
+  }
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+  }
+}
+
+declare module '@nuxt/vue-app' {
+  interface NuxtAppOptions {
+     $fireModule: typeof firebase
+     $fire: NuxtFireInstance
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-    readonly $fireStore: firebase.firestore.Firestore
-    $fireStoreObj: typeof firebase.firestore
-    $fireDb: firebase.database.Database
-    $fireDbObj: typeof firebase.database
-    $fireFunc: firebase.functions.Functions
-    $fireFuncObj: typeof firebase.functions
-    $fireStorage: firebase.storage.Storage
-    $fireStorageObj: typeof firebase.storage
-    $fireAuth: firebase.auth.Auth
-    $fireAuthObj: typeof firebase.auth
-    $fireAuthUnsubscribe: firebase.Unsubscribe
-    $fireMess: firebase.messaging.Messaging
-    $fireMessObj: typeof firebase.messaging
-    $fireAnalytics: firebase.analytics.Analytics
-    $fireAnalyticsObj: typeof firebase.analytics
-    $firePerf: firebase.performance.Performance
-    $firePerfObj: typeof firebase.performance
-    $fireConfig: firebase.remoteConfig.RemoteConfig
-    $fireConfigObj: typeof firebase.remoteConfig
+     $fireModule: typeof firebase
+     $fire: NuxtFireInstance
   }
 }
+
+/***********************************
+ * Misc
+************************************/
 
 export type FireAuthServerUser = Omit<
   auth.UserRecord,

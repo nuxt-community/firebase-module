@@ -1,11 +1,11 @@
 ---
 title: functions
 description: ''
-position: 9
+position: 11
 category: Service Options
 ---
 
-Initializes Firebase Functions and makes it available via `$fireFunc` and `$fireFuncObj`.
+Initializes **Firebase Functions** and makes it available via `$fire.functions` and `$fireModule.functions`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`

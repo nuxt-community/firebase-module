@@ -1,11 +1,15 @@
 ---
 title: performance
 description: ''
-position: 13
+position: 12
 category: Service Options
 ---
 
-Initializes Firebase Performance and makes it available via `$firePerf` and `$firePerfObj`.
+<alert>
+Client-only - make sure to wrap universal code in <code>if (process.client) {}</code>.
+</alert>
+
+Initializes **Firebase Performance** and makes it available via `$fire.performance` and `$fireModule.performance`.
 
 - Type: `Boolean`
 - Default: `false`
