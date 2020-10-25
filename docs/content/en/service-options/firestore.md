@@ -13,8 +13,6 @@ Initializes **Firebase Firestore** and makes it available via `$fire.firestore` 
 ```js[nuxt.config.js]
 firestore: {
   memoryOnly: false, // default
-  static: false, // default
-  preload: false, // default
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
   enablePersistence: true,
   settings: {
