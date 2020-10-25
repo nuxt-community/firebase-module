@@ -43,7 +43,7 @@
     "babel-jest": "^26.1.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "codecov": "latest",
-    "core-js": "2",
+    "core-js": "3",
     "cz-conventional-changelog": "latest",
     "eslint": "^7.12.0",
     "firebase": "^7.24.0",
