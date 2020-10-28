@@ -14,7 +14,11 @@ In v7 we introduce a major overhaul of how you access the individual Firebase se
 
 Reason for the renamings is to reduce confusion by sticking to the official naming convention of Firebase.
 
-### 1 - Renamings of injected services
+### 1 - Install Firebase JS SDK v8+
+
+Nuxtjs/Firebase v7 now requires the Firebase JS SDK greather than v8.0.0 installed. Make sure to update your dependencies accordingly.
+
+### 2 - Renamings of injected services
 
 Search your entire project and replace all $fireFoo injections according to the table:
 
@@ -30,7 +34,7 @@ Search your entire project and replace all $fireFoo injections according to the 
 | $fireAnalytics | $fire.analytics    |
 | $fireConfig    | $fire.remoteConfig |
 
-### 2 - Renaming of Firebase module/object
+### 3 - Renaming of Firebase module/object
 
 Search your entire project and replace all $fireFooObj injections according to the table:
 
@@ -46,7 +50,7 @@ Search your entire project and replace all $fireFooObj injections according to t
 | $fireAnalyticsObj | $fireModule.analytics    |
 | $fireConfigObj    | $fireModule.remoteConfig |
 
-### 3 - Renamed `realtimeDb` to `database`
+### 4 - Renamed `realtimeDb` to `database`
 
 To stick to the Firebase naming convention we renamed the key for the Realtime Database service configuration from `realtimeDb` to `database`.
 
@@ -63,7 +67,7 @@ services: {
 }
 ```
 
-### 4 - Removed `movePluginBeforeAuthHelper`
+### 5 - Removed `movePluginBeforeAuthHelper`
 
 The helper function `movePluginBeforeAuthHelper` has been removed.
 
