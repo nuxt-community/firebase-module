@@ -72,3 +72,11 @@ services: {
 The helper function `movePluginBeforeAuthHelper` has been removed.
 
 If you need to run certain plugins AFTER Firebase has been initialized but BEFORE the `onAuthStateChanged()` listener is set up, you can now use the `subscribeManually: true` config and then manually subscribe the `onAuthStateChanged()` listener after your other plugins are initialized, as described [here](/service-options/auth#subscribemanually).
+
+### 6 - Fixed `defaultConfig` option in RemoteConfig
+
+Before v7.0.0, the [defaultConfig](/service-options/remote-config) option did not work if implemented as documented and needed to be set as a child of the `settings` object.
+
+This has been fixed and the `defaultConfig` now needs to be defined as documented as a child of the `remote-config` object.
+
+See [issue 281](https://github.com/nuxt-community/firebase-module/issues/281).
