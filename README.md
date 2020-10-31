@@ -11,7 +11,7 @@
 
 ## Links
 - 📘 [Documentation](https://firebase.nuxtjs.org/)
-- 🔖 [Release notes](./CHANGELOG.md)
+- 🔖 [Release notes](https://github.com/nuxt-community/firebase-module/releases)
 - 👥 [Community](https://discord.nuxtjs.org/)
 
 ## Quick Setup
