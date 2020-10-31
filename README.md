@@ -9,6 +9,10 @@
 
 > Easily integrate Firebase into your Nuxt project.
 
+## IMPORTANT!
+> :warning: **BREAKING CHANGES IN VERSION 7.0.0!**:  
+Version 7 brings major breaking changes. Make sure to carefully read through the [migration guide](/community/migrate) when migrate your application. See the release notes [here](https://github.com/nuxt-community/firebase-module/releases/tag/v7.0.0).
+
 ## Links
 - 📘 [Documentation](https://firebase.nuxtjs.org/)
 - 🔖 [Release notes](https://github.com/nuxt-community/firebase-module/releases)
@@ -59,13 +63,13 @@ modules: [
 
 ## Quick Usage
 
-Now you can use all Firebase services with `this.$fireAuth`, `this.$fireStore`, `this.$fireMess` etc. (see list [here](https://firebase.nuxtjs.org/guide/usage/)).
+Now you can use all Firebase services with `this.$fire.auth`, `this.$fire.firestore`, `this.$fire.messaging` etc. (see list [here](https://firebase.nuxtjs.org/guide/usage/)).
 
 Example:
 
 ```js
 try {
-  await this.$fireAuth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
+  await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
 } catch (e) {
   handleError(e)
 }
@@ -73,7 +77,7 @@ try {
 
 ## Issues, questions & requests
 
-If you have any questions or issues, check out [Discord server](https://discord.nuxtjs.org).
+If you have any questions or issues, check out the [Nuxt Discord server](https://discord.nuxtjs.org).
 
 ## License
 
