@@ -18,7 +18,9 @@ auth: {
     onAuthStateChangedAction: 'onAuthStateChangedAction',
     subscribeManually: false
   },
-  ssr: false // default
+  ssr: false, // default
+  emulatorPort: 9099,
+  emulatorHost: 'http://localhost',
 }
 ```
 
@@ -273,3 +275,19 @@ If you have an API which is served over Nuxt SSR:
 2. Add the API base path (e.g. `'/api/'`) to the [`auth.ssr.ignorePaths`](#ignorepaths) configuration.
 
 </alert>
+
+## emulatorPort
+
+- Type: `Integer`
+- Default: `null`
+
+Sets up `useEmulator("http://localhost:EMULATOR_PORT")` to point to an Authentication emulator running locally instead of the productive one.
+
+More information in the official Firebase [Guide to connect your app to the Authentication Emulator](https://firebase.google.com/docs/emulator-suite/connect_auth).
+
+## emulatorHost
+
+- Type: `String`
+- Default: `http://localhost`,
+
+Changes the host used for the Authentication emulator. Only applies if the emulatorPort is set.
