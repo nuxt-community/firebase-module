@@ -1,11 +1,15 @@
 ---
 title: remoteConfig
 description: ''
-position: 15
+position: 14
 category: Service Options
 ---
 
-Initializes Firebase Remote Config and makes it available via `$fireConfig` and `$fireConfigObj`.
+<alert>
+Client-only - make sure to wrap universal code in <code>if (process.client) {}</code>.
+</alert>
+
+Initializes **Firebase Remote Config** and makes it available via `$fire.remoteConfig` and `$fireModule.remoteConfig`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`

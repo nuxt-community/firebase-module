@@ -1,11 +1,15 @@
 ---
 title: analytics
 description: ''
-position: 14
+position: 13
 category: Service Options
 ---
 
-Initializes Firebase Analytics and makes it available via `$fireAnalytics` and `$fireAnalyticsObj`.
+<alert>
+Client-only - make sure to wrap universal code in <code>if (process.client) {}</code>.
+</alert>
+
+Initializes **Firebase Analytics** and makes it available via `$fire.analytics` and `$fireModule.analytics`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`

@@ -5,7 +5,7 @@ position: 7
 category: Service Options
 ---
 
-Initializes Firebase Authentication and makes it available via `$fireAuth` and `$fireAuthObj`.
+Initializes **Firebase Authentication** and makes it available via `$fire.auth` and `$fireModule.auth`.
 
 - Type: `Boolean` or `Object`
 - Default: `false`
@@ -15,9 +15,12 @@ auth: {
   persistence: 'local', // default
   initialize: {
     onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
-    onAuthStateChangedAction: 'onAuthStateChangedAction'
+    onAuthStateChangedAction: 'onAuthStateChangedAction',
+    subscribeManually: false
   },
-  ssr: false // default
+  ssr: false, // default
+  emulatorPort: 9099,
+  emulatorHost: 'http://localhost',
 }
 ```
 
@@ -35,7 +38,7 @@ Just add a mutation/action to your vuex store ([as seen below](#onauthstatechang
 
 When onAuthStateChanged() gets triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation)
 
-To unsubscribe from the listener simply call the `$fireAuthUnsubscribe()` function which is provided as a [combined inject](https://nuxtjs.org/guide/plugins#combined-inject).
+To unsubscribe from the listener simply call the `$fireAuthStore.unsubscribe()` function.
 
 ### onAuthStateChangedMutation
 
@@ -80,6 +83,24 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
   }
 }
 ```
+
+### subscribeManually
+
+By settings `subscribeManually: true`, the `onAuthStateChanged()` listener won't be set up until you call it manually:
+
+```js
+// e.g. in a seperate Plugin
+this.$fireAuthStore.subscribe()
+```
+
+This is needed in case you need to start other plugins *after* Firebase is initialized but *before* `onAuthStateChanged()` is set up.
+
+<alert>
+<p><b>Example:</b></p>
+<p>For example with the Sentry module, you migth want to set some user-related information in Sentry each time <code>onAuthStateChanged</code> is triggered. In that case, Sentry needs to be setup before <code>onAuthStateChanged()</code>.</p><br>You can achieve this by manually calling <code>this.$fireAuthStore.subscribe()</code> after Sentry has been initialized.
+</alert>
+
+
 
 ## ssr
 
@@ -254,3 +275,19 @@ If you have an API which is served over Nuxt SSR:
 2. Add the API base path (e.g. `'/api/'`) to the [`auth.ssr.ignorePaths`](#ignorepaths) configuration.
 
 </alert>
+
+## emulatorPort
+
+- Type: `Integer`
+- Default: `null`
+
+Sets up `useEmulator("http://localhost:EMULATOR_PORT")` to point to an Authentication emulator running locally instead of the productive one.
+
+More information in the official Firebase [Guide to connect your app to the Authentication Emulator](https://firebase.google.com/docs/emulator-suite/connect_auth).
+
+## emulatorHost
+
+- Type: `String`
+- Default: `http://localhost`,
+
+Changes the host used for the Authentication emulator. Only applies if the emulatorPort is set.
