@@ -11,7 +11,7 @@
 
 ## IMPORTANT!
 > :warning: **BREAKING CHANGES IN VERSION 7.0.0!**:  
-Version 7 brings major breaking changes. Make sure to carefully read through the [migration guide](/community/migrate) when migrate your application. See the release notes [here](https://github.com/nuxt-community/firebase-module/releases/tag/v7.0.0).
+Version 7 brings major breaking changes. Make sure to carefully read through the [migration guide](https://firebase.nuxtjs.org/community/migrate) when migrate your application. See the release notes [here](https://github.com/nuxt-community/firebase-module/releases/tag/v7.0.0).
 
 ## Links
 - 📘 [Documentation](https://firebase.nuxtjs.org/)
