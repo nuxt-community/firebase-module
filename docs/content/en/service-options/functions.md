@@ -30,7 +30,7 @@ More information [here](https://firebase.google.com/docs/functions/locations).
 - Type: `Integer`
 - Default: `null`
 
-Sets up `useFunctionsEmulator("http://localhost:EMULATOR_PORT")` to point to a Cloud Functions emulator running locally instead of the productive one.
+Sets up `useFunctionsEmulator("http://localhost:EMULATOR_PORT")` to point to a Cloud Functions emulator running locally instead of the production one.
 
 More information in the official Firebase [API Docs](<https://firebase.google.com/docs/reference/android/com/google/firebase/functions/FirebaseFunctions.html#useFunctionsEmulator(java.lang.String)>) and [Functions Docs](https://firebase.google.com/docs/functions/local-emulator).
 

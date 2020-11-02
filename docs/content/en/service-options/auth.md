@@ -281,7 +281,7 @@ If you have an API which is served over Nuxt SSR:
 - Type: `Integer`
 - Default: `null`
 
-Sets up `useEmulator("http://localhost:EMULATOR_PORT")` to point to an Authentication emulator running locally instead of the productive one.
+Sets up `useEmulator("http://localhost:EMULATOR_PORT")` to point to an Authentication emulator running locally instead of the production one.
 
 More information in the official Firebase [Guide to connect your app to the Authentication Emulator](https://firebase.google.com/docs/emulator-suite/connect_auth).
 
