@@ -29,7 +29,7 @@ If you want to add Firebase polyfills, you need to ceate a plugin and import the
     ```
 
 > References:  
-> [Issue #292](https://github.com/nuxt-community/firebase-module/issues/292)  
+> [Issue #307](https://github.com/nuxt-community/firebase-module/issues/307)  
 > [Stack Overflow Question](https://stackoverflow.com/questions/62308061/nuxt-firebase-ie-11-object-doesnt-support-property-or-method-values/64062207#64062207)
 
 
