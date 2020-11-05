@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.2](https://github.com/nuxt-community/firebase-module/compare/v7.0.1...v7.0.2) (2020-11-05)
+
+
+### Bug Fixes
+
+* **messaging:** fixed "actions" not properly passed to messaging-sw ([53d48f7](https://github.com/nuxt-community/firebase-module/commit/53d48f7db7c2b2af5bbf9870a19e01804053f139))
+* found action is always first action ([31d0586](https://github.com/nuxt-community/firebase-module/commit/31d058611786b514e085f48d71f44120ef83559c))
+
 ## [7.0.1](https://github.com/nuxt-community/firebase-module/compare/v7.0.0...v7.0.1) (2020-11-05)
 
 ### Bug Fixes
