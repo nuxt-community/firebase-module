@@ -6,5 +6,10 @@
     "dark": "/logo-dark.svg"
   },
   "github": "nuxt-community/firebase-module",
-  "twitter": "nuxt_js"
+  "twitter": "nuxt_js",
+  "algolia": {
+    "apiKey": "26073a7590724b3efc377b3b7608f3e0",
+    "indexName": "nuxtjs_firebase",
+    "langAttribute": "lang"
+}
 }
