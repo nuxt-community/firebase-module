@@ -59,13 +59,15 @@ export interface AuthServiceConfig extends ServiceConfig {
   emulatorHost?: string
 }
 
-export interface StoreServiceConfig extends ServiceConfig {
+export interface FirestoreServiceConfig extends ServiceConfig {
   memoryOnly?: boolean
   enablePersistence?:
     | boolean
     | {
         synchronizeTabs: boolean
       }
+  emulatorPort?: number
+  emulatorHost?: string
   settings?: firebase.firestore.Settings
 }
 
@@ -77,7 +79,10 @@ export interface FunctionsServiceConfig extends ServiceConfig {
 
 export interface StorageServiceConfig extends ServiceConfig {}
 
-export interface DatabaseServiceConfig extends ServiceConfig {}
+export interface DatabaseServiceConfig extends ServiceConfig {
+  emulatorPort?: number
+  emulatorHost?: string
+}
 
 export interface MessagingServiceConfig extends ServiceConfig {
   createServiceWorker?:
@@ -119,7 +124,7 @@ export interface FirebaseModuleConfiguration {
     | FirebaseConfiguration
   services: {
     auth?: boolean | AuthServiceConfig
-    firestore?: boolean | StoreServiceConfig
+    firestore?: boolean | FirestoreServiceConfig
     functions?: boolean | FunctionsServiceConfig
     storage?: boolean | StorageServiceConfig
     database?: boolean | DatabaseServiceConfig
