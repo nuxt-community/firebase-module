@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.1](https://github.com/nuxt-community/firebase-module/compare/v7.0.0...v7.0.1) (2020-11-05)
+
+### Bug Fixes
+
+* **types:** added missing types (emulatorHost etc.) ([2a76c6b](https://github.com/nuxt-community/firebase-module/commit/eec46c5ea92561076c4d6013750c0b708dbd981f))
+
 ## [7.0.0](https://github.com/nuxt-community/firebase-module/compare/v6.1.1...v7.0.0) (2020-10-31)
 
 
