@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/nuxt-community/firebase-module/compare/v6.1.1...v7.0.0) (2020-10-31)
+
+
+### Features
+
+* **analytics.issupported:** added check whether browser supports Firebase Analytics before init ([52ec6ef](https://github.com/nuxt-community/firebase-module/commit/52ec6efa6c1cfbd0ddaac4a73676f948da4d807e))
+* **auth:** added initialize.subscribeManually and removed "helper" function ([91ad279](https://github.com/nuxt-community/firebase-module/commit/91ad2792f142f7fcf22f0775242dc7330e485230))
+* **firebase-v8:** updated code to work with Firebase v8+ ([4ae48b5](https://github.com/nuxt-community/firebase-module/commit/4ae48b51bc35f007c89bcc46febeded30f288893))
+* **functions:** added emulatorHost option to Firebase Functions ([08db302](https://github.com/nuxt-community/firebase-module/commit/08db302013fdac1213e783f6cd860ca62cc15cbe))
+* add support for lazy service loading ([4e96d28](https://github.com/nuxt-community/firebase-module/commit/4e96d28a43014c85a01a0c4c953f756bd2ec0812))
+
+
+### Bug Fixes
+
+* **analytics:** Fixed service naming issue ([addd317](https://github.com/nuxt-community/firebase-module/commit/addd317c7abf4ea9d70bd17943411f11cdaefac4))
+* **auth:** Fixed initialize ([c4b203d](https://github.com/nuxt-community/firebase-module/commit/c4b203d5a6d1aea521e70097a47c1b104b02c044))
+* **auth-credential:** fixed auth-credential import (require) ([faeed48](https://github.com/nuxt-community/firebase-module/commit/faeed4803908d7a262ac73759b1608ad91a6ef95))
+* **auth-serverlogin:** fixed serverLogin issue (ctx.res missing) ([edd1a75](https://github.com/nuxt-community/firebase-module/commit/edd1a755401fcd25886644554325dcaf6778e89d))
+* **fireObj:** fireObj was not injected in non-lazy + non-legacy mode ([dc66991](https://github.com/nuxt-community/firebase-module/commit/dc6699171c1e35552f7a02f093adb4ac329b9f46))
+* **initauth:** async import of initAuth within auth plugin ([36eb8f4](https://github.com/nuxt-community/firebase-module/commit/36eb8f490797f9cc7a03216f18806c1a93cd8700))
+* **initAuth:** Fixed mmissing options in initAuth & small lazy mode fix ([8e54384](https://github.com/nuxt-community/firebase-module/commit/8e54384dd1109439a0c33f358b1c30a009a27002))
+* **legacymodeinfo:** fixed error 'Cannot use 'in' operator to search for 'legacyMode' in undefined ' ([0684e64](https://github.com/nuxt-community/firebase-module/commit/0684e64bb708a2b4fdee23b2c3a6d8f73f117a68))
+* **loggerinfo:** added module name to legyMode info log because it's not clear on multi-line log ([cb85c29](https://github.com/nuxt-community/firebase-module/commit/cb85c291dec1508068b34b5d363bde601cdd1318))
+* **naming:** Improved readability by consistanly naming services constants ([0d62e76](https://github.com/nuxt-community/firebase-module/commit/0d62e7618df69bb63fca01b7f3a3a214ed32d280))
+* **netlify:** updated netlify.toml ([26f5aa9](https://github.com/nuxt-community/firebase-module/commit/26f5aa9aaa0ad1ff4dc6903178547acc1904097c))
+* **packageejson:** missing comma ([a6669fc](https://github.com/nuxt-community/firebase-module/commit/a6669fc872751077b3b089648e76276ac20f1512))
+* **remoteconfig:** fixed 'defaultConfig' being child of 'settings' instead of main obj ([7e1020c](https://github.com/nuxt-community/firebase-module/commit/7e1020c3c024c2b938f8a339a38d700036f46605))
+* **static:** fixed static=true also dynamically importing the modules ([cf61833](https://github.com/nuxt-community/firebase-module/commit/cf61833da715799cf88914d45b8eed62993d6933))
+* **ts:** Added ready() to $fire and added missing 'storage' ([bb78d3a](https://github.com/nuxt-community/firebase-module/commit/bb78d3a6e3348430201a0c8cf5220b981e6603db))
+* **ts:** Fixed $fire.database ([6bd9df9](https://github.com/nuxt-community/firebase-module/commit/6bd9df9560436d3db59afaa8a88391a779024520))
+* make initAuth work again ([db8a467](https://github.com/nuxt-community/firebase-module/commit/db8a467db2e865c4ea0c570cce276bf635400368))
+* review comments ([f5265ae](https://github.com/nuxt-community/firebase-module/commit/f5265aecf210978ce333d6bd7621676a4ad12719))
+* use existing injection name ([a6971ac](https://github.com/nuxt-community/firebase-module/commit/a6971acc0d440b3553975e40a09d819d0d8c1077))
+* use service mapping ([33489a1](https://github.com/nuxt-community/firebase-module/commit/33489a17a1f35d95680f79ac98d31a16c1412df5))
+* use service mapping ([bd16287](https://github.com/nuxt-community/firebase-module/commit/bd1628735f333b448562b9eda5cc5a9d3e9d9e06))
+
 ### [6.1.1](https://github.com/nuxt-community/firebase-module/compare/v6.1.0...v6.1.1) (2020-07-25)
 
 
