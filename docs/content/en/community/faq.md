@@ -7,6 +7,25 @@ category: Community
 
 Create an [issue](https://github.com/nuxt-community/firebase-module/issues) if you have a question and we might add it to the FAQ.
 
+## Firestore: Using "array-contains" or "array-contains-any" does not work
+
+If you are using `array-contains` or `array-contains-any` you might run into the followig error:
+
+> Function Query.where() called with invalid data. Unsupported field value: a custom Array object
+
+
+This issue is not coming from this module but is specific to using Firebase together with Nuxt. You can get rid of this error message by setting `runInNewContext` to `false` like so:
+
+
+```js[nuxt.config.js]
+// Add this to your nuxt.config.js
+render: {
+  bundleRenderer: {
+    runInNewContext: false
+  }
+},
+```
+
 ## How to add Firebase Polyfills?
 
 If you want to add Firebase polyfills, you need to ceate a plugin and import the required polyfills like so:
