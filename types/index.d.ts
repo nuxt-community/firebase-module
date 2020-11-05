@@ -39,6 +39,7 @@ export interface AuthServiceConfig extends ServiceConfig {
   initialize?: {
     onAuthStateChangedMutation?: string
     onAuthStateChangedAction?: string
+    subscribeManually?: boolean
   }
 
   ssr?:
@@ -53,9 +54,13 @@ export interface AuthServiceConfig extends ServiceConfig {
             }
         ignorePaths?: (string | RegExp)[]
       }
+
+  emulatorPort?: number
+  emulatorHost?: string
 }
 
 export interface StoreServiceConfig extends ServiceConfig {
+  memoryOnly?: boolean
   enablePersistence?:
     | boolean
     | {
@@ -67,6 +72,7 @@ export interface StoreServiceConfig extends ServiceConfig {
 export interface FunctionsServiceConfig extends ServiceConfig {
   location?: string
   emulatorPort?: number
+  emulatorHost?: string
 }
 
 export interface StorageServiceConfig extends ServiceConfig {}
