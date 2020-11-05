@@ -15,6 +15,8 @@ firestore: {
   memoryOnly: false, // default
   chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
   enablePersistence: true,
+  emulatorPort: 8080,
+  emulatorHost: 'localhost',
   settings: {
     // Firestore Settings - currently only works in SPA mode
   }
@@ -62,6 +64,22 @@ firestore: {
 ```
 
 More information [here](https://firebase.google.com/docs/firestore/manage-data/enable-offline).
+
+## emulatorPort
+
+- Type: `Integer`
+- Default: `null`
+
+Sets up `useEmulator("localhost", EMULATOR_PORT)` to point to a Firestore emulator running locally.
+
+More information in the official Firebase [Emulator Docs](https://firebase.google.com/docs/emulator-suite/connect_firestore).
+
+## emulatorHost
+
+- Type: `String`
+- Default: `localhost`,
+
+Changes the host used for the emulator. Only applies if the emulatorPort is set.
 
 ## settings
 

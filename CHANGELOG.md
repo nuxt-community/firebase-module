@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/nuxt-community/firebase-module/compare/v7.0.2...v7.1.0) (2020-11-05)
+
+
+### Features
+
+* **emulators:** added options to connect to emulators for Firestore & RealtimeDB ([c724e1c](https://github.com/nuxt-community/firebase-module/commit/c724e1c3245620a62f54529b3929ea79f75c938f))
+
 ### [7.0.2](https://github.com/nuxt-community/firebase-module/compare/v7.0.1...v7.0.2) (2020-11-05)
 
 
