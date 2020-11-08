@@ -26,6 +26,13 @@ Sets up `useEmulator("localhost", EMULATOR_PORT)` to point to a RealtimeDatabase
 
 More information in the official Firebase [Emulator Docs](https://firebase.google.com/docs/emulator-suite/connect_rtdb).
 
+<alert type="info">
+To not use the emulator in production you can do the following:
+
+<code>emulatorPort: process.env.NODE_ENV === 'development' ? 9000 : false</code>
+
+</alert>
+
 ## emulatorHost
 
 - Type: `String`
