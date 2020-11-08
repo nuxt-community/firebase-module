@@ -67,3 +67,34 @@ auth: {
 
 > References:  
 > [Issue #292](https://github.com/nuxt-community/firebase-module/issues/292)
+
+## Nuxt Generate warns with "Nuxt Generate finished but did not exit"
+
+This warning happens because either Firestore or the RealtimeDb are not terminated at the end of Nuxt Generate.
+
+To get rid of this warning, you can terminate the services by extending the `generate:done` hook in your `nuxt.config.js` like so:
+
+```js[nuxt.config.js]
+hooks: {
+  generate: {
+    async done(builder) {
+      const appModule = await import('./.nuxt/firebase/app.js')
+      const { session } = await appModule.default(
+        builder.options.firebase.config,
+        {
+          res: null,
+        }
+      )
+      try {
+        session.database().goOffline()
+      } catch (e) { }
+      try {
+        session.firestore().terminate()
+      } catch (e) { }
+    },
+  },
+},
+```
+
+> References:  
+> [Issue #93](https://github.com/nuxt-community/firebase-module/issues/93)

@@ -285,6 +285,13 @@ Sets up `useEmulator("http://localhost:EMULATOR_PORT")` to point to an Authentic
 
 More information in the official Firebase [Guide to connect your app to the Authentication Emulator](https://firebase.google.com/docs/emulator-suite/connect_auth).
 
+<alert type="info">
+To not use the emulator in production you can do the following:
+
+<code>emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : false</code>
+
+</alert>
+
 ## emulatorHost
 
 - Type: `String`
