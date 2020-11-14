@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/nuxt-community/firebase-module/compare/v7.1.0...v7.1.1) (2020-11-14)
+
+
+### Bug Fixes
+
+* **auth-emulator-ssr:** call useEmulator in auth ssr service-worker, if emulator is in use ([004e696](https://github.com/nuxt-community/firebase-module/commit/004e696e90c0be06573a9038439fb910efaee84f))
+
+## [7.0.0](https://github.com/nuxt-community/firebase-module/compare/v6.1.1...v7.0.0) (2020-10-31)
+
 ## [7.1.0](https://github.com/nuxt-community/firebase-module/compare/v7.0.2...v7.1.0) (2020-11-05)
 
 
