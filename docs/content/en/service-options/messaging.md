@@ -23,7 +23,7 @@ messaging: {
       action: 'randomName',
       url: 'randomUrl'
     }
-  ]
+  ],
   fcmPublicVapidKey: '<publicVapidKey>' // OPTIONAL : Sets vapid key for FCM after initialization
 }
 ```
