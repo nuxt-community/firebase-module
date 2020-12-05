@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.12.7",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.14.7",
+    "@nuxt/types": "^2.14.9",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
@@ -45,17 +45,17 @@
     "codecov": "latest",
     "core-js": "3",
     "cz-conventional-changelog": "latest",
-    "eslint": "^7.14.0",
-    "firebase": "^8.1.1",
-    "husky": "^4.3.0",
+    "eslint": "^7.15.0",
+    "firebase": "^8.1.2",
+    "husky": "^4.3.4",
     "jest": "^26.6.3",
-    "nuxt": "^2.14.7",
+    "nuxt": "^2.14.9",
     "proxy-mock-js": "^1.0.3",
     "standard-version": "latest"
   },
   "peerDependencies": {
-    "firebase": "^8.1.1",
-    "nuxt": "^2.14.7"
+    "firebase": "^8.1.2",
+    "nuxt": "^2.14.9"
   },
   "publishConfig": {
     "access": "public"
