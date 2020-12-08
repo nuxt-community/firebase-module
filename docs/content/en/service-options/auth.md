@@ -288,7 +288,7 @@ More information in the official Firebase [Guide to connect your app to the Auth
 <alert type="info">
 To not use the emulator in production you can do the following:
 
-<code>emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : false</code>
+<code>emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : undefined</code>
 
 </alert>
 

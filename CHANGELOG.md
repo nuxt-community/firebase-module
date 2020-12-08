@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/nuxt-community/firebase-module/compare/v7.1.1...v7.1.2) (2020-12-08)
+
+
+### Bug Fixes
+
+* **types:** fixed fcmPublicVapidKey not correctly placed in .d.ts ([0c5c4a7](https://github.com/nuxt-community/firebase-module/commit/0c5c4a7077009294e60797dc3d4d0923bb907cf3))
+
 ### [7.1.1](https://github.com/nuxt-community/firebase-module/compare/v7.1.0...v7.1.1) (2020-11-14)
 
 

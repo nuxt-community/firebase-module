@@ -19,7 +19,6 @@ export interface FirebaseConfiguration {
   messagingSenderId: string
   appId: string
   measurementId: string
-  fcmPublicVapidKey?: string
 }
 
 interface ServiceConfig {
@@ -97,7 +96,7 @@ export interface MessagingServiceConfig extends ServiceConfig {
         }
       }
   actions?: messagingAction[],
-  fcmPublicVapidKey?: '<publicVapidKey>'
+  fcmPublicVapidKey?: string
 }
 
 export interface PerformanceServiceConfig extends ServiceConfig {}
