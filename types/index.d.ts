@@ -96,7 +96,8 @@ export interface MessagingServiceConfig extends ServiceConfig {
         }
       }
   actions?: messagingAction[],
-  fcmPublicVapidKey?: string
+  fcmPublicVapidKey?: string,
+  inject?: string
 }
 
 export interface PerformanceServiceConfig extends ServiceConfig {}
