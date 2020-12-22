@@ -56,6 +56,7 @@ export interface AuthServiceConfig extends ServiceConfig {
 
   emulatorPort?: number
   emulatorHost?: string
+  disableEmulatorWarnings?: boolean
 }
 
 export interface FirestoreServiceConfig extends ServiceConfig {

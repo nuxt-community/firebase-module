@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/firebase",
-  "version": "7.1.2",
+  "version": "7.2.0",
   "description": "Intergrate Firebase into your Nuxt project.",
   "keywords": [
     "firebase",
@@ -22,7 +22,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js,.vue lib test",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release": "standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
     "commit": "npx git-cz",
     "docs": "cd docs && yarn dev"
@@ -31,12 +31,12 @@
     "consola": "^2.15.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-env": "^7.12.11",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.14.10",
+    "@nuxt/types": "^2.14.12",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
@@ -45,17 +45,17 @@
     "codecov": "latest",
     "core-js": "^3.8.1",
     "cz-conventional-changelog": "latest",
-    "eslint": "^7.15.0",
-    "firebase": "^8.1.2",
-    "husky": "^4.3.5",
+    "eslint": "^7.16.0",
+    "firebase": "^8.2.1",
+    "husky": "^4.3.6",
     "jest": "^26.6.3",
-    "nuxt": "^2.14.10",
+    "nuxt": "^2.14.12",
     "proxy-mock-js": "^1.0.3",
     "standard-version": "latest"
   },
   "peerDependencies": {
-    "firebase": "^8.1.2",
-    "nuxt": "^2.14.10"
+    "firebase": "^8.2.1",
+    "nuxt": "^2.14.12"
   },
   "publishConfig": {
     "access": "public"
@@ -66,6 +66,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^9.4.1"
+    "firebase-admin": "^9.4.2"
   }
 }

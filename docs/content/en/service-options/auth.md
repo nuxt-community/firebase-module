@@ -298,3 +298,10 @@ To not use the emulator in production you can do the following:
 - Default: `http://localhost`,
 
 Changes the host used for the Authentication emulator. Only applies if the emulatorPort is set.
+
+## disableEmulatorWarnings
+
+- Type: `Boolean`
+- Default: false
+
+Disables the auth emulators warning messages, see [here](https://github.com/firebase/firebase-tools/issues/2773).

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/nuxt-community/firebase-module/compare/v7.1.2...v7.2.0) (2020-12-22)
+
+
+### Features
+
+* **auth:** added disableEmulatorWarnings option ([1de60b9](https://github.com/nuxt-community/firebase-module/commit/1de60b9c3cd4ea22df28beaf3a3646a8315fb5e6)), closes [#415](https://github.com/nuxt-community/firebase-module/issues/415)
+
 ### [7.1.2](https://github.com/nuxt-community/firebase-module/compare/v7.1.1...v7.1.2) (2020-12-08)
 
 
