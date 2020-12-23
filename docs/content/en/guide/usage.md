@@ -22,7 +22,7 @@ While <code>$fire</code> contains the initialized service instances, <code>$fire
 
 | Firebase Service  | Shortcut           | Client/Server   |
 | ----------------- | ------------------ | --------------- |
-| Authentication    | $fire.auth         | Client-only *   |
+| Authentication    | $fire.auth         | Client + Server |
 | Realtime Database | $fire.database     | Client + Server |
 | Firestore         | $fire.firestore    | Client + Server |
 | Storage           | $fire.storage      | Client + Server |
@@ -37,8 +37,6 @@ See [Firebase's official docs](https://firebase.google.com/docs/) for more usage
 <alert type="warning">
 Please be aware that some services are not available on server-side. In universal code, you can wrap your code in <code>if (process.client) {}</code> so it only gets executed on the client-side.
 </alert>
-
-> For *auth* the module offers an SSR option that makes use of `firebase-admin` on server-side.
 
 ### $fireModule
 

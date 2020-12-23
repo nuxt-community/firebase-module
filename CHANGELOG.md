@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.2](https://github.com/nuxt-community/firebase-module/compare/v7.2.1...v7.2.2) (2020-12-23)
+
+
+### Bug Fixes
+
+* **auth:** fixed issue where Firestore did not work in SSR because of Auth not being initialized ([9482f16](https://github.com/nuxt-community/firebase-module/commit/9482f1650c31050265febd558d79d345791100d5))
+* **firestore-emulator:** fixed issue that caused useEmulator to be triggered multiple times in SSR ([ebac666](https://github.com/nuxt-community/firebase-module/commit/ebac6669524100fe303e4ba30a69b332f241fb85)), closes [#390](https://github.com/nuxt-community/firebase-module/issues/390)
+* **messaging:** fixed error with onFirebaseHosting in sw trying to load scripts from /__/ on lh ([383b9cd](https://github.com/nuxt-community/firebase-module/commit/383b9cdeb10c26233c4f8e73f0cedda31d7486d6)), closes [#379](https://github.com/nuxt-community/firebase-module/issues/379)
+
 ### [7.2.1](https://github.com/nuxt-community/firebase-module/compare/v7.2.0...v7.2.1) (2020-12-22)
 
 
 ### Bug Fixes
 
-* **auth:** fixed 'auth' being initialized on server-side, which lead to a memory leak in SSR mode ([daa9b9e](https://github.com/nuxt-community/firebase-module/commit/daa9b9e50fa607b8c1b96e6495b6b66a9f0636c0)), closes [#399](https://github.com/nuxt-community/firebase-module/issues/399)
+~~* **auth**: fixed 'auth' being initialized on server-side, which lead to a memory leak in SSR mode (daa9b9e), closes #399~~
+
+⚠️⚠️⚠️ Release had a bug, please upgrade to v7.2.2. ⚠️⚠️
 
 ## [7.2.0](https://github.com/nuxt-community/firebase-module/compare/v7.1.2...v7.2.0) (2020-12-22)
 
