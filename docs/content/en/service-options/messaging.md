@@ -68,6 +68,29 @@ const message = {
 await messaging.send(message)
 ```
 
+## inject
+
+> Only works if `createServiceWorker === true`
+
+Injects a string (or an entire code snippet) at the end of the messaging service worker. This allows you to extend the service worker to your liking.
+
+#### Simple example: 
+
+```js[nuxt.config.js]
+...
+inject: 'console.log("This is the end of the service worker.")',
+...
+```
+
+#### Advanced example: 
+
+```js[nuxt.config.js]
+const fs = require('fs')
+...
+inject: fs.readFileSync('./javascriptFileWithCodeToBeInjected.js', 'utf8'),
+...
+```
+
 ## fcmPublicVapidKey
 
 Allows FCM to use the VAPID key credential when sending message requests to different push services, see more [here](https://firebase.google.com/docs/cloud-messaging/js/client).
