@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/nuxt-community/firebase-module/compare/v7.2.3...v7.3.0) (2020-12-28)
+
+
+### Features
+
+* **messaging sw:** allow users to inject a string into the messaging sw ([7e6174f](https://github.com/nuxt-community/firebase-module/commit/7e6174fc50aebc88f48228630580b9ede88fdcb1))
+
 ### [7.2.3](https://github.com/nuxt-community/firebase-module/compare/v7.2.2...v7.2.3) (2020-12-28)
 
 ### [7.2.2](https://github.com/nuxt-community/firebase-module/compare/v7.2.1...v7.2.2) (2020-12-23)
