@@ -1,4 +1,4 @@
-import theme from '@nuxt/content-theme-docs'
+import theme from 'content-theme-docs-with-slots'
 
 export default theme({
   loading: { color: '#FFA000' },

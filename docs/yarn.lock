@@ -1152,30 +1152,6 @@
     rc9 "^1.2.0"
     std-env "^2.2.1"
 
-"@nuxt/content-theme-docs@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@nuxt/content-theme-docs/-/content-theme-docs-0.8.2.tgz#5a50a0a1b1b0a5a0e66ba7df6cccf9db64edcfd8"
-  integrity sha512-pU6mqvJfA8Rg8P57CSAaR83Irw7TolfQPjYofyBBN2BmA8RqAUx7S+iJg++nbq81VfNdtuYorTIY+JLGk9XWCw==
-  dependencies:
-    "@docsearch/css" "^1.0.0-alpha.28"
-    "@docsearch/js" "^1.0.0-alpha.28"
-    "@nuxt/content" "^1.11.1"
-    "@nuxt/types" "^2.14.7"
-    "@nuxtjs/color-mode" "^2.0.0"
-    "@nuxtjs/google-fonts" "1.2.0"
-    "@nuxtjs/pwa" "^3.2.2"
-    "@nuxtjs/tailwindcss" "^3.2.0"
-    "@tailwindcss/typography" "0.2.0"
-    clipboard "^2.0.6"
-    defu "^3.2.2"
-    lodash.groupby "^4.6.0"
-    marked "^1.2.4"
-    nuxt-i18n "^6.15.4"
-    prism-themes "^1.5.0"
-    tailwind-css-variables "^2.0.3"
-    theme-colors "^0.0.5"
-    vue-scrollactive "^0.9.3"
-
 "@nuxt/content@^1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-1.11.1.tgz#60d850d01d2f946b896ddb8a8736c43cfe2cdd72"
@@ -3287,6 +3263,30 @@ content-disposition@0.5.3, content-disposition@~0.5.2:
   integrity sha512-ExO0774ikEObIAEV9kDo50o+79VCUdEB6n6lzKgGwupcVeRlhrj3qGAfwq8G6uBJjkqLrhT0qEYFcWng8z1z0g==
   dependencies:
     safe-buffer "5.1.2"
+
+content-theme-docs-with-slots@0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/content-theme-docs-with-slots/-/content-theme-docs-with-slots-0.8.2.tgz#ef9972b8ceb3f9b97cec38dbee7495ffef0301ec"
+  integrity sha512-yrkD6Qtele4ygS+tjwQU8dqOvm65IFTnnvP7ABZ6k3Jm1JvU+Pa3/afLMcwB4aozaBGIE4u/A1eK91lQOSIikg==
+  dependencies:
+    "@docsearch/css" "^1.0.0-alpha.28"
+    "@docsearch/js" "^1.0.0-alpha.28"
+    "@nuxt/content" "^1.11.1"
+    "@nuxt/types" "^2.14.7"
+    "@nuxtjs/color-mode" "^2.0.0"
+    "@nuxtjs/google-fonts" "1.2.0"
+    "@nuxtjs/pwa" "^3.2.2"
+    "@nuxtjs/tailwindcss" "^3.2.0"
+    "@tailwindcss/typography" "0.2.0"
+    clipboard "^2.0.6"
+    defu "^3.2.2"
+    lodash.groupby "^4.6.0"
+    marked "^1.2.4"
+    nuxt-i18n "^6.15.4"
+    prism-themes "^1.5.0"
+    tailwind-css-variables "^2.0.3"
+    theme-colors "^0.0.5"
+    vue-scrollactive "^0.9.3"
 
 content-type@^1.0.4, content-type@~1.0.4:
   version "1.0.4"
