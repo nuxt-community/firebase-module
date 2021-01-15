@@ -2,7 +2,7 @@
   <div class="carbon-ads">
     <script
       id="_carbonads_js"
-      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&amp;placement=vuejsorg"
+      src="//cdn.carbonads.com/carbon.js?serve=CE7D62JL&placement=firebasenuxtjsorg"
     />
   </div>
 </template>
