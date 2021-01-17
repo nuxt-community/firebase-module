@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.1](https://github.com/nuxt-community/firebase-module/compare/v7.3.0...v7.3.1) (2021-01-17)
+
+
+### Bug Fixes
+
+* **lazy:** fixed fireModule not being injected if ready() functions are only called in V-components ([3f37365](https://github.com/nuxt-community/firebase-module/commit/3f37365dfa5091244569710f3865c00018468e71)), closes [#366](https://github.com/nuxt-community/firebase-module/issues/366)
+
 ## [7.3.0](https://github.com/nuxt-community/firebase-module/compare/v7.2.3...v7.3.0) (2020-12-28)
 
 
