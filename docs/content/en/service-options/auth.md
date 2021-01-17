@@ -40,6 +40,8 @@ When onAuthStateChanged() gets triggered by Firebase, the defined mutation/actio
 
 To unsubscribe from the listener simply call the `$fireAuthStore.unsubscribe()` function.
 
+<alert type="warning">This does not work in *lazy-mode*, since auth is not initialized. If you want to use this option in lazy-mode, call the *authReady()* function in a separate plugin.</alert>
+
 ### onAuthStateChangedMutation
 
 ```js
