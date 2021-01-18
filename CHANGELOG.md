@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.3](https://github.com/nuxt-community/firebase-module/compare/v7.3.2...v7.3.3) (2021-01-18)
+
+
+### Bug Fixes
+
+* **forceinject:** fixed issue in lazy-mode that did not allow to initialize services in nuxt plugins ([c5b5cb3](https://github.com/nuxt-community/firebase-module/commit/c5b5cb34148bda432d1320567cf5a9118bb394b0)), closes [#366](https://github.com/nuxt-community/firebase-module/issues/366)
+
 ### [7.3.2](https://github.com/nuxt-community/firebase-module/compare/v7.3.1...v7.3.2) (2021-01-17)
 
 
