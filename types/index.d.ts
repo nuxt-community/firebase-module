@@ -38,6 +38,8 @@ export interface AuthServiceConfig extends ServiceConfig {
   initialize?: {
     onAuthStateChangedMutation?: string
     onAuthStateChangedAction?: string
+    onIdTokenChangedMutation?: string
+    onIdTokenChangedAction?: string
     subscribeManually?: boolean
   }
 
