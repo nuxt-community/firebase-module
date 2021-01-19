@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.4.0](https://github.com/nuxt-community/firebase-module/compare/v7.3.3...v7.4.0) (2021-01-19)
+
+
+### Features
+
+* **auth:** added onIdTokenChanged() handlers to auth.initialize ([fcf0846](https://github.com/nuxt-community/firebase-module/commit/fcf08463621b36e597dc31d9c542c46632a5beb9)), closes [#411](https://github.com/nuxt-community/firebase-module/issues/411)
+
 ### [7.3.3](https://github.com/nuxt-community/firebase-module/compare/v7.3.2...v7.3.3) (2021-01-18)
 
 
