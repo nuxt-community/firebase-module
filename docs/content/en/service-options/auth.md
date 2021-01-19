@@ -30,15 +30,15 @@ Set firebase auth persistence, see [here](https://firebase.google.com/docs/auth/
 
 ## initialize
 
-This sets up an `onAuthStateChanged()` listener and hooks it up to the vuex store.
+This sets up an `onAuthStateChanged()` and/or `onIdTokenChanged()` listener and hooks them up to the vuex store.
 
 Just add a mutation/action to your vuex store ([as seen below](#onauthstatechangedmutation)) that handles what to do with the authUser object (e.g. save it to the state or get user data from FireStore) and then define the name of the action/mutation in the `firebase.services.auth.initialize` configuration as above.
 
 <alert type="info">You can also use namespaces for your store actions/mutations like so: `onAuthStateChangedAction: 'namespaceName/actionName'`.</alert>
 
-When onAuthStateChanged() gets triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation)
+When `onAuthStateChanged()` or `onIdTokenChanged()` get triggered by Firebase, the defined mutation/action will be called with the `authUser` and `claims` attributes as [as seen below](#onauthstatechangedmutation)
 
-To unsubscribe from the listener simply call the `$fireAuthStore.unsubscribe()` function.
+To unsubscribe from both listeners simply call the `$fireAuthStore.unsubscribe()` function.
 
 <alert type="warning">This does not work in *lazy-mode*, since auth is not initialized. If you want to use this option in lazy-mode, call the *authReady()* function in a separate plugin.</alert>
 
@@ -86,6 +86,21 @@ onAuthStateChangedAction: (ctx, { authUser, claims }) => {
 }
 ```
 
+### onIdTokenChangedAction
+
+Same as `onAuthStateChangedAction`, but also gets triggered when the idToken changes (e.g. expires).
+
+<alert type="warning">
+The Firebase SDK automatically refreshed your id token, so this option shall only be used if you use the idToken for custom authentication scenarios.
+</alert>
+
+### onIdTokenChangedMutation
+
+Same as `onAuthStateChangedMutation`, but also gets triggered when the idToken changes (e.g. expires).
+
+<alert type="warning">
+The Firebase SDK automatically refreshed your id token, so this option shall only be used if you use the idToken for custom authentication scenarios.
+</alert>
 ### subscribeManually
 
 By settings `subscribeManually: true`, the `onAuthStateChanged()` listener won't be set up until you call it manually:
