@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.4.1](https://github.com/nuxt-community/firebase-module/compare/v7.4.0...v7.4.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* **auth:** fixes build error appearing when auth.initialize is not set ([71c3fb0](https://github.com/nuxt-community/firebase-module/commit/71c3fb024fe0795cfa67f4230dd1634acb785ac1)), closes [#446](https://github.com/nuxt-community/firebase-module/issues/446)
+
 ## [7.4.0](https://github.com/nuxt-community/firebase-module/compare/v7.3.3...v7.4.0) (2021-01-19)
 
 
