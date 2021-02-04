@@ -28,12 +28,12 @@
     "docs": "cd docs && yarn dev"
   },
   "dependencies": {
-    "consola": "^2.15.0"
+    "consola": "^2.15.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.12.13",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-env": "^7.12.13",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxt/types": "^2.14.12",
@@ -45,8 +45,8 @@
     "codecov": "latest",
     "core-js": "^3.8.3",
     "cz-conventional-changelog": "latest",
-    "eslint": "^7.18.0",
-    "firebase": "^8.2.4",
+    "eslint": "^7.19.0",
+    "firebase": "^8.2.6",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "nuxt": "^2.14.12",
@@ -54,7 +54,7 @@
     "standard-version": "^9.1.0"
   },
   "peerDependencies": {
-    "firebase": "^8.2.4",
+    "firebase": "^8.2.6",
     "nuxt": "^2.14.12"
   },
   "publishConfig": {
