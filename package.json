@@ -28,15 +28,15 @@
     "docs": "cd docs && yarn dev"
   },
   "dependencies": {
-    "consola": "^2.15.2"
+    "consola": "^2.15.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.13",
+    "@babel/core": "^7.12.16",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.14.12",
+    "@nuxt/types": "^2.15.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
@@ -45,17 +45,17 @@
     "codecov": "latest",
     "core-js": "^3.8.3",
     "cz-conventional-changelog": "latest",
-    "eslint": "^7.19.0",
-    "firebase": "^8.2.6",
+    "eslint": "^7.20.0",
+    "firebase": "^8.2.7",
     "husky": "^5.0.9",
     "jest": "^26.6.3",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.0",
     "proxy-mock-js": "^1.0.3",
     "standard-version": "^9.1.0"
   },
   "peerDependencies": {
-    "firebase": "^8.2.6",
-    "nuxt": "^2.14.12"
+    "firebase": "^8.2.7",
+    "nuxt": "^2.15.0"
   },
   "publishConfig": {
     "access": "public"
@@ -66,6 +66,6 @@
     }
   },
   "optionalDependencies": {
-    "firebase-admin": "^9.4.2"
+    "firebase-admin": "^9.5.0"
   }
 }
