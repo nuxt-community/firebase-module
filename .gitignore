@@ -11,3 +11,4 @@ dist
 yarn.lock
 !docs/yarn.lock
 sw.*
+.husky

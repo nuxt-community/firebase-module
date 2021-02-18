@@ -138,6 +138,7 @@ export interface FirebaseModuleConfiguration {
   }
   customEnv?: boolean
   onFirebaseHosting?: boolean | object
+  terminateDatabasesAfterGenerate?: boolean
 }
 
 /***********************************
