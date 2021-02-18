@@ -18,7 +18,6 @@ config: {
   // REQUIRED: Official config for firebase.initializeApp(config):
   apiKey: '<apiKey>',
   authDomain: '<authDomain>',
-  databaseURL: '<databaseURL>',
   projectId: '<projectId>',
   storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>',
@@ -97,7 +96,7 @@ config: {
   foofoofoo: {
     apiKey: '<apiKey>',
     authDomain: '<authDomain>',
-    databaseURL: '<databaseURL>',
+    databaseURL: '<databaseURL>', // Optional
     projectId: '<projectId>',
     storageBucket: '<storageBucket>',
     messagingSenderId: '<messagingSenderId>',
@@ -163,3 +162,17 @@ You can either enabled lazy loading for all services or none.
 - Default: `true`
 
 Whether to inject the entire [Firebase module](/guide/usage#firemodule) as `this.$fireModule` or not.
+
+## terminateDatabasesAfterGenerate
+
+- Type: `Boolean`
+- Default: `false`
+
+Terminates the Firebase RealTime Database and Firestore after `nuxt generate` has been run. This fixes the below warning by Nuxt and speeds up generate time:
+
+> The command 'nuxt generate' finished but did not exit after 5s
+> This is most likely not caused by a bug in Nuxt
+> Make sure to cleanup all timers and listeners you or your plugins/modules start.
+> Nuxt will now force exit
+>
+> DeprecationWarning: Starting with Nuxt version 3 this will be a fatal error 
