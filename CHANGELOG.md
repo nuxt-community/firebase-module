@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.5.0](https://github.com/nuxt-community/firebase-module/compare/v7.4.1...v7.5.0) (2021-02-18)
+
+
+### Features
+
+* **terminatedatabasesaftergenerate:** added 'terminateDatabasesAfterGenerate' config ([4df37a7](https://github.com/nuxt-community/firebase-module/commit/4df37a7add07caa711d556fc00c331ffe66e164e)), closes [#451](https://github.com/nuxt-community/firebase-module/issues/451)
+
+
+### Bug Fixes
+
+* **config:** made "databaseUrl" config value optional ([fbb4a7d](https://github.com/nuxt-community/firebase-module/commit/fbb4a7d92be913a81905a36405ee6cc80bdf2a67)), closes [#458](https://github.com/nuxt-community/firebase-module/issues/458)
+* **firestore:** call useEmulator after enablePersistence to fix "already started" issue ([bc16b45](https://github.com/nuxt-community/firebase-module/commit/bc16b45a712e3c6400f7c9f8fa1af4233679b46c)), closes [#451](https://github.com/nuxt-community/firebase-module/issues/451)
+
 ### [7.4.1](https://github.com/nuxt-community/firebase-module/compare/v7.4.0...v7.4.1) (2021-01-20)
 
 
