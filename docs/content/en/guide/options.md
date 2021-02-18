@@ -18,7 +18,6 @@ config: {
   // REQUIRED: Official config for firebase.initializeApp(config):
   apiKey: '<apiKey>',
   authDomain: '<authDomain>',
-  databaseURL: '<databaseURL>',
   projectId: '<projectId>',
   storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>',
@@ -97,7 +96,7 @@ config: {
   foofoofoo: {
     apiKey: '<apiKey>',
     authDomain: '<authDomain>',
-    databaseURL: '<databaseURL>',
+    databaseURL: '<databaseURL>', // Optional
     projectId: '<projectId>',
     storageBucket: '<storageBucket>',
     messagingSenderId: '<messagingSenderId>',

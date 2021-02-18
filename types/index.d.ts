@@ -13,7 +13,7 @@ import { auth } from 'firebase-admin'
 export interface FirebaseConfiguration {
   apiKey: string
   authDomain: string
-  databaseURL: string
+  databaseURL?: string
   projectId: string
   storageBucket: string
   messagingSenderId: string
