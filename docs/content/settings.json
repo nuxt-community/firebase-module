@@ -16,7 +16,7 @@
     "indexName": "nuxtjs_firebase",
     "langAttribute": "lang"
   },
-  "slots": {
-    "navBarTop": "navBarTop"
+  "colors": {
+    "primary": "#FFA000"
   }
 }

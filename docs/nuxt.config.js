@@ -1,6 +1,11 @@
 import { withDocus } from 'docus'
 
 export default withDocus({
+  docus: {
+    colors: {
+      primary: '#FFA000'
+    }
+  },
   loading: { color: '#FFA000' },
   buildModules: [
     // https://github.com/bdrtsky/nuxt-ackee

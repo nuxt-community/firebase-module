@@ -12,20 +12,6 @@ features:
 <img src="/preview.png" class="light-img" width="1280" height="640" alt="" />
 <img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/>
 
-Easily integrate [Firebase](https://firebase.google.com) into your [Nuxt.js](https://nuxtjs.org) project.
-
-<alert>
-<p class="flex items-center">Enjoy these docs in light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
-</alert>
-
-## IMPORTANT!
-
-<alert type="warning">
-<p class="font-bold">BREAKING CHANGES IN VERSION 7.0.0!</p>
-<p>Version 7 brings major breaking changes. Make sure to carefully read through the <nuxt-link to="/community/migrate">migration guide</nuxt-link> when migrate your application.</p>
-</alert>
-
-
 ## Features
 
 <list :items="features"></list>
