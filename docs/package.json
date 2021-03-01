@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "docus": "^0.0.9",
-    "nuxt": "2.14.12"
+    "nuxt": "^2.15.2"
   },
   "devDependencies": {
     "nuxt-ackee": "^2.0.0"
