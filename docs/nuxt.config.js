@@ -1,6 +1,6 @@
-import theme from 'content-theme-docs-with-slots'
+import { withDocus } from 'docus'
 
-export default theme({
+export default withDocus({
   loading: { color: '#FFA000' },
   buildModules: [
     // https://github.com/bdrtsky/nuxt-ackee
