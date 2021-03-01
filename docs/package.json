@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-env": "7.12.7",
     "content-theme-docs-with-slots": "0.8.2",
     "nuxt": "2.14.12"
   },
