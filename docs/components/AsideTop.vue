@@ -3,11 +3,7 @@
 </template>
 
 <script>
-import CarbonAds from './../carbon.vue'
 
 export default {
-  components: {
-    CarbonAds
-  }
 }
 </script>
