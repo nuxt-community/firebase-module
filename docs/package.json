@@ -9,8 +9,8 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "docus": "^0.0.9",
-    "nuxt": "^2.15.2"
+    "docus": "^0.1.5",
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
     "nuxt-ackee": "^2.0.0"
