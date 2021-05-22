@@ -171,6 +171,11 @@ interface NuxtFireInstance {
   remoteConfigReady: ReadyFunction
 }
 
+interface NuxtFireAuthStore {
+  subscribe: () => Promise<void>
+  unsubscribe: () => void
+}
+
 declare module '@nuxt/vue-app' {
   interface NuxtConfiguration {
     firebase?: FirebaseModuleConfiguration
@@ -178,10 +183,12 @@ declare module '@nuxt/vue-app' {
   interface Context {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
   interface NuxtAppOptions {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
@@ -189,11 +196,13 @@ declare module '@nuxt/types' {
   interface Context {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 
   interface NuxtAppOptions {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 
   interface Configuration {
@@ -205,6 +214,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
@@ -212,6 +222,7 @@ declare module '@nuxt/vue-app' {
   interface NuxtAppOptions {
      $fireModule: typeof firebase
      $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
@@ -219,6 +230,7 @@ declare module 'vuex/types/index' {
   interface Store<S> {
      $fireModule: typeof firebase
      $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
