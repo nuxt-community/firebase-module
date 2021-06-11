@@ -102,6 +102,7 @@ Same as `onAuthStateChangedMutation`, but also gets triggered when the idToken c
 <alert type="warning">
 The Firebase SDK automatically refreshed your id token, so this option shall only be used if you use the idToken for custom authentication scenarios.
 </alert>
+
 ### subscribeManually
 
 By settings `subscribeManually: true`, the `onAuthStateChanged()` listener won't be set up until you call it manually:
