@@ -79,7 +79,10 @@ export interface FunctionsServiceConfig extends ServiceConfig {
   emulatorHost?: string
 }
 
-export interface StorageServiceConfig extends ServiceConfig {}
+export interface StorageServiceConfig extends ServiceConfig {
+  emulatorPort?: number
+  emulatorHost?: string
+}
 
 export interface DatabaseServiceConfig extends ServiceConfig {
   emulatorPort?: number
