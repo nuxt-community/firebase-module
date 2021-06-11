@@ -1,6 +1,6 @@
 ---
 title: storage
-description: ''
+description: ""
 position: 10
 category: Service Options
 ---
@@ -16,8 +16,6 @@ storage: {
   emulatorHost: 'localhost',
 }
 ```
-
-Currently, there are no advanced options available.
 
 ## emulatorPort
 
