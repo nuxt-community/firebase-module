@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.6.0](https://github.com/nuxt-community/firebase-module/compare/v7.5.0...v7.6.0) (2021-06-11)
+
+
+### Features
+
+* add storage emulators ([348900d](https://github.com/nuxt-community/firebase-module/commit/348900d4fc86da1ff3166fe20b4c902e4f13df8d))
+* **docs:** Updated to use docus ([e629931](https://github.com/nuxt-community/firebase-module/commit/e629931cef9bad76ff2a4427c67df720285f9a38))
+
+
+### Bug Fixes
+
+* add type for $fireAuthStore ([bacdae9](https://github.com/nuxt-community/firebase-module/commit/bacdae907201a20432603983541f0327d9223702))
+* **docs:** Minor fixes & color update ([2631eb6](https://github.com/nuxt-community/firebase-module/commit/2631eb6e4104f2fc8a9a8aec8cb91972026f2a55))
+* **docs:** Nuxt down to 2.14.11 ([6978c43](https://github.com/nuxt-community/firebase-module/commit/6978c434814c7567fb0dcd89fd814845d6f1a941))
+* **docs:** Use bebel preset-env 7.12.7 ([5b48d8f](https://github.com/nuxt-community/firebase-module/commit/5b48d8f57972668b6f0be11ebecb9570d752f602))
+* **docs:** use nuxt v 2.14.12 for docs ([549e35e](https://github.com/nuxt-community/firebase-module/commit/549e35e44b6d089f6a3d3faa175a0fc3d999366d))
+
 ## [7.5.0](https://github.com/nuxt-community/firebase-module/compare/v7.4.1...v7.5.0) (2021-02-18)
 
 
