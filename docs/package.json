@@ -9,13 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "docus": "0.1.5",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "nuxt": "^2.15.3",
-    "prettier": "^2.3.1"
+    "docus": "0.5.14",
+    "nuxt": "^2.15.6"
   },
   "devDependencies": {
-    "nuxt-ackee": "^2.0.0"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1"
   }
 }
