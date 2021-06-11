@@ -2,10 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: StackOverflow
     url: https://stackoverflow.com/questions/tagged/firebase+nuxt.js
-    about: Ask general Nuxt & Firebase questions not specifically realted to this module on StackOverflow.
+    about: Ask general Nuxt & Firebase questions not specifically related to this module on StackOverflow.
   - name: Nuxt Community Discord
     url: https://discord.nuxtjs.org/
-    about: Consider asking more specific questions about the module here.
+    about: Asking more specific questions about the module on Discord.
   - name: nuxt-firebase Documentation
     url: https://firebase.nuxtjs.org/
     about: Check our documentation before reporting issues or questions.
