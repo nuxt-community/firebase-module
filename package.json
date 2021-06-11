@@ -31,13 +31,13 @@
     "consola": "^2.15.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.10",
+    "@babel/core": "^7.14.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-env": "^7.14.5",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@nuxt/types": "^2.15.3",
-    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxt/types": "^2.15.6",
+    "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.2",
@@ -45,11 +45,11 @@
     "codecov": "latest",
     "core-js": "^3.14.0",
     "cz-conventional-changelog": "latest",
-    "eslint": "^7.22.0",
-    "firebase": "^8.3.1",
+    "eslint": "^7.28.0",
+    "firebase": "^8.6.7",
     "husky": "^6.0.0",
     "jest": "^27.0.4",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.6",
     "proxy-mock-js": "^1.0.3",
     "standard-version": "^9.3.0",
     "eslint-config-prettier": "^8.3.0",
@@ -57,8 +57,8 @@
     "prettier": "^2.3.1"
   },
   "peerDependencies": {
-    "firebase": "^8.3.1",
-    "nuxt": "^2.15.3"
+    "firebase": "^8.6.7",
+    "nuxt": "^2.15.6"
   },
   "publishConfig": {
     "access": "public"
