@@ -22,16 +22,16 @@ Install `firebase-admin` and `@nuxtjs/pwa`:
 <code-group>
   <code-block label="Yarn" active>
 
-  ```bash
-  yarn add firebase-admin @nuxtjs/pwa
-  ```
+```bash
+yarn add firebase-admin @nuxtjs/pwa
+```
 
   </code-block>
   <code-block label="NPM">
 
-  ```bash
-  npm install firebase-admin @nuxtjs/pwa
-  ```
+```bash
+npm install firebase-admin @nuxtjs/pwa
+```
 
   </code-block>
 </code-group>
@@ -115,7 +115,7 @@ Example mutation:
 ON_AUTH_STATE_CHANGED_MUTATION(state, { authUser, claims }) {
   // you can request additional fields if they are optional (e.g. photoURL)
   const { uid, email, emailVerified, displayName, photoURL } = authUser
-  
+
   state.authUser = {
     uid,
     displayName,
@@ -130,7 +130,7 @@ ON_AUTH_STATE_CHANGED_MUTATION(state, { authUser, claims }) {
 
 ## Step 3 - Retrieve the server user
 
-In the nuxtServerInit action in your vuex store you can now access the authUser under the `res.locals.user` property as shown below.  
+In the nuxtServerInit action in your vuex store you can now access the authUser under the `res.locals.user` property as shown below.
 
 <alert type="warning">
 

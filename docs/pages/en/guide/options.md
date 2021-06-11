@@ -148,7 +148,7 @@ If the services was already loaded previously, the service does not get loaded a
 await this.$fire.authReady()
 
 // 2. Use the service
-await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo','test')
+await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
 ```
 
 <alert>
@@ -175,4 +175,4 @@ Terminates the Firebase RealTime Database and Firestore after `nuxt generate` ha
 > Make sure to cleanup all timers and listeners you or your plugins/modules start.
 > Nuxt will now force exit
 >
-> DeprecationWarning: Starting with Nuxt version 3 this will be a fatal error 
+> DeprecationWarning: Starting with Nuxt version 3 this will be a fatal error

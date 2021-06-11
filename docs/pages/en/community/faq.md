@@ -13,9 +13,7 @@ If you are using `array-contains` or `array-contains-any` you might run into the
 
 > Function Query.where() called with invalid data. Unsupported field value: a custom Array object
 
-
 This issue is not coming from this module but is specific to using Firebase together with Nuxt. You can get rid of this error message by setting `runInNewContext` to `false` like so:
-
 
 ```js[nuxt.config.js]
 // Add this to your nuxt.config.js
@@ -31,26 +29,26 @@ render: {
 If you want to add Firebase polyfills, you need to ceate a plugin and import the required polyfills like so:
 
 1. Creating `/plugins/polyfills.js` containing:
-    ```js
-    // Import all polyfills
-    import '@firebase/polyfill';
 
-    // Import specific polyfills:
-    import '@firebase/polyfill/node_modules/core-js/features/object/values';
-    ```
+   ```js
+   // Import all polyfills
+   import '@firebase/polyfill'
+
+   // Import specific polyfills:
+   import '@firebase/polyfill/node_modules/core-js/features/object/values'
+   ```
 
 2. Add to your nuxt.config.js:
 
-    ```js
-    plugins: [
-    { src: '~plugins/polyfills', mode: 'client' },
-    ],
-    ```
+   ```js
+   plugins: [
+   { src: '~plugins/polyfills', mode: 'client' },
+   ],
+   ```
 
 > References:  
 > [Issue #307](https://github.com/nuxt-community/firebase-module/issues/307)  
 > [Stack Overflow Question](https://stackoverflow.com/questions/62308061/nuxt-firebase-ie-11-object-doesnt-support-property-or-method-values/64062207#64062207)
-
 
 ## How to use this module in SSR mode together with Strapi?
 
@@ -58,10 +56,10 @@ For Strapi to work together with this module, you need to ignore the Strapi API 
 
 ```js
 auth: {
-    ssr: {
-        // ...
-        ignorePaths: [ '/api/'] // or /^api\//
-    }
+  ssr: {
+    // ...
+    ignorePaths: ['/api/'] // or /^api\//
+  }
 }
 ```
 

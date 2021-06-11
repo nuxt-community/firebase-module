@@ -52,18 +52,18 @@ Make sure to define the action in your payload like so:
 
 ```js
 const message = {
-    // ...
-    "webpush": {
-      "notification": {
-        "actions": [
-          {
-            action: "randomName",
-            title: "Go to URL"
-          }
-        ]
-      },
+  // ...
+  webpush: {
+    notification: {
+      actions: [
+        {
+          action: 'randomName',
+          title: 'Go to URL',
+        },
+      ],
     },
-    // ...
+  },
+  // ...
 }
 await messaging.send(message)
 ```
@@ -74,7 +74,7 @@ await messaging.send(message)
 
 Injects a string (or an entire code snippet) at the end of the messaging service worker. This allows you to extend the service worker to your liking.
 
-#### Simple example: 
+#### Simple example:
 
 ```js[nuxt.config.js]
 ...
@@ -82,7 +82,7 @@ inject: 'console.log("This is the end of the service worker.")',
 ...
 ```
 
-#### Advanced example: 
+#### Advanced example:
 
 ```js[nuxt.config.js]
 const fs = require('fs')

@@ -4,18 +4,12 @@ module.exports = {
     'lib/**/*.js',
     '!lib/plugins/**/*.js',
     '!lib/serverMiddleware/*.js',
-    '!lib/sw-templates/*.js'
+    '!lib/sw-templates/*.js',
   ],
-  moduleFileExtensions: [
-    'ts',
-    'js',
-    'json'
-  ],
+  moduleFileExtensions: ['ts', 'js', 'json'],
   testEnvironment: 'node',
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.js$': 'babel-jest',
   },
-  transformIgnorePatterns: [
-    'node_modules'
-  ]
+  transformIgnorePatterns: ['node_modules'],
 }

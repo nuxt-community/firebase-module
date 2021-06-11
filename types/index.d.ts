@@ -9,7 +9,7 @@ import { auth } from 'firebase-admin'
 
 /***********************************
  * Module Config
-************************************/
+ ************************************/
 export interface FirebaseConfiguration {
   apiKey: string
   authDomain: string
@@ -79,7 +79,10 @@ export interface FunctionsServiceConfig extends ServiceConfig {
   emulatorHost?: string
 }
 
-export interface StorageServiceConfig extends ServiceConfig {}
+export interface StorageServiceConfig extends ServiceConfig {
+  emulatorPort?: number
+  emulatorHost?: string
+}
 
 export interface DatabaseServiceConfig extends ServiceConfig {
   emulatorPort?: number
@@ -98,8 +101,8 @@ export interface MessagingServiceConfig extends ServiceConfig {
           clickPath: string
         }
       }
-  actions?: messagingAction[],
-  fcmPublicVapidKey?: string,
+  actions?: messagingAction[]
+  fcmPublicVapidKey?: string
   inject?: string
 }
 
@@ -118,8 +121,8 @@ export interface RemoteConfigServiceConfig extends ServiceConfig {
 }
 
 export interface FirebaseModuleConfiguration {
-  injectModule?: boolean,
-  lazy?: boolean,
+  injectModule?: boolean
+  lazy?: boolean
   config:
     | {
         [envKey: string]: FirebaseConfiguration
@@ -143,11 +146,10 @@ export interface FirebaseModuleConfiguration {
 
 /***********************************
  * Injections
-************************************/
-
+ ************************************/
 
 interface ReadyFunction {
-  (): void;
+  (): void
 }
 
 interface NuxtFireInstance {
@@ -171,6 +173,11 @@ interface NuxtFireInstance {
   remoteConfigReady: ReadyFunction
 }
 
+interface NuxtFireAuthStore {
+  subscribe: () => Promise<void>
+  unsubscribe: () => void
+}
+
 declare module '@nuxt/vue-app' {
   interface NuxtConfiguration {
     firebase?: FirebaseModuleConfiguration
@@ -178,10 +185,12 @@ declare module '@nuxt/vue-app' {
   interface Context {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
   interface NuxtAppOptions {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
@@ -189,11 +198,13 @@ declare module '@nuxt/types' {
   interface Context {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 
   interface NuxtAppOptions {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 
   interface Configuration {
@@ -205,33 +216,36 @@ declare module 'vue/types/vue' {
   interface Vue {
     $fireModule: typeof firebase
     $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
 declare module '@nuxt/vue-app' {
   interface NuxtAppOptions {
-     $fireModule: typeof firebase
-     $fire: NuxtFireInstance
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-     $fireModule: typeof firebase
-     $fire: NuxtFireInstance
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
+    $fireAuthStore: NuxtFireAuthStore
   }
 }
 
 /***********************************
  * Misc
-************************************/
+ ************************************/
 
 export type FireAuthServerUser = Omit<
   auth.UserRecord,
   'disabled' | 'metadata' | 'providerData'
 > &
   Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>> & {
-    allClaims: auth.DecodedIdToken,
+    allClaims: auth.DecodedIdToken
     idToken: string
   }
 

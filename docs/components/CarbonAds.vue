@@ -4,15 +4,15 @@ export default {
   props: {
     caServe: {
       type: String,
-      required: true
+      required: true,
     },
     caPlacement: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       if (
         to.path !== from.path &&
         // Only reload if the ad has been loaded
@@ -23,24 +23,24 @@ export default {
         this.$el.innerHTML = ''
         this.load()
       }
-    }
+    },
   },
-  mounted () {
+  mounted() {
     if (process.env.NODE_ENV === 'production') {
       this.load()
     }
   },
   methods: {
-    load () {
+    load() {
       const script = document.createElement('script')
       script.id = '_carbonads_js'
       script.src = `//cdn.carbonads.com/carbon.js?serve=${this.caServe}&placement=${this.caPlacement}`
       this.$el.appendChild(script)
-    }
+    },
   },
-  render (h) {
+  render(h) {
     return h('div', { class: 'carbon-ads' })
-  }
+  },
 }
 </script>
 
