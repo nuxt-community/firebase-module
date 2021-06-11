@@ -51,7 +51,10 @@
     "jest": "^27.0.4",
     "nuxt": "^2.15.3",
     "proxy-mock-js": "^1.0.3",
-    "standard-version": "^9.3.0"
+    "standard-version": "^9.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1"
   },
   "peerDependencies": {
     "firebase": "^8.3.1",

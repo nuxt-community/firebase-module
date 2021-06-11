@@ -12,16 +12,16 @@ Make sure you are using the newest version of Nuxt and have Firebase installed i
 <code-group>
   <code-block label="Yarn" active>
 
-  ```bash
-  yarn add firebase
-  ```
+```bash
+yarn add firebase
+```
 
   </code-block>
   <code-block label="NPM">
 
-  ```bash
-  npm install firebase
-  ```
+```bash
+npm install firebase
+```
 
   </code-block>
 </code-group>
@@ -33,16 +33,16 @@ Install the module via NPM or Yarn.
 <code-group>
   <code-block label="Yarn" active>
 
-  ```bash
-  yarn add @nuxtjs/firebase
-  ```
+```bash
+yarn add @nuxtjs/firebase
+```
 
   </code-block>
   <code-block label="NPM">
 
-  ```bash
-  npm install @nuxtjs/firebase
-  ```
+```bash
+npm install @nuxtjs/firebase
+```
 
   </code-block>
 </code-group>

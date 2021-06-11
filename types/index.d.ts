@@ -9,7 +9,7 @@ import { auth } from 'firebase-admin'
 
 /***********************************
  * Module Config
-************************************/
+ ************************************/
 export interface FirebaseConfiguration {
   apiKey: string
   authDomain: string
@@ -101,8 +101,8 @@ export interface MessagingServiceConfig extends ServiceConfig {
           clickPath: string
         }
       }
-  actions?: messagingAction[],
-  fcmPublicVapidKey?: string,
+  actions?: messagingAction[]
+  fcmPublicVapidKey?: string
   inject?: string
 }
 
@@ -121,8 +121,8 @@ export interface RemoteConfigServiceConfig extends ServiceConfig {
 }
 
 export interface FirebaseModuleConfiguration {
-  injectModule?: boolean,
-  lazy?: boolean,
+  injectModule?: boolean
+  lazy?: boolean
   config:
     | {
         [envKey: string]: FirebaseConfiguration
@@ -146,11 +146,10 @@ export interface FirebaseModuleConfiguration {
 
 /***********************************
  * Injections
-************************************/
-
+ ************************************/
 
 interface ReadyFunction {
-  (): void;
+  (): void
 }
 
 interface NuxtFireInstance {
@@ -223,30 +222,30 @@ declare module 'vue/types/vue' {
 
 declare module '@nuxt/vue-app' {
   interface NuxtAppOptions {
-     $fireModule: typeof firebase
-     $fire: NuxtFireInstance
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
     $fireAuthStore: NuxtFireAuthStore
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-     $fireModule: typeof firebase
-     $fire: NuxtFireInstance
+    $fireModule: typeof firebase
+    $fire: NuxtFireInstance
     $fireAuthStore: NuxtFireAuthStore
   }
 }
 
 /***********************************
  * Misc
-************************************/
+ ************************************/
 
 export type FireAuthServerUser = Omit<
   auth.UserRecord,
   'disabled' | 'metadata' | 'providerData'
 > &
   Partial<Pick<auth.UserRecord, 'disabled' | 'metadata' | 'providerData'>> & {
-    allClaims: auth.DecodedIdToken,
+    allClaims: auth.DecodedIdToken
     idToken: string
   }
 

@@ -70,8 +70,8 @@ export default {
       } catch (e) {
         handleError(e)
       }
-    }
-  }
+    },
+  },
 }
 ```
 
@@ -83,11 +83,11 @@ export default {
     const ref = this.$fire.firestore.collection('users').doc(userId)
     try {
       await exerciseRef.update({
-        [`randomFoo.FooFoo`]: this.$fireModule.firestore.FieldValue.delete()
+        [`randomFoo.FooFoo`]: this.$fireModule.firestore.FieldValue.delete(),
       })
     } catch (e) {
       return Promise.reject(e)
     }
-  }
+  },
 }
 ```

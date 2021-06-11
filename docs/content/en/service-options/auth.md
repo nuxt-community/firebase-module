@@ -40,7 +40,7 @@ When `onAuthStateChanged()` or `onIdTokenChanged()` get triggered by Firebase, t
 
 To unsubscribe from both listeners simply call the `$fireAuthStore.unsubscribe()` function.
 
-<alert type="warning">This does not work in *lazy-mode*, since auth is not initialized. If you want to use this option in lazy-mode, call the *authReady()* function in a separate plugin.</alert>
+<alert type="warning">This does not work in _lazy-mode_, since auth is not initialized. If you want to use this option in lazy-mode, call the _authReady()_ function in a separate plugin.</alert>
 
 ### onAuthStateChangedMutation
 
@@ -68,9 +68,10 @@ export const mutations = {
     // Do this:
     const { uid, email, emailVerified } = authUser
     state.user = { uid, email, emailVerified }
-  }
+  },
 }
 ```
+
 </alert>
 
 ### onAuthStateChangedAction
@@ -110,14 +111,12 @@ By settings `subscribeManually: true`, the `onAuthStateChanged()` listener won't
 this.$fireAuthStore.subscribe()
 ```
 
-This is needed in case you need to start other plugins *after* Firebase is initialized but *before* `onAuthStateChanged()` is set up.
+This is needed in case you need to start other plugins _after_ Firebase is initialized but _before_ `onAuthStateChanged()` is set up.
 
 <alert>
 <p><b>Example:</b></p>
 <p>For example with the Sentry module, you migth want to set some user-related information in Sentry each time <code>onAuthStateChanged</code> is triggered. In that case, Sentry needs to be setup before <code>onAuthStateChanged()</code>.</p><br>You can achieve this by manually calling <code>this.$fireAuthStore.subscribe()</code> after Sentry has been initialized.
 </alert>
-
-
 
 ## ssr
 
@@ -230,9 +229,7 @@ Simply set `auth.ssr.serverLogin = true`.
 
 The module creates a separate firebase app/session for every authenticated user to avoid authorization context leakage.
 
-You can configure the session lifetime with `auth.ssr.serverLogin.sessionLifetime`  
-
-
+You can configure the session lifetime with `auth.ssr.serverLogin.sessionLifetime`
 
 <alert type="warning">
 
@@ -252,7 +249,7 @@ If you are using an external server implementation to start nuxt programmaticall
   // do this outside of the server callback so the nuxt build is kept in memory
   const nuxt = new Nuxt({
     dev: false,
-    buildDir: '.nuxt'
+    buildDir: '.nuxt',
   })
 
   server.use(async (req, res, next) => {
