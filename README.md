@@ -76,9 +76,17 @@ try {
 }
 ```
 
-## Issues, questions & requests
+## Guidelines for issues & feature requests
 
-If you have any questions or issues, check out the [Nuxt Discord server](https://discord.nuxtjs.org).
+- Use the GitHub issue search — check if the issue or feature request has already been reported.
+- Check if the issue has been fixed — try to reproduce it using the latest master or development branch in the repository.
+- Isolate the problem — create a reduced test case and a live example.
+
+A good issue shouldn't leave others needing to chase you up for more information. Please **try to be as detailed as possible** in your report. What is your environment? What steps will reproduce the issue? What versions are you using? What would you expect to be the outcome? All these details will help people to fix any potential bugs.
+
+If you have difficulties that are most likely not bugs or if you just have a simple questions, please ask them in the [Nuxt Discord server](https://discord.nuxtjs.org) instead.
+
+If you're issue does not suffice these guidelinses, it migt be closed immediately.
 
 ## License
 
