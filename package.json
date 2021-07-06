@@ -47,7 +47,7 @@
     "cz-conventional-changelog": "latest",
     "eslint": "^7.28.0",
     "firebase": "^8.6.7",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "jest": "^27.0.4",
     "nuxt": "^2.15.6",
     "proxy-mock-js": "^1.0.3",
