@@ -9,12 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "docus": "^0.7.0",
-    "nuxt": "^2.15.6"
+    "docus": "^0.9.0",
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.2"
   }
 }
