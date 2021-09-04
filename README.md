@@ -11,12 +11,12 @@
 
 ## IMPORTANT!
 
-> ℹ️ **Firebase JS SDK v8 VS v9 (Beta) ℹ️**:  
-> This module is written for the Firbease Javascript SDK v8 and prior. It is not yet compatible with the new Version 9 (Beta) supporrting tree-shaking,
-> 
+> ℹ️ **Firebase JS SDK Version 9 Not Supported ℹ️**:  
+> This module is written for the Firbease Javascript SDK v8 and prior. It is not compatible with the new Version 9 supporting tree-shaking.
+>
 > If you plan to use Version 9, we advise you for the time being to implement it manually as described in the following [medium article](https://lupas.medium.com/firebase-9-beta-nuxt-js-981cf3dac910).
-> 
-> It is currently unlcear when, and if, this module will support version 9. See [discussion](https://github.com/nuxt-community/firebase-module/issues/531).
+>
+> It is currently unlcear when, and if, this module will support version 9. See [discussion](https://github.com/nuxt-community/firebase-module/issues/573).
 
 ## Links
 
