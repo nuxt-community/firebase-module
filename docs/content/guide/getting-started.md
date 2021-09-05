@@ -13,14 +13,14 @@ Make sure you are using the newest version of Nuxt and have Firebase installed i
   <code-block label="Yarn" active>
 
 ```bash
-yarn add firebase
+yarn add firebase@8
 ```
 
   </code-block>
   <code-block label="NPM">
 
 ```bash
-npm install firebase
+npm install firebase@8
 ```
 
   </code-block>
