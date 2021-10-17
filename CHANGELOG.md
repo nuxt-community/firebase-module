@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/nuxt-community/firebase-module/compare/v7.6.1...v8.0.0) (2021-10-17)
+
+
+### Bug Fixes
+
+* **fiebase-v9-compat:** Use firebase v9 in compat mode ([e7cb3e9](https://github.com/nuxt-community/firebase-module/commit/e7cb3e9a14b4415cae8932825a325d074b0f1253))
+
 ### [7.6.1](https://github.com/nuxt-community/firebase-module/compare/v7.6.0...v7.6.1) (2021-06-11)
 
 ### Features
