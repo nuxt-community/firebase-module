@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const firebase = require('firebase/app')
-const logger = require('./utils/logger')
-const templateUtils = require('./utils/template-utils')
+const logger = require('../../lib/utils/logger')
+const templateUtils = require('../../lib/utils/template-utils')
 
 const r = (...path) => resolve(__dirname, ...path)
 
@@ -353,4 +353,4 @@ function isEmpty(val) {
   return val == null || !(Object.keys(val) || val).length
 }
 
-module.exports.meta = require('../package.json')
+module.exports.meta = require('../../package.json')
