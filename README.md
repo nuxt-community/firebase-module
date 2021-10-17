@@ -11,12 +11,20 @@
 
 ## IMPORTANT!
 
-> ℹ️ **Firebase JS SDK Version 9 Not Supported ℹ️**:  
-> This module is written for the Firebase Javascript SDK v8 and prior. It is not yet compatible with the new modular [Version 9](https://firebase.google.com/docs/web/learn-more#modular-version).
-> 
-> If you plan to use Version 9, we advise you for the time being to implement it manually as described in the following [medium article](https://lupas.medium.com/firebase-9-beta-nuxt-js-981cf3dac910).
-> 
-> It is currently unclear when, and if, this module will support version 9. See [discussion](https://github.com/nuxt-community/firebase-module/issues/573).
+> ### ⚠️ **Consider the Firebase Version ⚠️**:
+>
+> - @nuxtjs/firebase v7 only support Firebase up to v8
+> - If you want to use Firbase v9 (in compat syntax), use [v8.0.0-beta.0](https://www.npmjs.com/package/@nuxtjs/firebase/v/8.0.0-beta.0). Be aware that this version is still in beta.
+
+> ### ℹ️ **Modular Mode (Firebase v9+) ℹ️**:
+>
+> This module was written for the Firebase Javascript SDK v8 and prior. It does not support the new modular syntax from Firebase v9+.
+>
+> - **Compat Mode:** If you want to work with Firebase v9 in [compat mode](https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat), check out [v8.0.0-beta.0](https://www.npmjs.com/package/@nuxtjs/firebase/v/8.0.0-beta.0).
+>
+> - **Modular Mode:** If you plan to use the new modular mode of Version 9, we advise you to implement Firebase manually as described in the following [medium article](https://lupas.medium.com/firebase-9-beta-nuxt-js-981cf3dac910).
+>
+> It is currently unclear when, and if, this module will support the new modular mode. See [discussion](https://github.com/nuxt-community/firebase-module/issues/573).
 
 ## Links
 
