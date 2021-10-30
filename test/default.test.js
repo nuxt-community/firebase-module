@@ -3,7 +3,7 @@ const fs = require('fs-extra')
 const { Nuxt, Builder } = require('nuxt')
 const FirebaseModule = require('..')
 
-jest.mock('firebase/app', () => ({
+jest.mock('firebase/compat/app', () => ({
   apps: [
     new Proxy(
       {},

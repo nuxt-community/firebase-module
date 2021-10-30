@@ -3,7 +3,7 @@ const fs = require('fs-extra')
 const { Nuxt, Builder } = require('nuxt')
 const FirebaseModule = require('..')
 
-jest.mock('firebase/app', () => {
+jest.mock('firebase/compat/app', () => {
   const { getProxyMock } = require('proxy-mock-js')
   const spyFn = (name, fn) => jest.fn(fn)
   const session = getProxyMock({}, 'firebaseSession', spyFn)
