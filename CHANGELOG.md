@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/nuxt-community/firebase-module/compare/v8.0.0...v8.1.0) (2021-11-30)
+
+
+### Features
+
+* updated readme ([93ca96b](https://github.com/nuxt-community/firebase-module/commit/93ca96bd59356b108647e216192f85dbcf74629e))
+
+
+### Bug Fixes
+
+* fixed import error in terminateDatabasesInGenerateHooks ([326af38](https://github.com/nuxt-community/firebase-module/commit/326af3863334a3ae62fb510af19e3cff8fa2bf84))
+
 ## [8.0.0](https://github.com/nuxt-community/firebase-module/compare/v8.0.1...v8.0.0) (2021-10-30)
 
 ### [7.6.1](https://github.com/nuxt-community/firebase-module/compare/v7.6.0...v7.6.1) (2021-06-11)
