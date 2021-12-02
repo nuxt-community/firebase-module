@@ -4,7 +4,7 @@ import { NuxtAppOptions, Configuration } from '@nuxt/types'
 import { NuxtConfiguration } from '@nuxt/vue-app'
 import { ServiceAccount } from 'firebase-admin'
 
-import firebase from 'firebase'
+import firebase from 'firebase/compat'
 import { auth } from 'firebase-admin'
 
 /***********************************
