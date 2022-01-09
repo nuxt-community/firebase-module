@@ -109,7 +109,7 @@ export interface MessagingServiceConfig extends ServiceConfig {
 export interface PerformanceServiceConfig extends ServiceConfig {}
 
 export interface AppCheckServiceConfig extends ServiceConfig {
-  debugToken?: string
+  debugToken?: string | boolean
 }
 
 export interface AnalyticsServiceConfig extends ServiceConfig {
