@@ -108,6 +108,10 @@ export interface MessagingServiceConfig extends ServiceConfig {
 
 export interface PerformanceServiceConfig extends ServiceConfig {}
 
+export interface AppCheckServiceConfig extends ServiceConfig {
+  debugToken?: string
+}
+
 export interface AnalyticsServiceConfig extends ServiceConfig {
   collectionEnabled?: boolean
 }
@@ -136,6 +140,7 @@ export interface FirebaseModuleConfiguration {
     database?: boolean | DatabaseServiceConfig
     messaging?: boolean | MessagingServiceConfig
     performance?: boolean | PerformanceServiceConfig
+    appCheck?: boolean | AppCheckServiceConfig
     analytics?: boolean | AnalyticsServiceConfig
     remoteConfig?: boolean | RemoteConfigServiceConfig
   }
@@ -167,6 +172,7 @@ interface NuxtFireInstance {
   messagingReady: ReadyFunction
   performance: firebase.performance.Performance
   performanceReady: ReadyFunction
+  appCheck: firebase.appCheck.AppCheck
   analytics: firebase.analytics.Analytics
   analyticsReady: ReadyFunction
   remoteConfig: firebase.remoteConfig.RemoteConfig
