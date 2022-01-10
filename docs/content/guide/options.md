@@ -51,6 +51,7 @@ services: {
   database: true,
   messaging: true,
   performance: true,
+  appCheck: true,
   analytics: true,
   remoteConfig: true
 }
