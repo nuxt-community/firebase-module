@@ -5,13 +5,13 @@
 Install dependencies:
 
 ```bash
-yarn install
+npm run install
 ```
 
 ## Development
 
 ```bash
-yarn dev
+npm runn dev
 ```
 
 ## Static Generation
@@ -19,9 +19,9 @@ yarn dev
 This will create the `dist/` directory for publishing to static hosting:
 
 ```bash
-yarn generate
+npm run generate
 ```
 
-To preview the static generated app, run `yarn start`
+To preview the static generated app, run `npm run start`
 
 For detailed explanation on how things work, checkout [nuxt/content](https://content.nuxtjs.org) and [@nuxt/content theme docs](https://content.nuxtjs.org/themes-docs).

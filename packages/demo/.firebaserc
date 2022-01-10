@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "nuxt-fire-demo": "nuxt-fire-demo",
+    "default": "nuxt-fire-demo"
+  }
+}
