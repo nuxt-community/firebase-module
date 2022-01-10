@@ -34,6 +34,7 @@ import VuexStore from '~/components/examples/VuexStore.vue'
 import Analytics from '~/components/examples/Analytics.vue'
 import RemoteConfig from '~/components/examples/RemoteConfig.vue'
 import Messaging from '~/components/examples/Messaging.vue'
+import AppCheck from '~/components/examples/AppCheck.vue'
 
 export default Vue.extend({
   components: {
@@ -48,6 +49,7 @@ export default Vue.extend({
     Analytics,
     RemoteConfig,
     Messaging,
+    AppCheck,
   },
   async asyncData({ app }) {
     // INFO -> app.$fire.firestore etc. are accessible
@@ -76,6 +78,7 @@ export default Vue.extend({
       RemoteConfig,
       Messaging,
       VuexStore,
+      AppCheck,
     ],
   }),
 })

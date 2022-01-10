@@ -70,6 +70,8 @@ const config: NuxtConfig = {
           welcome_message: 'Welcome',
         },
       },
+      // breaks the app with 'app.$fire.firestore.collection is not a function':
+      //appCheck: true,
       messaging: {
         createServiceWorker: true,
         actions: [
