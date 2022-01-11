@@ -7,13 +7,14 @@ export default async function (session) {
   }
 
   <% if (!serviceOptions.static) { %>    
-  <%= writeImportStatement(options) %>
+    <%= writeImportStatement(options) %>
   <% } %>
   
   <% /* Uses debug config, if debug token option is set. */ %>
   <% if (serviceOptions.debugToken) { %>
     self.FIREBASE_APPCHECK_DEBUG_TOKEN = <%= serviceOptions.debugToken %>
   <% } %>
+  
   const appCheckService = session.<%= serviceMapping.id %>()
 
   return appCheckService

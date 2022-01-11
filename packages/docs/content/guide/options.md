@@ -1,6 +1,6 @@
 ---
 title: Options
-description: ''
+description: ""
 position: 3
 category: Guide
 ---
@@ -53,8 +53,7 @@ services: {
   performance: true,
   appCheck: true,
   analytics: true,
-  remoteConfig: true
-}
+  remoteConfig: true,
 ```
 
 Each service has advanced options that you can configure. See the **service options** section for more details.
@@ -137,6 +136,7 @@ When set to `true`, all services are NOT loaded until you manually load them whe
 | Performance       | $fire.performanceReady()  |
 | Analytics         | $fire.analyticsReady()    |
 | Remote Config     | $fire.remoteConfigReady() |
+| App Check         | $fire.appCheckReady()     |
 
 Simply call the `await this.$fire.serviceNameReady()` function before you access `this.$fire.serviceName` and the service gets dynamically loaded only when needed.
 
@@ -146,10 +146,10 @@ If the services was already loaded previously, the service does not get loaded a
 
 ```js
 // 1. Load the service
-await this.$fire.authReady()
+await this.$fire.authReady();
 
 // 2. Use the service
-await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
+await this.$fire.auth.createUserWithEmailAndPassword("foo@foo.foo", "test");
 ```
 
 <alert>
