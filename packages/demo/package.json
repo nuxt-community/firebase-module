@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-firebase-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
+    "emulators": "firebase emulators:start"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.3.3",
+    "core-js": "^3.19.2",
+    "firebase": "^9.6.2",
+    "firebase-admin": "^10.0.1",
+    "nuxt": "^2.15.8",
+    "prismjs": "^1.25.0",
+    "vue-prism-component": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config": "^8.0.0",
+    "@nuxtjs/eslint-config-typescript": "^8.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.0"
+  }
+}
