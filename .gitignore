@@ -80,16 +80,10 @@ dist
 # IDE / Editor
 .idea
 
-# Service worker
-sw.*
+
 
 # macOS
 .DS_Store
 
 # Vim swap files
 *.swp
-
-# Service Workers
-firebase-auth-sw.js
-firebase-messaging-sw.js
-sw.js
