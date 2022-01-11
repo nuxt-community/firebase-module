@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.2.0](https://github.com/nuxt-community/firebase-module/compare/v8.1.1...v8.2.0) (2022-01-11)
+
+
+### Features
+
+* **demo:** added appcheck to demop ([f62bfc1](https://github.com/nuxt-community/firebase-module/commit/f62bfc19291fa35692f8dbb03976515876ad096a))
+
+
+### Bug Fixes
+
+* add lazy load to app check and fix collection is not a function (by eljias) ([6c0c1d1](https://github.com/nuxt-community/firebase-module/commit/6c0c1d11bf480bae0601db236f809a5bdedfd7e3))
+
 ### [8.1.1](https://github.com/nuxt-community/firebase-module/compare/v8.1.0...v8.1.1) (2021-12-02)
 
 ## [8.1.0](https://github.com/nuxt-community/firebase-module/compare/v8.0.0...v8.1.0) (2021-11-30)
