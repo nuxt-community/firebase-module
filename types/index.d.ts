@@ -173,6 +173,7 @@ interface NuxtFireInstance {
   performance: firebase.performance.Performance
   performanceReady: ReadyFunction
   appCheck: firebase.appCheck.AppCheck
+  appCheckReady: ReadyFunction
   analytics: firebase.analytics.Analytics
   analyticsReady: ReadyFunction
   remoteConfig: firebase.remoteConfig.RemoteConfig
