@@ -137,6 +137,7 @@ When set to `true`, all services are NOT loaded until you manually load them whe
 | Performance       | $fire.performanceReady()  |
 | Analytics         | $fire.analyticsReady()    |
 | Remote Config     | $fire.remoteConfigReady() |
+| App Check         | $fire.appCheckReady() |
 
 Simply call the `await this.$fire.serviceNameReady()` function before you access `this.$fire.serviceName` and the service gets dynamically loaded only when needed.
 
