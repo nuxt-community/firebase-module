@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "emulators": "firebase emulators:start"
+    "emulators": "firebase emulators:start",
+    "heroku:deploy": "git subtree push --prefix web heroku master"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.3",
