@@ -1,1 +1,0 @@
-web: nuxt start

@@ -1,0 +1,1 @@
+web: cd packages/demp && nuxt start
