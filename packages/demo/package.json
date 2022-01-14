@@ -18,7 +18,8 @@
     "firebase-admin": "^10.0.1",
     "nuxt": "^2.15.8",
     "prismjs": "^1.25.0",
-    "vue-prism-component": "^2.0.0"
+    "vue-prism-component": "^2.0.0",
+    "@nuxtjs/firebase": "^8.2.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
