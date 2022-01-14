@@ -18,5 +18,8 @@
   "scripts": {
     "heroku:setup": "heroku login && heroku git:remote -a nuxt-fire-demo",
     "heroku:deploy": "git subtree push --prefix packages/demo heroku HEAD:master"
+  },
+  "dependencies": {
+    "@nuxtjs/firebase": "file:packages/firebase-module"
   }
 }
