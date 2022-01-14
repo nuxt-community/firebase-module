@@ -1,1 +1,1 @@
-web: cd packages/demp && nuxt start
+web: cd packages/demo && nuxt start
