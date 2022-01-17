@@ -10,15 +10,19 @@ module.exports = function (moduleOptions) {
     injectModule: true,
   }
 
+  const publicRuntimeConfig = this.nuxt.options.publicRuntimeConfig
+  const runtimeConfig =
+    (publicRuntimeConfig && publicRuntimeConfig.firebase) || {}
+
   const options = Object.assign(
     defaultOptions,
     this.options.firebase,
     moduleOptions
   )
-  const currentEnv = getCurrentEnv(options)
-
+  options.config = Object.assign(options.config, runtimeConfig)
   validateOptions(options)
 
+  const currentEnv = getCurrentEnv(options)
   options.config = getFinalUseConfigObject(options.config, currentEnv)
   validateConfigKeys(options, currentEnv)
 
