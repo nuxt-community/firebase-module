@@ -320,3 +320,17 @@ Changes the host used for the Authentication emulator. Only applies if the emula
 - Default: false
 
 Disables the auth emulators warning messages, see [here](https://github.com/firebase/firebase-tools/issues/2773).
+## Example of SignIn with a provider Google
+```
+try {
+  const provider = new this.$fireModule.auth.GoogleAuthProvider();
+  const user = await this.$fire.auth.signInWithPopup(provider);  
+  console.log(user); // here you can do what you want with the user data
+  this.$router.push('/'); // that return from firebase
+   
+ } catch (e) {
+  // handle the error
+}
+```
+The same code with work with facebook as well just change it to ``` FacebookAuthProvider ``` 
+Full example is [here](https://dev.to/rodrigopv/nuxtjs-firebase-social-auth-3afe).
