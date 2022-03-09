@@ -334,3 +334,13 @@ try {
 ```
 The same code with work with facebook as well just change it to ``` FacebookAuthProvider ``` 
 Full example is [here](https://dev.to/rodrigopv/nuxtjs-firebase-social-auth-3afe).
+
+### logout / signout
+when you want to signout\logout with Nuxt there is an easy way to do so 
+```
+async logout() {
+      await this.$fire.auth?.signOut()
+      // whatever you want to do after you signout
+}
+```
+Generally, the firebase auth functions are already mapped; find more functions [here](https://firebase.google.com/docs/reference/js/v8/firebase.auth.Auth) all the options you have.
