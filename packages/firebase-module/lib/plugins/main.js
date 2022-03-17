@@ -11,7 +11,9 @@ for (const service of enabledServices) { %>
 const appConfig = <%= serialize(options.config) %>
 
 export default async (ctx, inject) => {
-
+  const runtimeConfig = ctx.$config && ctx.$config.firebase || {}
+  Object.assign(appConfig, runtimeConfig)
+  
   <%/****************************************
   **************** LAZY MODE **************
   ****************************************/%>
