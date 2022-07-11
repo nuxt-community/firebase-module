@@ -15,7 +15,7 @@
     "@nuxtjs/pwa": "^3.3.3",
     "core-js": "^3.19.2",
     "firebase": "^9.9.0",
-    "firebase-admin": "^10.0.1",
+    "firebase-admin": "^11.0.0",
     "nuxt": "^2.15.8",
     "prismjs": "^1.25.0",
     "vue-prism-component": "^2.0.0",
