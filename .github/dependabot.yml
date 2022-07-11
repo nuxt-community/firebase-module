@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Fetch and update latest `npm` packages
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '00:00'
+    open-pull-requests-limit: 20
+    reviewers:
+      - macleodwalker
+    assignees:
+      - macleodwalker
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
