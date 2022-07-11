@@ -45,7 +45,7 @@
     "codecov": "latest",
     "core-js": "^3.14.0",
     "cz-conventional-changelog": "latest",
-    "eslint": "^8.0.1",
+    "eslint": "^8.19.0",
     "firebase": "^9.9.0",
     "husky": "^7.0.2",
     "jest": "^28.1.0",

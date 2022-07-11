@@ -29,7 +29,7 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^5.2.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.1.0",
+    "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
