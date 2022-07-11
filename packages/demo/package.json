@@ -25,7 +25,7 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config": "^10.0.0",
-    "@nuxtjs/eslint-config-typescript": "^8.0.0",
+    "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^5.2.0",
     "babel-eslint": "^10.1.0",
