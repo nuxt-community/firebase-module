@@ -37,7 +37,7 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxt/types": "^2.15.6",
-    "@nuxtjs/eslint-config": "^8.0.0",
+    "@nuxtjs/eslint-config": "^10.0.0",
     "@nuxtjs/module-test-utils": "^1.6.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^28.1.0",
