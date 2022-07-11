@@ -51,7 +51,7 @@
     "jest": "^28.1.0",
     "nuxt": "^2.15.6",
     "proxy-mock-js": "^1.0.3",
-    "standard-version": "^9.3.0",
+    "standard-version": "^9.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.7.1"
