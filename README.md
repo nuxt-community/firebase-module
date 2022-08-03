@@ -11,9 +11,11 @@
 
 ## IMPORTANT!
 
-> ### ⚠️ **Breaking ⚠️**:
+> ### ⚠️ **Nuxt 3 not supported ⚠️**:
 >
-> @nuxtjs/firebase v8+ only supports Firebase v9 and later.
+> This module was written for Nuxt 2 and does currently not support Nuxt 3.
+> There are currently no plans to support Nuxt 3 in the near future.
+> MRs for it however are more than welcome.
 
 > ### ℹ️ **Modular Mode (Firebase v9+) ℹ️**:
 >
@@ -79,9 +81,9 @@ Example:
 
 ```js
 try {
-  await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
+  await this.$fire.auth.createUserWithEmailAndPassword("foo@foo.foo", "test");
 } catch (e) {
-  handleError(e)
+  handleError(e);
 }
 ```
 
