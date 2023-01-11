@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/static/preview.png" alt="nuxt-firebase logo">
+  <img src="./packages/docs/static/preview.png" alt="nuxt-firebase logo">
 </p>
 
 [![](https://david-dm.org/nuxt-community/firebase-module/status.svg?style=flat-square)](https://david-dm.org/nuxt-community/i18n-module)
@@ -14,8 +14,8 @@
 > ### ⚠️ **Nuxt 3 not supported ⚠️**:
 >
 > This module was written for Nuxt 2 and does currently not support Nuxt 3.
-> There are currently no plans to support Nuxt 3 in the near future.
-> MRs for it however are more than welcome.
+> There are currently no plans to support Nuxt 3 in the near future in this module.
+> However, you can take a look at [VueFire Nuxt module for Nuxt 3 support](https://vuefire.vuejs.org/nuxt/getting-started.html)
 
 > ### ℹ️ **Modular Mode (Firebase v9+) ℹ️**:
 >
