@@ -97,7 +97,7 @@ A good issue shouldn't leave others needing to chase you up for more information
 
 If you have difficulties that are most likely not bugs or if you just have a simple questions, please ask them in the [Nuxt Discord server](https://discord.nuxtjs.org) instead.
 
-If you're issue does not suffice these guidelinses, it migt be closed immediately.
+If your issue does not suffice these guidelines, it might be closed immediately.
 
 ## License
 
