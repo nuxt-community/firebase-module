@@ -1,0 +1,89 @@
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+/* 50: '#fff8e1',
+ 100: '#ffedb3',
+ 200: '#ffe183',
+ 300: '#ffd650',
+ 400: '#ffcb29',
+ 500: '#ffc309',
+ 600: '#ffb401',
+ 700: '#ffa200',
+ 800: '#ff9100',
+ 900: '#ff7100', */
+
+:root {
+  --vp-c-brand: #00dc82;
+  --vp-c-brand-light: #03ee8c;
+  --vp-c-accent: #f78200;
+  --c-gradient-1: #00dc82;
+  --c-gradient-2: #f78200;
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--c-gradient-1) 25%,
+    var(--c-gradient-2)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand) 30%,
+    var(--vp-c-accent)
+  );
+  --vp-home-hero-image-filter: blur(30px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand) !important;
+}
+
+.dark-only {
+  display: none;
+}
+
+.dark .dark-only {
+  display: block;
+}
+
+.dark .light-only {
+  display: none;
+}

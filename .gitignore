@@ -90,3 +90,5 @@ dist
 
 **/demo/static/*sw.js
 **/demo/static/sw.js
+
+cache
