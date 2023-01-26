@@ -74,7 +74,7 @@ export default defineConfig({
 
     algolia: {
       appId: '9F70EYJ2LK',
-      apiKey: '26073a7590724b3efc377b3b7608f3e0',
+      apiKey: 'cd73e0a7b95c19e2671582328e8c4c29',
       indexName: 'nuxtjs_firebase',
     },
 
