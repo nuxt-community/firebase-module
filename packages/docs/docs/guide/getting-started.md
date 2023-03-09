@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Make sure you are using the newest version of Nuxt and have Firebase installed in your project.
+Make sure you are using Nuxt 2 and have Firebase v8 installed in your project.
 
 ::: code-group
 
@@ -13,6 +13,12 @@ yarn add firebase@^8
 ```bash [npm]
 npm install firebase@^8
 ```
+
+:::
+
+::: danger IMPORTANT - Nuxt 3 not supported!
+
+This module was written for **Nuxt 2** and does currently not support Nuxt 3. There are currently **no plans** to support Nuxt 3 in the near future in this module. However, you can take a look at VueFire Nuxt module for Nuxt 3 support
 
 :::
 

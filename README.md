@@ -33,7 +33,7 @@
 
 ## Quick Setup
 
-Make sure you are using the newest version of Nuxt and have Firebase >8.0.0 installed in your project.
+Make sure you are using Nuxt 2 and have Firebase v8 installed in your project.
 
 ```bash
 yarn add firebase # OR npm i firebase
@@ -81,9 +81,9 @@ Example:
 
 ```js
 try {
-  await this.$fire.auth.createUserWithEmailAndPassword("foo@foo.foo", "test");
+  await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'test')
 } catch (e) {
-  handleError(e);
+  handleError(e)
 }
 ```
 
