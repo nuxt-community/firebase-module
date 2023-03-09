@@ -54,7 +54,7 @@
     "standard-version": "^9.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.8.4"
   },
   "peerDependencies": {
     "firebase": "^9.6.2",

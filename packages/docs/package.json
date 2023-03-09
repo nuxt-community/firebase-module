@@ -13,11 +13,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.40",
-    "vue": "^3.2.45"
+    "vitepress": "^1.0.0-alpha.51",
+    "vue": "^3.2.47"
   },
   "dependencies": {
     "focus-visible": "^5.2.0",
-    "sass": "^1.57.1"
+    "sass": "^1.58.3"
   }
 }
