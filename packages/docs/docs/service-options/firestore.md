@@ -97,7 +97,7 @@ Changes the host used for the emulator. Only applies if the emulatorPort is set.
 ## settings
 
 Adds settings to your Firebase initialization, e.g. `host` or `ssl`.
-See more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).
+See more [here](https://firebase.google.com/docs/reference/js/v8/firebase.firestore.Settings).
 
 ::: warning Important
 
