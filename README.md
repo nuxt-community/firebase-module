@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository is archived. It was built for Nuxt 2, which reached end of life on June 30, 2024. For Nuxt 3+, see [VueFire](https://vuefire.vuejs.org/nuxt/getting-started.html).
+
 <p align="center">
   <img src="./packages/docs/static/preview.png" alt="nuxt-firebase logo">
 </p>
